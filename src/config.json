@@ -1,0 +1,268 @@
+{
+    "bridge": {
+        "name": "Homebridge 5EE5",
+        "username": "0E:A5:C6:19:5E:E5",
+        "port": 51838,
+        "pin": "469-47-707",
+        "advertiser": "avahi",
+        "bind": [
+            "eth0"
+        ]
+    },
+    "accessories": [],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8581,
+            "platform": "config"
+        },
+        {
+            "name": "Govee",
+            "username": "tydahe@gmail.com",
+            "password": "ubermench13",
+            "lightDevices": [
+                {
+                    "label": "Beam Strip",
+                    "deviceId": "F4:DF:D4:AD:FC:61:F5:70",
+                    "awsBrightnessNoScale": true,
+                    "scene": {
+                        "sceneCode": "owABBQICI1ADBQAAAf//AIAUFFM=,owEDABQE/7sA/04A/y0A/0AAEDk=,owIA/AAAgAEjVQMFAAAB//8AgC0=,owMUFAMAFAT/uwD/TgD/LQD/QCs=,o/8AEgD8AACAAQAAAAAAAAAAADM=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    },
+                    "sceneTwo": {
+                        "sceneCode": "owABAgQJCV0P9wD/A33/A33/AP4=,o///oQD/oQAAAAAAAAAAAAAAAFw=,MwUKXQAAAAAAAAAAAAAAAAAAAGE=",
+                        "showAs": "switch"
+                    },
+                    "sceneThree": {
+                        "sceneCode": "owABAgQJCVcSAP+EAP+EAP/7kXQ=,o/8k/zUW/wCY/wAAAAAAAAAAADw=,MwUKygAAAAAAAAAAAAAAAAAAAPY=",
+                        "showAs": "switch"
+                    },
+                    "sceneFour": {
+                        "sceneCode": "owABDAIFJlABABQCAf98Ac89FK0=,owEDAAkFB/8AYv8DAP8PLv8Atlw=,owL/ABIA+QAAgAAjAAIEAQAC/+w=,owMmAM8BO/8mAs8BAQGAFAIT/xw=,owQAgP8AAACAAACAAiMAAgQBAP4=,owUC/yYB0R87AAAA/wEeAYAUAv4=,owYT/wCA/wAAAIAAAIADIwACBBA=,owcBAAL/JgHRHzsAAAD/AUYBgLM=,owgUAhP/AID/AAAAgAAAgAQmVVk=,owkBABQCAf98Ac89FAMACQUH/y8=,owoAYv8DAP8PLv8Atv8AEAD5ALY=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    },
+                    "diyMode": {
+                        "sceneCode": "owABAwIBKQAAAAYAAf//AwIBAY0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    }
+                },
+                {
+                    "label": "Center Strip",
+                    "deviceId": "C4:5A:D4:AD:FC:01:56:6E",
+                    "awsBrightnessNoScale": true,
+                    "scene": {
+                        "sceneCode": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+                        "showAs": "switch"
+                    },
+                    "sceneTwo": {
+                        "sceneCode": "owABAgQJCV0P9wD/A33/A33/AP4=,o///oQD/oQAAAAAAAAAAAAAAAFw=,MwUKXQAAAAAAAAAAAAAAAAAAAGE=",
+                        "showAs": "switch"
+                    },
+                    "sceneThree": {
+                        "sceneCode": "owABAgQJCVcSAP+EAP+EAP/7kXQ=,o/8k/zUW/wCY/wAAAAAAAAAAADw=,MwUKygAAAAAAAAAAAAAAAAAAAPY=",
+                        "showAs": "switch"
+                    },
+                    "sceneFour": {
+                        "sceneCode": "owABDAIFJlABABQCAf98Ac89FK0=,owEDAAkFB/8AYv8DAP8PLv8Atlw=,owL/ABIA+QAAgAAjAAIEAQAC/+w=,owMmAM8BO/8mAs8BAQGAFAIT/xw=,owQAgP8AAACAAACAAiMAAgQBAP4=,owUC/yYB0R87AAAA/wEeAYAUAv4=,owYT/wCA/wAAAIAAAIADIwACBBA=,owcBAAL/JgHRHzsAAAD/AUYBgLM=,owgUAhP/AID/AAAAgAAAgAQmVVk=,owkBABQCAf98Ac89FAMACQUH/y8=,owoAYv8DAP8PLv8Atv8AEAD5ALY=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    },
+                    "diyMode": {
+                        "sceneCode": "owABAwIBKQAAAAYAAf//AwIBAY0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    }
+                },
+                {
+                    "label": "Couch Strip",
+                    "deviceId": "A2:C9:D4:AD:FC:06:9A:63",
+                    "awsBrightnessNoScale": true,
+                    "scene": {
+                        "sceneCode": "owABBQICI1ADBQAAAf//AIAUFFM=,owEDABQE/7sA/04A/y0A/0AAEDk=,owIA/AAAgAEjVQMFAAAB//8AgC0=,owMUFAMAFAT/uwD/TgD/LQD/QCs=,o/8AEgD8AACAAQAAAAAAAAAAADM=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    },
+                    "sceneTwo": {
+                        "sceneCode": "owABAgQJCV0P9wD/A33/A33/AP4=,o///oQD/oQAAAAAAAAAAAAAAAFw=,MwUKXQAAAAAAAAAAAAAAAAAAAGE=",
+                        "showAs": "switch"
+                    },
+                    "sceneThree": {
+                        "sceneCode": "owABAgQJCVcSAP+EAP+EAP/7kXQ=,o/8k/zUW/wCY/wAAAAAAAAAAADw=,MwUKygAAAAAAAAAAAAAAAAAAAPY=",
+                        "showAs": "switch"
+                    },
+                    "sceneFour": {
+                        "sceneCode": "owABDAIFJlABABQCAf98Ac89FK0=,owEDAAkFB/8AYv8DAP8PLv8Atlw=,owL/ABIA+QAAgAAjAAIEAQAC/+w=,owMmAM8BO/8mAs8BAQGAFAIT/xw=,owQAgP8AAACAAACAAiMAAgQBAP4=,owUC/yYB0R87AAAA/wEeAYAUAv4=,owYT/wCA/wAAAIAAAIADIwACBBA=,owcBAAL/JgHRHzsAAAD/AUYBgLM=,owgUAhP/AID/AAAAgAAAgAQmVVk=,owkBABQCAf98Ac89FAMACQUH/y8=,owoAYv8DAP8PLv8Atv8AEAD5ALY=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    },
+                    "diyMode": {
+                        "sceneCode": "owABAwIBKQAAAAYAAf//AwIBAY0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    }
+                },
+                {
+                    "label": "Kitchen Strip",
+                    "deviceId": "32:64:D4:AD:FC:1B:92:B9",
+                    "awsBrightnessNoScale": true,
+                    "scene": {
+                        "sceneCode": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+                        "showAs": "switch"
+                    },
+                    "sceneTwo": {
+                        "sceneCode": "owABAgQJCV0P9wD/A33/A33/AP4=,o///oQD/oQAAAAAAAAAAAAAAAFw=,MwUKXQAAAAAAAAAAAAAAAAAAAGE=",
+                        "showAs": "switch"
+                    },
+                    "sceneThree": {
+                        "sceneCode": "owABAgQJCVcSAP+EAP+EAP/7kXQ=,o/8k/zUW/wCY/wAAAAAAAAAAADw=,MwUKygAAAAAAAAAAAAAAAAAAAPY=",
+                        "showAs": "switch"
+                    },
+                    "sceneFour": {
+                        "sceneCode": "owABDAIFJlABABQCAf98Ac89FK0=,owEDAAkFB/8AYv8DAP8PLv8Atlw=,owL/ABIA+QAAgAAjAAIEAQAC/+w=,owMmAM8BO/8mAs8BAQGAFAIT/xw=,owQAgP8AAACAAACAAiMAAgQBAP4=,owUC/yYB0R87AAAA/wEeAYAUAv4=,owYT/wCA/wAAAIAAAIADIwACBBA=,owcBAAL/JgHRHzsAAAD/AUYBgLM=,owgUAhP/AID/AAAAgAAAgAQmVVk=,owkBABQCAf98Ac89FAMACQUH/y8=,owoAYv8DAP8PLv8Atv8AEAD5ALY=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    },
+                    "diyMode": {
+                        "sceneCode": "owABAwIBKQAAAAYAAf//AwIBAY0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    }
+                },
+                {
+                    "label": "TV Strip",
+                    "deviceId": "D6:CA:D4:AD:FC:7F:BB:9F",
+                    "awsBrightnessNoScale": true,
+                    "scene": {
+                        "sceneCode": "owABBQICI1ADBQAAAf//AIAUFFM=,owEDABQE/7sA/04A/y0A/0AAEDk=,owIA/AAAgAEjVQMFAAAB//8AgC0=,owMUFAMAFAT/uwD/TgD/LQD/QCs=,o/8AEgD8AACAAQAAAAAAAAAAADM=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    },
+                    "sceneTwo": {
+                        "sceneCode": "owABAgQJCV0P9wD/A33/A33/AP4=,o///oQD/oQAAAAAAAAAAAAAAAFw=,MwUKXQAAAAAAAAAAAAAAAAAAAGE=",
+                        "showAs": "switch"
+                    },
+                    "sceneThree": {
+                        "sceneCode": "owABAgQJCVcSAP+EAP+EAP/7kXQ=,o/8k/zUW/wCY/wAAAAAAAAAAADw=,MwUKygAAAAAAAAAAAAAAAAAAAPY=",
+                        "showAs": "switch"
+                    },
+                    "sceneFour": {
+                        "sceneCode": "owABDAIFJlABABQCAf98Ac89FK0=,owEDAAkFB/8AYv8DAP8PLv8Atlw=,owL/ABIA+QAAgAAjAAIEAQAC/+w=,owMmAM8BO/8mAs8BAQGAFAIT/xw=,owQAgP8AAACAAACAAiMAAgQBAP4=,owUC/yYB0R87AAAA/wEeAYAUAv4=,owYT/wCA/wAAAIAAAIADIwACBBA=,owcBAAL/JgHRHzsAAAD/AUYBgLM=,owgUAhP/AID/AAAAgAAAgAQmVVk=,owkBABQCAf98Ac89FAMACQUH/y8=,owoAYv8DAP8PLv8Atv8AEAD5ALY=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    },
+                    "diyMode": {
+                        "sceneCode": "owABAwIBKQAAAAYAAf//AwIBAY0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    }
+                },
+                {
+                    "label": "Window Strip",
+                    "deviceId": "48:58:D4:AD:FC:3E:A5:05",
+                    "awsBrightnessNoScale": true,
+                    "scene": {
+                        "sceneCode": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+                        "showAs": "switch"
+                    },
+                    "sceneTwo": {
+                        "sceneCode": "owABAgQJCV0P9wD/A33/A33/AP4=,o///oQD/oQAAAAAAAAAAAAAAAFw=,MwUKXQAAAAAAAAAAAAAAAAAAAGE=",
+                        "showAs": "switch"
+                    },
+                    "sceneThree": {
+                        "sceneCode": "owABAgQJCVcSAP+EAP+EAP/7kXQ=,o/8k/zUW/wCY/wAAAAAAAAAAADw=,MwUKygAAAAAAAAAAAAAAAAAAAPY=",
+                        "showAs": "switch"
+                    },
+                    "sceneFour": {
+                        "sceneCode": "owABDAIFJlABABQCAf98Ac89FK0=,owEDAAkFB/8AYv8DAP8PLv8Atlw=,owL/ABIA+QAAgAAjAAIEAQAC/+w=,owMmAM8BO/8mAs8BAQGAFAIT/xw=,owQAgP8AAACAAACAAiMAAgQBAP4=,owUC/yYB0R87AAAA/wEeAYAUAv4=,owYT/wCA/wAAAIAAAIADIwACBBA=,owcBAAL/JgHRHzsAAAD/AUYBgLM=,owgUAhP/AID/AAAAgAAAgAQmVVk=,owkBABQCAf98Ac89FAMACQUH/y8=,owoAYv8DAP8PLv8Atv8AEAD5ALY=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    },
+                    "diyMode": {
+                        "sceneCode": "owABAwIBKQAAAAYAAf//AwIBAY0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+                        "showAs": "switch"
+                    }
+                },
+                {
+                    "label": "Hex",
+                    "deviceId": "71:F2:D5:32:39:36:42:4E",
+                    "awsBrightnessNoScale": true,
+                    "scene": {
+                        "sceneCode": "owABAgQmFjUBBlcFIAcBBQAE/yw=,o/++AP+OAP9WAP+OAAAAAAAAAEs=,MwUKNQAAAAAAAAAAAAAAAAAAAAk=",
+                        "showAs": "switch"
+                    },
+                    "sceneTwo": {
+                        "sceneCode": "owABAgQmFkcBBlMFQQYBBQADAMI=,o///vv8A7ADV/wAAAAAAAAAAACQ=,MwUKnwAAAAAAAAAAAAAAAAAAAKM=",
+                        "showAs": "switch"
+                    },
+                    "sceneThree": {
+                        "sceneCode": "owABAwQmB1EBBVQFuAUBBQAHjrA=,owEA/5ps/4oA/9sA/+mT/5rC/yc=,o/8o1/8AAAAAAAAAAAAAAAAAAFw=,MwUKrQAAAAAAAAAAAAAAAAAAAJE=",
+                        "showAs": "switch"
+                    },
+                    "sceneFour": {
+                        "sceneCode": "owABAgQmFUUBCAFkBQAGAP8GAUU=,o/8BAYD/AJ3/kgEBAQEBAQAAANM=,MwUKPAAAAAAAAAAAAAAAAAAAAAA=",
+                        "showAs": "switch"
+                    },
+                    "diyMode": {
+                        "sceneCode": "owABAgQmFUQBDgFkBQAEngD/3AU=,o/83/4D/AEz/AAAAAAAAAAAAAFg=,MwUKHwAAAAAAAAAAAAAAAAAAACM=",
+                        "showAs": "switch"
+                    }
+                },
+                {
+                    "label": "Curtain Lights",
+                    "deviceId": "1D:37:E6:8D:0F:38:2E:39",
+                    "awsBrightnessNoScale": true,
+                    "scene": {
+                        "sceneCode": "owABXVMBAQEAAQUYAQAPAYlQTik=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAAAAag=,owNzUkdCAK7OHOkAAAADc0JJVD4=,owQFBgUzC42AAAAAuklEQVQ4jYM=,owXtktEJwzAMRE/CK3QAD9hAV6g=,owboAoV0QA+QFQruhxshyYpxPiE=,owcLuT/hez75MPCfqmV0ND5NwhU=,owhTPp3HwgxCQpIyWGdO8oKwHl0=,owkmY8XM7rJxQy6GdaUDvidr2dg=,owqTHR/KkQCSpNVimqMMrMbabwg=,owtB4WL10cW+Ahtpxy9hRazF7w8=,owxPvp4j0vJNbKYx2RmS6bA99bY=,ow1jgWQm7VeFbQCA50Fmu2IxPMg=,ow5pkm4AUO8xTm+g/y1122PnJOs=,ow+fknTmKf7SeX0BXbxT6UFpktI=,oxAyAAAAAElFTkSuQmCCAQD/AXY=,oxEsAS4BACUBiVBORw0KGgoAAFM=,oxIADUlIRFIAAAAUAAAAGggCAK8=,oxMAADjh6yoAAAABc1JHQgCuzu0=,oxQc6QAAAANzQklUBQYFMwuNgF4=,oxUAAADQSURBVDiN7ZOxEYMwDKo=,oxZFn3yskC4FjMQgKcIgoc8SjFc=,oxdE+rQpc+cUAlsYY0KZu6iyZSo=,oxg/fX35DL8ZfiwdlU+rwEtzWEk=,oxnPBaYgkiWlwR3SDKGIs5td8Us=,oxrEoEuKLfiuRALOjnTi2wyvScY=,oxtL+nFWLvEbJDrtTcM11Kuk6ZA=,oxxfFqkOGQD8NQWkT0kwcOw2pxs=,ox0G8JgLDfMiHe8WGfhb3MWn2j0=,ox4ntSnzfsu21ep7xVQG6M06kqg=,ox9q+Fwi1Xb0PJFPADkB+Euu4SE=,oyAK6fEt3ONNScjd0Mu8AOQQGdg=,oyFLfPd//7GMD862T9kDO4gCAKw=,oyIAAABJRU5ErkJgggEA/wEsAVs=,oyNIAQA/AYlQTkcNChoKAAAADT0=,oyRJSERSAAAAFAAAABoIAgAAAJQ=,oyU44esqAAAAAXNSR0IArs4c6S4=,oyYAAAADc0JJVAUGBTMLjYAAAJk=,oycA6klEQVQ4je2UsRHCMAxFnz4=,oyhyKViAARjJS1BwR0HKDJASeos=,oymWYKTQZwEK7kThxLaMk0DJHdY=,oyq/kmM9f8nWBX5T2i9tLe/Wgb8=,oyuX3dd+VWDKJodZUnZUqac6m7M=,oyzYwKZs7pEqXawX7ExylR1mzB4=,oy0fcJ4lxx7SbtWhwxQPSdznTaw=,oy5pj6QXEBjZjgHE2AeBBOpQrQ8=,oy865Gb5Li6LnUv+6QagJzLJpVg=,ozCQJmnG6NBRVgvAPhY49dwAcDc=,ozGdJy3vX6E2e8ukT7jHlS3bt9I=,ozL6tIA9PzRPOiTqoH0jM7Xm5qo=,ozNHZ/OkxxJWI5c4J+HOzCStym8=,ozSPoA5+whLPz7Xwk/hrXi+Usgo=,ozVomlzaRzEAAAAASUVORK5CYB4=,ozaCAQD/ASwBSAEAPwGJUE5HDW8=,ozcKGgoAAAANSUhEUgAAABQAAIA=,ozgAGggCAAAAOOHrKgAAAAFzUrM=,ozlHQgCuzhzpAAAAA3NCSVQFBiY=,ozoFMwuNgAAAAOpJREFUOI3tlJc=,ozu9EYMwDIU/cVmBARjJS6QPJY0=,ozwDUJIiHUtkpAyQFXLnFBbGPw0=,oz3CR5u7qDLSe3r2Qzb8ZvhXq28=,oz50VA2lTlfOgowwtvQ6GbaUyXY=,oz+vmU6bykAH7Pxikwssdgt5VmY=,o0At/TvPvK3MkUcFuv0JdKlb0tM=,o0EryOwbAZoJbkPJNyNjOoBLcHY=,o0IrHDiWdT1nsgVTBsTcmL9Vsm0=,o0P3BHZVtyVFqMKMHVO5f9lnY1Q=,o0RtMlP+FYBlM0yHoc2MgHVTThU=,o0VLetRPxbnsy3h4iMphNieLmTc=,o0bGlDmf/OcR6ZGHxflkmtkV8hg=,o0fu7JUiDKnDO/wLqefuVIvjJ0A=,o0jkH8fxBZFCbWp4yvDJAAAAAHw=,o0lJRU5ErkJgggEA/wEsAT0BAAw=,o0o0AYlQTkcNChoKAAAADUlIRFM=,o0tSAAAAFAAAABoIAgAAADjh64w=,o0wqAAAAAXNSR0IArs4c6QAAAHU=,o00Dc0JJVAUGBTMLjYAAAADfSWQ=,o05EQVQ4je2UsRHDIAxFv3wusiU=,o09AhqJkifRuU6ZI6yKdl8hIHh8=,o1DAC1DkTinAWAhE0uYuqgDp8Zc=,o1E/Ahv4zWBnpzzY90BK8An0rPk=,o1LSGwDQubEpglTYUqmCrcXoiLY=,o1OkiNJpKsvFoWY6obYbciIu1Rk=,o1Q+O0YGdkdLO3xNstuVm2dWUcU=,o1WQ8gplY/OYJ/Cks2kqu62MRa8=,o1amkJ0bZSQr0vZ3w/dV+yf2wPc=,o1ciKiyy5HEBgriqz2RVUNqOR9s=,o1h9VcwogFmMDzIe+GbLjsm2fps=,o1lhuYf0MFnV8H3ie69SBW/gFZs=,o1q8gh1GdkD49sPInju/kH/Y8XM=,o1sG4nFp3Alely0AAAAASUVORDM=,o/+uQmCCAQD/ASwBAAAAAAAAAIA=,MwUKgAAAAAAAAAAAAAAAAAAAALw=",
+                        "showAs": "switch"
+                    },
+                    "sceneTwo": {
+                        "sceneCode": "owABAlQYAAUFCgoTBnoA/wD2/3U=,o/8tP/9H//v6AP8Urv8AAAAAALI=,MwUKJAAAAAAAAAAAAAAAAAAAABg=",
+                        "showAs": "switch"
+                    },
+                    "sceneThree": {
+                        "sceneCode": "owABAlQPAAcCFQECA20A/wD/eP4=,o/8A//kAAAAAAAAAAAAAAAAAAFo=,MwUKWAAAAAAAAAAAAAAAAAAAAGQ=",
+                        "showAs": "switch"
+                    },
+                    "sceneFour": {
+                        "sceneCode": "owABAlQcAAICZAYOAgoNAQYAoCY=,o/8A/8sB+2AA/8sBAKAAAKAAAMc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+                        "showAs": "switch"
+                    },
+                    "diyMode": {
+                        "sceneCode": "owABAlQWAAICQQQOAQoNAQST/8Y=,o/8ANP8ArQD/1Tr/AAAAAAAAANU=,MwUKgQAAAAAAAAAAAAAAAAAAAL0=",
+                        "showAs": "switch"
+                    }
+                },
+                {
+                    "label": "Hall 1",
+                    "deviceId": "10:DB:D4:AD:FC:EE:53:0E",
+                    "awsBrightnessNoScale": true,
+                    "awsColourMode": "rgb"
+                },
+                {
+                    "label": "Hall 2",
+                    "deviceId": "1C:17:D4:AD:FC:F5:3F:13",
+                    "awsBrightnessNoScale": true,
+                    "awsColourMode": "rgb"
+                },
+                {
+                    "label": "Door 1",
+                    "deviceId": "36:6A:D4:AD:FC:E8:C0:C4",
+                    "awsBrightnessNoScale": true,
+                    "awsColourMode": "rgb"
+                },
+                {
+                    "label": "Door 2",
+                    "deviceId": "29:B5:D4:AD:FC:E2:C8:82",
+                    "awsBrightnessNoScale": true,
+                    "awsColourMode": "rgb"
+                },
+                {
+                    "label": "Lamp",
+                    "deviceId": "55:9B:60:74:F4:00:B0:8E",
+                    "awsBrightnessNoScale": true
+                },
+                {
+                    "label": "Entry Air",
+                    "deviceId": "75:A0:D4:AD:FC:7C:4D:0A",
+                    "awsBrightnessNoScale": true,
+                    "awsColourMode": "rgb"
+                },
+                {
+                    "label": "Bed Lamp",
+                    "deviceId": "3D:BA:60:74:F4:04:36:46",
+                    "awsBrightnessNoScale": true
+                }
+            ],
+            "platform": "Govee"
+        }
+    ]
+}

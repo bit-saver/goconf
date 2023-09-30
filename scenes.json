@@ -1,0 +1,42 @@
+[
+  {
+    "scene": "Lightwave",
+    "slot": "sceneTwo"
+  },
+  {
+    "scene": "Sea Breeze",
+    "slot": "sceneThree"
+  },
+  {
+    "scene": "Forest",
+    "slot": "sceneFour"
+  },
+  {
+    "scene": "Grass Barney",
+    "slot": "diyMode"
+  },
+  {
+    "scene": "Desert",
+    "slot": "diyModeTwo"
+  },
+  {
+    "scene": "Star Flow",
+    "slot": "diyModeThree"
+  },
+  {
+    "scene": "Grow",
+    "slot": "segmented"
+  },
+  {
+    "scene": "Green Fader",
+    "slot": "segmentedTwo"
+  },
+  {
+    "scene": "Dream Stars",
+    "slot": "segmentedThree"
+  },
+  {
+    "scene": "Cloud Dream",
+    "slot": "segmentedFour"
+  }
+]
