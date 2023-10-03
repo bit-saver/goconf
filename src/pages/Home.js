@@ -5,22 +5,22 @@ import Main from './Main';
 import ConfigContext from '../util/ConfigContext';
 
 function Home() {
-  const { loaded, reloadConfig } = useContext(ConfigContext);
-  const { token } = useContext(ApiContext);
+    const { loaded, reloadConfig } = useContext(ConfigContext);
+    const { token } = useContext(ApiContext);
 
-  useEffect(() => {
-    if (!loaded && token) {
-      reloadConfig().then();
+    useEffect(() => {
+        if (!loaded && token) {
+            reloadConfig().then();
+        }
+    }, [token, loaded]);
+    console.log('token is:', token);
+    if (!token) {
+        return <Login />;
     }
-  }, [token, loaded]);
-  console.log('token is:', token);
-  if (!token) {
-    return <Login />;
-  }
-  if (loaded) {
-    return <Main />;
-  }
-  return 'Loading...';
+    if (loaded) {
+        return <Main />;
+    }
+    return 'Loading...';
 }
 
 export default Home;

@@ -7,24 +7,24 @@ import { ConfigProvider } from './util/ConfigContext';
 import Home from './pages/Home';
 
 const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
+    palette: {
+        mode: 'dark',
+    },
 });
 
 function App() {
-  return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <main style={{ margin: '15px' }}>
-        <ApiProvider>
-          <ConfigProvider>
-            <Home />
-          </ConfigProvider>
-        </ApiProvider>
-      </main>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={darkTheme}>
+            <CssBaseline />
+            <main style={{ margin: '15px' }}>
+                <ApiProvider>
+                    <ConfigProvider>
+                        <Home />
+                    </ConfigProvider>
+                </ApiProvider>
+            </main>
+        </ThemeProvider>
+    );
 }
 
 export default App;
