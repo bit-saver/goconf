@@ -1,5 +1,5 @@
 import {
-  Box, Button,
+  Button, Card,
   FormControl, Grid, Stack,
   Table,
   TableBody,
@@ -64,8 +64,9 @@ function EditSceneSlots() {
   return (
     <Grid container item xs={12} spacing={4} justifyContent="center">
       <Grid item xs={12} md={6} lg={4}>
-        <Box sx={{ width: '100%' }}>
-          <Stack>
+        <h1>Edit Scene Slots</h1>
+        <Card variant="outlined">
+          <Stack spacing={4}>
             <TableContainer>
               <Table
                 aria-labelledby="tableTitle"
@@ -137,7 +138,7 @@ function EditSceneSlots() {
               { saving ? 'SAVING...' : 'SAVE'}
             </Button>
           </Stack>
-        </Box>
+        </Card>
       </Grid>
     </Grid>
   );

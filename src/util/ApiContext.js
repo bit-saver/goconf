@@ -5,9 +5,13 @@ import axios from 'axios';
 
 const getApiUrl = (path) => `http://raspi.local:5654/http://raspi.local:8581/${path.replace(/^\/+/, '')}`;
 
+const getHaApiUrl = (path) => `https://raspity.duckdns.org/api/${path.replace(/^\/+/, '')}`;
+
 const ApiContext = createContext(null);
 
 const TOKEN_KEY = 'goconf_token';
+
+const HA_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4Mzc1NjA4MTg5ZTI0NTg5OTI4OGM1MDg0NjEwNzNkMyIsImlhdCI6MTY5MjE4OTYwMiwiZXhwIjoyMDA3NTQ5NjAyfQ.DV9uQrZ7oA3eNsSSNqhs1vWLEmj5xG68AOyDgLnpEtE';
 
 export function ApiProvider({ children }) {
   const [token, setToken] = useState(sessionStorage.getItem(TOKEN_KEY));
@@ -25,6 +29,14 @@ export function ApiProvider({ children }) {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+
+  const haGetStates = async () => axios.get(getHaApiUrl('states'), {
+    headers: {
+      Accept: 'application/json',
+      'Content-type': 'application/json; charset=UTF-8',
+      Authorization: `Bearer ${HA_TOKEN}`,
     },
   });
 

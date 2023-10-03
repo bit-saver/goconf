@@ -21,7 +21,7 @@ import { RestartAlt } from '@mui/icons-material';
 import ConfigContext from '../util/ConfigContext';
 import AddScene from './AddScene';
 import RemoveScene from './RemoveScene';
-import EditSceneSlots from '../components/EditSceneSlots';
+import EditSceneSlots from './EditSceneSlots';
 import ViewDevices from './ViewDevices';
 
 const drawerWidth = 240;
@@ -135,6 +135,14 @@ export default function Main() {
             >
               {restarting ? <CircularProgress /> : 'RESTART HOMEBRIDGE'}
             </Button>
+          </ListItem>
+        </List>
+        <Divider />
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton onclick={() => handlePage('lightStates')}>
+              <ListItemText primary="Light States" />
+            </ListItemButton>
           </ListItem>
         </List>
       </Drawer>
