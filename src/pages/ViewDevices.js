@@ -1,9 +1,11 @@
 import {
   Card, CardHeader, Grid, List, ListItem, ListItemText,
 } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
+import ConfigContext from '../util/ConfigContext';
 
-export default function ViewDevices({ goveeConfig }) {
+export default function ViewDevices() {
+  const { goveeConfig } = useContext(ConfigContext);
   return (
     <Grid container item xs={12}>
       {Object.keys(goveeConfig.configDevices).map((deviceName) => {

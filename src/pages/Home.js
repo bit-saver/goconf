@@ -1,14 +1,26 @@
-import React, { useContext } from 'react';
-import ApiContext from '../ApiContext';
+import React, { useContext, useEffect } from 'react';
+import ApiContext from '../util/ApiContext';
 import Login from './Login';
-import DrawerMenu from '../components/DrawerMenu';
+import Main from './Main';
+import ConfigContext from '../util/ConfigContext';
 
 function Home() {
+  const { loaded, reloadConfig } = useContext(ConfigContext);
   const { token } = useContext(ApiContext);
+
+  useEffect(() => {
+    if (!loaded && token) {
+      reloadConfig().then();
+    }
+  }, [token, loaded]);
+  console.log('token is:', token);
   if (!token) {
     return <Login />;
   }
-  return <DrawerMenu />;
+  if (loaded) {
+    return <Main />;
+  }
+  return 'Loading...';
 }
 
 export default Home;

@@ -10,7 +10,7 @@ import {
   TextField,
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
-import ApiContext from '../ApiContext';
+import ApiContext from '../util/ApiContext';
 
 const defaultSlots = [
   'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
@@ -62,7 +62,7 @@ function EditSceneSlots() {
   };
 
   return (
-    <Grid container spacing={4} justifyContent="center">
+    <Grid container item xs={12} spacing={4} justifyContent="center">
       <Grid item xs={12} md={6} lg={4}>
         <Box sx={{ width: '100%' }}>
           <Stack>

@@ -4,10 +4,12 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import React, { useContext, useState } from 'react';
 import ListTable from '../components/ListTable';
-import ApiContext from '../ApiContext';
+import ApiContext from '../util/ApiContext';
+import ConfigContext from '../util/ConfigContext';
 
-export default function RemoveScene({ goveeConfig }) {
+export default function RemoveScene() {
   const { apiPost, apiPut } = useContext(ApiContext);
+  const { goveeConfig } = useContext(ConfigContext);
 
   const [selectedSlotScenes, setSelSlotScenes] = useState([]);
 
@@ -30,7 +32,7 @@ export default function RemoveScene({ goveeConfig }) {
   };
 
   return (
-    <Grid container spacing={4} justifyContent="center">
+    <Grid container item xs={12} spacing={4} justifyContent="center">
       <Grid item xs={12} sm={12} md={4} lg={3}>
         <h1>Remove Scenes</h1>
         <Card variant="outlined">

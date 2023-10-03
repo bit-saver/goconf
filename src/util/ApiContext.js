@@ -30,6 +30,7 @@ export function ApiProvider({ children }) {
 
   const checkAuthError = (result) => {
     if ([401, 403].includes(result?.response?.status)) {
+      console.warn('AUTH ERROR');
       sessionStorage.removeItem(TOKEN_KEY);
       setToken(null);
     }

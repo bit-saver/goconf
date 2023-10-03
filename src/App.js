@@ -1,8 +1,10 @@
 import React, { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import Home from './pages/Home';
-import { ApiProvider } from './ApiContext';
+import { ApiProvider } from './util/ApiContext';
 import './App.css';
+import { ConfigProvider } from './util/ConfigContext';
+// import Main from './pages/Main';
+import Home from './pages/Home';
 
 const darkTheme = createTheme({
   palette: {
@@ -16,7 +18,9 @@ function App() {
       <CssBaseline />
       <main style={{ margin: '15px' }}>
         <ApiProvider>
-          <Home />
+          <ConfigProvider>
+            <Home />
+          </ConfigProvider>
         </ApiProvider>
       </main>
     </ThemeProvider>

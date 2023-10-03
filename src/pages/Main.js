@@ -1,71 +1,38 @@
-import * as React from 'react';
+import React, { useContext, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
-import List from '@mui/material/List';
+import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Drawer from '@mui/material/Drawer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Divider from '@mui/material/Divider';
+import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { useContext, useState } from 'react';
-import { Button, CircularProgress } from '@mui/material';
+import {
+  AppBar, Button, CircularProgress, Grid,
+} from '@mui/material';
 import { RestartAlt } from '@mui/icons-material';
-import Config, { asyncTimeout } from '../pages/Config';
-import ApiContext from '../util/ApiContext';
+import ConfigContext from '../util/ConfigContext';
+import AddScene from './AddScene';
+import RemoveScene from './RemoveScene';
+import EditSceneSlots from '../components/EditSceneSlots';
+import ViewDevices from './ViewDevices';
 
 const drawerWidth = 240;
 
-const Main = styled(
-  'main',
-  { shouldForwardProp: (prop) => prop !== 'open' },
-)(
-  ({ theme }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    marginTop: '50px',
-  }),
-);
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(['margin', 'width'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    // width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    // marginRight: drawerWidth,
-  }),
-}));
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: 'flex-start',
-}));
-
-export default function DrawerMenu() {
-  const { apiPut, apiGet } = useContext(ApiContext);
+export default function Main() {
+  const {
+    loaded, goveeConfig, restarting, restartHomebridge,
+  } = useContext(ConfigContext);
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState('addScene');
-  const [restarting, setRestarting] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -75,6 +42,11 @@ export default function DrawerMenu() {
     setOpen(false);
   };
 
+  const handlePage = (toPage) => {
+    setOpen(false);
+    setPage(toPage);
+  };
+
   const pages = [
     { label: 'Add Scene', slug: 'addScene' },
     { label: 'Remove Scene', slug: 'removeScene' },
@@ -82,25 +54,17 @@ export default function DrawerMenu() {
     { label: 'View Devices', slug: 'viewDevices' },
   ];
 
-  const handleRestart = async () => {
-    setRestarting(true);
-    await apiPut('/api/server/restart');
-    // look for data.status === up
-    // iterate a setTimeout every 1 or 2 seconds
-    // if status is not up, reinitate timer
-    let status;
-    do {
-      // eslint-disable-next-line no-await-in-loop
-      await asyncTimeout(1000);
-      // eslint-disable-next-line no-await-in-loop
-      const result = await apiGet('/api/status/homebridge');
-      status = result?.data?.status;
-    } while (status !== 'up');
-    setRestarting(false);
-  };
+  const DrawerHeader = styled('div')(() => ({
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-start',
+  }));
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', marginTop: '60px' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -118,9 +82,18 @@ export default function DrawerMenu() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Main open={open}>
-        <Config page={page} />
-      </Main>
+      {loaded && (
+        <Grid container spacing={4} justifyContent="center">
+          {page === 'addScene'
+            && <AddScene goveeConfig={goveeConfig} />}
+          {page === 'removeScene'
+            && <RemoveScene goveeConfig={goveeConfig} />}
+          {page === 'editSceneSlots'
+            && <EditSceneSlots />}
+          {page === 'viewDevices'
+            && <ViewDevices goveeConfig={goveeConfig} />}
+        </Grid>
+      )}
       <Drawer
         sx={{
           width: drawerWidth,
@@ -129,9 +102,10 @@ export default function DrawerMenu() {
             width: drawerWidth,
           },
         }}
+        onClose={handleDrawerClose}
         variant="temporary"
         ModalProps={{
-          keepMounted: false,
+          keepMounted: true,
         }}
         anchor="right"
         open={open}
@@ -145,7 +119,7 @@ export default function DrawerMenu() {
         <List>
           {pages.map(({ label, slug }) => (
             <ListItem key={slug} disablePadding>
-              <ListItemButton onClick={() => setPage(slug)}>
+              <ListItemButton onClick={() => handlePage(slug)}>
                 <ListItemText primary={label} />
               </ListItemButton>
             </ListItem>
@@ -155,11 +129,11 @@ export default function DrawerMenu() {
               size="large"
               variant="contained"
               disabled={restarting}
-              onClick={handleRestart}
+              onClick={restartHomebridge}
               startIcon={restarting ? null : <RestartAlt />}
               sx={{ width: '100%' }}
             >
-              { restarting ? <CircularProgress /> : 'RESTART HOMEBRIDGE'}
+              {restarting ? <CircularProgress /> : 'RESTART HOMEBRIDGE'}
             </Button>
           </ListItem>
         </List>

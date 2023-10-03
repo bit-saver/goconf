@@ -13,7 +13,8 @@ import {
 } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import ListTable from '../components/ListTable';
-import ApiContext from '../ApiContext';
+import ApiContext from '../util/ApiContext';
+import ConfigContext from '../util/ConfigContext';
 
 export const defaultSlots = [
   'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
@@ -22,8 +23,9 @@ export const defaultSlots = [
   'musicMode', 'musicModeTwo', 'musicModeThree', 'musicModeFour',
 ];
 
-function AddScene({ goveeConfig }) {
+function AddScene() {
   const { apiPost } = useContext(ApiContext);
+  const { goveeConfig } = useContext(ConfigContext);
 
   const { scenes, devices } = goveeConfig;
 
@@ -58,7 +60,13 @@ function AddScene({ goveeConfig }) {
   };
 
   const handleSave = async () => {
+    if (!selectedSlot || !selectedScene) {
+      return;
+    }
     const sceneData = scenes[selectedScene];
+    if (!sceneData) {
+      return;
+    }
     const { lightDevices } = goveeConfig.config;
     selectedDevices.forEach(({ name: deviceName }) => {
       const index = lightDevices.findIndex((light) => light.label === deviceName);
@@ -78,8 +86,10 @@ function AddScene({ goveeConfig }) {
     setSelectedDevices([]);
   };
 
+  const saveDisabled = !selectedScene || !selectedSlot || selectedDevices.length < 1;
+
   return (
-    <Grid container spacing={4} justifyContent="center">
+    <Grid container item xs={12} spacing={4} justifyContent="center">
       <Grid item xs={12} md={6} lg={4}>
         <h1>Add Scenes</h1>
         <Stack spacing={4}>
@@ -116,11 +126,11 @@ function AddScene({ goveeConfig }) {
               selected={selectedDevices}
               setSelected={setSelectedDevices}
               rows={
-              Object.keys(devices).sort().map((deviceName) => {
-                const disabled = !devices[deviceName].scenes[selectedScene];
-                return { deviceName, name: deviceName, disabled };
-              })
-            }
+                Object.keys(devices).sort().map((deviceName) => {
+                  const disabled = !devices[deviceName].scenes[selectedScene];
+                  return { deviceName, name: deviceName, disabled };
+                })
+              }
             />
             <List sx={{ display: 'none' }}>
               {Object.keys(devices).sort().map((deviceName) => {
@@ -150,7 +160,7 @@ function AddScene({ goveeConfig }) {
               })}
             </List>
           </Card>
-          <Button variant="contained" color="success" size="large" onClick={handleSave}>SAVE</Button>
+          <Button variant="contained" color="success" size="large" disabled={saveDisabled} onClick={handleSave}>SAVE</Button>
         </Stack>
       </Grid>
     </Grid>

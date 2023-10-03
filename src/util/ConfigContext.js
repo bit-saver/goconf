@@ -1,12 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
-import {
-  Grid,
-} from '@mui/material';
-import ApiContext from '../util/ApiContext';
-import EditSceneSlots from '../components/EditSceneSlots';
-import AddScene from './AddScene';
-import RemoveScene from './RemoveScene';
-import ViewDevices from './ViewDevices';
+import React, {
+  createContext, useContext, useEffect, useMemo, useState,
+} from 'react';
+import ApiContext from './ApiContext';
 
 export const asyncTimeout = (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
@@ -19,15 +14,20 @@ export const defaultSlots = [
   'musicMode', 'musicModeTwo', 'musicModeThree', 'musicModeFour',
 ];
 
-function Config({ page }) {
+const ConfigContext = createContext(null);
+
+export function ConfigProvider({ children }) {
   const {
-    token, apiGet,
+    token, apiGet, apiPut,
   } = useContext(ApiContext);
   const [goveeConfig, setGoveeConfig] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const [restarting, setRestarting] = useState(false);
 
   const loadConfig = async () => {
-    const { data: [config] } = await apiGet('/api/config-editor/plugin/homebridge-govee');
+    console.log('getting hb-govee config...');
+    const { data: [config] } = await apiGet('/api/config-editor/plugin/homebridge-govee').catch((e) => e);
+    console.log('config', config);
     const goveeConf = { config, scenes: {}, devices: {} };
     const scenes = {};
     const devices = {};
@@ -88,9 +88,28 @@ function Config({ page }) {
     return Promise.resolve();
   };
 
+  const restartHomebridge = async () => {
+    setRestarting(true);
+    await apiPut('/api/server/restart');
+    // look for data.status === up
+    // iterate a setTimeout every 1 or 2 seconds
+    // if status is not up, reinitate timer
+    let status;
+    do {
+      // eslint-disable-next-line no-await-in-loop
+      await asyncTimeout(1000);
+      // eslint-disable-next-line no-await-in-loop
+      const result = await apiGet('/api/status/homebridge');
+      status = result?.data?.status;
+    } while (status !== 'up');
+    setRestarting(false);
+  };
+
   useEffect(() => {
+    console.log('loading config...', token, goveeConfig, loaded);
     if (token && !goveeConfig && !loaded) {
       loadConfig().then(() => {
+        console.log('config loaded');
         setLoaded(true);
       }).catch((err) => {
         console.warn('Error occurred while loading config...', err);
@@ -98,19 +117,23 @@ function Config({ page }) {
     }
   }, [token, goveeConfig, loaded]);
 
-  if (!loaded) return '';
+  const reloadConfig = async () => {
+    console.log('REloading config...');
+    setLoaded(false);
+    await loadConfig();
+    setLoaded(true);
+    return Promise.resolve();
+  };
+
+  const providerValue = useMemo(() => ({
+    goveeConfig, loaded, reloadConfig, restartHomebridge, restarting,
+  }), [goveeConfig, loaded, restarting]);
+
   return (
-    <Grid container spacing={4} justifyContent="center">
-      { page === 'addScene'
-          && <AddScene goveeConfig={goveeConfig} />}
-      { page === 'removeScene'
-          && <RemoveScene goveeConfig={goveeConfig} />}
-      { page === 'editSceneSlots'
-          && <EditSceneSlots />}
-      { page === 'viewDevices'
-          && <ViewDevices goveeConfig={goveeConfig} />}
-    </Grid>
+    <ConfigContext.Provider value={providerValue}>
+      {children}
+    </ConfigContext.Provider>
   );
 }
 
-export default Config;
+export default ConfigContext;
