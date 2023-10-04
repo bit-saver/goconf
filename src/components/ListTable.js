@@ -49,104 +49,104 @@ export default function ListTable({ rows, selected, setSelected }) {
     const enabledRowCount = rows.filter((r) => !r.disabled).length;
 
     return (
-      <Box sx={{ width: '100%' }}>
-          <TableContainer>
-              <Table
-                  aria-labelledby="tableTitle"
-                  size="medium"
+        <Box sx={{ width: '100%' }}>
+            <TableContainer>
+                <Table
+                    aria-labelledby="tableTitle"
+                    size="medium"
                 >
-                  <TableHead>
-                      <TableRow>
-                          <TableCell padding="checkbox">
-                              <Checkbox
-                                  color="primary"
-                                  indeterminate={numSelected > 0 && numSelected < enabledRowCount}
-                                  checked={enabledRowCount > 0 && numSelected === enabledRowCount}
-                                  onChange={handleSelectAllClick}
-                                  inputProps={{
+                    <TableHead>
+                        <TableRow>
+                            <TableCell padding="checkbox">
+                                <Checkbox
+                                    color="primary"
+                                    indeterminate={numSelected > 0 && numSelected < enabledRowCount}
+                                    checked={enabledRowCount > 0 && numSelected === enabledRowCount}
+                                    onChange={handleSelectAllClick}
+                                    inputProps={{
                                         'aria-label': 'select all',
                                     }}
                                 />
                             </TableCell>
-                          { rows[0].slotName && rows[0].sceneName
+                            { rows[0].slotName && rows[0].sceneName
                 && (
-                <>
-                      <TableCell
-                          key="th-slot"
-                          align="left"
-                          padding="normal"
-                          sx={{ fontWeight: 'bold' }}
+                    <>
+                        <TableCell
+                            key="th-slot"
+                            align="left"
+                            padding="normal"
+                            sx={{ fontWeight: 'bold' }}
                         >
-                          Slot
+                            Slot
                         </TableCell>
-                      <TableCell
-                          key="th-scene"
-                          align="left"
-                          padding="normal"
-                          sx={{ fontWeight: 'bold' }}
+                        <TableCell
+                            key="th-scene"
+                            align="left"
+                            padding="normal"
+                            sx={{ fontWeight: 'bold' }}
                         >
-                          Scene
+                            Scene
                         </TableCell>
                     </>
                 )}
-                          { rows[0].deviceName
+                            { rows[0].deviceName
                 && (
-                <TableCell
-                      key="th-device"
-                      align="left"
-                      padding="normal"
-                      sx={{ fontWeight: 'bold' }}
+                    <TableCell
+                        key="th-device"
+                        align="left"
+                        padding="normal"
+                        sx={{ fontWeight: 'bold' }}
                     >
-                      Device
+                        Device
                     </TableCell>
                 )}
                         </TableRow>
                     </TableHead>
-                  <TableBody>
-                      {rows.map((row, index) => {
+                    <TableBody>
+                        {rows.map((row, index) => {
                             const isItemSelected = setSelected && isSelected(row.name);
                             const labelId = `enhanced-table-checkbox-${index}`;
 
                             return (
-                              <TableRow
-                                  hover
-                                  onClick={(event) => handleClick(event, row)}
-                                  role="checkbox"
-                                  aria-checked={isItemSelected}
-                                  tabIndex={-1}
-                                  key={row.name}
-                                  selected={isItemSelected}
-                                  sx={{
+                                <TableRow
+                                    hover
+                                    onClick={(event) => handleClick(event, row)}
+                                    role="checkbox"
+                                    aria-checked={isItemSelected}
+                                    tabIndex={-1}
+                                    key={row.name}
+                                    selected={isItemSelected}
+                                    sx={{
                                         cursor: row.disabled ? 'default' : 'pointer',
                                         opacity: row.disabled ? 0.38 : 1,
                                     }}
                                 >
-                                  <TableCell
-                                      padding="checkbox"
-                                      sx={{ borderBottom: 'none' }}
+                                    <TableCell
+                                        padding="checkbox"
+                                        sx={{ borderBottom: 'none' }}
                                     >
-                                      {setSelected
+                                        {setSelected
                       && (
-                      <Checkbox
-                            color="primary"
-                            checked={isItemSelected}
-                            disabled={row.disabled}
-                            inputProps={{
+                          <Checkbox
+                              color="primary"
+                              checked={isItemSelected}
+                              disabled={row.disabled}
+                              inputProps={{
                                   'aria-labelledby': labelId,
                               }}
                           />
                       )}
                                     </TableCell>
-                                  <TableCell
-                                      component="th"
-                                      id={labelId}
-                                      scope="row"
-                                      padding="normal"
-                                      sx={{ borderBottom: 'none' }}
+                                    <TableCell
+                                        component="th"
+                                        id={labelId}
+                                        scope="row"
+                                        padding="normal"
+                                        sx={{ borderBottom: 'none' }}
                                     >
-                                      { row.slotName || row.deviceName }
+                                        { row.slotName || row.deviceName }
                                     </TableCell>
-                                  { row.sceneName
+                                    { row.sceneName
                     && <TableCell sx={{ borderBottom: 'none' }}>{row.sceneName}</TableCell>}
                                 </TableRow>
                             );

@@ -32,14 +32,14 @@ export default function RemoveScene() {
     };
 
     return (
-      <Grid container item xs={12} spacing={4} justifyContent="center">
-          <Grid item xs={12} sm={12} md={4} lg={3}>
-              <h1>Remove Scenes</h1>
-              <Card variant="outlined">
-                  <ListTable
-                      selected={selectedSlotScenes}
-                      setSelected={setSelSlotScenes}
-                      rows={
+        <Grid container item xs={12} spacing={4} justifyContent="center">
+            <Grid item xs={12} sm={12} md={4} lg={3}>
+                <h1>Remove Scenes</h1>
+                <Card variant="outlined">
+                    <ListTable
+                        selected={selectedSlotScenes}
+                        setSelected={setSelSlotScenes}
+                        rows={
                             Object.keys(goveeConfig.configScenes).reduce((acc, slotName) => {
                                 const slotScenes = goveeConfig.configScenes[slotName];
                                 Object.keys(slotScenes).reduce((acc2, sceneName) => {
@@ -56,33 +56,33 @@ export default function RemoveScene() {
                     />
                 </Card>
             </Grid>
-          <Grid item xs={12} sm={12} md={3} lg={3}>
-              <h1>Affected Devices</h1>
-              {!!selectedSlotScenes.length && (
-                <Stack spacing={2}>
-                      <Card variant="outlined">
-                          <List>
-                              {selectedSlotScenes.map(({ slotName, sceneName }) => {
+            <Grid item xs={12} sm={12} md={3} lg={3}>
+                <h1>Affected Devices</h1>
+                {!!selectedSlotScenes.length && (
+                    <Stack spacing={2}>
+                        <Card variant="outlined">
+                            <List>
+                                {selectedSlotScenes.map(({ slotName, sceneName }) => {
                                     const devices = goveeConfig.configScenes[slotName][sceneName];
                                     return (
-                                      <ListItem key={`${slotName}.${sceneName}`}>
-                                          <ListItemText
-                                              id={`slot-scene-devices-${slotName}.${sceneName}`}
-                                              primary={`[${slotName}] ${sceneName}`}
-                                              secondary={devices.join(', ')}
+                                        <ListItem key={`${slotName}.${sceneName}`}>
+                                            <ListItemText
+                                                id={`slot-scene-devices-${slotName}.${sceneName}`}
+                                                primary={`[${slotName}] ${sceneName}`}
+                                                secondary={devices.join(', ')}
                                             />
                                         </ListItem>
                                     );
                                 })}
                             </List>
                         </Card>
-                      <Button
-                          variant="contained"
-                          color="error"
-                          startIcon={<DeleteIcon />}
-                          onClick={() => handleRemove()}
+                        <Button
+                            variant="contained"
+                            color="error"
+                            startIcon={<DeleteIcon />}
+                            onClick={() => handleRemove()}
                         >
-                          REMOVE
+                            REMOVE
                         </Button>
                     </Stack>
                 )}

@@ -18,7 +18,7 @@ function Home() {
         return <Login />;
     }
     if (loaded) {
-        return <Main sx={{ marginTop: '60px' }}/>;
+        return <Main sx={{ marginTop: '60px' }} />;
     }
     return 'Loading...';
 }

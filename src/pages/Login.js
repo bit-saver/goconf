@@ -25,32 +25,32 @@ function Login() {
         setToken(result.access_token);
     };
     return (
-      <Paper sx={{ padding: '15px' }} className="form">
-          <form onSubmit={handleLogin}>
-              <Stack spacing={2}>
-                  {error && <Alert severity="error">Error, login failed!</Alert> }
-                  <TextField
-                      required
-                      id="username"
-                      label="Username"
-                      value={username}
-                      onChange={(e) => {
+        <Paper sx={{ padding: '15px' }} className="form">
+            <form onSubmit={handleLogin}>
+                <Stack spacing={2}>
+                    {error && <Alert severity="error">Error, login failed!</Alert> }
+                    <TextField
+                        required
+                        id="username"
+                        label="Username"
+                        value={username}
+                        onChange={(e) => {
                             setError(false);
                             setUsername(e.target.value);
                         }}
                     />
-                  <TextField
-                      required
-                      id="password"
-                      type="password"
-                      label="password"
-                      value={password}
-                      onChange={(e) => {
+                    <TextField
+                        required
+                        id="password"
+                        type="password"
+                        label="password"
+                        value={password}
+                        onChange={(e) => {
                             setError(false);
                             setPassword(e.target.value);
                         }}
                     />
-                  <Button variant="contained" type="submit">Login</Button>
+                    <Button variant="contained" type="submit">Login</Button>
                 </Stack>
             </form>
         </Paper>

@@ -62,63 +62,63 @@ function EditSceneSlots() {
     };
 
     return (
-      <Grid container item xs={12} spacing={4} justifyContent="center">
-          <Grid item xs={12} md={6} lg={4}>
-              <h1>Edit Scene Slots</h1>
-              <Card variant="outlined">
-                  <Stack spacing={4}>
-                      <TableContainer>
-                          <Table
-                              aria-labelledby="tableTitle"
-                              size="medium"
+        <Grid container item xs={12} spacing={4} justifyContent="center">
+            <Grid item xs={12} md={6} lg={4}>
+                <h1>Edit Scene Slots</h1>
+                <Card variant="outlined">
+                    <Stack spacing={4}>
+                        <TableContainer>
+                            <Table
+                                aria-labelledby="tableTitle"
+                                size="medium"
                             >
-                              <TableHead>
-                                  <TableRow>
-                                      <TableCell
-                                          key="th-slot"
-                                          align="left"
-                                          padding="normal"
-                                          sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell
+                                            key="th-slot"
+                                            align="left"
+                                            padding="normal"
+                                            sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}
                                         >
-                                          Slot
+                                            Slot
                                         </TableCell>
-                                      <TableCell
-                                          key="th-scene"
-                                          align="left"
-                                          padding="normal"
-                                          sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}
+                                        <TableCell
+                                            key="th-scene"
+                                            align="left"
+                                            padding="normal"
+                                            sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}
                                         >
-                                          Scene
+                                            Scene
                                         </TableCell>
                                     </TableRow>
                                 </TableHead>
-                              <TableBody>
-                                  {Object.keys(sceneSlots).map((slot) => {
+                                <TableBody>
+                                    {Object.keys(sceneSlots).map((slot) => {
                                         const scene = sceneSlots[slot];
                                         const labelId = `scene-slot-${slot}`;
                                         return (
-                                          <TableRow
-                                              hover
-                                              key={slot}
+                                            <TableRow
+                                                hover
+                                                key={slot}
                                             >
-                                              <TableCell
-                                                  component="th"
-                                                  id={labelId}
-                                                  scope="row"
-                                                  padding="normal"
-                                                  sx={{ borderBottom: 'none', fontSize: '0.99rem', width: '100px' }}
+                                                <TableCell
+                                                    component="th"
+                                                    id={labelId}
+                                                    scope="row"
+                                                    padding="normal"
+                                                    sx={{ borderBottom: 'none', fontSize: '0.99rem', width: '100px' }}
                                                 >
-                                                  {slot}
+                                                    {slot}
                                                 </TableCell>
-                                              <TableCell
-                                                  padding="normal"
-                                                  sx={{ borderBottom: 'none' }}
+                                                <TableCell
+                                                    padding="normal"
+                                                    sx={{ borderBottom: 'none' }}
                                                 >
-                                                  <FormControl fullWidth>
-                                                      <TextField
-                                                          size="small"
-                                                          value={scene}
-                                                          onChange={handleScene(slot)}
+                                                    <FormControl fullWidth>
+                                                        <TextField
+                                                            size="small"
+                                                            value={scene}
+                                                            onChange={handleScene(slot)}
                                                         />
                                                     </FormControl>
                                                 </TableCell>
@@ -128,14 +128,14 @@ function EditSceneSlots() {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                      <Button
-                          variant="contained"
-                          color={saving ? 'primary' : 'success'}
-                          disabled={saving}
-                          size="large"
-                          onClick={handleSave}
+                        <Button
+                            variant="contained"
+                            color={saving ? 'primary' : 'success'}
+                            disabled={saving}
+                            size="large"
+                            onClick={handleSave}
                         >
-                          { saving ? 'SAVING...' : 'SAVE'}
+                            { saving ? 'SAVING...' : 'SAVE'}
                         </Button>
                     </Stack>
                 </Card>
