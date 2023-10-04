@@ -96,12 +96,12 @@ export function ApiProvider({ children }) {
     };
 
     const providerValue = useMemo(() => ({
-        token, setToken, apiGet, apiPost, apiPut, apiGetScenes, apiSaveScenes,
-    }), [token, setToken, apiGet, apiPost, apiPut, apiGetScenes, apiSaveScenes]);
+        token, setToken, apiGet, apiPost, apiPut, apiGetScenes, apiSaveScenes, haGetStates,
+    }), [token, setToken, apiGet, apiPost, apiPut, apiGetScenes, apiSaveScenes, haGetStates]);
 
     return (
-      <ApiContext.Provider value={providerValue}>
-          { children }
+        <ApiContext.Provider value={providerValue}>
+            { children }
         </ApiContext.Provider>
     );
 }

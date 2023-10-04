@@ -89,78 +89,80 @@ function AddScene() {
     const saveDisabled = !selectedScene || !selectedSlot || selectedDevices.length < 1;
 
     return (
-      <Grid container item xs={12} spacing={4} justifyContent="center">
-          <Grid item xs={12} md={6} lg={4}>
-              <h1>Add Scenes</h1>
-              <Stack spacing={4}>
-                  <FormControl fullWidth>
-                      <InputLabel id="label-scene">Scene</InputLabel>
-                      <Select
-                          labelId="label-scene"
-                          id="select-scene"
-                          value={selectedScene}
-                          label="Scene"
-                          onChange={handleSelectScene}
+        <Grid container item xs={12} spacing={4} justifyContent="center">
+            <Grid item xs={12} md={6} lg={4}>
+                <h1>Add Scenes</h1>
+                <Stack spacing={4}>
+                    <FormControl fullWidth>
+                        <InputLabel id="label-scene">Scene</InputLabel>
+                        <Select
+                            labelId="label-scene"
+                            id="select-scene"
+                            value={selectedScene}
+                            label="Scene"
+                            onChange={handleSelectScene}
                         >
-                          {Object.keys(scenes).sort().map((s) => (
-                              <MenuItem value={s} key={s}>{s}</MenuItem>
+                            {Object.keys(scenes).sort().map((s) => (
+                                <MenuItem value={s} key={s}>{s}</MenuItem>
                             ))}
                         </Select>
                     </FormControl>
-                  <FormControl fullWidth>
-                      <InputLabel id="label-slot">Slot</InputLabel>
-                      <Select
-                          labelId="label-slot"
-                          id="select-slot"
-                          value={selectedSlot}
-                          label="Slot"
-                          onChange={(e) => setSelectedSlot(e.target.value)}
+                    <FormControl fullWidth>
+                        <InputLabel id="label-slot">Slot</InputLabel>
+                        <Select
+                            labelId="label-slot"
+                            id="select-slot"
+                            value={selectedSlot}
+                            label="Slot"
+                            onChange={(e) => setSelectedSlot(e.target.value)}
                         >
-                          {defaultSlots.map((s) => (
-                              <MenuItem value={s} key={s}>{s}</MenuItem>
+                            {defaultSlots.map((s) => (
+                                <MenuItem value={s} key={s}>{s}</MenuItem>
                             ))}
                         </Select>
                     </FormControl>
-                  <Card variant="outlined">
-                      <ListTable
-                          selected={selectedDevices}
-                          setSelected={setSelectedDevices}
-                          rows={
+                    <Card variant="outlined">
+                        <ListTable
+                            selected={selectedDevices}
+                            setSelected={setSelectedDevices}
+                            rows={
                                 Object.keys(devices).sort().map((deviceName) => {
                                     const disabled = !devices[deviceName].scenes[selectedScene];
                                     return { deviceName, name: deviceName, disabled };
                                 })
                             }
                         />
-                      <List sx={{ display: 'none' }}>
-                          {Object.keys(devices).sort().map((deviceName) => {
+                        <List sx={{ display: 'none' }}>
+                            {Object.keys(devices).sort().map((deviceName) => {
                                 const labelId = `select-devices-label-${deviceName}`;
                                 const enabledDevice = !!devices[deviceName].scenes[selectedScene];
                                 return (
-                                  <ListItem disablePadding key={deviceName}>
-                                      <ListItemButton
-                                          disabled={!enabledDevice}
-                                          role={undefined}
-                                          onClick={handleDeviceCheck(deviceName)}
-                                          dense
+                                    <ListItem disablePadding key={deviceName}>
+                                        <ListItemButton
+                                            disabled={!enabledDevice}
+                                            role={undefined}
+                                            onClick={handleDeviceCheck(deviceName)}
+                                            dense
                                         >
-                                          <ListItemIcon>
-                                              <Checkbox
-                                                  edge="start"
-                                                  checked={selectedDevices.indexOf(deviceName) !== -1}
-                                                  tabIndex={-1}
-                                                  disableRipple
-                                                  inputProps={{ 'aria-labelledby': labelId }}
+                                            <ListItemIcon>
+                                                <Checkbox
+                                                    edge="start"
+                                                    checked={
+                                                        selectedDevices.indexOf(deviceName) !== -1
+                                                    }
+                                                    tabIndex={-1}
+                                                    disableRipple
+                                                    inputProps={{ 'aria-labelledby': labelId }}
                                                 />
                                             </ListItemIcon>
-                                          <ListItemText id={labelId} primary={deviceName} />
+                                            <ListItemText id={labelId} primary={deviceName} />
                                         </ListItemButton>
                                     </ListItem>
                                 );
                             })}
                         </List>
                     </Card>
-                  <Button variant="contained" color="success" size="large" disabled={saveDisabled} onClick={handleSave}>SAVE</Button>
+                    <Button variant="contained" color="success" size="large" disabled={saveDisabled} onClick={handleSave}>SAVE</Button>
                 </Stack>
             </Grid>
         </Grid>

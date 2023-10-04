@@ -26,8 +26,11 @@ export function ConfigProvider({ children }) {
 
     const loadConfig = async () => {
         console.log('getting hb-govee config...');
-        const { data: [config] } = await apiGet('/api/config-editor/plugin/homebridge-govee').catch((e) => e);
+        const config = await apiGet('/api/config-editor/plugin/homebridge-govee').then((result) => (result?.data ? result.data[0] : null)).catch((e) => e);
         console.log('config', config);
+        if (!config) {
+            return Promise.reject();
+        }
         const goveeConf = { config, scenes: {}, devices: {} };
         const scenes = {};
         const devices = {};
@@ -120,7 +123,9 @@ export function ConfigProvider({ children }) {
     const reloadConfig = async () => {
         console.log('REloading config...');
         setLoaded(false);
-        await loadConfig();
+        await loadConfig().catch((err) => {
+            console.warn('Error occurred while loading config...', err);
+        });
         setLoaded(true);
         return Promise.resolve();
     };
@@ -130,8 +135,8 @@ export function ConfigProvider({ children }) {
     }), [goveeConfig, loaded, restarting]);
 
     return (
-      <ConfigContext.Provider value={providerValue}>
-          {children}
+        <ConfigContext.Provider value={providerValue}>
+            {children}
         </ConfigContext.Provider>
     );
 }

@@ -23,6 +23,7 @@ import AddScene from './AddScene';
 import RemoveScene from './RemoveScene';
 import EditSceneSlots from './EditSceneSlots';
 import ViewDevices from './ViewDevices';
+import LightStates from './LightStates';
 
 const drawerWidth = 240;
 
@@ -64,7 +65,7 @@ export default function Main() {
     }));
 
     return (
-        <Box sx={{ display: 'flex', marginTop: '60px' }}>
+        <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar position="fixed" open={open}>
                 <Toolbar>
@@ -85,13 +86,15 @@ export default function Main() {
             {loaded && (
                 <Grid container spacing={4} justifyContent="center">
                     {page === 'addScene'
-            && <AddScene goveeConfig={goveeConfig} />}
+                        && <AddScene goveeConfig={goveeConfig} />}
                     {page === 'removeScene'
-            && <RemoveScene goveeConfig={goveeConfig} />}
+                        && <RemoveScene goveeConfig={goveeConfig} />}
                     {page === 'editSceneSlots'
-            && <EditSceneSlots />}
+                        && <EditSceneSlots />}
                     {page === 'viewDevices'
-            && <ViewDevices goveeConfig={goveeConfig} />}
+                        && <ViewDevices goveeConfig={goveeConfig} />}
+                    {page === 'lightStates'
+                        && <LightStates />}
                 </Grid>
             )}
             <Drawer
@@ -140,7 +143,7 @@ export default function Main() {
                 <Divider />
                 <List>
                     <ListItem disablePadding>
-                        <ListItemButton onclick={() => handlePage('lightStates')}>
+                        <ListItemButton onClick={() => handlePage('lightStates')}>
                             <ListItemText primary="Light States" />
                         </ListItemButton>
                     </ListItem>
