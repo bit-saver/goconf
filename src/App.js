@@ -3,8 +3,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ApiProvider } from './util/ApiContext';
 import './App.css';
 import { ConfigProvider } from './util/ConfigContext';
-// import Main from './pages/Main';
-import Home from './pages/Home';
+import Main from './pages/Main';
+// import Home from './pages/Home';
 
 const darkTheme = createTheme({
     palette: {
@@ -19,7 +19,7 @@ function App() {
             <main style={{ margin: '15px' }}>
                 <ApiProvider>
                     <ConfigProvider>
-                        <Home />
+                        <Main />
                     </ConfigProvider>
                 </ApiProvider>
             </main>

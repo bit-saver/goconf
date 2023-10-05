@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -24,14 +24,19 @@ import RemoveScene from './RemoveScene';
 import EditSceneSlots from './EditSceneSlots';
 import ViewDevices from './ViewDevices';
 import LightStates from './LightStates';
+import ApiContext from '../util/ApiContext';
+import Login from './Login';
 
 const drawerWidth = 240;
 
 export default function Main() {
+    const { token } = useContext(ApiContext);
     const {
-        loaded, goveeConfig, restarting, restartHomebridge,
+        loaded, reloadConfig, goveeConfig, restarting, restartHomebridge,
     } = useContext(ConfigContext);
+
     const theme = useTheme();
+
     const [open, setOpen] = useState(false);
     const [page, setPage] = useState('addScene');
 
@@ -64,6 +69,16 @@ export default function Main() {
         justifyContent: 'flex-start',
     }));
 
+    useEffect(() => {
+        if (!loaded && token) {
+            reloadConfig().then();
+        }
+    }, [token, loaded]);
+
+    if (!token) {
+        return <Login />;
+    }
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -84,7 +99,7 @@ export default function Main() {
                 </Toolbar>
             </AppBar>
             {loaded && (
-                <Grid container spacing={4} justifyContent="center">
+                <Grid container spacing={4} justifyContent="center" sx={{ marginTop: '24px' }}>
                     {page === 'addScene'
                         && <AddScene goveeConfig={goveeConfig} />}
                     {page === 'removeScene'
@@ -97,6 +112,7 @@ export default function Main() {
                         && <LightStates />}
                 </Grid>
             )}
+            {!loaded && <CircularProgress />}
             <Drawer
                 sx={{
                     width: drawerWidth,
