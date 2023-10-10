@@ -11,53 +11,39 @@ import {
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import ApiContext from '../util/ApiContext';
-
-const defaultSlots = [
-    'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
-    'diyMode', 'diyModeTwo', 'diyModeThree', 'diyModeFour',
-    'segmented', 'segmentedTwo', 'segmentedThree', 'segmentedFour',
-    'musicMode', 'musicModeTwo', 'musicModeThree', 'musicModeFour',
-];
+import ConfigContext from '../util/ConfigContext';
 
 function EditSceneSlots() {
-    const { token, apiGetScenes, apiSaveScenes } = useContext(ApiContext);
+    const { getSceneSlots } = useContext(ConfigContext);
+    const { token, apiSaveScenes } = useContext(ApiContext);
     const [sceneSlots, setSceneSlots] = useState({});
     const [saving, setSaving] = useState(false);
 
-    const loadConfig = async () => {
-        const { data: scenesJson } = await apiGetScenes();
-        const configuredSlots = defaultSlots.reduce((acc, slot) => {
-            const sceneSlot = scenesJson.find((ss) => ss.slot === slot);
-            acc[slot] = sceneSlot?.scene || '';
-            return acc;
-        }, {});
-        setSceneSlots(configuredSlots);
-    };
-
     useEffect(() => {
         if (token) {
-            loadConfig().then();
+            getSceneSlots().then((result) => setSceneSlots(result));
         }
     }, []);
 
     const handleSave = async () => {
         setSaving(true);
-        const config = Object.keys(sceneSlots).reduce((acc, slot) => {
-            if (sceneSlots[slot]) {
-                acc.push({ slot, scene: sceneSlots[slot] });
-            }
-            return acc;
-        }, []);
-        const result = await apiSaveScenes(config);
+        // const config = Object.keys(sceneSlots).reduce((acc, slot) => {
+        //     if (sceneSlots[slot]) {
+        //         acc.push({ slot, scene: sceneSlots[slot] });
+        //     }
+        //     return acc;
+        // }, []);
+        const result = await apiSaveScenes(sceneSlots);
         console.log('scene slot save result:', result);
         setSaving(false);
     };
 
     const handleScene = (slot) => (e) => {
         const scene = e.target.value;
-        const update = { ...sceneSlots };
+        const update = [...sceneSlots];
         // console.log('slot', slot, 'scene', scene);
-        update[slot] = scene;
+        const index = update.findIndex((ss) => ss.slot === slot);
+        update[index].scene = scene;
         setSceneSlots(update);
     };
 
@@ -93,8 +79,8 @@ function EditSceneSlots() {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {Object.keys(sceneSlots).map((slot) => {
-                                        const scene = sceneSlots[slot];
+                                    {sceneSlots.map((sceneSlot) => {
+                                        const { slot, scene } = sceneSlot;
                                         const labelId = `scene-slot-${slot}`;
                                         return (
                                             <TableRow

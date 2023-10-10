@@ -1,7 +1,14 @@
 [
   {
     "scene": "Lightwave",
-    "slot": "sceneTwo"
+    "slot": "sceneTwo",
+    "lights": [
+      {
+        "entity_id": "light.lamp",
+        "rgb_color": [1,2,3],
+        "brightness": 255
+      }
+    ]
   },
   {
     "scene": "Sea Breeze",

@@ -2,13 +2,16 @@ import {
     Alert, Button, Paper, Stack, TextField,
 } from '@mui/material';
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ApiContext from '../util/ApiContext';
 
 function Login() {
-    const { setToken, apiPost } = useContext(ApiContext);
+    const { setToken, apiPost, setAuthenticated } = useContext(ApiContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(false);
+    const navigate = useNavigate();
+
     const handleLogin = async (e) => {
         e.preventDefault();
         setError(false);
@@ -19,11 +22,15 @@ function Login() {
         });
         console.log(result);
         if (!result?.access_token) {
+            setAuthenticated(false);
             setError(true);
             return;
         }
         setToken(result.access_token);
+        setAuthenticated(true);
+        navigate('/', { replace: true });
     };
+
     return (
         <Paper sx={{ padding: '15px' }} className="form">
             <form onSubmit={handleLogin}>

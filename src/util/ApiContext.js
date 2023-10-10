@@ -2,30 +2,38 @@ import React, {
     createContext, useEffect, useMemo, useState,
 } from 'react';
 import axios from 'axios';
-
-const getApiUrl = (path) => `http://raspi.local:5654/http://raspi.local:8581/${path.replace(/^\/+/, '')}`;
-
-const getHaApiUrl = (path) => `https://raspity.duckdns.org/api/${path.replace(/^\/+/, '')}`;
+import {
+    getApiUrl, getHaApiUrl, getHbApiUrl, GOVEE_TOKEN_KEY, HA_TOKEN, TOKEN_KEY,
+} from './util';
 
 const ApiContext = createContext(null);
 
-const TOKEN_KEY = 'goconf_token';
-
-const HA_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4Mzc1NjA4MTg5ZTI0NTg5OTI4OGM1MDg0NjEwNzNkMyIsImlhdCI6MTY5MjE4OTYwMiwiZXhwIjoyMDA3NTQ5NjAyfQ.DV9uQrZ7oA3eNsSSNqhs1vWLEmj5xG68AOyDgLnpEtE';
-
 export function ApiProvider({ children }) {
-    const [token, setToken] = useState(sessionStorage.getItem(TOKEN_KEY));
-    // console.log('[Provider] token', token);
+    const getToken = (tokenKey) => sessionStorage.getItem(tokenKey);
+
+    const [token, setToken] = useState(getToken(TOKEN_KEY));
+    const [goveeToken, setGoveeToken] = useState(getToken(GOVEE_TOKEN_KEY));
+
+    const [authenticated, setAuthenticated] = useState(false);
+
+    const saveToken = (tokenKey, userToken) => {
+        sessionStorage.setItem(tokenKey, userToken);
+        if (tokenKey === TOKEN_KEY) {
+            setToken(userToken);
+        } else if (tokenKey === GOVEE_TOKEN_KEY) {
+            setGoveeToken(userToken);
+        }
+    };
 
     useEffect(() => {
-        if (token !== sessionStorage.getItem(TOKEN_KEY)) {
-            sessionStorage.setItem(TOKEN_KEY, token);
+        if (token !== getToken(TOKEN_KEY)) {
+            saveToken(TOKEN_KEY, token);
         }
     }, [token]);
 
-    const apiGetScenes = async () => axios.get('http://raspi.local:8080/api/getScenes');
+    const apiGetScenes = async () => axios.get(getApiUrl('getScenes'));
 
-    const apiSaveScenes = async (data) => axios.post('http://raspi.local:8080/api/saveScenes', data, {
+    const apiSaveScenes = async (data) => axios.post(getApiUrl('saveScenes'), data, {
         headers: {
             Accept: 'application/json',
             'Content-type': 'application/json; charset=UTF-8',
@@ -40,64 +48,124 @@ export function ApiProvider({ children }) {
         },
     });
 
-    const checkAuthError = (result) => {
-        if ([401, 403].includes(result?.response?.status)) {
+    const haCallService = async (domain, service, data) => axios.post(getHaApiUrl(`services/${domain}/${service}`), data, {
+        headers: {
+            Accept: 'application/json',
+            'Content-type': 'application/json; charset=UTF-8',
+            Authorization: `Bearer ${HA_TOKEN}`,
+        },
+    });
+
+    const checkAuthError = (error) => {
+        if ([401, 403].includes(error?.response?.status)) {
             console.warn('AUTH ERROR');
-            sessionStorage.removeItem(TOKEN_KEY);
-            setToken(null);
+            saveToken(TOKEN_KEY, null);
+            setAuthenticated(false);
+            return null;
         }
+        return error;
     };
 
     const apiGet = async (path) => {
         if (!token) {
             return new Error('Missing token.');
         }
-        const result = await axios.get(getApiUrl(path), {
+        return axios.get(getHbApiUrl(path), {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
-        }).catch((err) => {
-            checkAuthError(err);
-            return null;
-        });
-        return result;
+        }).catch((err) => checkAuthError(err));
     };
 
     const apiPut = async (path) => {
         if (!token) {
             return new Error('Missing token.');
         }
-        const result = await axios.put(getApiUrl(path), {}, {
+        return axios.put(getHbApiUrl(path), {}, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
-        }).catch((err) => {
-            checkAuthError(err);
-            return err;
-        });
-        return result;
+        }).catch((err) => checkAuthError(err));
     };
 
     const apiPost = async (path, data) => {
         if (!token && path !== '/api/auth/login') {
             return new Error('Missing token.');
         }
-        const result = await axios.post(getApiUrl(path), data, {
+        return axios.post(getHbApiUrl(path), data, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 Accept: 'application/json',
                 'Content-type': 'application/json; charset=UTF-8',
             },
-        }).catch((err) => {
-            checkAuthError(err);
-            return err;
-        });
-        return result;
+        }).catch((err) => checkAuthError(err));
     };
 
+    const apiCheckAuth = async () => axios.get(getHbApiUrl('/api/auth/check'), {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: 'application/json',
+        },
+    }).catch(() => null);
+
+    const gvGetToken = async (email, password) => {
+        const ttrRes = await axios({
+            url: 'https://community-api.govee.com/os/v1/login',
+            method: 'post',
+            data: {
+                email,
+                password,
+            },
+            timeout: 30000,
+        });
+        if (!ttrRes?.data?.data?.token) {
+            throw new Error('Error retrieving Govee token');
+        }
+        const { token: ttrToken } = ttrRes.data.data;
+        setGoveeToken(ttrToken);
+        return ttrToken;
+    };
+
+    const gvGetScenes = async (freshToken = null) => axios({
+        url: 'https://app2.govee.com/bff-app/v1/exec-plat/home',
+        method: 'get',
+        headers: {
+            Authorization: `Bearer ${freshToken ?? goveeToken}`,
+            appVersion: 1,
+            clientId: 'goconf',
+            clientType: 1,
+            iotVersion: 0,
+            timestamp: Date.now(),
+            'User-Agent': 'GoveeHome/1 (com.ihoment.GoVeeSensor; build:2; iOS 16.5.0) Alamofire/5.6.4',
+        },
+        timeout: 10000,
+    });
+
     const providerValue = useMemo(() => ({
-        token, setToken, apiGet, apiPost, apiPut, apiGetScenes, apiSaveScenes, haGetStates,
-    }), [token, setToken, apiGet, apiPost, apiPut, apiGetScenes, apiSaveScenes, haGetStates]);
+        token,
+        setToken,
+        saveToken,
+        goveeToken,
+        authenticated,
+        setAuthenticated,
+        apiGet,
+        apiPost,
+        apiPut,
+        apiGetScenes,
+        apiSaveScenes,
+        apiCheckAuth,
+        haGetStates,
+        haCallService,
+        gvGetToken,
+        gvGetScenes,
+    }), [
+        token, setToken, saveToken, goveeToken,
+        gvGetToken, gvGetScenes,
+        authenticated, setAuthenticated,
+        apiGet, apiPost, apiPut,
+        apiGetScenes, apiSaveScenes, apiCheckAuth,
+        haGetStates, haCallService,
+    ]);
 
     return (
         <ApiContext.Provider value={providerValue}>

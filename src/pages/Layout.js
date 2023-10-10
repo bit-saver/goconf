@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -19,26 +19,22 @@ import {
 } from '@mui/material';
 import { RestartAlt } from '@mui/icons-material';
 import ConfigContext from '../util/ConfigContext';
-import AddScene from './AddScene';
-import RemoveScene from './RemoveScene';
-import EditSceneSlots from './EditSceneSlots';
-import ViewDevices from './ViewDevices';
-import LightStates from './LightStates';
-import ApiContext from '../util/ApiContext';
-import Login from './Login';
 
 const drawerWidth = 240;
 
-export default function Main() {
-    const { token } = useContext(ApiContext);
+export default function Layout({ children, setPage }) {
     const {
-        loaded, reloadConfig, goveeConfig, restarting, restartHomebridge,
+        restarting, restartHomebridge,
     } = useContext(ConfigContext);
 
     const theme = useTheme();
 
     const [open, setOpen] = useState(false);
-    const [page, setPage] = useState('addScene');
+
+    const handlePage = (toPage) => {
+        setPage(toPage);
+        setOpen(false);
+    };
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -46,11 +42,6 @@ export default function Main() {
 
     const handleDrawerClose = () => {
         setOpen(false);
-    };
-
-    const handlePage = (toPage) => {
-        setOpen(false);
-        setPage(toPage);
     };
 
     const pages = [
@@ -69,15 +60,15 @@ export default function Main() {
         justifyContent: 'flex-start',
     }));
 
-    useEffect(() => {
-        if (!loaded && token) {
-            reloadConfig().then();
-        }
-    }, [token, loaded]);
-
-    if (!token) {
-        return <Login />;
-    }
+    // useEffect(() => {
+    //     if (!loaded && token) {
+    //         reloadConfig().then();
+    //     }
+    // }, [token, loaded]);
+    //
+    // if (!token) {
+    //     return <Navigate to="/login" state={{ from: location }} replace />;
+    // }
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -98,21 +89,9 @@ export default function Main() {
                     </IconButton>
                 </Toolbar>
             </AppBar>
-            {loaded && (
-                <Grid container spacing={4} justifyContent="center" sx={{ marginTop: '24px' }}>
-                    {page === 'addScene'
-                        && <AddScene goveeConfig={goveeConfig} />}
-                    {page === 'removeScene'
-                        && <RemoveScene goveeConfig={goveeConfig} />}
-                    {page === 'editSceneSlots'
-                        && <EditSceneSlots />}
-                    {page === 'viewDevices'
-                        && <ViewDevices goveeConfig={goveeConfig} />}
-                    {page === 'lightStates'
-                        && <LightStates />}
-                </Grid>
-            )}
-            {!loaded && <CircularProgress />}
+            <Grid container spacing={4} justifyContent="center" sx={{ marginTop: '24px' }}>
+                { children }
+            </Grid>
             <Drawer
                 sx={{
                     width: drawerWidth,
