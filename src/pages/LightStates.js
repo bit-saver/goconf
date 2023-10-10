@@ -254,7 +254,7 @@ export default function LightStates() {
                             const light = group[0];
                             const fill = getLightFill(light);
                             return (
-                                <Grid item xs={6} sm={4} md={3} lg={2}>
+                                <Grid item xs={6} sm={4} md={3} lg={2} key={`group-${light.group}`}>
                                     <Paper
                                         square={false}
                                         elevation={3}
@@ -301,7 +301,7 @@ export default function LightStates() {
                                             {group.map((lightDevice) => {
                                                 const lightFill = getLightFill(lightDevice);
                                                 return (
-                                                    <svg height="100" width="100">
+                                                    <svg height="100" width="100" key={lightDevice.entity_id}>
                                                         <circle
                                                             cx="50"
                                                             cy="50"

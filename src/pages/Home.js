@@ -31,7 +31,7 @@ function Home() {
         apiCheckAuth().then((auth) => {
             if (!auth) {
                 navigate('/login', { replace: true });
-            } else {
+            } else if (!loaded) {
                 reloadConfig().then();
             }
         });
@@ -40,24 +40,29 @@ function Home() {
     if (!token) {
         return <Login />;
     }
+
+    const getPage = () => {
+        switch (page) {
+        case 'addScene':
+            return <AddScene />;
+        case 'removeScene':
+            return <RemoveScene />;
+        case 'editSceneSlots':
+            return <EditSceneSlots />;
+        case 'viewDevices':
+            return <ViewDevices />;
+        case 'lightStates':
+            return <LightStates />;
+        default:
+            return <CircularProgress />;
+        }
+    };
+
     return (
-        <>
-            {loaded && (
-                <Layout setPage={setPage}>
-                    {page === 'addScene'
-                        && <AddScene />}
-                    {page === 'removeScene'
-                        && <RemoveScene />}
-                    {page === 'editSceneSlots'
-                        && <EditSceneSlots />}
-                    {page === 'viewDevices'
-                        && <ViewDevices />}
-                    {page === 'lightStates'
-                        && <LightStates />}
-                </Layout>
-            )}
-            {!loaded && <CircularProgress />}
-        </>
+        <Layout setPage={setPage}>
+            {loaded && getPage()}
+            {!loaded && <CircularProgress sx={{ marginTop: '30vh' }} />}
+        </Layout>
     );
 }
 

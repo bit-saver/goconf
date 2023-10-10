@@ -14,12 +14,12 @@ export function ConfigProvider({ children }) {
     const [loaded, setLoaded] = useState(false);
     const [restarting, setRestarting] = useState(false);
 
-    const getGoveeScenes = async (ttrToken) => {
+    const getGoveeScenes = async (ttrToken = null) => {
         const res = await gvGetScenes(ttrToken);
         // Check to see we got a response
         if (!res?.data?.data?.components) {
             setLoaded(false);
-            throw new Error('not a valid response');
+            return null;
         }
 
         const scenes = [];
@@ -93,9 +93,9 @@ export function ConfigProvider({ children }) {
         2) If failed, renew token by using auth login
         3) Retry getting scenes
          */
-        let ttrScenes = await gvGetScenes().then((result) => result.data).catch(() => null);
+        let ttrScenes = await getGoveeScenes();
         console.log('ttrScenes', ttrScenes);
-        if (!ttrScenes || [400, 401, 402].includes(ttrScenes.status)) {
+        if (!ttrScenes) {
             const ttrToken = await gvGetToken(config.username, config.password)
                 .catch(() => null);
             console.log('ttrToken', ttrToken);
@@ -103,12 +103,13 @@ export function ConfigProvider({ children }) {
                 setLoaded(false);
                 return new Error('Error retrieving Govee token.');
             }
-            ttrScenes = await gvGetScenes(ttrToken).then((result) => result.data).catch(() => null);
-            if (!ttrScenes || [400, 401, 402].includes(ttrScenes.status)) {
+            ttrScenes = await getGoveeScenes(ttrToken);
+            if (!ttrScenes) {
                 setLoaded(false);
                 return new Error('Error retrieving Govee scenes.');
             }
         }
+        console.log('ttrScenes', ttrScenes);
 
         const sceneNameIds = {};
         ttrScenes.forEach((scene) => {

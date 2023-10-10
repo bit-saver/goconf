@@ -136,7 +136,6 @@ export function ApiProvider({ children }) {
             clientType: 1,
             iotVersion: 0,
             timestamp: Date.now(),
-            'User-Agent': 'GoveeHome/1 (com.ihoment.GoVeeSensor; build:2; iOS 16.5.0) Alamofire/5.6.4',
         },
         timeout: 10000,
     });
