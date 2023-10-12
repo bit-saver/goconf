@@ -8,6 +8,47 @@ export const getHaApiUrl = (path) => `https://raspity.duckdns.org/api/${path.rep
 
 export const getApiUrl = (path) => `http://raspi.local:8080/api/${path.replace(/^\/+/, '')}`;
 
+export const rgbToHex = (rgbColor) => {
+    // Choose correct separator
+    const sep = ', ';
+    // Turn "rgb(r,g,b)" into [r,g,b]
+    const rgb = rgbColor.split(sep);
+
+    let r = (+rgb[0]).toString(16);
+    let g = (+rgb[1]).toString(16);
+    let b = (+rgb[2]).toString(16);
+
+    if (r.length === 1) r = `0${r}`;
+    if (g.length === 1) g = `0${g}`;
+    if (b.length === 1) b = `0${b}`;
+
+    return `#${r}${g}${b}`;
+};
+
+export const hexToRgb = (hex) => {
+    let r = 0;
+    let g = 0;
+    let b = 0;
+
+    // 3 digits
+    if (hex.length === 4) {
+        r = `0x${hex[1]}${hex[1]}`;
+        g = `0x${hex[2]}${hex[2]}`;
+        b = `0x${hex[3]}${hex[3]}`;
+
+        // 6 digits
+    } else if (hex.length === 7) {
+        r = `0x${hex[1]}${hex[2]}`;
+        g = `0x${hex[3]}${hex[4]}`;
+        b = `0x${hex[5]}${hex[6]}`;
+    }
+
+    return [+r, +g, +b];
+};
+
+// eslint-disable-next-line max-len
+export const checkSubset = (parentArray, subsetArray) => subsetArray.some((el) => parentArray.includes(el));
+
 export const TOKEN_KEY = 'goconf_token';
 
 export const GOVEE_TOKEN_KEY = 'govee_token';

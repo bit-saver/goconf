@@ -16,7 +16,7 @@ import ConfigContext from '../util/ConfigContext';
 function EditSceneSlots() {
     const { getSceneSlots } = useContext(ConfigContext);
     const { token, apiSaveScenes } = useContext(ApiContext);
-    const [sceneSlots, setSceneSlots] = useState({});
+    const [sceneSlots, setSceneSlots] = useState([]);
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {

@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
@@ -54,7 +54,7 @@ export default function Layout({ children, setPage }) {
     const DrawerHeader = styled('div')(() => ({
         display: 'flex',
         alignItems: 'center',
-        padding: theme.spacing(0, 1),
+        padding: theme.spacing(0, 1, 0, 0),
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-start',
@@ -75,12 +75,13 @@ export default function Layout({ children, setPage }) {
             <CssBaseline />
             <AppBar position="fixed" open={open}>
                 <Toolbar>
-                    <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
+                    <Typography variant="h6" noWrap sx={{ flexGrow: 1, marginLeft: '10px' }} component="div">
                         Govee Config Editor
                     </Typography>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
+                        // edge="start"
                         edge="end"
                         onClick={handleDrawerOpen}
                         sx={{ ...(open && { display: 'none' }) }}
@@ -105,12 +106,15 @@ export default function Layout({ children, setPage }) {
                 ModalProps={{
                     keepMounted: true,
                 }}
+                // anchor="left"
                 anchor="right"
                 open={open}
             >
+                {/* <DrawerHeader sx={{ alignSelf: 'end' }}> */}
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {/* <ChevronLeftIcon /> */}
+                        <ChevronRightIcon />
                     </IconButton>
                 </DrawerHeader>
                 <Divider />

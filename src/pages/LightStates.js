@@ -1,8 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
-    Box, Button,
-    Card, CardContent, CardHeader, Checkbox,
-    CircularProgress, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Stack, TextField,
+    Box,
+    Button,
+    Card,
+    CardContent,
+    CardHeader,
+    Checkbox,
+    CircularProgress,
+    Fab,
+    FormControl,
+    Grid,
+    InputLabel,
+    MenuItem,
+    Paper,
+    Select,
+    Stack,
+    TextField,
+    Tooltip,
 } from '@mui/material';
 import Typography from '@mui/material/Typography';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -10,8 +24,14 @@ import Colorful from '@uiw/react-color-colorful';
 import IconButton from '@mui/material/IconButton';
 import RestoreIcon from '@mui/icons-material/Restore';
 import CheckIcon from '@mui/icons-material/Check';
+import Drawer from '@mui/material/Drawer';
+import Divider from '@mui/material/Divider';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import SettingsIcon from '@mui/icons-material/Settings';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
+import { checkSubset, hexToRgb, rgbToHex } from '../util/util';
+import useCopy from '../util/useCopy';
 
 const devices = {
     'light.lamp': {
@@ -52,57 +72,21 @@ const devices = {
     },
 };
 
-const rgbToHex = (rgbColor) => {
-    // Choose correct separator
-    const sep = ', ';
-    // Turn "rgb(r,g,b)" into [r,g,b]
-    const rgb = rgbColor.split(sep);
-
-    let r = (+rgb[0]).toString(16);
-    let g = (+rgb[1]).toString(16);
-    let b = (+rgb[2]).toString(16);
-
-    if (r.length === 1) r = `0${r}`;
-    if (g.length === 1) g = `0${g}`;
-    if (b.length === 1) b = `0${b}`;
-
-    return `#${r}${g}${b}`;
-};
-
-const hexToRgb = (hex) => {
-    let r = 0;
-    let g = 0;
-    let b = 0;
-
-    // 3 digits
-    if (hex.length === 4) {
-        r = `0x${hex[1]}${hex[1]}`;
-        g = `0x${hex[2]}${hex[2]}`;
-        b = `0x${hex[3]}${hex[3]}`;
-
-    // 6 digits
-    } else if (hex.length === 7) {
-        r = `0x${hex[1]}${hex[2]}`;
-        g = `0x${hex[3]}${hex[4]}`;
-        b = `0x${hex[5]}${hex[6]}`;
-    }
-
-    return [+r, +g, +b];
-};
-
-// eslint-disable-next-line max-len
-const checkSubset = (parentArray, subsetArray) => subsetArray.some((el) => parentArray.includes(el));
-
 export default function LightStates() {
     const { defaultSlots, getSceneSlots } = useContext(ConfigContext);
     const { haGetStates, haCallService, apiSaveScenes } = useContext(ApiContext);
-    const [originalStates, setOriginalStates] = useState(null);
+    const [, copy] = useCopy();
+
+    const [originalStates, setOriginalStates] = useState({});
     const [loaded, setLoaded] = useState(false);
     const [lights, setLights] = useState({ ...devices });
     const [sceneSlots, setSceneSlots] = useState({});
     const [selectedLights, setSelectedLights] = useState([]);
     const [selectedSlot, setSelectedSlot] = useState('');
+    const [selectedShowSlot, setSelectedShowSlot] = useState('');
     const [saving, setSaving] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(false);
 
     const getLightStates = async () => {
         const data = await haGetStates()
@@ -216,6 +200,38 @@ export default function LightStates() {
         return result;
     };
 
+    const handleLoadSlot = () => {
+        if (selectedShowSlot === '') {
+            const updated = Object.values(originalStates).reduce((acc, light) => {
+                acc[light.entity_id] = { ...light, state: { ...light.state } };
+                return acc;
+            }, {});
+            setLights(updated);
+            return;
+        }
+        const sceneSlot = sceneSlots.find((ss) => ss.slot === selectedShowSlot);
+        const updated = { ...lights };
+        Object.keys(updated).forEach((eid) => {
+            let ssLight = null;
+            if (sceneSlot?.lights?.length) {
+                ssLight = sceneSlot.lights.find((ssl) => ssl.entity_id === eid);
+            }
+            if (ssLight) {
+                updated[eid].state.rgb_color = ssLight.rgb_color;
+            } else {
+                updated[eid].state.rgb_color = [0, 0, 0];
+            }
+        });
+        setLights(updated);
+    };
+
+    const handleCopy = (rgb) => {
+        copy(rgb).then();
+        setShowTooltip(true);
+        // eslint-disable-next-line max-len
+        setTimeout(() => setShowTooltip(false), 2000);
+    };
+
     const getSelectedGroups = () => {
         const groups = selectedLights.reduce((acc, eid) => {
             const light = lights[eid];
@@ -231,30 +247,146 @@ export default function LightStates() {
     const getLightFill = (light) => (light.state?.rgb_color ? `${light.state.rgb_color.join(', ')}` : '0, 0, 0');
 
     if (!loaded) {
-        return <CircularProgress />;
+        return <Grid item xs={12} sx={{ textAlign: 'center', marginTop: '30vh' }}><CircularProgress /></Grid>;
     }
     const lightGroups = getLightsByGroup();
     return (
         <Grid item xs={12}>
             <Typography
                 variant="h5"
+                component="div"
                 noWrap
                 sx={{
                     flexGrow: 1,
                     margin: '15px 0',
                 }}
-                component="div"
             >
                 Light States
             </Typography>
+
+            <Drawer
+                sx={{
+                    width: 340,
+                    flexShrink: 0,
+                    '& .MuiDrawer-paper': {
+                        width: 340,
+                        marginTop: '56px',
+                        zIndex: 1100,
+                    },
+                }}
+                variant="persistent"
+                anchor="right"
+                open={open}
+            >
+                <div>
+                    <IconButton onClick={() => setOpen(false)}>
+                        <ChevronRightIcon />
+                    </IconButton>
+                </div>
+                <Divider />
+
+                <Stack spacing={2}>
+                    <Card>
+                        <CardHeader title="Show States" />
+                        <CardContent>
+                            <Stack spacing={2}>
+                                <FormControl fullWidth>
+                                    <InputLabel id="label-show-slot">Slot</InputLabel>
+                                    <Select
+                                        labelId="label-show-slot"
+                                        id="select-show-slot"
+                                        value={selectedShowSlot}
+                                        defaultValue=""
+                                        label="Slot"
+                                        onChange={(e) => setSelectedShowSlot(e.target.value)}
+                                    >
+                                        <MenuItem value="" key="current">Current</MenuItem>
+                                        {defaultSlots.map((s) => {
+                                            // eslint-disable-next-line max-len
+                                            let sceneSlot = null;
+                                            if (sceneSlots && sceneSlots.length) {
+                                                sceneSlot = sceneSlots.find((ss) => ss.slot === s);
+                                            }
+                                            return (
+                                                <MenuItem value={s} key={s}>{`${s}: ${sceneSlot?.scene || ''}`}</MenuItem>
+                                            );
+                                        })}
+                                    </Select>
+                                </FormControl>
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    size="large"
+                                    onClick={handleLoadSlot}
+                                >
+                                    Load
+                                </Button>
+                            </Stack>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader title="Save to Slot" />
+                        <CardContent>
+                            <Stack spacing={1}>
+                                Selected:
+                                <ul>
+                                    {
+                                        getSelectedGroups().map((group) => (
+                                            <li>{ group[0].group }</li>
+                                        ))
+                                    }
+                                </ul>
+
+                                <FormControl fullWidth>
+                                    <InputLabel id="label-slot">Slot</InputLabel>
+                                    <Select
+                                        labelId="label-slot"
+                                        id="select-slot"
+                                        value={selectedSlot}
+                                        label="Slot"
+                                        onChange={(e) => setSelectedSlot(e.target.value)}
+                                    >
+                                        {defaultSlots.map((s) => {
+                                            // eslint-disable-next-line max-len
+                                            const sceneSlot = sceneSlots.find((ss) => ss.slot === s);
+                                            return (
+                                                <MenuItem value={s} key={s}>{`${s}: ${sceneSlot.scene || ''}`}</MenuItem>
+                                            );
+                                        })}
+                                    </Select>
+                                </FormControl>
+                                <Button
+                                    variant="contained"
+                                    color={saving ? 'primary' : 'success'}
+                                    disabled={saving}
+                                    size="large"
+                                    onClick={handleSave}
+                                >
+                                    { saving ? 'SAVING...' : 'SAVE'}
+                                </Button>
+                            </Stack>
+                        </CardContent>
+                    </Card>
+                </Stack>
+            </Drawer>
+            <Fab
+                color={open ? '' : 'primary'}
+                size="small"
+                onClick={() => setOpen(!open)}
+                sx={{
+                    position: 'fixed', top: '65px', right: '13px', zIndex: 1101,
+                }}
+            >
+                <SettingsIcon />
+            </Fab>
             <Grid container item spacing={2}>
-                <Grid item xs={8}>
+                <Grid item xs={12} sm={8}>
                     <Grid container item spacing={2}>
                         {Object.values(lightGroups).map((group) => {
                             const light = group[0];
                             const fill = getLightFill(light);
                             return (
-                                <Grid item xs={6} sm={4} md={3} lg={2} key={`group-${light.group}`}>
+                                <Grid item xs={12} sm={4} md={3} lg={2} key={`group-${light.group}`}>
                                     <Paper
                                         square={false}
                                         elevation={3}
@@ -298,21 +430,52 @@ export default function LightStates() {
                                             >
                                                 {light.group}
                                             </Typography>
-                                            {group.map((lightDevice) => {
-                                                const lightFill = getLightFill(lightDevice);
-                                                return (
-                                                    <svg height="100" width="100" key={lightDevice.entity_id}>
-                                                        <circle
-                                                            cx="50"
-                                                            cy="50"
-                                                            r="40"
-                                                            stroke="transparent"
-                                                            strokeWidth="1"
-                                                            fill={`rgb(${lightFill})`}
-                                                        />
-                                                    </svg>
-                                                );
-                                            })}
+                                            <Grid container justifyContent="center">
+                                                {group.map((lightDevice) => {
+                                                    const lightFill = getLightFill(lightDevice);
+                                                    return (
+                                                        <Grid
+                                                            item
+                                                            xs={6}
+                                                            sx={{ cursor: 'pointer' }}
+                                                            onClick={() => {
+                                                                handleCopy(lightFill);
+                                                            }}
+                                                        >
+                                                            <Tooltip
+                                                                open={showTooltip}
+                                                                title="Copied!"
+                                                                followCursor
+                                                                PopperProps={{
+                                                                    disablePortal: true,
+                                                                }}
+                                                                onClose={
+                                                                    () => setShowTooltip(false)
+                                                                }
+                                                                disableFocusListener
+                                                                disableHoverListener
+                                                                disableTouchListener
+                                                            >
+                                                                <svg
+                                                                    width="100%"
+                                                                    height="auto"
+                                                                    viewBox="0 0 100 100"
+                                                                    key={lightDevice.entity_id}
+                                                                >
+                                                                    <circle
+                                                                        cx="50"
+                                                                        cy="50"
+                                                                        r="40"
+                                                                        stroke="transparent"
+                                                                        strokeWidth="1"
+                                                                        fill={`rgb(${lightFill})`}
+                                                                    />
+                                                                </svg>
+                                                            </Tooltip>
+                                                        </Grid>
+                                                    );
+                                                })}
+                                            </Grid>
                                             <Stack direction="row">
                                                 <TextField
                                                     hiddenLabel
@@ -355,53 +518,7 @@ export default function LightStates() {
                         })}
                     </Grid>
                 </Grid>
-                <Grid item xs={4}>
-                    <Stack>
-                        <Card>
-                            <CardHeader title="Save to Slot" />
-                            <CardContent>
-                                <Stack>
-                                    Selected:
-                                    <ul>
-                                        {
-                                            getSelectedGroups().map((group) => (
-                                                <li>{ group[0].group }</li>
-                                            ))
-                                        }
-                                    </ul>
-
-                                    <FormControl fullWidth>
-                                        <InputLabel id="label-slot">Slot</InputLabel>
-                                        <Select
-                                            labelId="label-slot"
-                                            id="select-slot"
-                                            value={selectedSlot}
-                                            label="Slot"
-                                            onChange={(e) => setSelectedSlot(e.target.value)}
-                                        >
-                                            {defaultSlots.map((s) => {
-                                                // eslint-disable-next-line max-len
-                                                const sceneSlot = sceneSlots.find((ss) => ss.slot === s);
-                                                return (
-                                                    <MenuItem value={s} key={s}>{`${s}: ${sceneSlot.scene || ''}`}</MenuItem>
-                                                );
-                                            })}
-                                        </Select>
-                                    </FormControl>
-                                    <Button
-                                        variant="contained"
-                                        color={saving ? 'primary' : 'success'}
-                                        disabled={saving}
-                                        size="large"
-                                        onClick={handleSave}
-                                    >
-                                        { saving ? 'SAVING...' : 'SAVE'}
-                                    </Button>
-                                </Stack>
-                            </CardContent>
-                        </Card>
-                    </Stack>
-                </Grid>
+                <Grid item xs={12} sm={4} />
             </Grid>
         </Grid>
     );
