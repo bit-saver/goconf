@@ -1,5 +1,5 @@
 export const asyncTimeout = (ms) => new Promise((resolve) => {
-    setTimeout(resolve, ms);
+  setTimeout(resolve, ms);
 });
 
 export const getHbApiUrl = (path) => `http://raspi.local:5654/http://raspi.local:8581/${path.replace(/^\/+/, '')}`;
@@ -9,41 +9,41 @@ export const getHaApiUrl = (path) => `https://raspity.duckdns.org/api/${path.rep
 export const getApiUrl = (path) => `http://raspi.local:8080/api/${path.replace(/^\/+/, '')}`;
 
 export const rgbToHex = (rgbColor) => {
-    // Choose correct separator
-    const sep = ', ';
-    // Turn "rgb(r,g,b)" into [r,g,b]
-    const rgb = rgbColor.split(sep);
+  // Choose correct separator
+  const sep = ', ';
+  // Turn "rgb(r,g,b)" into [r,g,b]
+  const rgb = rgbColor.split(sep);
 
-    let r = (+rgb[0]).toString(16);
-    let g = (+rgb[1]).toString(16);
-    let b = (+rgb[2]).toString(16);
+  let r = (+rgb[0]).toString(16);
+  let g = (+rgb[1]).toString(16);
+  let b = (+rgb[2]).toString(16);
 
-    if (r.length === 1) r = `0${r}`;
-    if (g.length === 1) g = `0${g}`;
-    if (b.length === 1) b = `0${b}`;
+  if (r.length === 1) r = `0${r}`;
+  if (g.length === 1) g = `0${g}`;
+  if (b.length === 1) b = `0${b}`;
 
-    return `#${r}${g}${b}`;
+  return `#${r}${g}${b}`;
 };
 
 export const hexToRgb = (hex) => {
-    let r = 0;
-    let g = 0;
-    let b = 0;
+  let r = 0;
+  let g = 0;
+  let b = 0;
 
-    // 3 digits
-    if (hex.length === 4) {
-        r = `0x${hex[1]}${hex[1]}`;
-        g = `0x${hex[2]}${hex[2]}`;
-        b = `0x${hex[3]}${hex[3]}`;
+  // 3 digits
+  if (hex.length === 4) {
+    r = `0x${hex[1]}${hex[1]}`;
+    g = `0x${hex[2]}${hex[2]}`;
+    b = `0x${hex[3]}${hex[3]}`;
 
-        // 6 digits
-    } else if (hex.length === 7) {
-        r = `0x${hex[1]}${hex[2]}`;
-        g = `0x${hex[3]}${hex[4]}`;
-        b = `0x${hex[5]}${hex[6]}`;
-    }
+    // 6 digits
+  } else if (hex.length === 7) {
+    r = `0x${hex[1]}${hex[2]}`;
+    g = `0x${hex[3]}${hex[4]}`;
+    b = `0x${hex[5]}${hex[6]}`;
+  }
 
-    return [+r, +g, +b];
+  return [+r, +g, +b];
 };
 
 // eslint-disable-next-line max-len
@@ -56,150 +56,150 @@ export const GOVEE_TOKEN_KEY = 'govee_token';
 export const HA_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4Mzc1NjA4MTg5ZTI0NTg5OTI4OGM1MDg0NjEwNzNkMyIsImlhdCI6MTY5MjE4OTYwMiwiZXhwIjoyMDA3NTQ5NjAyfQ.DV9uQrZ7oA3eNsSSNqhs1vWLEmj5xG68AOyDgLnpEtE';
 
 export const defaultSlots = [
-    'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
-    'diyMode', 'diyModeTwo', 'diyModeThree', 'diyModeFour',
-    'segmented', 'segmentedTwo', 'segmentedThree', 'segmentedFour',
-    'musicMode', 'musicModeTwo', 'videoMode', 'videoModeTwo',
+  'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
+  'diyMode', 'diyModeTwo', 'diyModeThree', 'diyModeFour',
+  'segmented', 'segmentedTwo', 'segmentedThree', 'segmentedFour',
+  'musicMode', 'musicModeTwo', 'videoMode', 'videoModeTwo',
 ];
 
 export const rgbModels = [
-    'H6002',
-    'H6003',
-    'H6006',
-    'H6008',
-    'H6009',
-    'H6010',
-    'H601A',
-    'H601B',
-    'H6046',
-    'H6047',
-    'H6049',
-    'H604A',
-    'H604B',
-    'H604C',
-    'H604D',
-    'H6050',
-    'H6051',
-    'H6052',
-    'H6054',
-    'H6056',
-    'H6057',
-    'H6058',
-    'H6059',
-    'H605B',
-    'H605C',
-    'H605D',
-    'H6061',
-    'H6062',
-    'H6065',
-    'H6066',
-    'H6067',
-    'H6071',
-    'H6072',
-    'H6073',
-    'H6075',
-    'H6076',
-    'H6078',
-    'H6083',
-    'H6085',
-    'H6086',
-    'H6087',
-    'H6088',
-    'H6089',
-    'H6091',
-    'H60A0',
-    'H6104',
-    'H6109',
-    'H610A',
-    'H610B',
-    'H6110',
-    'H6117',
-    'H611A',
-    'H611B',
-    'H611C',
-    'H611Z',
-    'H6121',
-    'H6135',
-    'H6137',
-    'H6141',
-    'H6142',
-    'H6143',
-    'H6144',
-    'H6148',
-    'H614A',
-    'H614B',
-    'H614C',
-    'H614D',
-    'H614E',
-    'H6154',
-    'H6159',
-    'H615A',
-    'H615B',
-    'H615C',
-    'H615D',
-    'H615E',
-    'H6160',
-    'H6163',
-    'H6168',
-    'H6172',
-    'H6173',
-    'H6182',
-    'H6188',
-    'H618A',
-    'H618C',
-    'H618E',
-    'H618F',
-    'H6195',
-    'H6198',
-    'H6199',
-    'H619A',
-    'H619B',
-    'H619C',
-    'H619D',
-    'H619E',
-    'H619Z',
-    'H61A0',
-    'H61A1',
-    'H61A2',
-    'H61A3',
-    'H61A5',
-    'H61A8',
-    'H61B2',
-    'H61BA',
-    'H61BC',
-    'H61BE',
-    'H61C3',
-    'H61E0',
-    'H61E1',
-    'H6601',
-    'H6602',
-    'H6609',
-    'H7005',
-    'H7006',
-    'H7007',
-    'H7008',
-    'H7012',
-    'H7013',
-    'H7020',
-    'H7021',
-    'H7022',
-    'H7028',
-    'H7031',
-    'H7032',
-    'H7033',
-    'H7041',
-    'H7042',
-    'H7050',
-    'H7051',
-    'H7055',
-    'H705A',
-    'H705B',
-    'H705C',
-    'H7060',
-    'H7061',
-    'H7062',
-    'H7065',
-    'H7066',
-    'H70B1',
-    'HXXXX', // placeholder for LAN-only configured models
+  'H6002',
+  'H6003',
+  'H6006',
+  'H6008',
+  'H6009',
+  'H6010',
+  'H601A',
+  'H601B',
+  'H6046',
+  'H6047',
+  'H6049',
+  'H604A',
+  'H604B',
+  'H604C',
+  'H604D',
+  'H6050',
+  'H6051',
+  'H6052',
+  'H6054',
+  'H6056',
+  'H6057',
+  'H6058',
+  'H6059',
+  'H605B',
+  'H605C',
+  'H605D',
+  'H6061',
+  'H6062',
+  'H6065',
+  'H6066',
+  'H6067',
+  'H6071',
+  'H6072',
+  'H6073',
+  'H6075',
+  'H6076',
+  'H6078',
+  'H6083',
+  'H6085',
+  'H6086',
+  'H6087',
+  'H6088',
+  'H6089',
+  'H6091',
+  'H60A0',
+  'H6104',
+  'H6109',
+  'H610A',
+  'H610B',
+  'H6110',
+  'H6117',
+  'H611A',
+  'H611B',
+  'H611C',
+  'H611Z',
+  'H6121',
+  'H6135',
+  'H6137',
+  'H6141',
+  'H6142',
+  'H6143',
+  'H6144',
+  'H6148',
+  'H614A',
+  'H614B',
+  'H614C',
+  'H614D',
+  'H614E',
+  'H6154',
+  'H6159',
+  'H615A',
+  'H615B',
+  'H615C',
+  'H615D',
+  'H615E',
+  'H6160',
+  'H6163',
+  'H6168',
+  'H6172',
+  'H6173',
+  'H6182',
+  'H6188',
+  'H618A',
+  'H618C',
+  'H618E',
+  'H618F',
+  'H6195',
+  'H6198',
+  'H6199',
+  'H619A',
+  'H619B',
+  'H619C',
+  'H619D',
+  'H619E',
+  'H619Z',
+  'H61A0',
+  'H61A1',
+  'H61A2',
+  'H61A3',
+  'H61A5',
+  'H61A8',
+  'H61B2',
+  'H61BA',
+  'H61BC',
+  'H61BE',
+  'H61C3',
+  'H61E0',
+  'H61E1',
+  'H6601',
+  'H6602',
+  'H6609',
+  'H7005',
+  'H7006',
+  'H7007',
+  'H7008',
+  'H7012',
+  'H7013',
+  'H7020',
+  'H7021',
+  'H7022',
+  'H7028',
+  'H7031',
+  'H7032',
+  'H7033',
+  'H7041',
+  'H7042',
+  'H7050',
+  'H7051',
+  'H7055',
+  'H705A',
+  'H705B',
+  'H705C',
+  'H7060',
+  'H7061',
+  'H7062',
+  'H7065',
+  'H7066',
+  'H70B1',
+  'HXXXX', // placeholder for LAN-only configured models
 ];

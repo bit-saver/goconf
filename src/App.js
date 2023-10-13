@@ -9,35 +9,35 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 
 const darkTheme = createTheme({
-    palette: {
-        mode: 'dark',
-    },
+  palette: {
+    mode: 'dark',
+  },
 });
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Home />,
-    },
-    {
-        path: '/login',
-        element: <Login />,
-    },
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
 ]);
 
 function App() {
-    return (
-        <ThemeProvider theme={darkTheme}>
-            <CssBaseline />
-            <main style={{ margin: '15px' }}>
-                <ApiProvider>
-                    <ConfigProvider>
-                        <RouterProvider router={router} />
-                    </ConfigProvider>
-                </ApiProvider>
-            </main>
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <main style={{ margin: '15px' }}>
+        <ApiProvider>
+          <ConfigProvider>
+            <RouterProvider router={router} />
+          </ConfigProvider>
+        </ApiProvider>
+      </main>
+    </ThemeProvider>
+  );
 }
 
 export default App;

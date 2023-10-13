@@ -12,13 +12,13 @@ import ViewDevices from './ViewDevices';
 import LightStates from './LightStates';
 
 function Home() {
-    const { loaded, reloadConfig } = useContext(ConfigContext);
-    const { token, apiCheckAuth } = useContext(ApiContext);
-    const [page, setPage] = useState('addScene');
+  const { loaded, reloadConfig } = useContext(ConfigContext);
+  const { token, apiCheckAuth } = useContext(ApiContext);
+  const [page, setPage] = useState('addScene');
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    /*
+  /*
     1) Check HB token status
     2) If token is invalid, redirect to login
     3) Download HB Config
@@ -27,43 +27,43 @@ function Home() {
     6) Download scenes and parse data
     7) Upon completion of config, set config loaded and authenticated
      */
-    useEffect(() => {
-        apiCheckAuth().then((auth) => {
-            if (!auth) {
-                navigate('/login', { replace: true });
-            } else if (!loaded) {
-                reloadConfig().then();
-            }
-        });
-    }, [token, loaded]);
+  useEffect(() => {
+    apiCheckAuth().then((auth) => {
+      if (!auth) {
+        navigate('/login', { replace: true });
+      } else if (!loaded) {
+        reloadConfig().then();
+      }
+    });
+  }, [token, loaded]);
 
-    if (!token) {
-        return <Login />;
+  if (!token) {
+    return <Login />;
+  }
+
+  const getPage = () => {
+    switch (page) {
+    case 'addScene':
+      return <AddScene />;
+    case 'removeScene':
+      return <RemoveScene />;
+    case 'editSceneSlots':
+      return <EditSceneSlots />;
+    case 'viewDevices':
+      return <ViewDevices />;
+    case 'lightStates':
+      return <LightStates />;
+    default:
+      return <CircularProgress />;
     }
+  };
 
-    const getPage = () => {
-        switch (page) {
-        case 'addScene':
-            return <AddScene />;
-        case 'removeScene':
-            return <RemoveScene />;
-        case 'editSceneSlots':
-            return <EditSceneSlots />;
-        case 'viewDevices':
-            return <ViewDevices />;
-        case 'lightStates':
-            return <LightStates />;
-        default:
-            return <CircularProgress />;
-        }
-    };
-
-    return (
-        <Layout setPage={setPage}>
-            {loaded && getPage()}
-            {!loaded && <CircularProgress sx={{ marginTop: '30vh' }} />}
-        </Layout>
-    );
+  return (
+    <Layout setPage={setPage}>
+      {loaded && getPage()}
+      {!loaded && <CircularProgress sx={{ marginTop: '30vh' }} />}
+    </Layout>
+  );
 }
 
 export default Home;
