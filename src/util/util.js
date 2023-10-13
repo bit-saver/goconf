@@ -59,7 +59,7 @@ export const defaultSlots = [
     'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
     'diyMode', 'diyModeTwo', 'diyModeThree', 'diyModeFour',
     'segmented', 'segmentedTwo', 'segmentedThree', 'segmentedFour',
-    'musicMode', 'musicModeTwo', 'musicModeThree', 'musicModeFour',
+    'musicMode', 'musicModeTwo', 'videoMode', 'videoModeTwo',
 ];
 
 export const rgbModels = [

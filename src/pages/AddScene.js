@@ -15,13 +15,7 @@ import React, { useContext, useState } from 'react';
 import ListTable from '../components/ListTable';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
-
-export const defaultSlots = [
-    'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
-    'diyMode', 'diyModeTwo', 'diyModeThree', 'diyModeFour',
-    'segmented', 'segmentedTwo', 'segmentedThree', 'segmentedFour',
-    'musicMode', 'musicModeTwo', 'musicModeThree', 'musicModeFour',
-];
+import { defaultSlots } from '../util/util';
 
 function AddScene() {
     const { apiPost } = useContext(ApiContext);

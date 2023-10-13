@@ -25,7 +25,6 @@ import IconButton from '@mui/material/IconButton';
 import RestoreIcon from '@mui/icons-material/Restore';
 import CheckIcon from '@mui/icons-material/Check';
 import Drawer from '@mui/material/Drawer';
-import Divider from '@mui/material/Divider';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ApiContext from '../util/ApiContext';
@@ -74,18 +73,20 @@ const devices = {
 
 export default function LightStates() {
     const { defaultSlots, getSceneSlots } = useContext(ConfigContext);
-    const { haGetStates, haCallService, apiSaveScenes } = useContext(ApiContext);
+    const {
+        haGetStates, haCallService, haCallWebhook, apiSaveScenes,
+    } = useContext(ApiContext);
     const [, copy] = useCopy();
 
     const [originalStates, setOriginalStates] = useState({});
     const [loaded, setLoaded] = useState(false);
     const [lights, setLights] = useState({ ...devices });
-    const [sceneSlots, setSceneSlots] = useState({});
+    const [sceneSlots, setSceneSlots] = useState([]);
     const [selectedLights, setSelectedLights] = useState([]);
     const [selectedSlot, setSelectedSlot] = useState('');
-    const [selectedShowSlot, setSelectedShowSlot] = useState('');
+    const [selectedShowSlot, setSelectedShowSlot] = useState('current');
     const [saving, setSaving] = useState(false);
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [showTooltip, setShowTooltip] = useState(false);
 
     const getLightStates = async () => {
@@ -201,7 +202,7 @@ export default function LightStates() {
     };
 
     const handleLoadSlot = () => {
-        if (selectedShowSlot === '') {
+        if (selectedShowSlot === 'current') {
             const updated = Object.values(originalStates).reduce((acc, light) => {
                 acc[light.entity_id] = { ...light, state: { ...light.state } };
                 return acc;
@@ -225,11 +226,30 @@ export default function LightStates() {
         setLights(updated);
     };
 
+    const handleActivateScene = () => {
+        const sceneSlot = sceneSlots.find((ss) => ss.slot === selectedShowSlot);
+        if (!sceneSlot) return;
+        haCallWebhook('activate_view', { scene: sceneSlot.scene }).then().catch((err) => console.error(err));
+    };
+
     const handleCopy = (rgb) => {
         copy(rgb).then();
         setShowTooltip(true);
         // eslint-disable-next-line max-len
-        setTimeout(() => setShowTooltip(false), 2000);
+        setTimeout(() => setShowTooltip(false), 1000);
+    };
+
+    const handleClick = (e) => {
+        e.target.select();
+    };
+
+    const handleLightChange = (group) => (e) => {
+        const rgbStr = e.target.value;
+        const rgb = rgbStr.split(', ');
+        if (rgb.length !== 3 || !rgb[0] || !rgb[1] || !rgb[2]) {
+            return;
+        }
+        group.forEach((light) => updateLightState(light, rgb));
     };
 
     const getSelectedGroups = () => {
@@ -252,209 +272,227 @@ export default function LightStates() {
     const lightGroups = getLightsByGroup();
     return (
         <Grid item xs={12}>
-            <Typography
-                variant="h5"
-                component="div"
-                noWrap
-                sx={{
-                    flexGrow: 1,
-                    margin: '15px 0',
+            <Tooltip
+                open={showTooltip}
+                title="Copied!"
+                followCursor
+                PopperProps={{
+                    disablePortal: true,
                 }}
+                onClose={
+                    () => setShowTooltip(false)
+                }
+                disableFocusListener
+                disableHoverListener
+                disableTouchListener
             >
-                Light States
-            </Typography>
+                <Typography
+                    variant="h5"
+                    component="div"
+                    noWrap
+                    sx={{
+                        flexGrow: 1,
+                        margin: '15px 0',
+                    }}
+                >
+                    Light States
+                </Typography>
 
-            <Drawer
-                sx={{
-                    width: 340,
-                    flexShrink: 0,
-                    '& .MuiDrawer-paper': {
+                <Drawer
+                    sx={{
                         width: 340,
-                        marginTop: '56px',
-                        zIndex: 1100,
-                    },
-                }}
-                variant="persistent"
-                anchor="right"
-                open={open}
-            >
-                <div>
-                    <IconButton onClick={() => setOpen(false)}>
-                        <ChevronRightIcon />
-                    </IconButton>
-                </div>
-                <Divider />
+                        flexShrink: 0,
+                        '& .MuiDrawer-paper': {
+                            width: 340,
+                            marginTop: '64px',
+                            zIndex: 1100,
+                        },
+                    }}
+                    variant="persistent"
+                    anchor="right"
+                    open={open}
+                >
+                    {/* <div> */}
+                    {/*     <IconButton onClick={() => setOpen(false)}> */}
+                    {/*         <ChevronRightIcon /> */}
+                    {/*     </IconButton> */}
+                    {/* </div> */}
+                    {/* <Divider /> */}
 
-                <Stack spacing={2}>
-                    <Card>
-                        <CardHeader title="Show States" />
-                        <CardContent>
-                            <Stack spacing={2}>
-                                <FormControl fullWidth>
-                                    <InputLabel id="label-show-slot">Slot</InputLabel>
-                                    <Select
-                                        labelId="label-show-slot"
-                                        id="select-show-slot"
-                                        value={selectedShowSlot}
-                                        defaultValue=""
-                                        label="Slot"
-                                        onChange={(e) => setSelectedShowSlot(e.target.value)}
-                                    >
-                                        <MenuItem value="" key="current">Current</MenuItem>
-                                        {defaultSlots.map((s) => {
-                                            // eslint-disable-next-line max-len
-                                            let sceneSlot = null;
-                                            if (sceneSlots && sceneSlots.length) {
-                                                sceneSlot = sceneSlots.find((ss) => ss.slot === s);
-                                            }
-                                            return (
-                                                <MenuItem value={s} key={s}>{`${s}: ${sceneSlot?.scene || ''}`}</MenuItem>
-                                            );
-                                        })}
-                                    </Select>
-                                </FormControl>
-                                <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    size="large"
-                                    onClick={handleLoadSlot}
-                                >
-                                    Load
-                                </Button>
-                            </Stack>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader title="Save to Slot" />
-                        <CardContent>
-                            <Stack spacing={1}>
-                                Selected:
-                                <ul>
-                                    {
-                                        getSelectedGroups().map((group) => (
-                                            <li>{ group[0].group }</li>
-                                        ))
-                                    }
-                                </ul>
-
-                                <FormControl fullWidth>
-                                    <InputLabel id="label-slot">Slot</InputLabel>
-                                    <Select
-                                        labelId="label-slot"
-                                        id="select-slot"
-                                        value={selectedSlot}
-                                        label="Slot"
-                                        onChange={(e) => setSelectedSlot(e.target.value)}
-                                    >
-                                        {defaultSlots.map((s) => {
-                                            // eslint-disable-next-line max-len
-                                            const sceneSlot = sceneSlots.find((ss) => ss.slot === s);
-                                            return (
-                                                <MenuItem value={s} key={s}>{`${s}: ${sceneSlot.scene || ''}`}</MenuItem>
-                                            );
-                                        })}
-                                    </Select>
-                                </FormControl>
-                                <Button
-                                    variant="contained"
-                                    color={saving ? 'primary' : 'success'}
-                                    disabled={saving}
-                                    size="large"
-                                    onClick={handleSave}
-                                >
-                                    { saving ? 'SAVING...' : 'SAVE'}
-                                </Button>
-                            </Stack>
-                        </CardContent>
-                    </Card>
-                </Stack>
-            </Drawer>
-            <Fab
-                color={open ? '' : 'primary'}
-                size="small"
-                onClick={() => setOpen(!open)}
-                sx={{
-                    position: 'fixed', top: '65px', right: '13px', zIndex: 1101,
-                }}
-            >
-                <SettingsIcon />
-            </Fab>
-            <Grid container item spacing={2}>
-                <Grid item xs={12} sm={8}>
-                    <Grid container item spacing={2}>
-                        {Object.values(lightGroups).map((group) => {
-                            const light = group[0];
-                            const fill = getLightFill(light);
-                            return (
-                                <Grid item xs={12} sm={4} md={3} lg={2} key={`group-${light.group}`}>
-                                    <Paper
-                                        square={false}
-                                        elevation={3}
-                                        sx={{
-                                            textAlign: 'center',
-                                            justifyContent: 'center',
-                                            padding: '15px 10px 20px',
-                                            position: 'relative',
-                                        }}
-                                    >
-                                        <Checkbox
-                                            sx={{
-                                                position: 'absolute',
-                                                top: 9,
-                                                left: 5,
-                                            }}
-                                            onChange={() => handleLightCheck(light.group)}
-                                            checked={selectedLights.includes(light.entity_id)}
-                                        />
-                                        <IconButton
-                                            aria-label="restore"
-                                            sx={{
-                                                position: 'absolute',
-                                                top: 9,
-                                                right: 5,
-                                            }}
-                                            onClick={() => restoreGroup(group)}
+                    <Stack spacing={2}>
+                        <Card>
+                            <CardHeader title="Load/Activate States" />
+                            <CardContent>
+                                <Stack spacing={2}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="label-show-slot">Slot</InputLabel>
+                                        <Select
+                                            labelId="label-show-slot"
+                                            id="select-show-slot"
+                                            value={selectedShowSlot}
+                                            label="Slot"
+                                            onChange={(e) => setSelectedShowSlot(e.target.value)}
                                         >
-                                            <RestoreIcon />
-                                        </IconButton>
-                                        <Stack alignItems="center">
-                                            <Typography
-                                                variant="h6"
-                                                noWrap
+                                            <MenuItem value="current" key="current">Current</MenuItem>
+                                            {defaultSlots.map((s) => {
+                                            // eslint-disable-next-line max-len
+                                                let sceneSlot = null;
+                                                if (sceneSlots && sceneSlots.length) {
+                                                    sceneSlot = sceneSlots.find(
+                                                        (ss) => ss.slot === s,
+                                                    );
+                                                }
+                                                return (
+                                                    <MenuItem value={s} key={s}>{`${s}: ${sceneSlot?.scene || ''}`}</MenuItem>
+                                                );
+                                            })}
+                                        </Select>
+                                    </FormControl>
+                                    <Stack spacing={1} direction="row" justifyContent="space-between">
+                                        <Button
+                                            variant="contained"
+                                            color="secondary"
+                                            size="large"
+                                            onClick={handleActivateScene}
+                                            sx={{ width: '50%' }}
+                                        >
+                                            Activate Scene
+                                        </Button>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            size="large"
+                                            onClick={handleLoadSlot}
+                                            sx={{ width: '50%' }}
+                                        >
+                                            Load States
+                                        </Button>
+                                    </Stack>
+                                </Stack>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader title="Save to Slot" />
+                            <CardContent>
+                                <Stack spacing={1}>
+                                    <div style={{ marginBottom: '15px' }}>
+                                        Selected:
+                                        <ul>
+                                            {
+                                                getSelectedGroups().map((group) => (
+                                                    <li>{ group[0].group }</li>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
+
+                                    <FormControl fullWidth>
+                                        <InputLabel id="label-slot">Slot</InputLabel>
+                                        <Select
+                                            labelId="label-slot"
+                                            id="select-slot"
+                                            value={selectedSlot}
+                                            label="Slot"
+                                            onChange={(e) => setSelectedSlot(e.target.value)}
+                                        >
+                                            {defaultSlots.map((s) => {
+                                            // eslint-disable-next-line max-len
+                                                const sceneSlot = sceneSlots.find((ss) => ss.slot === s);
+                                                return (
+                                                    <MenuItem value={s} key={s}>{`${s}: ${sceneSlot.scene || ''}`}</MenuItem>
+                                                );
+                                            })}
+                                        </Select>
+                                    </FormControl>
+                                    <Button
+                                        variant="contained"
+                                        color={saving ? 'primary' : 'success'}
+                                        disabled={saving}
+                                        size="large"
+                                        onClick={handleSave}
+                                    >
+                                        { saving ? 'SAVING...' : 'SAVE'}
+                                    </Button>
+                                </Stack>
+                            </CardContent>
+                        </Card>
+                    </Stack>
+                </Drawer>
+                <Fab
+                    color={open ? '' : 'primary'}
+                    size="small"
+                    onClick={() => setOpen(!open)}
+                    sx={{
+                        position: 'fixed', top: '65px', right: '13px', zIndex: 1101,
+                    }}
+                >
+                    {open && <ChevronRightIcon />}
+                    {!open && <SettingsIcon />}
+                </Fab>
+                <Grid container item spacing={2}>
+                    <Grid item xs={12} sm={8}>
+                        <Grid container item spacing={2}>
+                            {Object.values(lightGroups).map((group) => {
+                                const light = group[0];
+                                const fill = getLightFill(light);
+                                return (
+                                    <Grid item xs={12} sm={4} md={3} lg={2} key={`group-${light.group}`}>
+                                        <Paper
+                                            square={false}
+                                            elevation={3}
+                                            sx={{
+                                                textAlign: 'center',
+                                                justifyContent: 'center',
+                                                padding: '15px 10px 20px',
+                                                position: 'relative',
+                                            }}
+                                        >
+                                            <Checkbox
                                                 sx={{
-                                                    flexGrow: 1,
-                                                    cursor: 'pointer',
+                                                    position: 'absolute',
+                                                    top: 9,
+                                                    left: 5,
                                                 }}
-                                                component="div"
-                                                onClick={() => handleLightCheck(light.entity_id)}
+                                                onChange={() => handleLightCheck(light.group)}
+                                                checked={selectedLights.includes(light.entity_id)}
+                                            />
+                                            <IconButton
+                                                aria-label="restore"
+                                                sx={{
+                                                    position: 'absolute',
+                                                    top: 9,
+                                                    right: 5,
+                                                }}
+                                                onClick={() => restoreGroup(group)}
                                             >
-                                                {light.group}
-                                            </Typography>
-                                            <Grid container justifyContent="center">
-                                                {group.map((lightDevice) => {
-                                                    const lightFill = getLightFill(lightDevice);
-                                                    return (
-                                                        <Grid
-                                                            item
-                                                            xs={6}
-                                                            sx={{ cursor: 'pointer' }}
-                                                            onClick={() => {
-                                                                handleCopy(lightFill);
-                                                            }}
-                                                        >
-                                                            <Tooltip
-                                                                open={showTooltip}
-                                                                title="Copied!"
-                                                                followCursor
-                                                                PopperProps={{
-                                                                    disablePortal: true,
+                                                <RestoreIcon />
+                                            </IconButton>
+                                            <Stack alignItems="center">
+                                                <Typography
+                                                    variant="h6"
+                                                    noWrap
+                                                    sx={{
+                                                        flexGrow: 1,
+                                                        cursor: 'pointer',
+                                                    }}
+                                                    component="div"
+                                                    onClick={
+                                                        () => handleLightCheck(light.entity_id)
+                                                    }
+                                                >
+                                                    {light.group}
+                                                </Typography>
+                                                <Grid container justifyContent="center">
+                                                    {group.map((lightDevice) => {
+                                                        const lightFill = getLightFill(lightDevice);
+                                                        return (
+                                                            <Grid
+                                                                item
+                                                                xs={6}
+                                                                sx={{ cursor: 'pointer' }}
+                                                                onClick={() => {
+                                                                    handleCopy(lightFill);
                                                                 }}
-                                                                onClose={
-                                                                    () => setShowTooltip(false)
-                                                                }
-                                                                disableFocusListener
-                                                                disableHoverListener
-                                                                disableTouchListener
                                                             >
                                                                 <svg
                                                                     width="100%"
@@ -471,55 +509,57 @@ export default function LightStates() {
                                                                         fill={`rgb(${lightFill})`}
                                                                     />
                                                                 </svg>
-                                                            </Tooltip>
-                                                        </Grid>
-                                                    );
-                                                })}
-                                            </Grid>
-                                            <Stack direction="row">
-                                                <TextField
-                                                    hiddenLabel
-                                                    id={light.group}
-                                                    variant="filled"
-                                                    size="small"
-                                                    value={fill}
-                                                    sx={{ textAlign: 'center' }}
-                                                />
-                                                <IconButton
-                                                    size="small"
-                                                    color="primary"
-                                                    aria-label="apply"
-                                                    variant="outlined"
-                                                    onClick={() => applyColor(group)}
+                                                            </Grid>
+                                                        );
+                                                    })}
+                                                </Grid>
+                                                <Stack direction="row">
+                                                    <TextField
+                                                        hiddenLabel
+                                                        id={light.group}
+                                                        variant="filled"
+                                                        size="small"
+                                                        value={fill}
+                                                        sx={{ textAlign: 'center' }}
+                                                        onClick={handleClick}
+                                                        onChange={handleLightChange(group)}
+                                                    />
+                                                    <IconButton
+                                                        size="small"
+                                                        color="primary"
+                                                        aria-label="apply"
+                                                        variant="outlined"
+                                                        onClick={() => applyColor(group)}
+                                                    >
+                                                        <CheckIcon />
+                                                    </IconButton>
+                                                </Stack>
+                                                <Box sx={{
+                                                    width: '100%',
+                                                    padding: '25px 1px 1px',
+                                                }}
                                                 >
-                                                    <CheckIcon />
-                                                </IconButton>
+                                                    <Colorful
+                                                        color={rgbToHex(fill)}
+                                                        disableAlpha
+                                                        onChange={(color) => {
+                                                            const rgb = hexToRgb(color.hex);
+                                                            group.forEach((ld) => {
+                                                                updateLightState(ld, rgb);
+                                                            });
+                                                        }}
+                                                    />
+                                                </Box>
                                             </Stack>
-                                            <Box sx={{
-                                                width: '100%',
-                                                padding: '25px 1px 1px',
-                                            }}
-                                            >
-                                                <Colorful
-                                                    color={rgbToHex(fill)}
-                                                    disableAlpha
-                                                    onChange={(color) => {
-                                                        const rgb = hexToRgb(color.hex);
-                                                        group.forEach((ld) => {
-                                                            updateLightState(ld, rgb);
-                                                        });
-                                                    }}
-                                                />
-                                            </Box>
-                                        </Stack>
-                                    </Paper>
-                                </Grid>
-                            );
-                        })}
+                                        </Paper>
+                                    </Grid>
+                                );
+                            })}
+                        </Grid>
                     </Grid>
+                    <Grid item xs={12} sm={4} />
                 </Grid>
-                <Grid item xs={12} sm={4} />
-            </Grid>
+            </Tooltip>
         </Grid>
     );
 }

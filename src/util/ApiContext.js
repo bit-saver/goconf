@@ -56,6 +56,14 @@ export function ApiProvider({ children }) {
         },
     });
 
+    const haCallWebhook = async (hook, data) => axios.post(getHaApiUrl(`webhook/${hook}`), data, {
+        headers: {
+            Accept: 'application/json',
+            'Content-type': 'application/json; charset=UTF-8',
+            Authorization: `Bearer ${HA_TOKEN}`,
+        },
+    });
+
     const checkAuthError = (error) => {
         if ([401, 403].includes(error?.response?.status)) {
             console.warn('AUTH ERROR');
@@ -155,6 +163,7 @@ export function ApiProvider({ children }) {
         apiCheckAuth,
         haGetStates,
         haCallService,
+        haCallWebhook,
         gvGetToken,
         gvGetScenes,
     }), [
@@ -163,7 +172,7 @@ export function ApiProvider({ children }) {
         authenticated, setAuthenticated,
         apiGet, apiPost, apiPut,
         apiGetScenes, apiSaveScenes, apiCheckAuth,
-        haGetStates, haCallService,
+        haGetStates, haCallService, haCallWebhook,
     ]);
 
     return (

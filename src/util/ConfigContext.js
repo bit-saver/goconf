@@ -67,34 +67,12 @@ export function ConfigProvider({ children }) {
         const scenes = {};
         const devices = {};
 
-        // eslint-disable-next-line max-len
-        // const { data: log } = await apiGet('/api/platform-tools/hb-service/log/download?colour=no');
-        // const matches = [...log.matchAll(/\[Govee] \[([\w ]+)] \[([\w ]+)] \[AWS] (.+)(?=\n)/g)];
-        // console.log('matches', matches);
-        // // 1 device, 2 scene name (tap to run), 3 scene id (aws)
-        // const sceneNameIds = {};
-        // matches.forEach((match) => {
-        //     const matchDevice = match[1].trim();
-        //     const matchScene = match[2].trim();
-        //     const matchCode = match[3].trim();
-        //     if (!devices[matchDevice]) {
-        //         devices[matchDevice] = { name: matchDevice, scenes: {} };
-        //     }
-        //     devices[matchDevice].scenes[matchScene] = matchCode;
-        //     if (!scenes[matchScene]) {
-        //         scenes[matchScene] = { name: matchScene, devices: {} };
-        //     }
-        //     scenes[matchScene].devices[matchDevice] = matchCode;
-        //     sceneNameIds[matchCode] = matchScene;
-        // });
-
         /*
         1) Try using existing token to get scenes
         2) If failed, renew token by using auth login
         3) Retry getting scenes
          */
         let ttrScenes = await getGoveeScenes();
-        console.log('ttrScenes', ttrScenes);
         if (!ttrScenes) {
             const ttrToken = await gvGetToken(config.username, config.password)
                 .catch(() => null);
@@ -206,18 +184,6 @@ export function ConfigProvider({ children }) {
         } while (status !== 'up');
         setRestarting(false);
     };
-
-    // useEffect(() => {
-    //     console.log('loading config...', token, goveeConfig, loaded);
-    //     if (token && !goveeConfig && !loaded) {
-    //         loadConfig().then(() => {
-    //             console.log('config loaded');
-    //             setLoaded(true);
-    //         }).catch((err) => {
-    //             console.warn('Error occurred while loading config...', err);
-    //         });
-    //     }
-    // }, [token, goveeConfig, loaded]);
 
     const reloadConfig = async () => {
         console.log('REloading config...');
