@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -22,7 +23,7 @@ import ConfigContext from '../util/ConfigContext';
 
 const drawerWidth = 240;
 
-export default function Layout({ children, setPage }) {
+export default function Layout({ children }) {
   const {
     restarting, restartHomebridge,
   } = useContext(ConfigContext);
@@ -30,11 +31,6 @@ export default function Layout({ children, setPage }) {
   const theme = useTheme();
 
   const [open, setOpen] = useState(false);
-
-  const handlePage = (toPage) => {
-    setPage(toPage);
-    setOpen(false);
-  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -48,7 +44,7 @@ export default function Layout({ children, setPage }) {
     { label: 'Add Scene', slug: 'addScene' },
     { label: 'Remove Scene', slug: 'removeScene' },
     { label: 'Edit Scene Slots', slug: 'editSceneSlots' },
-    { label: 'View Devices', slug: 'viewDevices' },
+    { label: 'View Devices', slug: 'devices' },
   ];
 
   const DrawerHeader = styled('div')(() => ({
@@ -59,16 +55,6 @@ export default function Layout({ children, setPage }) {
     ...theme.mixins.toolbar,
     justifyContent: 'flex-start',
   }));
-
-  // useEffect(() => {
-  //     if (!loaded && token) {
-  //         reloadConfig().then();
-  //     }
-  // }, [token, loaded]);
-  //
-  // if (!token) {
-  //     return <Navigate to="/login" state={{ from: location }} replace />;
-  // }
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -120,11 +106,13 @@ export default function Layout({ children, setPage }) {
         <Divider />
         <List>
           {pages.map(({ label, slug }) => (
-            <ListItem key={slug} disablePadding>
-              <ListItemButton onClick={() => handlePage(slug)}>
-                <ListItemText primary={label} />
-              </ListItemButton>
-            </ListItem>
+            <Link to={`/${slug}`}>
+              <ListItem key={slug} disablePadding to={`/${slug}`}>
+                <ListItemButton>
+                  <ListItemText primary={label} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
           ))}
           <ListItem key="restart">
             <Button
@@ -141,11 +129,13 @@ export default function Layout({ children, setPage }) {
         </List>
         <Divider />
         <List>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => handlePage('lightStates')}>
-              <ListItemText primary="Light States" />
-            </ListItemButton>
-          </ListItem>
+          <Link to="lightStates">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemText primary="Light States" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
     </Box>

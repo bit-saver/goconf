@@ -60,15 +60,6 @@ const devices = {
   'light.hall_2': {
     label: 'Hall 2', entity_id: 'light.hall_2', state: null, group: 'Hall',
   },
-  'light.office_1': {
-    label: 'Office 1', entity_id: 'light.office_1', state: null, group: 'Office',
-  },
-  'light.office_2': {
-    label: 'Office 2', entity_id: 'light.office_2', state: null, group: 'Office',
-  },
-  'light.office_3': {
-    label: 'Office 3', entity_id: 'light.office_3', state: null, group: 'Office',
-  },
 };
 
 export default function LightStates() {
@@ -436,7 +427,7 @@ export default function LightStates() {
                 const light = group[0];
                 const fill = getLightFill(light);
                 return (
-                  <Grid item xs={12} sm={4} md={3} lg={2} key={`group-${light.group}`}>
+                  <Grid item xs={12} sm={6} md={4} lg={3} key={`group-${light.group}`}>
                     <Paper
                       square={false}
                       elevation={3}
@@ -535,20 +526,26 @@ export default function LightStates() {
                           </IconButton>
                         </Stack>
                         <Box sx={{
-                          width: '100%',
+                          width: '80%',
                           padding: '25px 1px 1px',
                         }}
                         >
-                          <Colorful
-                            color={rgbToHex(fill)}
-                            disableAlpha
-                            onChange={(color) => {
-                              const rgb = hexToRgb(color.hex);
-                              group.forEach((ld) => {
-                                updateLightState(ld, rgb);
-                              });
+                          <div style={{ position: 'relative' }}>
+                            <Colorful
+                              color={rgbToHex(fill)}
+                              disableAlpha
+                              onChange={(color) => {
+                                const rgb = hexToRgb(color.hex);
+                                group.forEach((ld) => {
+                                  updateLightState(ld, rgb);
+                                });
+                              }}
+                            />
+                            <div style={{
+                              position: 'absolute', right: '-55px', top: 0, height: '100%', width: '62px', zIndex: 9999, backgroundColor: 'transparent',
                             }}
-                          />
+                            />
+                          </div>
                         </Box>
                       </Stack>
                     </Paper>

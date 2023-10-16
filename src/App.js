@@ -7,6 +7,11 @@ import { ConfigProvider } from './util/ConfigContext';
 import Login from './pages/Login';
 // import Layout from './pages/Layout';
 import Home from './pages/Home';
+import LightStates from './pages/LightStates';
+import ViewDevices from './pages/ViewDevices';
+import AddScene from './pages/AddScene';
+import RemoveScene from './pages/RemoveScene';
+import EditSceneSlots from './pages/EditSceneSlots';
 
 const darkTheme = createTheme({
   palette: {
@@ -16,12 +21,37 @@ const darkTheme = createTheme({
 
 const router = createBrowserRouter([
   {
-    path: '/',
     element: <Home />,
-  },
-  {
-    path: '/login',
-    element: <Login />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/addScene',
+        element: <AddScene />,
+      },
+      {
+        path: '/removeScene',
+        element: <RemoveScene />,
+      },
+      {
+        path: '/editSceneSlots',
+        element: <EditSceneSlots />,
+      },
+      {
+        path: '/devices',
+        element: <ViewDevices />,
+      },
+      {
+        path: '/lightStates',
+        element: <LightStates />,
+      },
+    ],
   },
 ]);
 
