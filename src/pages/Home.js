@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { CircularProgress } from '@mui/material';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import ApiContext from '../util/ApiContext';
 import Layout from './Layout';
 import ConfigContext from '../util/ConfigContext';
@@ -14,7 +14,10 @@ function Home() {
   const { loaded, reloadConfig } = useContext(ConfigContext);
   const { token, apiCheckAuth } = useContext(ApiContext);
 
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const onLogin = location.pathname === '/login';
 
   /*
     1) Check HB token status
@@ -27,7 +30,8 @@ function Home() {
      */
   useEffect(() => {
     apiCheckAuth().then((auth) => {
-      if (!auth) {
+      console.log('auth', auth);
+      if (!onLogin && !auth) {
         navigate('/login', { replace: true });
       } else if (!loaded) {
         reloadConfig().then();
@@ -37,8 +41,8 @@ function Home() {
 
   return (
     <Layout>
-      {loaded && <Outlet />}
-      {!loaded && <CircularProgress sx={{ marginTop: '30vh' }} />}
+      {(onLogin || loaded) && <Outlet />}
+      {(!onLogin && !loaded) && <CircularProgress sx={{ marginTop: '30vh' }} />}
     </Layout>
   );
 }

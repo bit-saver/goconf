@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
-// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
@@ -20,10 +19,12 @@ import {
 } from '@mui/material';
 import { RestartAlt } from '@mui/icons-material';
 import ConfigContext from '../util/ConfigContext';
+import AlertContext from '../components/Alert';
 
 const drawerWidth = 240;
 
 export default function Layout({ children }) {
+  const { showAlert } = useContext(AlertContext);
   const {
     restarting, restartHomebridge,
   } = useContext(ConfigContext);
@@ -38,6 +39,13 @@ export default function Layout({ children }) {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleRestart = () => {
+    showAlert('info', 'Restarting Homebridge...');
+    restartHomebridge().then(() => {
+      showAlert('success', 'Homebridge restarted!');
+    });
   };
 
   const pages = [
@@ -106,8 +114,15 @@ export default function Layout({ children }) {
         <Divider />
         <List>
           {pages.map(({ label, slug }) => (
-            <Link to={`/${slug}`}>
-              <ListItem key={slug} disablePadding to={`/${slug}`}>
+            <Link
+              to={`/${slug}`}
+              key={slug}
+              onClick={(e) => {
+                setOpen(false);
+                return e;
+              }}
+            >
+              <ListItem disablePadding to={`/${slug}`}>
                 <ListItemButton>
                   <ListItemText primary={label} />
                 </ListItemButton>
@@ -119,17 +134,33 @@ export default function Layout({ children }) {
               size="large"
               variant="contained"
               disabled={restarting}
-              onClick={restartHomebridge}
+              onClick={handleRestart}
               startIcon={restarting ? null : <RestartAlt />}
               sx={{ width: '100%' }}
             >
               {restarting ? <CircularProgress /> : 'RESTART HOMEBRIDGE'}
             </Button>
           </ListItem>
+          <ListItem key="alert">
+            <Button
+              size="large"
+              variant="contained"
+              onClick={() => showAlert('success', 'my message')}
+              sx={{ width: '100%' }}
+            >
+              Alert
+            </Button>
+          </ListItem>
         </List>
         <Divider />
         <List>
-          <Link to="lightStates">
+          <Link
+            to="/lightStates"
+            onClick={(e) => {
+              setOpen(false);
+              return e;
+            }}
+          >
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemText primary="Light States" />

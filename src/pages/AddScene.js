@@ -16,10 +16,12 @@ import ListTable from '../components/ListTable';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
 import { defaultSlots } from '../util/util';
+import AlertContext from '../components/Alert';
 
 function AddScene() {
   const { apiPost } = useContext(ApiContext);
   const { goveeConfig } = useContext(ConfigContext);
+  const { showAlert } = useContext(AlertContext);
 
   const { scenes, devices } = goveeConfig;
 
@@ -78,6 +80,7 @@ function AddScene() {
     setSelectedScene('');
     setSelectedSlot('');
     setSelectedDevices([]);
+    showAlert('success', 'Scene added!');
   };
 
   const saveDisabled = !selectedScene || !selectedSlot || selectedDevices.length < 1;

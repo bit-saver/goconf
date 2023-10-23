@@ -183,6 +183,7 @@ export function ConfigProvider({ children }) {
       status = result?.data?.status;
     } while (status !== 'up');
     setRestarting(false);
+    return Promise.resolve();
   };
 
   const reloadConfig = async () => {

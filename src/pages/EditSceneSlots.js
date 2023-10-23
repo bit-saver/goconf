@@ -12,10 +12,12 @@ import {
 import React, { useContext, useEffect, useState } from 'react';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
+import AlertContext from '../components/Alert';
 
 function EditSceneSlots() {
   const { getSceneSlots } = useContext(ConfigContext);
   const { token, apiSaveScenes } = useContext(ApiContext);
+  const { showAlert } = useContext(AlertContext);
   const [sceneSlots, setSceneSlots] = useState([]);
   const [saving, setSaving] = useState(false);
 
@@ -36,6 +38,7 @@ function EditSceneSlots() {
     const result = await apiSaveScenes(sceneSlots);
     console.log('scene slot save result:', result);
     setSaving(false);
+    showAlert('success', 'Slots updated!');
   };
 
   const handleScene = (slot) => (e) => {

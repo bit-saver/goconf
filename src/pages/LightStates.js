@@ -8,7 +8,7 @@ import {
   Checkbox,
   CircularProgress,
   Fab,
-  FormControl,
+  FormControl, FormControlLabel,
   Grid,
   InputLabel,
   MenuItem,
@@ -31,6 +31,7 @@ import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
 import { checkSubset, hexToRgb, rgbToHex } from '../util/util';
 import useCopy from '../util/useCopy';
+import AlertContext from '../components/Alert';
 
 const devices = {
   'light.lamp': {
@@ -67,6 +68,7 @@ export default function LightStates() {
   const {
     haGetStates, haCallService, haCallWebhook, apiSaveScenes,
   } = useContext(ApiContext);
+  const { showAlert } = useContext(AlertContext);
   const [, copy] = useCopy();
 
   const [originalStates, setOriginalStates] = useState({});
@@ -76,6 +78,7 @@ export default function LightStates() {
   const [selectedLights, setSelectedLights] = useState([]);
   const [selectedSlot, setSelectedSlot] = useState('');
   const [selectedShowSlot, setSelectedShowSlot] = useState('current');
+  const [removeExisting, setRemoveExisting] = useState(false);
   const [saving, setSaving] = useState(false);
   const [open, setOpen] = useState(true);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -171,10 +174,15 @@ export default function LightStates() {
     selectedLights.forEach((eid) => {
       const light = lights[eid];
       const rgb = light.state.rgb_color;
+      let ssLightIndex = -1;
       // either add a new light to the sceneSlot.lights or update the existing
-      const ssLightIndex = sceneSlots[sceneSlotIndex].lights.findIndex(
-        (ssLight) => ssLight.entity_id === eid,
-      );
+      if (removeExisting) {
+        sceneSlots[sceneSlotIndex].lights = [];
+      } else {
+        ssLightIndex = sceneSlots[sceneSlotIndex].lights.findIndex(
+          (ssLight) => ssLight.entity_id === eid,
+        );
+      }
       if (ssLightIndex > -1) {
         sceneSlots[sceneSlotIndex].lights[ssLightIndex].rgb_color = rgb;
       } else {
@@ -186,9 +194,11 @@ export default function LightStates() {
       }
     });
     setSceneSlots([...sceneSlots]);
+    console.log('updated scene slots', sceneSlots);
     const result = await apiSaveScenes(sceneSlots);
     console.log('scene slot save result:', result);
     setSaving(false);
+    showAlert('success', 'Light states updated!');
     return result;
   };
 
@@ -220,7 +230,12 @@ export default function LightStates() {
   const handleActivateScene = () => {
     const sceneSlot = sceneSlots.find((ss) => ss.slot === selectedShowSlot);
     if (!sceneSlot) return;
-    haCallWebhook('activate_view', { scene: sceneSlot.scene }).then().catch((err) => console.error(err));
+    haCallWebhook('activate_view', { scene: sceneSlot.scene }).then(() => {
+      showAlert('success', 'Scene activated!');
+    }).catch((err) => {
+      console.error(err);
+      showAlert('error', 'Error activating scene.');
+    });
   };
 
   const handleCopy = (rgb) => {
@@ -377,6 +392,7 @@ export default function LightStates() {
                     </ul>
                   </div>
 
+                  <FormControlLabel control={<Checkbox />} label="Remove existing states?" onChange={(e) => setRemoveExisting(e.target.checked)} />
                   <FormControl fullWidth>
                     <InputLabel id="label-slot">Slot</InputLabel>
                     <Select
@@ -390,7 +406,7 @@ export default function LightStates() {
                         // eslint-disable-next-line max-len
                         const sceneSlot = sceneSlots.find((ss) => ss.slot === s);
                         return (
-                          <MenuItem value={s} key={s}>{`${s}: ${sceneSlot.scene || ''}`}</MenuItem>
+                          <MenuItem value={s} key={s}>{`${s}: ${sceneSlot?.scene || ''}`}</MenuItem>
                         );
                       })}
                     </Select>
@@ -554,7 +570,6 @@ export default function LightStates() {
               })}
             </Grid>
           </Grid>
-          <Grid item xs={12} sm={4} />
         </Grid>
       </Tooltip>
     </Grid>

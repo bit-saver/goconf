@@ -12,6 +12,7 @@ import ViewDevices from './pages/ViewDevices';
 import AddScene from './pages/AddScene';
 import RemoveScene from './pages/RemoveScene';
 import EditSceneSlots from './pages/EditSceneSlots';
+import { Alert } from './components/Alert';
 
 const darkTheme = createTheme({
   palette: {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: <AddScene />,
       },
       {
         path: '/login',
@@ -62,7 +63,9 @@ function App() {
       <main style={{ margin: '15px' }}>
         <ApiProvider>
           <ConfigProvider>
-            <RouterProvider router={router} />
+            <Alert>
+              <RouterProvider router={router} />
+            </Alert>
           </ConfigProvider>
         </ApiProvider>
       </main>
