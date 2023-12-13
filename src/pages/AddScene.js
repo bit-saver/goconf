@@ -19,8 +19,8 @@ import { defaultSlots } from '../util/util';
 import AlertContext from '../components/Alert';
 
 function AddScene() {
-  const { apiPost } = useContext(ApiContext);
-  const { goveeConfig } = useContext(ConfigContext);
+  const { apiPost, apiSaveScenes } = useContext(ApiContext);
+  const { goveeConfig, getSceneSlots } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
   const { scenes, devices } = goveeConfig;
@@ -77,6 +77,15 @@ function AddScene() {
     const updatedConfig = { ...goveeConfig.config, lightDevices };
     const { data: result } = await apiPost('/api/config-editor/plugin/homebridge-govee', [updatedConfig]);
     console.log('save config result:', result);
+
+    const update = await getSceneSlots();
+    console.log('slot', selectedSlot, 'scene', selectedScene);
+    const index = update.findIndex((ss) => ss.slot === selectedSlot);
+    if (index > -1) {
+      update[index].scene = selectedScene;
+      await apiSaveScenes(update);
+    }
+
     setSelectedScene('');
     setSelectedSlot('');
     setSelectedDevices([]);

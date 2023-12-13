@@ -57,5 +57,13 @@ app.post('/api/saveScenes', (request, response) => {
     response.send(response.body);
 });
 
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, 'goconf', 'build', 'index.html'), err => {
+        if (err) {
+            console.log(err);
+        }
+    });
+});
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);

@@ -54,3 +54,17 @@ a {
   color: #fff;
   text-decoration: none;
 }
+
+.lightstates-drawer .MuiDrawer-paper {
+  /*margin-top: 56px !important;*/
+  top: 56px !important;
+  height: calc(100% - 56px);
+}
+
+@media only screen and (min-width: 600px) {
+  .lightstates-drawer .MuiDrawer-paper {
+    /*margin-top: 64px !important;*/
+    top: 64px !important;
+    height: calc(100% - 84px);
+  }
+}

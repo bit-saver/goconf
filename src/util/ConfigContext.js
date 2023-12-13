@@ -8,7 +8,7 @@ const ConfigContext = createContext(null);
 
 export function ConfigProvider({ children }) {
   const {
-    apiGet, apiPut, apiGetScenes, gvGetToken, gvGetScenes,
+    apiGet, apiPut, apiGetScenes, gvGetToken, gvGetScenes, token,
   } = useContext(ApiContext);
   const [goveeConfig, setGoveeConfig] = useState(null);
   const [loaded, setLoaded] = useState(false);
@@ -187,6 +187,10 @@ export function ConfigProvider({ children }) {
   };
 
   const reloadConfig = async () => {
+    if (!token) {
+      console.warn('Preventing reload config due to UNAUTHENTICATED TOKEN');
+      return null;
+    }
     console.log('REloading config...');
     setLoaded(false);
     await loadConfig().catch((err) => {

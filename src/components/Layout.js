@@ -19,7 +19,7 @@ import {
 } from '@mui/material';
 import { RestartAlt } from '@mui/icons-material';
 import ConfigContext from '../util/ConfigContext';
-import AlertContext from '../components/Alert';
+import AlertContext from './Alert';
 
 const drawerWidth = 240;
 
@@ -65,7 +65,7 @@ export default function Layout({ children }) {
   }));
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', margin: '30px' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -84,7 +84,7 @@ export default function Layout({ children }) {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Grid container spacing={4} justifyContent="center" sx={{ marginTop: '24px' }}>
+      <Grid container spacing={4} justifyContent="center" sx={{ marginTop: '4px' }}>
         { children }
       </Grid>
       <Drawer
@@ -139,16 +139,6 @@ export default function Layout({ children }) {
               sx={{ width: '100%' }}
             >
               {restarting ? <CircularProgress /> : 'RESTART HOMEBRIDGE'}
-            </Button>
-          </ListItem>
-          <ListItem key="alert">
-            <Button
-              size="large"
-              variant="contained"
-              onClick={() => showAlert('success', 'my message')}
-              sx={{ width: '100%' }}
-            >
-              Alert
             </Button>
           </ListItem>
         </List>

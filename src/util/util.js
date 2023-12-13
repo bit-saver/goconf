@@ -2,11 +2,11 @@ export const asyncTimeout = (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
 });
 
-export const getHbApiUrl = (path) => `http://raspi.local:5654/http://raspi.local:8581/${path.replace(/^\/+/, '')}`;
+export const getHbApiUrl = (path) => `http://raspi:5654/http://raspi:8581/${path.replace(/^\/+/, '')}`;
 
 export const getHaApiUrl = (path) => `https://raspity.duckdns.org/api/${path.replace(/^\/+/, '')}`;
 
-export const getApiUrl = (path) => `http://raspi.local:8080/api/${path.replace(/^\/+/, '')}`;
+export const getApiUrl = (path) => `http://raspi:8080/api/${path.replace(/^\/+/, '')}`;
 
 export const rgbToHex = (rgbColor) => {
   // Choose correct separator
@@ -71,6 +71,7 @@ export const rgbModels = [
   'H6010',
   'H601A',
   'H601B',
+  'H601C',
   'H6046',
   'H6047',
   'H6049',
@@ -94,6 +95,7 @@ export const rgbModels = [
   'H6065',
   'H6066',
   'H6067',
+  'H606A',
   'H6071',
   'H6072',
   'H6073',
@@ -105,8 +107,12 @@ export const rgbModels = [
   'H6086',
   'H6087',
   'H6088',
+  'H608A',
+  'H608B',
+  'H608C',
   'H6089',
   'H6091',
+  'H6092',
   'H60A0',
   'H6104',
   'H6109',
@@ -140,9 +146,11 @@ export const rgbModels = [
   'H615E',
   'H6160',
   'H6163',
+  'H6167',
   'H6168',
   'H6172',
   'H6173',
+  'H6176',
   'H6182',
   'H6188',
   'H618A',
@@ -168,7 +176,9 @@ export const rgbModels = [
   'H61BA',
   'H61BC',
   'H61BE',
+  'H61C2',
   'H61C3',
+  'H61C5',
   'H61E0',
   'H61E1',
   'H6601',
@@ -200,6 +210,10 @@ export const rgbModels = [
   'H7062',
   'H7065',
   'H7066',
+  'H706C',
+  'H70A1',
   'H70B1',
+  'H70C1',
+  'H70C2',
   'HXXXX', // placeholder for LAN-only configured models
 ];

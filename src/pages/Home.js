@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { CircularProgress } from '@mui/material';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import ApiContext from '../util/ApiContext';
-import Layout from './Layout';
+import Layout from '../components/Layout';
 import ConfigContext from '../util/ConfigContext';
 // import AddScene from './AddScene';
 // import RemoveScene from './RemoveScene';
@@ -31,11 +31,15 @@ function Home() {
   useEffect(() => {
     apiCheckAuth().then((auth) => {
       console.log('auth', auth);
-      if (!onLogin && !auth) {
+      if (!onLogin && (!auth || !token)) {
         navigate('/login', { replace: true });
       } else if (!loaded) {
+        console.log('[Home] reloading config...');
         reloadConfig().then();
       }
+    }).catch((err) => {
+      console.log('Auth check error', err);
+      navigate('/login', { replace: true });
     });
   }, [token, loaded]);
 

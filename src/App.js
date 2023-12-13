@@ -60,7 +60,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <main style={{ margin: '15px' }}>
+      <main style={{ margin: 0 }}>
         <ApiProvider>
           <ConfigProvider>
             <Alert>
