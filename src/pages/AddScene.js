@@ -11,7 +11,7 @@ import {
   Select,
   Stack,
 } from '@mui/material';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ListTable from '../components/ListTable';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
@@ -28,6 +28,18 @@ function AddScene() {
   const [selectedScene, setSelectedScene] = useState('');
   const [selectedSlot, setSelectedSlot] = useState('');
   const [selectedDevices, setSelectedDevices] = useState([]);
+
+  const [sceneSlots, setSceneSlots] = useState([]);
+
+  useEffect(() => {
+    getSceneSlots().then((result) => {
+      const sss = result.reduce((acc, ss) => {
+        acc[ss.slot] = ss.scene;
+        return acc;
+      }, {});
+      setSceneSlots(sss);
+    });
+  }, []);
 
   const handleSelectScene = (e) => {
     const scene = e.target.value;
@@ -123,7 +135,14 @@ function AddScene() {
               onChange={(e) => setSelectedSlot(e.target.value)}
             >
               {defaultSlots.map((s) => (
-                <MenuItem value={s} key={s}>{s}</MenuItem>
+                <MenuItem value={s} key={s}>
+                  <b>{s}</b>
+                  <small>
+                    &nbsp;(
+                    {sceneSlots[s]}
+                    )
+                  </small>
+                </MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -168,7 +187,15 @@ function AddScene() {
               })}
             </List>
           </Card>
-          <Button variant="contained" color="success" size="large" disabled={saveDisabled} onClick={handleSave}>SAVE</Button>
+          <Button
+            variant="contained"
+            color="success"
+            size="large"
+            disabled={saveDisabled}
+            onClick={handleSave}
+          >
+            SAVE
+          </Button>
         </Stack>
       </Grid>
     </Grid>

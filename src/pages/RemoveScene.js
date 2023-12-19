@@ -16,7 +16,11 @@ export default function RemoveScene() {
   const [selectedSlotScenes, setSelSlotScenes] = useState([]);
 
   const handleRemove = async () => {
-    const { lightDevices } = goveeConfig;
+    const { lightDevices } = goveeConfig.config;
+    if (!lightDevices) {
+      console.error('no light devices');
+      return;
+    }
     selectedSlotScenes.forEach(({ slotName, sceneName }) => {
       const devices = goveeConfig.configScenes[slotName][sceneName];
       devices.forEach((deviceName) => {
@@ -29,7 +33,7 @@ export default function RemoveScene() {
     const { config } = goveeConfig;
     config.lightDevices = lightDevices;
 
-    await apiPost('/api/config-editor/plugin/homebridge-govee', [config]).then((resp) => resp.json());
+    await apiPost('/api/config-editor/plugin/homebridge-govee', [config]).then((resp) => resp);
     await apiPut('/api/server/restart').then((resp) => resp);
     showAlert('success', 'Scene removed!');
   };
