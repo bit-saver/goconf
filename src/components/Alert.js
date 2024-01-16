@@ -48,7 +48,7 @@ export function Alert({ children }) {
         anchorOrigin={{ vertical: alert.vertical, horizontal: alert.horizontal }}
         open={alert.open}
         onClose={handleClose}
-        autoHideDuration={3000}
+        autoHideDuration={1500}
         key="snackbar-alert"
       >
         <MuiAlert onClose={handleClose} severity={alert.type} sx={{ width: '100%' }}>

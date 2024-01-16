@@ -26,7 +26,7 @@ const drawerWidth = 240;
 export default function Layout({ children }) {
   const { showAlert } = useContext(AlertContext);
   const {
-    restarting, restartHomebridge,
+    restarting, restartHomebridge, reloadConfig, loaded,
   } = useContext(ConfigContext);
 
   const theme = useTheme();
@@ -45,6 +45,13 @@ export default function Layout({ children }) {
     showAlert('info', 'Restarting Homebridge...');
     restartHomebridge().then(() => {
       showAlert('success', 'Homebridge restarted!');
+    });
+  };
+
+  const handleReload = () => {
+    showAlert('info', 'Reloading config...');
+    reloadConfig().then(() => {
+      showAlert('success', 'Config reloaded!');
     });
   };
 
@@ -139,6 +146,18 @@ export default function Layout({ children }) {
               sx={{ width: '100%' }}
             >
               {restarting ? <CircularProgress /> : 'RESTART HOMEBRIDGE'}
+            </Button>
+          </ListItem>
+          <ListItem key="reload">
+            <Button
+              size="large"
+              variant="contained"
+              disabled={!loaded}
+              onClick={handleReload}
+              startIcon={!loaded ? null : <RestartAlt />}
+              sx={{ width: '100%' }}
+            >
+              {!loaded ? <CircularProgress /> : 'Reload Config'}
             </Button>
           </ListItem>
         </List>

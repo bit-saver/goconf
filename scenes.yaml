@@ -1,561 +1,3 @@
-- id: '1691852491826'
-  name: View Sunrise
-  entities:
-    light.lamp:
-      state: 'on'
-      rgb_color:
-        - 255
-        - 165
-        - 25
-      brightness: 255
-    light.beam_strip:
-      friendly_name: Beam Strip
-      supported_features: 0
-      state: 'on'
-    switch.beam_strip_scene:
-      friendly_name: Beam Strip Scene
-      state: 'on'
-    switch.beam_strip_scenetwo:
-      friendly_name: Beam Strip SceneTwo
-      state: 'off'
-    switch.beam_strip_scenethree:
-      friendly_name: Beam Strip SceneThree
-      state: 'off'
-    switch.beam_strip_scenefour:
-      friendly_name: Beam Strip SceneFour
-      state: 'off'
-    light.center_strip:
-      friendly_name: Center Strip
-      supported_features: 0
-      state: 'on'
-    switch.center_strip_scene:
-      friendly_name: Center Strip Scene
-      state: 'on'
-    switch.center_strip_scenetwo:
-      friendly_name: Center Strip SceneTwo
-      state: 'off'
-    switch.center_strip_scenethree:
-      friendly_name: Center Strip SceneThree
-      state: 'off'
-    switch.center_strip_scenefour:
-      friendly_name: Center Strip SceneFour
-      state: 'off'
-    light.couch_strip:
-      friendly_name: Couch Strip
-      supported_features: 0
-      state: 'on'
-    switch.couch_strip_scene:
-      friendly_name: Couch Strip Scene
-      state: 'on'
-    switch.couch_strip_scenetwo:
-      friendly_name: Couch Strip SceneTwo
-      state: 'off'
-    switch.couch_strip_scenethree:
-      friendly_name: Couch Strip SceneThree
-      state: 'off'
-    switch.couch_strip_scenefour:
-      friendly_name: Couch Strip SceneFour
-      state: 'off'
-    light.kitchen_strip:
-      friendly_name: Kitchen Strip
-      supported_features: 0
-      state: 'on'
-    switch.kitchen_strip_scene:
-      friendly_name: Kitchen Strip Scene
-      state: 'on'
-    switch.kitchen_strip_scenetwo:
-      friendly_name: Kitchen Strip SceneTwo
-      state: 'off'
-    switch.kitchen_strip_scenethree:
-      friendly_name: Kitchen Strip SceneThree
-      state: 'off'
-    switch.kitchen_strip_scenefour:
-      friendly_name: Kitchen Strip SceneFour
-      state: 'off'
-    light.tv_strip:
-      friendly_name: TV Strip
-      supported_features: 0
-      state: 'on'
-    switch.tv_strip_scene:
-      friendly_name: TV Strip Scene
-      state: 'on'
-    switch.tv_strip_scenetwo:
-      friendly_name: TV Strip SceneTwo
-      state: 'off'
-    switch.tv_strip_scenethree:
-      friendly_name: TV Strip SceneThree
-      state: 'off'
-    switch.tv_strip_scenefour:
-      friendly_name: TV Strip SceneFour
-      state: 'off'
-    light.window_strip:
-      friendly_name: Window Strip
-      supported_features: 0
-      state: 'on'
-    switch.window_strip_scene:
-      friendly_name: Window Strip Scene
-      state: 'on'
-    switch.window_strip_scenetwo:
-      friendly_name: Window Strip SceneTwo
-      state: 'off'
-    switch.window_strip_scenethree:
-      friendly_name: Window Strip SceneThree
-      state: 'off'
-    switch.window_strip_scenefour:
-      friendly_name: Window Strip SceneFour
-      state: 'off'
-    light.hex:
-      friendly_name: Hex
-      supported_features: 0
-      state: 'on'
-    switch.hex_scene:
-      friendly_name: Hex Scene
-      state: 'on'
-    switch.hex_scenethree:
-      friendly_name: Hex SceneThree
-      state: 'off'
-    switch.hex_scenefour:
-      friendly_name: Hex SceneFour
-      state: 'off'
-    light.curtain_lights:
-      friendly_name: Curtain Lights
-      supported_features: 0
-      state: 'on'
-    switch.curtain_lights_scene:
-      friendly_name: Curtain Lights Scene
-      state: 'on'
-    switch.curtain_lights_scenetwo:
-      friendly_name: Curtain Lights SceneTwo
-      state: 'off'
-    switch.curtain_lights_scenethree:
-      friendly_name: Curtain Lights SceneThree
-      state: 'off'
-    switch.curtain_lights_scenefour:
-      friendly_name: Curtain Lights SceneFour
-      state: 'off'
-  icon: mdi:weather-sunset-up
-  metadata: {}
-- id: '1691852530828'
-  name: View Lightwave
-  entities:
-    light.lamp:
-      state: 'on'
-      rgb_color:
-      - 0
-      - 255
-      - 255
-      brightness: 255
-    light.beam_strip:
-      friendly_name: Beam Strip
-      supported_features: 0
-      state: 'on'
-    switch.beam_strip_scene:
-      friendly_name: Beam Strip Scene
-      state: 'off'
-    switch.beam_strip_scenetwo:
-      friendly_name: Beam Strip SceneTwo
-      state: 'on'
-    switch.beam_strip_scenethree:
-      friendly_name: Beam Strip SceneThree
-      state: 'off'
-    switch.beam_strip_scenefour:
-      friendly_name: Beam Strip SceneFour
-      state: 'off'
-    light.center_strip:
-      friendly_name: Center Strip
-      supported_features: 0
-      state: 'on'
-    switch.center_strip_scene:
-      friendly_name: Center Strip Scene
-      state: 'off'
-    switch.center_strip_scenetwo:
-      friendly_name: Center Strip SceneTwo
-      state: 'on'
-    switch.center_strip_scenethree:
-      friendly_name: Center Strip SceneThree
-      state: 'off'
-    switch.center_strip_scenefour:
-      friendly_name: Center Strip SceneFour
-      state: 'off'
-    light.couch_strip:
-      friendly_name: Couch Strip
-      supported_features: 0
-      state: 'on'
-    switch.couch_strip_scene:
-      friendly_name: Couch Strip Scene
-      state: 'off'
-    switch.couch_strip_scenetwo:
-      friendly_name: Couch Strip SceneTwo
-      state: 'on'
-    switch.couch_strip_scenethree:
-      friendly_name: Couch Strip SceneThree
-      state: 'off'
-    switch.couch_strip_scenefour:
-      friendly_name: Couch Strip SceneFour
-      state: 'off'
-    light.kitchen_strip:
-      friendly_name: Kitchen Strip
-      supported_features: 0
-      state: 'on'
-    switch.kitchen_strip_scene:
-      friendly_name: Kitchen Strip Scene
-      state: 'off'
-    switch.kitchen_strip_scenetwo:
-      friendly_name: Kitchen Strip SceneTwo
-      state: 'on'
-    switch.kitchen_strip_scenethree:
-      friendly_name: Kitchen Strip SceneThree
-      state: 'off'
-    switch.kitchen_strip_scenefour:
-      friendly_name: Kitchen Strip SceneFour
-      state: 'off'
-    light.tv_strip:
-      friendly_name: TV Strip
-      supported_features: 0
-      state: 'on'
-    switch.tv_strip_scene:
-      friendly_name: TV Strip Scene
-      state: 'off'
-    switch.tv_strip_scenetwo:
-      friendly_name: TV Strip SceneTwo
-      state: 'on'
-    switch.tv_strip_scenethree:
-      friendly_name: TV Strip SceneThree
-      state: 'off'
-    switch.tv_strip_scenefour:
-      friendly_name: TV Strip SceneFour
-      state: 'off'
-    light.window_strip:
-      friendly_name: Window Strip
-      supported_features: 0
-      state: 'on'
-    switch.window_strip_scene:
-      friendly_name: Window Strip Scene
-      state: 'off'
-    switch.window_strip_scenetwo:
-      friendly_name: Window Strip SceneTwo
-      state: 'on'
-    switch.window_strip_scenethree:
-      friendly_name: Window Strip SceneThree
-      state: 'off'
-    switch.window_strip_scenefour:
-      friendly_name: Window Strip SceneFour
-      state: 'off'
-    light.hex:
-      friendly_name: Hex
-      supported_features: 0
-      state: 'on'
-    switch.hex_scene:
-      friendly_name: Hex Scene
-      state: 'off'
-    switch.hex_scenetwo:
-      friendly_name: Hex SceneTwo
-      state: 'on'
-    switch.hex_scenethree:
-      friendly_name: Hex SceneThree
-      state: 'off'
-    switch.hex_scenefour:
-      friendly_name: Hex SceneFour
-      state: 'off'
-    light.curtain_lights:
-      friendly_name: Curtain Lights
-      supported_features: 0
-      state: 'on'
-    switch.curtain_lights_scene:
-      friendly_name: Curtain Lights Scene
-      state: 'off'
-    switch.curtain_lights_scenetwo:
-      friendly_name: Curtain Lights SceneTwo
-      state: 'on'
-    switch.curtain_lights_scenethree:
-      friendly_name: Curtain Lights SceneThree
-      state: 'off'
-    switch.curtain_lights_scenefour:
-      friendly_name: Curtain Lights SceneFour
-      state: 'off'
-  icon: mdi:heat-wave
-  metadata: {}
-- id: '1691852564860'
-  name: View Sea Breeze
-  entities:
-    light.lamp:
-      state: 'on'
-      rgb_color: 
-        - 0
-        - 255
-        - 255
-      brightness: 255
-    light.beam_strip:
-      friendly_name: Beam Strip
-      supported_features: 0
-      state: 'on'
-    switch.beam_strip_scene:
-      friendly_name: Beam Strip Scene
-      state: 'off'
-    switch.beam_strip_scenetwo:
-      friendly_name: Beam Strip SceneTwo
-      state: 'off'
-    switch.beam_strip_scenethree:
-      friendly_name: Beam Strip SceneThree
-      state: 'on'
-    switch.beam_strip_scenefour:
-      friendly_name: Beam Strip SceneFour
-      state: 'off'
-    light.center_strip:
-      friendly_name: Center Strip
-      supported_features: 0
-      state: 'on'
-    switch.center_strip_scene:
-      friendly_name: Center Strip Scene
-      state: 'off'
-    switch.center_strip_scenetwo:
-      friendly_name: Center Strip SceneTwo
-      state: 'off'
-    switch.center_strip_scenethree:
-      friendly_name: Center Strip SceneThree
-      state: 'on'
-    switch.center_strip_scenefour:
-      friendly_name: Center Strip SceneFour
-      state: 'off'
-    light.couch_strip:
-      friendly_name: Couch Strip
-      supported_features: 0
-      state: 'on'
-    switch.couch_strip_scene:
-      friendly_name: Couch Strip Scene
-      state: 'off'
-    switch.couch_strip_scenetwo:
-      friendly_name: Couch Strip SceneTwo
-      state: 'off'
-    switch.couch_strip_scenethree:
-      friendly_name: Couch Strip SceneThree
-      state: 'on'
-    switch.couch_strip_scenefour:
-      friendly_name: Couch Strip SceneFour
-      state: 'off'
-    light.kitchen_strip:
-      friendly_name: Kitchen Strip
-      supported_features: 0
-      state: 'on'
-    switch.kitchen_strip_scene:
-      friendly_name: Kitchen Strip Scene
-      state: 'off'
-    switch.kitchen_strip_scenetwo:
-      friendly_name: Kitchen Strip SceneTwo
-      state: 'off'
-    switch.kitchen_strip_scenethree:
-      friendly_name: Kitchen Strip SceneThree
-      state: 'on'
-    switch.kitchen_strip_scenefour:
-      friendly_name: Kitchen Strip SceneFour
-      state: 'off'
-    light.tv_strip:
-      friendly_name: TV Strip
-      supported_features: 0
-      state: 'on'
-    switch.tv_strip_scene:
-      friendly_name: TV Strip Scene
-      state: 'off'
-    switch.tv_strip_scenetwo:
-      friendly_name: TV Strip SceneTwo
-      state: 'off'
-    switch.tv_strip_scenethree:
-      friendly_name: TV Strip SceneThree
-      state: 'on'
-    switch.tv_strip_scenefour:
-      friendly_name: TV Strip SceneFour
-      state: 'off'
-    light.window_strip:
-      friendly_name: Window Strip
-      supported_features: 0
-      state: 'on'
-    switch.window_strip_scene:
-      friendly_name: Window Strip Scene
-      state: 'off'
-    switch.window_strip_scenetwo:
-      friendly_name: Window Strip SceneTwo
-      state: 'off'
-    switch.window_strip_scenethree:
-      friendly_name: Window Strip SceneThree
-      state: 'on'
-    switch.window_strip_scenefour:
-      friendly_name: Window Strip SceneFour
-      state: 'off'
-    light.hex:
-      friendly_name: Hex
-      supported_features: 0
-      state: 'on'
-    switch.hex_scene:
-      friendly_name: Hex Scene
-      state: 'off'
-    switch.hex_scenetwo:
-      friendly_name: Hex SceneTwo
-      state: 'off'
-    switch.hex_scenethree:
-      friendly_name: Hex SceneThree
-      state: 'on'
-    switch.hex_scenefour:
-      friendly_name: Hex SceneFour
-      state: 'off'
-    light.curtain_lights:
-      friendly_name: Curtain Lights
-      supported_features: 0
-      state: 'on'
-    switch.curtain_lights_scene:
-      friendly_name: Curtain Lights Scene
-      state: 'off'
-    switch.curtain_lights_scenetwo:
-      friendly_name: Curtain Lights SceneTwo
-      state: 'off'
-    switch.curtain_lights_scenethree:
-      friendly_name: Curtain Lights SceneThree
-      state: 'on'
-    switch.curtain_lights_scenefour:
-      friendly_name: Curtain Lights SceneFour
-      state: 'off'
-  icon: mdi:waves-arrow-up
-  metadata: {}
-- id: '1691852600679'
-  name: View Forest
-  entities:
-    light.lamp:
-      friendly_name: Lamp
-      state: 'on'
-      rgb_color:
-        - 0
-        - 165
-        - 0
-      brightness: 255
-    light.beam_strip:
-      friendly_name: Beam Strip
-      supported_features: 0
-      state: 'on'
-    switch.beam_strip_scene:
-      friendly_name: Beam Strip Scene
-      state: 'off'
-    switch.beam_strip_scenetwo:
-      friendly_name: Beam Strip SceneTwo
-      state: 'off'
-    switch.beam_strip_scenethree:
-      friendly_name: Beam Strip SceneThree
-      state: 'off'
-    switch.beam_strip_scenefour:
-      friendly_name: Beam Strip SceneFour
-      state: 'on'
-    light.center_strip:
-      friendly_name: Center Strip
-      supported_features: 0
-      state: 'on'
-    switch.center_strip_scene:
-      friendly_name: Center Strip Scene
-      state: 'off'
-    switch.center_strip_scenetwo:
-      friendly_name: Center Strip SceneTwo
-      state: 'off'
-    switch.center_strip_scenethree:
-      friendly_name: Center Strip SceneThree
-      state: 'off'
-    switch.center_strip_scenefour:
-      friendly_name: Center Strip SceneFour
-      state: 'on'
-    light.couch_strip:
-      friendly_name: Couch Strip
-      supported_features: 0
-      state: 'on'
-    switch.couch_strip_scene:
-      friendly_name: Couch Strip Scene
-      state: 'off'
-    switch.couch_strip_scenetwo:
-      friendly_name: Couch Strip SceneTwo
-      state: 'off'
-    switch.couch_strip_scenethree:
-      friendly_name: Couch Strip SceneThree
-      state: 'off'
-    switch.couch_strip_scenefour:
-      friendly_name: Couch Strip SceneFour
-      state: 'on'
-    light.kitchen_strip:
-      friendly_name: Kitchen Strip
-      supported_features: 0
-      state: 'on'
-    switch.kitchen_strip_scene:
-      friendly_name: Kitchen Strip Scene
-      state: 'off'
-    switch.kitchen_strip_scenetwo:
-      friendly_name: Kitchen Strip SceneTwo
-      state: 'off'
-    switch.kitchen_strip_scenethree:
-      friendly_name: Kitchen Strip SceneThree
-      state: 'off'
-    switch.kitchen_strip_scenefour:
-      friendly_name: Kitchen Strip SceneFour
-      state: 'on'
-    light.tv_strip:
-      friendly_name: TV Strip
-      supported_features: 0
-      state: 'on'
-    switch.tv_strip_scene:
-      friendly_name: TV Strip Scene
-      state: 'off'
-    switch.tv_strip_scenetwo:
-      friendly_name: TV Strip SceneTwo
-      state: 'off'
-    switch.tv_strip_scenethree:
-      friendly_name: TV Strip SceneThree
-      state: 'off'
-    switch.tv_strip_scenefour:
-      friendly_name: TV Strip SceneFour
-      state: 'on'
-    light.window_strip:
-      friendly_name: Window Strip
-      supported_features: 0
-      state: 'on'
-    switch.window_strip_scene:
-      friendly_name: Window Strip Scene
-      state: 'off'
-    switch.window_strip_scenetwo:
-      friendly_name: Window Strip SceneTwo
-      state: 'off'
-    switch.window_strip_scenethree:
-      friendly_name: Window Strip SceneThree
-      state: 'off'
-    switch.window_strip_scenefour:
-      friendly_name: Window Strip SceneFour
-      state: 'on'
-    light.hex:
-      friendly_name: Hex
-      supported_features: 0
-      state: 'off'
-    switch.hex_scene:
-      friendly_name: Hex Scene
-      state: 'off'
-    switch.hex_scenetwo:
-      friendly_name: Hex SceneTwo
-      state: 'off'
-    switch.hex_scenethree:
-      friendly_name: Hex SceneThree
-      state: 'off'
-    switch.hex_scenefour:
-      friendly_name: Hex SceneFour
-      state: 'on'
-    light.curtain_lights:
-      friendly_name: Curtain Lights
-      supported_features: 0
-      state: 'on'
-    switch.curtain_lights_scene:
-      friendly_name: Curtain Lights Scene
-      state: 'off'
-    switch.curtain_lights_scenetwo:
-      friendly_name: Curtain Lights SceneTwo
-      state: 'off'
-    switch.curtain_lights_scenethree:
-      friendly_name: Curtain Lights SceneThree
-      state: 'off'
-    switch.curtain_lights_scenefour:
-      friendly_name: Curtain Lights SceneFour
-      state: 'on'
-  icon: mdi:forest-outline
-  metadata: {}
 - id: '1691867760957'
   name: Bulbs Lightwave
   entities:
@@ -815,7 +257,7 @@
   name: Strip Lights 5
   entities:
     light.strip_lights:
-      brightness: 5
+      brightness: 13
       entity_id:
       - light.beam_strip
       - light.center_strip
@@ -823,6 +265,7 @@
       - light.tv_strip
       - light.window_strip
       - light.couch_strip
+      - light.string_lights
       icon: mdi:led-strip-variant
       friendly_name: Strip Lights
       supported_features: 0
@@ -832,14 +275,15 @@
       supported_features: 0
       brightness: 1
       state: 'on'
+    light.curtain_lights:
+      friendly_name: Curtain Lights
+      supported_features: 0
+      brightness: 51
+      state: 'on'
     light.kitchen_lights:
-      brightness: 255
+      brightness: 64
       entity_id:
-      - light.kitchen_1
-      - light.kitchen_2
-      - light.sink_1
-      - light.sink_2
-      icon: mdi:lightbulb-group
+      - light.kitchen_lights
       friendly_name: Kitchen Lights
       supported_features: 0
       state: 'on'
@@ -849,13 +293,15 @@
       entity_only: true
     light.hex:
       entity_only: true
+    light.curtain_lights:
+      entity_only: true
     light.kitchen_lights:
       entity_only: true
 - id: '1691867872330'
   name: Strip Lights 10
   entities:
     light.strip_lights:
-      brightness: 25
+      brightness: 26
       entity_id:
       - light.beam_strip
       - light.center_strip
@@ -863,13 +309,26 @@
       - light.tv_strip
       - light.window_strip
       - light.couch_strip
+      - light.string_lights
       icon: mdi:led-strip-variant
       friendly_name: Strip Lights
       supported_features: 0
       state: 'on'
+    light.curtain_lights:
+      friendly_name: Curtain Lights
+      supported_features: 0
+      brightness: 77
+      state: 'on'
     light.hex:
       brightness: 15
       friendly_name: Hex
+      supported_features: 0
+      state: 'on'
+    light.kitchen_lights:
+      brightness: 64
+      entity_id:
+        - light.kitchen_lights
+      friendly_name: Kitchen Lights
       supported_features: 0
       state: 'on'
   icon: mdi:led-strip-variant
@@ -878,11 +337,15 @@
       entity_only: true
     light.hex:
       entity_only: true
+    light.curtain_lights:
+      entity_only: true
+    light.kitchen_lights:
+      entity_only: true
 - id: '1691867879525'
   name: Strip Lights 25
   entities:
     light.strip_lights:
-      brightness: 65
+      brightness: 64
       entity_id:
       - light.beam_strip
       - light.center_strip
@@ -890,6 +353,7 @@
       - light.tv_strip
       - light.window_strip
       - light.couch_strip
+      - light.string_lights
       icon: mdi:led-strip-variant
       friendly_name: Strip Lights
       supported_features: 0
@@ -899,11 +363,27 @@
       friendly_name: Hex
       supported_features: 0
       state: 'on'
+    light.curtain_lights:
+      friendly_name: Curtain Lights
+      supported_features: 0
+      brightness: 128
+      state: 'on'
+    light.kitchen_lights:
+      brightness: 128
+      entity_id:
+        - light.kitchen_lights
+      friendly_name: Kitchen Lights
+      supported_features: 0
+      state: 'on'
   icon: mdi:led-strip-variant
   metadata:
     light.strip_lights:
       entity_only: true
     light.hex:
+      entity_only: true
+    light.curtain_lights:
+      entity_only: true
+    light.kitchen_lights:
       entity_only: true
 - id: '1691867886499'
   name: Strip Lights 50
@@ -917,6 +397,7 @@
       - light.tv_strip
       - light.window_strip
       - light.couch_strip
+      - light.string_lights
       icon: mdi:led-strip-variant
       friendly_name: Strip Lights
       supported_features: 0
@@ -926,17 +407,76 @@
       friendly_name: Hex
       supported_features: 0
       state: 'on'
+    light.curtain_lights:
+      entity_id:
+        - light.curtain_lights
+      brightness: 166
+      friendly_name: Curtain Lights
+      supported_features: 0
+      state: 'on'
+    light.kitchen_lights:
+      brightness: 255
+      entity_id:
+        - light.kitchen_lights
+      friendly_name: Kitchen Lights
+      supported_features: 0
+      state: 'on'
   icon: mdi:led-strip-variant
   metadata:
     light.strip_lights:
       entity_only: true
     light.hex:
       entity_only: true
+    light.curtain_lights:
+      entity_only: true
+    light.kitchen_lights:
+      entity_only: true
 - id: '1691867932633'
   name: Strip Lights 80
-  entities: {}
+  entities:
+    light.strip_lights:
+      brightness: 204
+      entity_id:
+        - light.beam_strip
+        - light.center_strip
+        - light.kitchen_strip
+        - light.tv_strip
+        - light.window_strip
+        - light.couch_strip
+        - light.string_lights
+      icon: mdi:led-strip-variant
+      friendly_name: Strip Lights
+      supported_features: 0
+      state: 'on'
+    light.hex:
+      brightness: 102
+      friendly_name: Hex
+      supported_features: 0
+      state: 'on'
+    light.curtain_lights:
+      entity_id:
+        - light.curtain_lights
+      brightness: 230
+      friendly_name: Curtain Lights
+      supported_features: 0
+      state: 'on'
+    light.kitchen_lights:
+      brightness: 255
+      entity_id:
+        - light.kitchen_lights
+      friendly_name: Kitchen Lights
+      supported_features: 0
+      state: 'on'
   icon: mdi:led-strip-variant
-  metadata: {}
+  metadata:
+    light.strip_lights:
+      entity_only: true
+    light.hex:
+      entity_only: true
+    light.curtain_lights:
+      entity_only: true
+    light.kitchen_lights:
+      entity_only: true
 - id: '1691867939218'
   name: Strip Lights 100
   entities:
@@ -949,6 +489,7 @@
       - light.tv_strip
       - light.window_strip
       - light.couch_strip
+      - light.string_lights
       icon: mdi:led-strip-variant
       friendly_name: Strip Lights
       supported_features: 0
@@ -958,11 +499,29 @@
       friendly_name: Hex
       supported_features: 0
       state: 'on'
+    light.curtain_lights:
+      entity_id:
+        - light.curtain_lights
+      brightness: 255
+      friendly_name: Curtain Lights
+      supported_features: 0
+      state: 'on'
+    light.kitchen_lights:
+      brightness: 255
+      entity_id:
+        - light.kitchen_lights
+      friendly_name: Kitchen Lights
+      supported_features: 0
+      state: 'on'
   icon: mdi:led-strip-variant
   metadata:
     light.strip_lights:
       entity_only: true
     light.hex:
+      entity_only: true
+    light.curtain_lights:
+      entity_only: true
+    light.kitchen_lights:
       entity_only: true
 - id: '1692102029835'
   name: Kitchen Green

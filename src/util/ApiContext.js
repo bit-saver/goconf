@@ -148,6 +148,39 @@ export function ApiProvider({ children }) {
     timeout: 10000,
   });
 
+  const gvGetDevices = async (email, password) => {
+    let res = await axios({
+      url: 'https://app2.govee.com/account/rest/account/v1/login',
+      method: 'post',
+      data: {
+        email,
+        password,
+        client: 'goconf',
+      },
+      timeout: 30000,
+    });
+    const tempToken = res.data.client.token;
+
+    res = await axios({
+      url: 'https://app2.govee.com/device/rest/devices/v1/list',
+      method: 'post',
+      headers: {
+        Authorization: `Bearer ${tempToken}`,
+        appVersion: 1,
+        clientId: 'goconf',
+        clientType: 1,
+        iotVersion: 0,
+        timestamp: Date.now(),
+      },
+      timeout: 30000,
+    });
+    const macs = res.data.devices.map((d) => {
+      const json = JSON.parse(d.deviceExt.deviceSettings);
+      return [d.deviceName, json.wifiMac];
+    });
+    return macs;
+  };
+
   const providerValue = useMemo(() => ({
     token,
     setToken,
@@ -166,9 +199,10 @@ export function ApiProvider({ children }) {
     haCallWebhook,
     gvGetToken,
     gvGetScenes,
+    gvGetDevices,
   }), [
     token, setToken, saveToken, goveeToken,
-    gvGetToken, gvGetScenes,
+    gvGetToken, gvGetScenes, gvGetDevices,
     authenticated, setAuthenticated,
     apiGet, apiPost, apiPut,
     apiGetScenes, apiSaveScenes, apiCheckAuth,

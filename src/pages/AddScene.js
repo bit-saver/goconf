@@ -23,7 +23,7 @@ function AddScene() {
   const { goveeConfig, getSceneSlots } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
-  const { scenes, devices } = goveeConfig;
+  const { scenes, devices } = goveeConfig || { scenes: {}, devices: {} };
 
   const [selectedScene, setSelectedScene] = useState('');
   const [selectedSlot, setSelectedSlot] = useState('');

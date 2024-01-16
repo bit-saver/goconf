@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CircularProgress } from '@mui/material';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import ApiContext from '../util/ApiContext';
@@ -19,6 +19,8 @@ function Home() {
 
   const onLogin = location.pathname === '/login';
 
+  const [authState, setAuthState] = useState(null);
+
   /*
     1) Check HB token status
     2) If token is invalid, redirect to login
@@ -30,6 +32,7 @@ function Home() {
      */
   useEffect(() => {
     apiCheckAuth().then((auth) => {
+      setAuthState(auth);
       console.log('auth', auth);
       if (!onLogin && (!auth || !token)) {
         navigate('/login', { replace: true });
@@ -39,14 +42,15 @@ function Home() {
       }
     }).catch((err) => {
       console.log('Auth check error', err);
+      setAuthState(null);
       navigate('/login', { replace: true });
     });
   }, [token, loaded]);
 
   return (
     <Layout>
-      {(onLogin || loaded) && <Outlet />}
-      {(!onLogin && !loaded) && <CircularProgress sx={{ marginTop: '30vh' }} />}
+      {(onLogin || (loaded && authState)) && <Outlet />}
+      {(!onLogin && (!loaded || !authState)) && <CircularProgress sx={{ marginTop: '30vh' }} />}
     </Layout>
   );
 }

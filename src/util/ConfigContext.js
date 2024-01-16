@@ -58,7 +58,7 @@ export function ConfigProvider({ children }) {
   const loadConfig = async () => {
     console.log('getting hb-govee config...');
     const config = await apiGet('/api/config-editor/plugin/homebridge-govee').then((result) => (result?.data ? result.data[0] : null)).catch((e) => e);
-    console.log('config', config);
+    // console.log('config', config);
     if (!config) {
       setLoaded(false);
       return Promise.reject();
@@ -76,7 +76,7 @@ export function ConfigProvider({ children }) {
     if (!ttrScenes) {
       const ttrToken = await gvGetToken(config.username, config.password)
         .catch(() => null);
-      console.log('ttrToken', ttrToken);
+      // console.log('ttrToken', ttrToken);
       if (!ttrToken) {
         setLoaded(false);
         return new Error('Error retrieving Govee token.');
@@ -87,7 +87,7 @@ export function ConfigProvider({ children }) {
         return new Error('Error retrieving Govee scenes.');
       }
     }
-    console.log('ttrScenes', ttrScenes);
+    // console.log('ttrScenes', ttrScenes);
 
     const sceneNameIds = {};
     ttrScenes.forEach((scene) => {
@@ -104,7 +104,7 @@ export function ConfigProvider({ children }) {
       scenes[matchScene].devices[matchDevice] = matchCode;
       sceneNameIds[matchCode] = matchScene;
     });
-    console.log('scenes', scenes, 'devices', devices, 'sceneNameIds', sceneNameIds);
+    // console.log('scenes', scenes, 'devices', devices, 'sceneNameIds', sceneNameIds);
 
     const slotNames = defaultSlots.reduce((acc, slotName) => {
       acc[slotName] = null;
@@ -161,11 +161,6 @@ export function ConfigProvider({ children }) {
       }
       return ret;
     });
-    // return defaultSlots.reduce((acc, slot) => {
-    //     const sceneSlot = scenesJson.find((ss) => ss.slot === slot);
-    //     acc[slot] = sceneSlot?.scene || '';
-    //     return acc;
-    // }, {});
   };
 
   const restartHomebridge = async () => {
