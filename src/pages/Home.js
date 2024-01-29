@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Grid } from '@mui/material';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import ApiContext from '../util/ApiContext';
 import Layout from '../components/Layout';
@@ -47,10 +47,19 @@ function Home() {
     });
   }, [token, loaded]);
 
+  console.log(authState);
+
+  const showOutlet = onLogin || (loaded && authState);
+  const showLoader = !showOutlet;
+
   return (
     <Layout>
-      {(onLogin || (loaded && authState)) && <Outlet />}
-      {(!onLogin && (!loaded || !authState)) && <CircularProgress sx={{ marginTop: '30vh' }} />}
+      {showOutlet && <Outlet />}
+      {showLoader && (
+        <Grid container item xs={12} spacing={4} justifyContent="center">
+          <CircularProgress sx={{ marginTop: '30vh' }} />
+        </Grid>
+      )}
     </Layout>
   );
 }

@@ -62,6 +62,8 @@ export const defaultSlots = [
   'musicMode', 'musicModeTwo', 'videoMode', 'videoModeTwo',
   'extra', 'extraTwo', 'extraThree', 'extraFour', 'extraFive',
   'extraSix', 'extraSeven', 'extraEight', 'extraNine', 'extraTen',
+  'extraEleven', 'extraTwelve', 'extraThirteen', 'extraFourteen', 'extraFifteen',
+  'extraSixteen', 'extraSeventeen', 'extraEighteen', 'extraNineteen', 'extraTwenty',
 ];
 
 export const rgbModels = [
