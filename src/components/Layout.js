@@ -72,7 +72,7 @@ export default function Layout({ children }) {
   }));
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', padding: '16px' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
