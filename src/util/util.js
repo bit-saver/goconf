@@ -64,6 +64,8 @@ export const defaultSlots = [
   'extraSix', 'extraSeven', 'extraEight', 'extraNine', 'extraTen',
   'extraEleven', 'extraTwelve', 'extraThirteen', 'extraFourteen', 'extraFifteen',
   'extraSixteen', 'extraSeventeen', 'extraEighteen', 'extraNineteen', 'extraTwenty',
+  'extraTwentyOne', 'extraTwentyTwo', 'extraTwentyThree', 'extraTwentyFour', 'extraTwentyFive',
+  'extraTwentySix', 'extraTwentySeven', 'extraTwentyEight', 'extraTwentyNine', 'extraThirty',
 ];
 
 export const rgbModels = [
@@ -217,6 +219,7 @@ export const rgbModels = [
   'H706C',
   'H70A1',
   'H70B1',
+  'H70B5',
   'H70C1',
   'H70C2',
   'HXXXX', // placeholder for LAN-only configured models

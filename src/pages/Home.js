@@ -57,7 +57,7 @@ function Home() {
       {showOutlet && <Outlet />}
       {showLoader && (
         <Grid container item xs={12} spacing={4} justifyContent="center">
-          <CircularProgress sx={{ marginTop: '30vh' }} />
+          <CircularProgress sx={{ marginTop: '30vh', marginLeft: '32px' }} />
         </Grid>
       )}
     </Layout>
