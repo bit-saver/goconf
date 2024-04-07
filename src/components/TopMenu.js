@@ -1,9 +1,7 @@
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import {
-  Button, CircularProgress, ToggleButton, ToggleButtonGroup,
-} from '@mui/material';
+import { Button, CircularProgress } from '@mui/material';
 import List from '@mui/material/List';
 import { Link } from 'react-router-dom';
 import ListItem from '@mui/material/ListItem';
@@ -14,16 +12,16 @@ import Divider from '@mui/material/Divider';
 import React, { useContext } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import ConfigContext from '../util/ConfigContext';
-import { rooms } from '../util/util';
 import AlertContext from './Alert';
+import RoomToggle from './RoomToggle';
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 const TopMenu = ({ open, setOpen }) => {
   const { showAlert } = useContext(AlertContext);
   const {
-    restarting, loaded, room,
-    restartHomebridge, reloadConfig, setRoom,
+    restarting, loaded,
+    restartHomebridge, reloadConfig,
   } = useContext(ConfigContext);
 
   const theme = useTheme();
@@ -62,9 +60,8 @@ const TopMenu = ({ open, setOpen }) => {
     justifyContent: 'flex-start',
   }));
 
-  const handleToggleChange = (ev, value) => {
+  const onToggleChange = () => {
     setOpen(false);
-    setRoom(value);
   };
 
   return (
@@ -92,21 +89,7 @@ const TopMenu = ({ open, setOpen }) => {
           <ChevronRightIcon />
         </IconButton>
       </DrawerHeader>
-
-      <ToggleButtonGroup
-        value={room}
-        exclusive
-        onChange={handleToggleChange}
-        sx={{ justifyContent: 'center' }}
-        size="small"
-      >
-        { rooms.map((r) => (
-          <ToggleButton value={r.key} key={r.key}>
-            {r.name}
-          </ToggleButton>
-        ))}
-      </ToggleButtonGroup>
-
+      <RoomToggle onToggleChange={onToggleChange} />
       <List>
         {pages.map(({ label, slug }) => (
           <Link

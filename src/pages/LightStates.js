@@ -29,42 +29,15 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
-import { checkSubset, hexToRgb, rgbToHex } from '../util/util';
+import {
+  bulbs, checkSubset, hexToRgb, rgbToHex,
+} from '../util/util';
 import useCopy from '../util/useCopy';
 import AlertContext from '../components/Alert';
-
-const devices = {
-  'light.lamp': {
-    label: 'Lamp', entity_id: 'light.lamp', state: null, group: 'Lamp',
-  },
-  'light.kitchen_1': {
-    label: 'Kitchen 1', entity_id: 'light.kitchen_1', state: null, group: 'Balcony',
-  },
-  'light.kitchen_2': {
-    label: 'Kitchen 2', entity_id: 'light.kitchen_2', state: null, group: 'Balcony',
-  },
-  'light.sink_1': {
-    label: 'Sink 1', entity_id: 'light.sink_1', state: null, group: 'Sink',
-  },
-  'light.sink_2': {
-    label: 'Sink 2', entity_id: 'light.sink_2', state: null, group: 'Sink',
-  },
-  'light.door_1': {
-    label: 'Door 1', entity_id: 'light.door_1', state: null, group: 'Door',
-  },
-  'light.door_2': {
-    label: 'Door 2', entity_id: 'light.door_2', state: null, group: 'Door',
-  },
-  'light.hall_1': {
-    label: 'Hall 1', entity_id: 'light.hall_1', state: null, group: 'Hall',
-  },
-  'light.hall_2': {
-    label: 'Hall 2', entity_id: 'light.hall_2', state: null, group: 'Hall',
-  },
-};
+import RoomToggle from '../components/RoomToggle';
 
 const LightStates = () => {
-  const { defaultSlots, getSceneSlots } = useContext(ConfigContext);
+  const { defaultSlots, getSceneSlots, room } = useContext(ConfigContext);
   const {
     haGetStates, haCallService, haCallWebhook, apiSaveScenes,
   } = useContext(ApiContext);
@@ -73,7 +46,7 @@ const LightStates = () => {
 
   const [originalStates, setOriginalStates] = useState({});
   const [loaded, setLoaded] = useState(false);
-  const [lights, setLights] = useState({ ...devices });
+  const [lights, setLights] = useState({ ...bulbs });
   const [sceneSlots, setSceneSlots] = useState([]);
   const [selectedLights, setSelectedLights] = useState([]);
   const [selectedSlot, setSelectedSlot] = useState('');
@@ -90,13 +63,13 @@ const LightStates = () => {
         console.error(err);
         return [];
       });
-    Object.keys(devices).forEach((entityId) => {
+    Object.keys(bulbs).forEach((entityId) => {
       const state = data.find((d) => d.entity_id === entityId);
       if (state) {
         lights[entityId].state = state.attributes;
       }
     });
-    console.log('updating lights:', lights);
+    // console.log('updating lights:', lights);
     setLights({ ...lights });
   };
 
@@ -112,15 +85,17 @@ const LightStates = () => {
     getSceneSlots().then((result) => setSceneSlots(result));
   }, []);
 
-  useEffect(() => {
-    console.log(sceneSlots);
-  }, [sceneSlots]);
+  // useEffect(() => {
+  //   console.log(sceneSlots);
+  // }, [sceneSlots]);
 
   const getLightsByGroup = () => Object.values(lights).reduce((acc, light) => {
-    if (!acc[light.group]) {
-      acc[light.group] = [];
+    if (light.room === room) {
+      if (!acc[light.group]) {
+        acc[light.group] = [];
+      }
+      acc[light.group].push(light);
     }
-    acc[light.group].push(light);
     return acc;
   }, {});
 
@@ -149,8 +124,9 @@ const LightStates = () => {
       brightness: 255,
       rgb_color: group[0].state.rgb_color,
     };
-    const result = await haCallService('light', 'turn_on', attr);
-    console.log('apply result: ', result);
+    await haCallService('light', 'turn_on', attr);
+    // const result =
+    // console.log('apply result: ', result);
   };
 
   const handleLightCheck = (groupId) => {
@@ -170,7 +146,7 @@ const LightStates = () => {
       setSaving(false);
       return false;
     }
-    const sceneSlotIndex = sceneSlots.findIndex((ss) => ss.slot === selectedSlot);
+    const sceneSlotIndex = sceneSlots.findIndex((ss) => ss.slot === selectedSlot && ss.room === room);
     selectedLights.forEach((eid) => {
       const light = lights[eid];
       const rgb = light.state.rgb_color;
@@ -194,9 +170,9 @@ const LightStates = () => {
       }
     });
     setSceneSlots([...sceneSlots]);
-    console.log('updated scene slots', sceneSlots);
+    // console.log('updated scene slots', sceneSlots);
     const result = await apiSaveScenes(sceneSlots);
-    console.log('scene slot save result:', result);
+    // console.log('scene slot save result:', result);
     setSaving(false);
     showAlert('success', 'Light states updated!');
     return result;
@@ -228,9 +204,9 @@ const LightStates = () => {
   };
 
   const handleActivateScene = () => {
-    const sceneSlot = sceneSlots.find((ss) => ss.slot === selectedShowSlot);
+    const sceneSlot = sceneSlots.find((ss) => ss.slot === selectedShowSlot && ss.room === room);
     if (!sceneSlot) return;
-    haCallWebhook('activate_view', { scene: sceneSlot.scene }).then(() => {
+    haCallWebhook('activate_view', { scene: sceneSlot.scene, room }).then(() => {
       showAlert('success', 'Scene activated!');
     }).catch((err) => {
       console.error(err);
@@ -336,6 +312,12 @@ const LightStates = () => {
 
             <Stack spacing={2}>
               <Card>
+                <CardHeader title="Room" />
+                <CardContent>
+                  <RoomToggle />
+                </CardContent>
+              </Card>
+              <Card>
                 <CardHeader title="Load/Activate States" />
                 <CardContent>
                   <Stack spacing={2}>
@@ -354,7 +336,7 @@ const LightStates = () => {
                           let sceneSlot = null;
                           if (sceneSlots && sceneSlots.length) {
                             sceneSlot = sceneSlots.find(
-                              (ss) => ss.slot === s,
+                              (ss) => ss.slot === s && ss.room === room,
                             );
                           }
                           return (
@@ -417,7 +399,7 @@ const LightStates = () => {
                       >
                         {defaultSlots.map((s) => {
                           // eslint-disable-next-line max-len
-                          const sceneSlot = sceneSlots.find((ss) => ss.slot === s);
+                          const sceneSlot = sceneSlots.find((ss) => ss.slot === s && ss.room === room);
                           return (
                             <MenuItem value={s} key={s}>{`${s}: ${sceneSlot?.scene || ''}`}</MenuItem>
                           );

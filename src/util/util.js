@@ -91,6 +91,48 @@ export const rooms = [
   { key: 'bedroom', name: 'Bedroom', short: 'Bed' },
 ];
 
+export const bulbs = {
+  'light.lamp': {
+    label: 'Lamp', entity_id: 'light.lamp', state: null, group: 'Lamp', room: 'living_room',
+  },
+  'light.kitchen_1': {
+    label: 'Kitchen 1', entity_id: 'light.kitchen_1', state: null, group: 'Balcony', room: 'living_room',
+  },
+  'light.kitchen_2': {
+    label: 'Kitchen 2', entity_id: 'light.kitchen_2', state: null, group: 'Balcony', room: 'living_room',
+  },
+  'light.sink_1': {
+    label: 'Sink 1', entity_id: 'light.sink_1', state: null, group: 'Sink', room: 'living_room',
+  },
+  'light.sink_2': {
+    label: 'Sink 2', entity_id: 'light.sink_2', state: null, group: 'Sink', room: 'living_room',
+  },
+  'light.door_1': {
+    label: 'Door 1', entity_id: 'light.door_1', state: null, group: 'Door', room: 'living_room',
+  },
+  'light.door_2': {
+    label: 'Door 2', entity_id: 'light.door_2', state: null, group: 'Door', room: 'living_room',
+  },
+  'light.hall_1': {
+    label: 'Hall 1', entity_id: 'light.hall_1', state: null, group: 'Hall', room: 'living_room',
+  },
+  'light.hall_2': {
+    label: 'Hall 2', entity_id: 'light.hall_2', state: null, group: 'Hall', room: 'living_room',
+  },
+  'light.desk': {
+    label: 'Desk', entity_id: 'light.desk', state: null, group: 'Desk', room: 'office',
+  },
+  'light.office_1': {
+    label: 'Office 1', entity_id: 'light.office_1', state: null, group: 'Office Fan', room: 'office',
+  },
+  'light.office_2': {
+    label: 'Office 2', entity_id: 'light.office_2', state: null, group: 'Office Fan', room: 'office',
+  },
+  'light.office_3': {
+    label: 'Office 3', entity_id: 'light.office_3', state: null, group: 'Office Fan', room: 'office',
+  },
+};
+
 export const rgbModels = [
   'H6002',
   'H6003',
