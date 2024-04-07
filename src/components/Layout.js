@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
       <Grid container spacing={4} justifyContent="center" sx={{ marginTop: '4px' }}>
         { children }
       </Grid>
-      <TopMenu />
+      <TopMenu open={open} setOpen={setOpen} />
     </Box>
   );
 };
