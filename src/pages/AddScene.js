@@ -15,12 +15,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import ListTable from '../components/ListTable';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
-import { defaultSlots } from '../util/util';
+import { defaultSlots, getRoomName } from '../util/util';
 import AlertContext from '../components/Alert';
 
 function AddScene() {
   const { apiPost, apiSaveScenes } = useContext(ApiContext);
-  const { goveeConfig, getSceneSlots } = useContext(ConfigContext);
+  const { goveeConfig, getSceneSlots, room } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
   const { scenes, devices } = goveeConfig || { scenes: {}, devices: {} };
@@ -34,12 +34,15 @@ function AddScene() {
   useEffect(() => {
     getSceneSlots().then((result) => {
       const sss = result.reduce((acc, ss) => {
-        acc[ss.slot] = ss.scene;
+        if (!acc[ss.room]) {
+          acc[ss.room] = {};
+        }
+        acc[ss.room][ss.slot] = ss.scene;
         return acc;
       }, {});
       setSceneSlots(sss);
     });
-  }, []);
+  }, [room]);
 
   const handleSelectScene = (e) => {
     const scene = e.target.value;
@@ -87,15 +90,20 @@ function AddScene() {
     });
 
     const updatedConfig = { ...goveeConfig.config, lightDevices };
-    const { data: result } = await apiPost('/api/config-editor/plugin/homebridge-govee', [updatedConfig]);
-    console.log('save config result:', result);
+    await apiPost('/api/config-editor/plugin/homebridge-govee', [updatedConfig]);
+    // const { data: result } =
+    // console.log('save config result:', result);
+    // console.log('slot', selectedSlot, 'scene', selectedScene);
 
     const update = await getSceneSlots();
-    console.log('slot', selectedSlot, 'scene', selectedScene);
-    const index = update.findIndex((ss) => ss.slot === selectedSlot);
+    const index = update.findIndex((ss) => ss.slot === selectedSlot && ss.room === room);
     if (index > -1) {
-      update[index].scene = selectedScene;
+      update[index].scene = selectedScene.replace('Office ', '');
+      update[index].room = room;
+      // console.log('save scenes.json', update);
       await apiSaveScenes(update);
+    } else {
+      console.error('no index found for ', selectedSlot, room);
     }
 
     setSelectedScene('');
@@ -104,12 +112,21 @@ function AddScene() {
     showAlert('success', 'Scene added!');
   };
 
+  const getDevices = () => Object.keys(devices).reduce((acc, d) => {
+    if (devices[d].room === room) {
+      acc[d] = devices[d];
+    }
+    return acc;
+  }, {});
+
   const saveDisabled = !selectedScene || !selectedSlot || selectedDevices.length < 1;
 
   return (
     <Grid container item xs={12} spacing={4} justifyContent="center">
       <Grid item xs={12} md={6} lg={4}>
-        <h1>Add Scenes</h1>
+        <h1>
+          {`Add Scenes: ${getRoomName(room)}`}
+        </h1>
         <Stack spacing={4}>
           <FormControl fullWidth>
             <InputLabel id="label-scene">Scene</InputLabel>
@@ -139,7 +156,7 @@ function AddScene() {
                   <b>{s}</b>
                   <small>
                     &nbsp;(
-                    {sceneSlots[s]}
+                    {sceneSlots[room] ? sceneSlots[room][s] : ''}
                     )
                   </small>
                 </MenuItem>
@@ -151,14 +168,14 @@ function AddScene() {
               selected={selectedDevices}
               setSelected={setSelectedDevices}
               rows={
-                Object.keys(devices).sort().map((deviceName) => {
+                Object.keys(getDevices()).sort().map((deviceName) => {
                   const disabled = !devices[deviceName].scenes[selectedScene];
                   return { deviceName, name: deviceName, disabled };
                 })
               }
             />
             <List sx={{ display: 'none' }}>
-              {Object.keys(devices).sort().map((deviceName) => {
+              {Object.keys(getDevices()).sort().map((deviceName) => {
                 const labelId = `select-devices-label-${deviceName}`;
                 const enabledDevice = !!devices[deviceName].scenes[selectedScene];
                 return (

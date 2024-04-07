@@ -12,12 +12,13 @@ import {
 import React, { useContext, useEffect, useState } from 'react';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
-import AlertContext from '../components/Alert';
+// import AlertContext from '../components/Alert';
+import { getRoomName } from '../util/util';
 
 function EditSceneSlots() {
-  const { getSceneSlots } = useContext(ConfigContext);
+  const { getSceneSlots, getRoomSlots, room } = useContext(ConfigContext);
   const { token, apiSaveScenes } = useContext(ApiContext);
-  const { showAlert } = useContext(AlertContext);
+  // const { showAlert } = useContext(AlertContext);
   const [sceneSlots, setSceneSlots] = useState([]);
   const [saving, setSaving] = useState(false);
 
@@ -29,23 +30,19 @@ function EditSceneSlots() {
 
   const handleSave = async () => {
     setSaving(true);
-    // const config = Object.keys(sceneSlots).reduce((acc, slot) => {
-    //     if (sceneSlots[slot]) {
-    //         acc.push({ slot, scene: sceneSlots[slot] });
-    //     }
-    //     return acc;
-    // }, []);
     const result = await apiSaveScenes(sceneSlots);
     console.log('scene slot save result:', result);
     setSaving(false);
-    showAlert('success', 'Slots updated!');
+    // showAlert('success', 'Slots updated!');
   };
 
-  const handleScene = (slot) => (e) => {
+  const handleScene = (sceneSlot) => (e) => {
     const scene = e.target.value;
     const update = [...sceneSlots];
     // console.log('slot', slot, 'scene', scene);
-    const index = update.findIndex((ss) => ss.slot === slot);
+    const index = update.findIndex(
+      (ss) => ss.slot === sceneSlot.slot && ss.room === sceneSlot.room,
+    );
     update[index].scene = scene;
     setSceneSlots(update);
   };
@@ -53,7 +50,9 @@ function EditSceneSlots() {
   return (
     <Grid container item xs={12} spacing={4} justifyContent="center">
       <Grid item xs={12} md={6} lg={4}>
-        <h1>Edit Scene Slots</h1>
+        <h1>
+          {`Edit Scene Slots: ${getRoomName(room)}`}
+        </h1>
         <Card variant="outlined">
           <Stack spacing={4}>
             <TableContainer>
@@ -64,7 +63,6 @@ function EditSceneSlots() {
                 <TableHead>
                   <TableRow>
                     <TableCell
-                      key="th-slot"
                       align="left"
                       padding="normal"
                       sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}
@@ -72,7 +70,6 @@ function EditSceneSlots() {
                       Slot
                     </TableCell>
                     <TableCell
-                      key="th-scene"
                       align="left"
                       padding="normal"
                       sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}
@@ -82,13 +79,13 @@ function EditSceneSlots() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {sceneSlots.map((sceneSlot) => {
-                    const { slot, scene } = sceneSlot;
-                    const labelId = `scene-slot-${slot}`;
+                  {getRoomSlots().map((sceneSlot) => {
+                    const { slot, scene, room: sceneRoom } = sceneSlot;
+                    const labelId = `scene-slot-${room}-${slot}`;
                     return (
                       <TableRow
                         hover
-                        key={slot}
+                        key={`${sceneRoom}-${slot}`}
                       >
                         <TableCell
                           component="th"
@@ -106,8 +103,8 @@ function EditSceneSlots() {
                           <FormControl fullWidth>
                             <TextField
                               size="small"
-                              value={scene}
-                              onChange={handleScene(slot)}
+                              value={scene || ''}
+                              onChange={handleScene(sceneSlot)}
                             />
                           </FormControl>
                         </TableCell>

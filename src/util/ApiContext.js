@@ -48,13 +48,17 @@ export function ApiProvider({ children }) {
     },
   });
 
-  const haCallService = async (domain, service, data) => axios.post(getHaApiUrl(`services/${domain}/${service}`), data, {
-    headers: {
-      Accept: 'application/json',
-      'Content-type': 'application/json; charset=UTF-8',
-      Authorization: `Bearer ${HA_TOKEN}`,
+  const haCallService = async (domain, service, data) => axios.post(
+    getHaApiUrl(`services/${domain}/${service}`),
+    data,
+    {
+      headers: {
+        Accept: 'application/json',
+        'Content-type': 'application/json; charset=UTF-8',
+        Authorization: `Bearer ${HA_TOKEN}`,
+      },
     },
-  });
+  );
 
   const haCallWebhook = async (hook, data) => axios.post(getHaApiUrl(`webhook/${hook}`), data, {
     headers: {
@@ -174,11 +178,10 @@ export function ApiProvider({ children }) {
       },
       timeout: 30000,
     });
-    const macs = res.data.devices.map((d) => {
+    return res.data.devices.map((d) => {
       const json = JSON.parse(d.deviceExt.deviceSettings);
       return [d.deviceName, json.wifiMac];
     });
-    return macs;
   };
 
   const providerValue = useMemo(() => ({

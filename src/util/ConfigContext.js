@@ -2,7 +2,9 @@ import React, {
   createContext, useContext, useMemo, useState,
 } from 'react';
 import ApiContext from './ApiContext';
-import { asyncTimeout, defaultSlots, rgbModels } from './util';
+import {
+  asyncTimeout, defaultSlots, deviceRooms, rgbModels, rooms,
+} from './util';
 
 const ConfigContext = createContext(null);
 
@@ -13,6 +15,8 @@ export function ConfigProvider({ children }) {
   const [goveeConfig, setGoveeConfig] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [restarting, setRestarting] = useState(false);
+  const [sceneSlots, setSceneSlots] = useState([]);
+  const [room, setRoom] = useState('living_room');
 
   const getGoveeScenes = async (ttrToken = null) => {
     const res = await gvGetScenes(ttrToken);
@@ -30,16 +34,33 @@ export function ConfigProvider({ children }) {
           if (oneClick.iotRules) {
             oneClick.iotRules.forEach((iotRule) => {
               if (iotRule?.deviceObj?.sku) {
+                // const isCurtain = iotRule.deviceObj.sku === 'H70B5';
+                // if (isCurtain) {
+                //   console.log('got curtain', oneClick);
+                // }
                 if (rgbModels.includes(iotRule.deviceObj.sku)) {
                   iotRule.rule.forEach((rule) => {
                     if (rule.iotMsg) {
                       const iotMsg = JSON.parse(rule.iotMsg);
-                      if (iotMsg.msg?.cmd === 'ptReal') {
+                      if (['ptReal'].includes(iotMsg.msg?.cmd)) {
                         // eslint-disable-next-line max-len
-                        // this.log('[%s] [%s] [AWS] %s', iotRule.deviceObj.name, oneClick.name, iotMsg.msg.data.command.join(','));
                         const deviceName = iotRule.deviceObj.name;
                         const ttrName = oneClick.name;
-                        const code = iotMsg.msg.data.command.join(',');
+
+                        const getCode = () => {
+                          let codeArray = [];
+                          switch (iotMsg.msg.cmd) {
+                          case 'ptUrl':
+                            codeArray = iotMsg.msg.data.value;
+                            return codeArray.map((c) => c.replace(/^\/+|\/+$/g, '')).join(',');
+                          case 'ptReal':
+                            codeArray = iotMsg.msg.data.command;
+                            return codeArray.join(',');
+                          default:
+                            return '';
+                          }
+                        };
+                        const code = getCode();
                         scenes.push({ deviceName, ttrName, code });
                       }
                     }
@@ -51,13 +72,14 @@ export function ConfigProvider({ children }) {
         });
       }
     });
-    console.log(scenes);
     return scenes;
   };
 
   const loadConfig = async () => {
-    console.log('getting hb-govee config...');
-    const config = await apiGet('/api/config-editor/plugin/homebridge-govee').then((result) => (result?.data ? result.data[0] : null)).catch((e) => e);
+    // console.log('getting hb-govee config...');
+    const config = await apiGet('/api/config-editor/plugin/homebridge-govee')
+      .then((result) => (result?.data ? result.data[0] : null))
+      .catch((e) => e);
     // console.log('config', config);
     if (!config) {
       setLoaded(false);
@@ -92,10 +114,13 @@ export function ConfigProvider({ children }) {
     const sceneNameIds = {};
     ttrScenes.forEach((scene) => {
       const matchDevice = scene.deviceName;
+      // if (matchDevice === 'Curtain') {
+      //   console.log('curtain match', scene);
+      // }
       const matchScene = scene.ttrName;
       const matchCode = scene.code;
       if (!devices[matchDevice]) {
-        devices[matchDevice] = { name: matchDevice, scenes: {} };
+        devices[matchDevice] = { name: matchDevice, scenes: {}, room: deviceRooms[matchDevice] || 'living_room' };
       }
       devices[matchDevice].scenes[matchScene] = matchCode;
       if (!scenes[matchScene]) {
@@ -115,12 +140,13 @@ export function ConfigProvider({ children }) {
         id: light.deviceId,
         slots: { ...slotNames },
       };
+      const deviceRoom = deviceRooms[light.label] || 'living_room';
       defaultSlots.forEach((name) => {
         if (light[name]) {
           const sceneCode = light[name].sceneCode.trim();
           const sceneName = sceneNameIds[sceneCode];
           if (sceneName) {
-            acc[0][light.label].slots[name] = { sceneName, sceneCode };
+            acc[0][light.label].slots[name] = { sceneName, sceneCode, room: deviceRoom };
             if (!acc[1][name][sceneName]) {
               acc[1][name][sceneName] = [];
             }
@@ -146,22 +172,27 @@ export function ConfigProvider({ children }) {
 
   const getSceneSlots = async () => {
     const { data: scenesJson } = await apiGetScenes();
-    return defaultSlots.map((slot) => {
-      const sceneSlot = scenesJson.find((ss) => ss.slot === slot);
-      if (!sceneSlot) {
-        return {
-          slot,
-          scene: null,
-          lights: [],
-        };
-      }
-      const ret = { ...sceneSlot };
-      if (!ret.lights) {
-        ret.lights = [];
-      }
-      return ret;
-    });
+    const slots = rooms.reduce((acc, r) => {
+      const roomSlots = defaultSlots.map((slot) => {
+        const sceneSlot = scenesJson.find((ss) => ss.slot === slot && ss.room === r.key);
+        if (!sceneSlot) {
+          return {
+            slot,
+            room: r.key,
+            scene: null,
+            lights: [],
+          };
+        }
+        return { room: r.key, lights: [], ...sceneSlot };
+      });
+      acc.push(...roomSlots);
+      return acc;
+    }, []);
+    setSceneSlots(slots);
+    return slots;
   };
+
+  const getRoomSlots = () => sceneSlots.filter((ss) => ss.room === room);
 
   const restartHomebridge = async () => {
     setRestarting(true);
@@ -186,7 +217,7 @@ export function ConfigProvider({ children }) {
       console.warn('Preventing reload config due to UNAUTHENTICATED TOKEN');
       return null;
     }
-    console.log('REloading config...');
+    // console.log('REloading config...');
     setLoaded(false);
     await loadConfig().catch((err) => {
       console.warn('Error occurred while loading config...', err);
@@ -204,9 +235,15 @@ export function ConfigProvider({ children }) {
     defaultSlots,
     getSceneSlots,
     getGoveeScenes,
+    room,
+    setRoom,
+    getRoomSlots,
   }), [
     goveeConfig, loaded, restarting, defaultSlots,
     getSceneSlots, getGoveeScenes,
+    room,
+    setRoom,
+    getRoomSlots,
   ]);
 
   return (

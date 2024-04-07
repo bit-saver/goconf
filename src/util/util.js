@@ -68,6 +68,29 @@ export const defaultSlots = [
   'extraTwentySix', 'extraTwentySeven', 'extraTwentyEight', 'extraTwentyNine', 'extraThirty',
 ];
 
+export const deviceRooms = {
+  'Beam Strip': 'living_room',
+  'TV Strip': 'living_room',
+  'Kitchen Strip': 'living_room',
+  'Window Strip': 'living_room',
+  'Couch Strip': 'living_room',
+  'Center Strip': 'living_room',
+  'String Lights': 'living_room',
+  Hex: 'living_room',
+  Curtain: 'living_room',
+  Lamp: 'living_room',
+  'Office Squares': 'office',
+  'Office Curtain': 'office',
+  'Office Strip': 'office',
+  Desk: 'office',
+};
+
+export const rooms = [
+  { key: 'living_room', name: 'Living Room', short: 'Living' },
+  { key: 'office', name: 'Office', short: 'Office' },
+  { key: 'bedroom', name: 'Bedroom', short: 'Bed' },
+];
+
 export const rgbModels = [
   'H6002',
   'H6003',
@@ -224,3 +247,9 @@ export const rgbModels = [
   'H70C2',
   'HXXXX', // placeholder for LAN-only configured models
 ];
+
+export const getRoomName = (room) => {
+  if (!room) return '';
+  const result = room.split('_').map((w) => `${w.substring(0, 1).toUpperCase()}${w.substring(1)}`);
+  return result.join(' ');
+};

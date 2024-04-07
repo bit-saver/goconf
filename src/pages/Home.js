@@ -4,11 +4,6 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import ApiContext from '../util/ApiContext';
 import Layout from '../components/Layout';
 import ConfigContext from '../util/ConfigContext';
-// import AddScene from './AddScene';
-// import RemoveScene from './RemoveScene';
-// import EditSceneSlots from './EditSceneSlots';
-// import ViewDevices from './ViewDevices';
-// import LightStates from './LightStates';
 
 function Home() {
   const { loaded, reloadConfig } = useContext(ConfigContext);
@@ -33,7 +28,7 @@ function Home() {
   useEffect(() => {
     apiCheckAuth().then((auth) => {
       setAuthState(auth);
-      console.log('auth', auth);
+      // console.log('auth', auth);
       if (!onLogin && (!auth || !token)) {
         navigate('/login', { replace: true });
       } else if (!loaded) {
@@ -46,8 +41,6 @@ function Home() {
       navigate('/login', { replace: true });
     });
   }, [token, loaded]);
-
-  console.log(authState);
 
   const showOutlet = onLogin || (loaded && authState);
   const showLoader = !showOutlet;

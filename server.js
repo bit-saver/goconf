@@ -29,7 +29,7 @@ app.post('/api/saveConfig', (request, response) => {
     const config = getConfig();
     const index = config.platforms.findIndex((p) => p.name === 'Govee');
     config.platforms[index].lightDevices = request.body;
-    fs.writeFileSync(configPath, JSON.stringify(config));
+    fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
     response.send(request.body); // echo the result back
 });
 
@@ -53,7 +53,7 @@ app.get('/api/getScenes', (request, response) => {
 });
 
 app.post('/api/saveScenes', (request, response) => {
-    fs.writeFileSync('/usr/app/nr/scenes.json', JSON.stringify(request.body));
+    fs.writeFileSync('/usr/app/nr/scenes.json', JSON.stringify(request.body, null, 2));
     response.send(response.body);
 });
 

@@ -68,7 +68,7 @@ export default function ListTable({ rows, selected, setSelected }) {
                   }}
                 />
               </TableCell>
-              { rows[0].slotName && rows[0].sceneName
+              { rows[0]?.slotName && rows[0]?.sceneName
                 && (
                   <>
                     <TableCell
@@ -89,7 +89,7 @@ export default function ListTable({ rows, selected, setSelected }) {
                     </TableCell>
                   </>
                 )}
-              { rows[0].deviceName
+              { rows[0]?.deviceName
                 && (
                   <TableCell
                     key="th-device"
