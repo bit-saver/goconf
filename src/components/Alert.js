@@ -3,7 +3,7 @@ import { Snackbar, Alert as MuiAlert } from '@mui/material';
 
 const AlertContext = createContext({});
 
-export function Alert({ children }) {
+export const Alert = ({ children }) => {
   const [alert, setAlert] = useState({
     open: false,
     message: '',
@@ -57,6 +57,6 @@ export function Alert({ children }) {
       </Snackbar>
     </AlertContext.Provider>
   );
-}
+};
 
 export default AlertContext;

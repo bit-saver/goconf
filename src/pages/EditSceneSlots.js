@@ -15,7 +15,7 @@ import ConfigContext from '../util/ConfigContext';
 // import AlertContext from '../components/Alert';
 import { getRoomName } from '../util/util';
 
-function EditSceneSlots() {
+const EditSceneSlots = () => {
   const { getSceneSlots, getRoomSlots, room } = useContext(ConfigContext);
   const { token, apiSaveScenes } = useContext(ApiContext);
   // const { showAlert } = useContext(AlertContext);
@@ -128,6 +128,6 @@ function EditSceneSlots() {
       </Grid>
     </Grid>
   );
-}
+};
 
 export default EditSceneSlots;

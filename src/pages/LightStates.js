@@ -63,7 +63,7 @@ const devices = {
   },
 };
 
-export default function LightStates() {
+const LightStates = () => {
   const { defaultSlots, getSceneSlots } = useContext(ConfigContext);
   const {
     haGetStates, haCallService, haCallWebhook, apiSaveScenes,
@@ -401,7 +401,11 @@ export default function LightStates() {
                       </ul>
                     </div>
 
-                    <FormControlLabel control={<Checkbox />} label="Remove existing states?" onChange={(e) => setRemoveExisting(e.target.checked)} />
+                    <FormControlLabel
+                      control={<Checkbox />}
+                      label="Remove existing states?"
+                      onChange={(e) => setRemoveExisting(e.target.checked)}
+                    />
                     <FormControl fullWidth>
                       <InputLabel id="label-slot">Slot</InputLabel>
                       <Select
@@ -567,7 +571,13 @@ export default function LightStates() {
                                 }}
                               />
                               <div style={{
-                                position: 'absolute', right: '-55px', top: 0, height: '100%', width: '62px', zIndex: 9998, backgroundColor: 'transparent',
+                                position: 'absolute',
+                                right: '-55px',
+                                top: 0,
+                                height: '100%',
+                                width: '62px',
+                                zIndex: 9998,
+                                backgroundColor: 'transparent',
                               }}
                               />
                             </div>
@@ -584,4 +594,6 @@ export default function LightStates() {
       </Tooltip>
     </Grid>
   );
-}
+};
+
+export default LightStates;

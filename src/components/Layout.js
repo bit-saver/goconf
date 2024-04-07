@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 import TopBar from './TopBar';
 import TopMenu from './TopMenu';
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -22,4 +22,6 @@ export default function Layout({ children }) {
       <TopMenu />
     </Box>
   );
-}
+};
+
+export default Layout;

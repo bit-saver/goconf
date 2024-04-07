@@ -56,21 +56,19 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
-  return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <main style={{ margin: 0 }}>
-        <ApiProvider>
-          <ConfigProvider>
-            <Alert>
-              <RouterProvider router={router} />
-            </Alert>
-          </ConfigProvider>
-        </ApiProvider>
-      </main>
-    </ThemeProvider>
-  );
-}
+const App = () => (
+  <ThemeProvider theme={darkTheme}>
+    <CssBaseline />
+    <main style={{ margin: 0 }}>
+      <ApiProvider>
+        <ConfigProvider>
+          <Alert>
+            <RouterProvider router={router} />
+          </Alert>
+        </ConfigProvider>
+      </ApiProvider>
+    </main>
+  </ThemeProvider>
+);
 
 export default App;

@@ -18,7 +18,7 @@ import ConfigContext from '../util/ConfigContext';
 import { defaultSlots, getRoomName } from '../util/util';
 import AlertContext from '../components/Alert';
 
-function AddScene() {
+const AddScene = () => {
   const { apiPost, apiSaveScenes } = useContext(ApiContext);
   const { goveeConfig, getSceneSlots, room } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
@@ -217,6 +217,6 @@ function AddScene() {
       </Grid>
     </Grid>
   );
-}
+};
 
 export default AddScene;

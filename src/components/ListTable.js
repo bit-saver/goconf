@@ -9,7 +9,7 @@ import {
   TableRow,
 } from '@mui/material';
 
-export default function ListTable({ rows, selected, setSelected }) {
+const ListTable = ({ rows, selected, setSelected }) => {
   // const [selected, setSelected] = useState([]);
 
   const handleSelectAllClick = (event) => {
@@ -156,4 +156,6 @@ export default function ListTable({ rows, selected, setSelected }) {
       </TableContainer>
     </Box>
   );
-}
+};
+
+export default ListTable;

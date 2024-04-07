@@ -8,7 +8,7 @@ import {
 
 const ApiContext = createContext(null);
 
-export function ApiProvider({ children }) {
+export const ApiProvider = ({ children }) => {
   const getToken = (tokenKey) => sessionStorage.getItem(tokenKey);
 
   const [token, setToken] = useState(getToken(TOKEN_KEY));
@@ -217,5 +217,5 @@ export function ApiProvider({ children }) {
       { children }
     </ApiContext.Provider>
   );
-}
+};
 export default ApiContext;

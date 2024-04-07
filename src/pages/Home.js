@@ -5,7 +5,7 @@ import ApiContext from '../util/ApiContext';
 import Layout from '../components/Layout';
 import ConfigContext from '../util/ConfigContext';
 
-function Home() {
+const Home = () => {
   const { loaded, reloadConfig } = useContext(ConfigContext);
   const { token, apiCheckAuth } = useContext(ApiContext);
 
@@ -55,6 +55,6 @@ function Home() {
       )}
     </Layout>
   );
-}
+};
 
 export default Home;

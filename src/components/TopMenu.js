@@ -19,7 +19,7 @@ import AlertContext from './Alert';
 
 const drawerWidth = 240;
 
-function TopMenu({ open, setOpen }) {
+const TopMenu = ({ open, setOpen }) => {
   const { showAlert } = useContext(AlertContext);
   const {
     restarting, loaded, room,
@@ -167,6 +167,6 @@ function TopMenu({ open, setOpen }) {
       </List>
     </Drawer>
   );
-}
+};
 
 export default TopMenu;

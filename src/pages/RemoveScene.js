@@ -8,7 +8,7 @@ import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
 import AlertContext from '../components/Alert';
 
-export default function RemoveScene() {
+const RemoveScene = () => {
   const { apiPost, apiPut } = useContext(ApiContext);
   const { goveeConfig } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
@@ -96,4 +96,6 @@ export default function RemoveScene() {
       </Grid>
     </Grid>
   );
-}
+};
+
+export default RemoveScene;

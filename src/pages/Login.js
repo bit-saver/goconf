@@ -5,7 +5,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApiContext from '../util/ApiContext';
 
-function Login() {
+const Login = () => {
   const { setToken, apiPost, setAuthenticated } = useContext(ApiContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -65,6 +65,6 @@ function Login() {
       </Paper>
     </Grid>
   );
-}
+};
 
 export default Login;

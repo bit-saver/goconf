@@ -4,7 +4,7 @@ import {
 import React, { useContext } from 'react';
 import ConfigContext from '../util/ConfigContext';
 
-export default function ViewDevices() {
+const ViewDevices = () => {
   const { goveeConfig } = useContext(ConfigContext);
   return (
     <Grid container item spacing={4} xs={12}>
@@ -34,4 +34,6 @@ export default function ViewDevices() {
       })}
     </Grid>
   );
-}
+};
+
+export default ViewDevices;

@@ -8,7 +8,7 @@ import {
 
 const ConfigContext = createContext(null);
 
-export function ConfigProvider({ children }) {
+export const ConfigProvider = ({ children }) => {
   const {
     apiGet, apiPut, apiGetScenes, gvGetToken, gvGetScenes, token,
   } = useContext(ApiContext);
@@ -251,6 +251,6 @@ export function ConfigProvider({ children }) {
       {children}
     </ConfigContext.Provider>
   );
-}
+};
 
 export default ConfigContext;
