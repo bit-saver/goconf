@@ -86,9 +86,15 @@ export const deviceRooms = {
 };
 
 export const rooms = [
-  { key: 'living_room', name: 'Living Room', short: 'Living' },
-  { key: 'office', name: 'Office', short: 'Office' },
-  { key: 'bedroom', name: 'Bedroom', short: 'Bed' },
+  {
+    key: 'living_room', name: 'Living Room', short: 'Living', prefix: '',
+  },
+  {
+    key: 'office', name: 'Office', short: 'Office', prefix: 'Office',
+  },
+  {
+    key: 'bedroom', name: 'Bedroom', short: 'Bed', prefix: 'Bed',
+  },
 ];
 
 export const bulbs = {

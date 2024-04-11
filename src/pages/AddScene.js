@@ -1,7 +1,8 @@
 import {
+  Box,
   Button,
   Card, Checkbox,
-  FormControl, Grid,
+  FormControl, FormControlLabel, Grid,
   InputLabel,
   List,
   ListItem,
@@ -9,18 +10,20 @@ import {
   ListItemIcon, ListItemText,
   MenuItem,
   Select,
-  Stack,
+  Stack, Switch,
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import ListTable from '../components/ListTable';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
-import { defaultSlots, getRoomName } from '../util/util';
+import { defaultSlots, getRoomName, rooms } from '../util/util';
 import AlertContext from '../components/Alert';
 
 const AddScene = () => {
   const { apiPost, apiSaveScenes } = useContext(ApiContext);
-  const { goveeConfig, getSceneSlots, room } = useContext(ConfigContext);
+  const {
+    goveeConfig, getSceneSlots, getRoomScenes, room,
+  } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
   const { scenes, devices } = goveeConfig || { scenes: {}, devices: {} };
@@ -30,6 +33,8 @@ const AddScene = () => {
   const [selectedDevices, setSelectedDevices] = useState([]);
 
   const [sceneSlots, setSceneSlots] = useState([]);
+
+  const [prefixFilter, setPrefixFilter] = useState(true);
 
   useEffect(() => {
     getSceneSlots().then((result) => {
@@ -121,12 +126,37 @@ const AddScene = () => {
 
   const saveDisabled = !selectedScene || !selectedSlot || selectedDevices.length < 1;
 
+  const getScenes = () => {
+    if (!prefixFilter) {
+      return Object.keys(getRoomScenes()).sort();
+    }
+    const roomObj = rooms.find((r) => r.key === room);
+    const roomPrefix = roomObj.prefix;
+    return Object.keys(getRoomScenes()).filter((s) => s.startsWith(roomPrefix)).sort();
+  };
+
   return (
     <Grid container item xs={12} spacing={4} justifyContent="center">
-      <Grid item xs={12} md={6} lg={4}>
+      <Grid item xs={12} md={6} lg={4} sx={{ position: 'relative' }}>
         <h1>
           {`Add Scenes: ${getRoomName(room)}`}
         </h1>
+        <Box sx={{
+          position: 'absolute',
+          right: 0,
+          top: '60px',
+        }}
+        >
+          <FormControlLabel
+            control={(
+              <Switch
+                checked={prefixFilter}
+                onChange={(e) => setPrefixFilter(e.target.checked)}
+              />
+            )}
+            label="Prefix Filter"
+          />
+        </Box>
         <Stack spacing={4}>
           <FormControl fullWidth>
             <InputLabel id="label-scene">Scene</InputLabel>
@@ -137,7 +167,7 @@ const AddScene = () => {
               label="Scene"
               onChange={handleSelectScene}
             >
-              {Object.keys(scenes).sort().map((s) => (
+              {getScenes().map((s) => (
                 <MenuItem value={s} key={s}>{s}</MenuItem>
               ))}
             </Select>

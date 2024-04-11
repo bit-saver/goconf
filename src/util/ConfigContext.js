@@ -34,7 +34,7 @@ export const ConfigProvider = ({ children }) => {
           if (oneClick.iotRules) {
             oneClick.iotRules.forEach((iotRule) => {
               if (iotRule?.deviceObj?.sku) {
-                // const isCurtain = iotRule.deviceObj.sku === 'H70B5';
+                const isCurtain = iotRule.deviceObj.sku === 'H70B5';
                 // if (isCurtain) {
                 //   console.log('got curtain', oneClick);
                 // }
@@ -42,7 +42,7 @@ export const ConfigProvider = ({ children }) => {
                   iotRule.rule.forEach((rule) => {
                     if (rule.iotMsg) {
                       const iotMsg = JSON.parse(rule.iotMsg);
-                      if (['ptReal'].includes(iotMsg.msg?.cmd)) {
+                      if (['ptReal', 'ptUrl'].includes(iotMsg.msg?.cmd)) {
                         // eslint-disable-next-line max-len
                         const deviceName = iotRule.deviceObj.name;
                         const ttrName = oneClick.name;
@@ -52,7 +52,9 @@ export const ConfigProvider = ({ children }) => {
                           switch (iotMsg.msg.cmd) {
                           case 'ptUrl':
                             codeArray = iotMsg.msg.data.value;
-                            return codeArray.map((c) => c.replace(/^\/+|\/+$/g, '')).join(',');
+                            console.log('ptUrl', ttrName, iotMsg);
+                            // return `ptUrl.${codeArray.map((c) => c.replace(/^\/+|\/+$/g, '')).join(',')}`;
+                            return `ptUrl.${codeArray.join(',')}`;
                           case 'ptReal':
                             codeArray = iotMsg.msg.data.command;
                             return codeArray.join(',');
@@ -119,17 +121,21 @@ export const ConfigProvider = ({ children }) => {
       // }
       const matchScene = scene.ttrName;
       const matchCode = scene.code;
+      const matchRoom = deviceRooms[matchDevice] || 'living_room';
       if (!devices[matchDevice]) {
-        devices[matchDevice] = { name: matchDevice, scenes: {}, room: deviceRooms[matchDevice] || 'living_room' };
+        devices[matchDevice] = { name: matchDevice, scenes: {}, room: matchRoom };
       }
       devices[matchDevice].scenes[matchScene] = matchCode;
       if (!scenes[matchScene]) {
-        scenes[matchScene] = { name: matchScene, devices: {} };
+        scenes[matchScene] = { name: matchScene, devices: {}, rooms: [] };
       }
       scenes[matchScene].devices[matchDevice] = matchCode;
+      if (!scenes[matchScene].rooms.includes(matchRoom)) {
+        scenes[matchScene].rooms.push(matchRoom);
+      }
       sceneNameIds[matchCode] = matchScene;
     });
-    // console.log('scenes', scenes, 'devices', devices, 'sceneNameIds', sceneNameIds);
+    console.log('scenes', scenes, 'devices', devices, 'sceneNameIds', sceneNameIds);
 
     const slotNames = defaultSlots.reduce((acc, slotName) => {
       acc[slotName] = null;
@@ -164,7 +170,7 @@ export const ConfigProvider = ({ children }) => {
     goveeConf.configScenes = configScenes;
     goveeConf.configDevices = lightDevices;
     setGoveeConfig(goveeConf);
-    // console.log('configured devices', lightDevices, 'scenes', configScenes);
+    console.log('configured devices', lightDevices, 'scenes', configScenes);
 
     setLoaded(true);
     return Promise.resolve();
@@ -193,6 +199,13 @@ export const ConfigProvider = ({ children }) => {
   };
 
   const getRoomSlots = () => sceneSlots.filter((ss) => ss.room === room);
+
+  const getRoomScenes = () => Object.keys(goveeConfig.scenes || []).reduce((acc, s) => {
+    if (goveeConfig.scenes[s].rooms.includes(room)) {
+      acc[s] = goveeConfig.scenes[s];
+    }
+    return acc;
+  }, {});
 
   const restartHomebridge = async () => {
     setRestarting(true);
@@ -238,12 +251,14 @@ export const ConfigProvider = ({ children }) => {
     room,
     setRoom,
     getRoomSlots,
+    getRoomScenes,
   }), [
     goveeConfig, loaded, restarting, defaultSlots,
     getSceneSlots, getGoveeScenes,
     room,
     setRoom,
     getRoomSlots,
+    getRoomScenes,
   ]);
 
   return (
