@@ -1,7 +1,8 @@
-import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { Button, CircularProgress } from '@mui/material';
+import {
+  Box, Button, CircularProgress, SwipeableDrawer,
+} from '@mui/material';
 import List from '@mui/material/List';
 import { Link } from 'react-router-dom';
 import ListItem from '@mui/material/ListItem';
@@ -25,6 +26,17 @@ const TopMenu = ({ open, setOpen }) => {
   } = useContext(ConfigContext);
 
   const theme = useTheme();
+
+  const toggleDrawer = (value) => (event) => {
+    if (
+      event
+      && event.type === 'keydown'
+      && (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+    setOpen(value);
+  };
 
   const handleDrawerClose = () => {
     setOpen(false);
@@ -64,91 +76,102 @@ const TopMenu = ({ open, setOpen }) => {
     setOpen(false);
   };
 
+  const drawerTop = {
+    top: 56,
+    [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
+      top: 48,
+    },
+    [theme.breakpoints.up('sm')]: {
+      top: 64,
+    },
+  };
+
   return (
-    <Drawer
+    <SwipeableDrawer
       sx={{
         width: drawerWidth,
         flexShrink: 0,
+        ...drawerTop,
         '& .MuiDrawer-paper': {
           width: drawerWidth,
+          ...drawerTop,
         },
       }}
-      onClose={handleDrawerClose}
+      // onClose={handleDrawerClose}
       variant="temporary"
       ModalProps={{
         keepMounted: true,
       }}
-      // anchor="left"
-      anchor="right"
+      anchor="left"
       open={open}
+      onClose={toggleDrawer(false)}
+      onOpen={toggleDrawer(true)}
     >
-      {/* <DrawerHeader sx={{ alignSelf: 'end' }}> */}
-      <DrawerHeader>
-        <IconButton onClick={handleDrawerClose}>
-          {/* <ChevronLeftIcon /> */}
-          <ChevronRightIcon />
-        </IconButton>
-      </DrawerHeader>
-      <RoomToggle onToggleChange={onToggleChange} />
-      <List>
-        {pages.map(({ label, slug }) => (
+      <Box
+        onClick={toggleDrawer(false)}
+        onKeyDown={toggleDrawer(false)}
+      >
+        <RoomToggle onToggleChange={onToggleChange} />
+        <List>
+          {pages.map(({ label, slug }) => (
+            <Link
+              to={`/${slug}`}
+              key={slug}
+              onClick={(e) => {
+                setOpen(false);
+                return e;
+              }}
+            >
+              <ListItem disablePadding to={`/${slug}`}>
+                <ListItemButton>
+                  <ListItemText primary={label} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          ))}
+          <ListItem key="restart">
+            <Button
+              size="large"
+              variant="contained"
+              disabled={restarting}
+              onClick={handleRestart}
+              startIcon={restarting ? null : <RestartAlt />}
+              sx={{ width: '100%' }}
+            >
+              {restarting ? <CircularProgress /> : 'RESTART HOMEBRIDGE'}
+            </Button>
+          </ListItem>
+          <ListItem key="reload">
+            <Button
+              size="large"
+              variant="contained"
+              disabled={!loaded}
+              onClick={handleReload}
+              startIcon={!loaded ? null : <RestartAlt />}
+              sx={{ width: '100%' }}
+            >
+              {!loaded ? <CircularProgress /> : 'Reload Config'}
+            </Button>
+          </ListItem>
+        </List>
+        <Divider />
+        <List>
           <Link
-            to={`/${slug}`}
-            key={slug}
+            to="/lightStates"
             onClick={(e) => {
               setOpen(false);
               return e;
             }}
           >
-            <ListItem disablePadding to={`/${slug}`}>
+            <ListItem disablePadding>
               <ListItemButton>
-                <ListItemText primary={label} />
+                <ListItemText primary="Light States" />
               </ListItemButton>
             </ListItem>
           </Link>
-        ))}
-        <ListItem key="restart">
-          <Button
-            size="large"
-            variant="contained"
-            disabled={restarting}
-            onClick={handleRestart}
-            startIcon={restarting ? null : <RestartAlt />}
-            sx={{ width: '100%' }}
-          >
-            {restarting ? <CircularProgress /> : 'RESTART HOMEBRIDGE'}
-          </Button>
-        </ListItem>
-        <ListItem key="reload">
-          <Button
-            size="large"
-            variant="contained"
-            disabled={!loaded}
-            onClick={handleReload}
-            startIcon={!loaded ? null : <RestartAlt />}
-            sx={{ width: '100%' }}
-          >
-            {!loaded ? <CircularProgress /> : 'Reload Config'}
-          </Button>
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        <Link
-          to="/lightStates"
-          onClick={(e) => {
-            setOpen(false);
-            return e;
-          }}
-        >
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary="Light States" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-      </List>
-    </Drawer>
+        </List>
+      </Box>
+    </SwipeableDrawer>
   );
 };
 

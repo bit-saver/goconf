@@ -27,14 +27,16 @@ import CheckIcon from '@mui/icons-material/Check';
 import Drawer from '@mui/material/Drawer';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SettingsIcon from '@mui/icons-material/Settings';
+import { useTheme } from '@mui/material/styles';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
 import {
-  bulbs, checkSubset, hexToRgb, rgbToHex,
+  bulbs, checkSubset, getRoomName, hexToRgb, rgbToHex,
 } from '../util/util';
 import useCopy from '../util/useCopy';
 import AlertContext from '../components/Alert';
 import RoomToggle from '../components/RoomToggle';
+import PageTitle from '../components/PageTitle';
 
 const LightStates = () => {
   const { defaultSlots, getSceneSlots, room } = useContext(ConfigContext);
@@ -55,6 +57,8 @@ const LightStates = () => {
   const [saving, setSaving] = useState(false);
   const [open, setOpen] = useState(true);
   const [showTooltip, setShowTooltip] = useState(false);
+
+  const theme = useTheme();
 
   const getLightStates = async () => {
     const data = await haGetStates()
@@ -248,6 +252,16 @@ const LightStates = () => {
 
   const getLightFill = (light) => (light.state?.rgb_color ? `${light.state.rgb_color.join(', ')}` : '0, 0, 0');
 
+  const drawerTop = {
+    top: 'calc(calc(56px / 2) - 20px)',
+    [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
+      top: 'calc(calc(48px / 2) - 20px)',
+    },
+    [theme.breakpoints.up('sm')]: {
+      top: 'calc(calc(64px / 2) - 20px)',
+    },
+  };
+
   if (!loaded) {
     return <Grid item xs={12} sx={{ textAlign: 'center', marginTop: '30vh' }}><CircularProgress /></Grid>;
   }
@@ -268,18 +282,11 @@ const LightStates = () => {
         disableHoverListener
         disableTouchListener
       >
-        <div style={{ display: 'block' }}>
-          <Typography
-            variant="h5"
-            component="div"
-            noWrap
-            sx={{
-              flexGrow: 1,
-              margin: '15px 0',
-            }}
-          >
-            Light States
-          </Typography>
+        <PageTitle
+          title="Light States"
+          subtitle={getRoomName(room)}
+        />
+        <Box sx={{ display: 'block' }}>
 
           <Drawer
             sx={{
@@ -425,14 +432,17 @@ const LightStates = () => {
             size="small"
             onClick={() => setOpen(!open)}
             sx={{
-              position: 'fixed', top: '65px', right: '13px', zIndex: 9999,
+              position: 'fixed',
+              right: '13px',
+              zIndex: 9999,
+              ...drawerTop,
             }}
           >
             {open && <ChevronRightIcon />}
             {!open && <SettingsIcon />}
           </Fab>
           <Grid container item spacing={2}>
-            <Grid item xs={12} sm={8}>
+            <Grid item xs={12} sm={12} md={8}>
               <Grid container item spacing={2}>
                 {Object.values(lightGroups).map((group) => {
                   const light = group[0];
@@ -572,7 +582,7 @@ const LightStates = () => {
               </Grid>
             </Grid>
           </Grid>
-        </div>
+        </Box>
       </Tooltip>
     </Grid>
   );

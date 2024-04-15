@@ -1,23 +1,30 @@
 import {
   Box,
   Button,
-  Card, Checkbox,
-  FormControl, FormControlLabel, Grid,
+  Card,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  Grid,
   InputLabel,
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon, ListItemText,
+  ListItemIcon,
+  ListItemText,
   MenuItem,
   Select,
-  Stack, Switch,
+  Stack,
+  Switch,
 } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import React, { useContext, useEffect, useState } from 'react';
 import ListTable from '../components/ListTable';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
 import { defaultSlots, getRoomName, rooms } from '../util/util';
 import AlertContext from '../components/Alert';
+import PageTitle from '../components/PageTitle';
 
 const AddScene = () => {
   const { apiPost, apiSaveScenes } = useContext(ApiContext);
@@ -136,28 +143,24 @@ const AddScene = () => {
   };
 
   return (
-    <Grid container item xs={12} spacing={4} justifyContent="center">
+    <Grid container item xs={12} spacing={0} justifyContent="center" id="page-container">
       <Grid item xs={12} md={6} lg={4} sx={{ position: 'relative' }}>
-        <h1>
-          {`Add Scenes: ${getRoomName(room)}`}
-        </h1>
-        <Box sx={{
-          position: 'absolute',
-          right: 0,
-          top: '60px',
-        }}
-        >
-          <FormControlLabel
+        <Stack spacing={4}>
+          <PageTitle
+            title="Add Scene"
+            subtitle={getRoomName(room)}
             control={(
-              <Switch
-                checked={prefixFilter}
-                onChange={(e) => setPrefixFilter(e.target.checked)}
+              <FormControlLabel
+                control={(
+                  <Switch
+                    checked={prefixFilter}
+                    onChange={(e) => setPrefixFilter(e.target.checked)}
+                  />
+                )}
+                label="Prefix Filter"
               />
             )}
-            label="Prefix Filter"
           />
-        </Box>
-        <Stack spacing={4}>
           <FormControl fullWidth>
             <InputLabel id="label-scene">Scene</InputLabel>
             <Select

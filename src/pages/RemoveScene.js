@@ -7,6 +7,8 @@ import ListTable from '../components/ListTable';
 import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
 import AlertContext from '../components/Alert';
+import PageTitle from '../components/PageTitle';
+import { getRoomName } from '../util/util';
 
 const RemoveScene = () => {
   const { apiPost, apiPut } = useContext(ApiContext);
@@ -41,7 +43,9 @@ const RemoveScene = () => {
   return (
     <Grid container item xs={12} spacing={4} justifyContent="center">
       <Grid item xs={12} sm={12} md={4} lg={3}>
-        <h1>Remove Scenes</h1>
+        <PageTitle
+          title="Remove Scenes"
+        />
         <Card variant="outlined">
           <ListTable
             selected={selectedSlotScenes}

@@ -18,6 +18,13 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
+  typography: {
+    fontSize: 14,
+    htmlFontSize: 16,
+    h4: {
+      fontSize: '2rem ',
+    },
+  },
 });
 
 const router = createBrowserRouter([

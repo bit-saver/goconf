@@ -52,7 +52,7 @@ const Login = () => {
               required
               id="password"
               type="password"
-              label="password"
+              label="Password"
               value={password}
               onChange={(e) => {
                 setError(false);

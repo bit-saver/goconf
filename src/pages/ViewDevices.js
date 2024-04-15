@@ -3,11 +3,17 @@ import {
 } from '@mui/material';
 import React, { useContext } from 'react';
 import ConfigContext from '../util/ConfigContext';
+import PageTitle from '../components/PageTitle';
 
 const ViewDevices = () => {
   const { goveeConfig } = useContext(ConfigContext);
   return (
     <Grid container item spacing={4} xs={12}>
+      <Grid item xs={12}>
+        <PageTitle
+          title="View Devices"
+        />
+      </Grid>
       {Object.keys(goveeConfig.configDevices).map((deviceName) => {
         const device = goveeConfig.configDevices[deviceName];
         return (

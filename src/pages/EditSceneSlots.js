@@ -14,6 +14,7 @@ import ApiContext from '../util/ApiContext';
 import ConfigContext from '../util/ConfigContext';
 // import AlertContext from '../components/Alert';
 import { getRoomName } from '../util/util';
+import PageTitle from '../components/PageTitle';
 
 const EditSceneSlots = () => {
   const { getSceneSlots, getRoomSlots, room } = useContext(ConfigContext);
@@ -50,9 +51,10 @@ const EditSceneSlots = () => {
   return (
     <Grid container item xs={12} spacing={4} justifyContent="center">
       <Grid item xs={12} md={6} lg={4}>
-        <h1>
-          {`Edit Scene Slots: ${getRoomName(room)}`}
-        </h1>
+        <PageTitle
+          title="Edit Scene Slots"
+          subtitle={getRoomName(room)}
+        />
         <Card variant="outlined">
           <Stack spacing={4}>
             <TableContainer>
