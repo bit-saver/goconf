@@ -4,25 +4,25 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react';
-import { ChevronLeft } from '@mui/icons-material';
+import { ChevronRight } from '@mui/icons-material';
 
 const TopBar = ({ open, setOpen }) => (
   <AppBar position="fixed" open={open}>
     <Toolbar>
+      <Typography variant="h6" noWrap sx={{ flexGrow: 1, fontWeight: 600 }} component="div">
+        GOCONF
+      </Typography>
       <IconButton
         color="inherit"
         aria-label="toggle drawer"
-        edge="start"
+        edge="end"
         onClick={() => setOpen(!open)}
         // sx={{ ...(open && { display: 'none' }) }}
       >
         { !open
           ? <MenuIcon />
-          : <ChevronLeft />}
+          : <ChevronRight />}
       </IconButton>
-      <Typography variant="h6" noWrap sx={{ flexGrow: 1, marginLeft: '10px' }} component="div">
-        Govee Config Editor
-      </Typography>
     </Toolbar>
   </AppBar>
 );

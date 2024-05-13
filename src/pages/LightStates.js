@@ -8,7 +8,7 @@ import {
   Checkbox,
   CircularProgress,
   Fab,
-  FormControl, FormControlLabel,
+  FormControl, FormControlLabel, FormGroup,
   Grid,
   InputLabel,
   MenuItem,
@@ -46,6 +46,12 @@ const LightStates = () => {
   const { showAlert } = useContext(AlertContext);
   const [, copy] = useCopy();
 
+  const preferedLights = {
+    living_room: new Set(['Sink', 'Balcony']),
+    office: new Set(['Office Fan']),
+    bedroom: new Set([]),
+  };
+
   const [originalStates, setOriginalStates] = useState({});
   const [loaded, setLoaded] = useState(false);
   const [lights, setLights] = useState({ ...bulbs });
@@ -54,6 +60,7 @@ const LightStates = () => {
   const [selectedSlot, setSelectedSlot] = useState('');
   const [selectedShowSlot, setSelectedShowSlot] = useState('current');
   const [removeExisting, setRemoveExisting] = useState(false);
+  const [showLights, setShowLights] = useState(preferedLights[room]);
   const [saving, setSaving] = useState(false);
   const [open, setOpen] = useState(true);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -73,7 +80,7 @@ const LightStates = () => {
         lights[entityId].state = state.attributes;
       }
     });
-    // console.log('updating lights:', lights);
+    console.log('updating lights:', lights);
     setLights({ ...lights });
   };
 
@@ -88,6 +95,10 @@ const LightStates = () => {
     });
     getSceneSlots().then((result) => setSceneSlots(result));
   }, []);
+
+  useEffect(() => {
+    setShowLights(preferedLights[room]);
+  }, [room]);
 
   // useEffect(() => {
   //   console.log(sceneSlots);
@@ -305,9 +316,11 @@ const LightStates = () => {
             ModalProps={{
               keepMounted: true,
             }}
-            variant="persistent"
+            variant="temporary"
             anchor="right"
             open={open}
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
             className="lightstates-drawer"
           >
             {/* <div> */}
@@ -425,6 +438,32 @@ const LightStates = () => {
                   </Stack>
                 </CardContent>
               </Card>
+              <Card>
+                <CardHeader title="Show/Hide Lights" />
+                <CardContent>
+                  <FormGroup>
+                    { Object.keys(getLightsByGroup()).map((group) => (
+                      <FormControlLabel
+                        key={`light${Math.random()}`}
+                        label={group}
+                        control={(
+                          <Checkbox
+                            checked={showLights.has(group)}
+                            onChange={(event) => {
+                              const { checked } = event.target;
+                              if (checked) {
+                                showLights.add(group);
+                              } else {
+                                showLights.delete(group);
+                              }
+                              setShowLights(new Set(showLights));
+                            }} />
+                        )}
+                      />
+                    ))}
+                  </FormGroup>
+                </CardContent>
+              </Card>
             </Stack>
           </Drawer>
           <Fab
@@ -433,9 +472,10 @@ const LightStates = () => {
             onClick={() => setOpen(!open)}
             sx={{
               position: 'fixed',
-              right: '13px',
+              bottom: '16px',
+              right: '16px',
               zIndex: 9999,
-              ...drawerTop,
+              // ...drawerTop,
             }}
           >
             {open && <ChevronRightIcon />}
@@ -444,7 +484,7 @@ const LightStates = () => {
           <Grid container item spacing={2}>
             <Grid item xs={12} sm={12} md={8}>
               <Grid container item spacing={2}>
-                {Object.values(lightGroups).map((group) => {
+                {Object.values(lightGroups).filter((g) => showLights.has(g[0].group)).map((group) => {
                   const light = group[0];
                   const fill = getLightFill(light);
                   return (
