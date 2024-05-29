@@ -34,26 +34,23 @@ export const ConfigProvider = ({ children }) => {
           if (oneClick.iotRules) {
             oneClick.iotRules.forEach((iotRule) => {
               if (iotRule?.deviceObj?.sku) {
-                const isCurtain = iotRule.deviceObj.sku === 'H70B5';
-                // if (isCurtain) {
-                //   console.log('got curtain', oneClick);
-                // }
                 if (rgbModels.includes(iotRule.deviceObj.sku)) {
                   iotRule.rule.forEach((rule) => {
                     if (rule.iotMsg) {
                       const iotMsg = JSON.parse(rule.iotMsg);
+                      const cmdVal = JSON.parse(rule.cmdVal);
                       if (['ptReal', 'ptUrl'].includes(iotMsg.msg?.cmd)) {
                         // eslint-disable-next-line max-len
                         const deviceName = iotRule.deviceObj.name;
                         const ttrName = oneClick.name;
+                        const diyName = cmdVal?.diyName;
 
                         const getCode = () => {
                           let codeArray = [];
                           switch (iotMsg.msg.cmd) {
                           case 'ptUrl':
                             codeArray = iotMsg.msg.data.value;
-                            console.log('ptUrl', ttrName, iotMsg);
-                            // return `ptUrl.${codeArray.map((c) => c.replace(/^\/+|\/+$/g, '')).join(',')}`;
+                            // console.log('ptUrl', ttrName, iotMsg);
                             return `ptUrl.${codeArray.join(',')}`;
                           case 'ptReal':
                             codeArray = iotMsg.msg.data.command;
@@ -63,7 +60,9 @@ export const ConfigProvider = ({ children }) => {
                           }
                         };
                         const code = getCode();
-                        scenes.push({ deviceName, ttrName, code });
+                        scenes.push({
+                          deviceName, ttrName, code, diyName,
+                        });
                       }
                     }
                   });
@@ -79,6 +78,7 @@ export const ConfigProvider = ({ children }) => {
 
   const loadConfig = async () => {
     // console.log('getting hb-govee config...');
+    const { data: scenesJson } = await apiGetScenes();
     const config = await apiGet('/api/config-editor/plugin/homebridge-govee')
       .then((result) => (result?.data ? result.data[0] : null))
       .catch((e) => e);
@@ -111,14 +111,11 @@ export const ConfigProvider = ({ children }) => {
         return new Error('Error retrieving Govee scenes.');
       }
     }
-    // console.log('ttrScenes', ttrScenes);
+    console.log('ttrScenes', ttrScenes);
 
     const sceneNameIds = {};
     ttrScenes.forEach((scene) => {
       const matchDevice = scene.deviceName;
-      // if (matchDevice === 'Curtain') {
-      //   console.log('curtain match', scene);
-      // }
       const matchScene = scene.ttrName;
       const matchCode = scene.code;
       const matchRoom = deviceRooms[matchDevice] || 'living_room';
@@ -133,7 +130,7 @@ export const ConfigProvider = ({ children }) => {
       if (!scenes[matchScene].rooms.includes(matchRoom)) {
         scenes[matchScene].rooms.push(matchRoom);
       }
-      sceneNameIds[matchCode] = matchScene;
+      sceneNameIds[matchCode] = { sceneName: matchScene, diyName: scene.diyName };
     });
     console.log('scenes', scenes, 'devices', devices, 'sceneNameIds', sceneNameIds);
 
@@ -147,16 +144,28 @@ export const ConfigProvider = ({ children }) => {
         slots: { ...slotNames },
       };
       const deviceRoom = deviceRooms[light.label] || 'living_room';
-      defaultSlots.forEach((name) => {
-        if (light[name]) {
-          const sceneCode = light[name].sceneCode.trim();
-          const sceneName = sceneNameIds[sceneCode];
-          if (sceneName) {
-            acc[0][light.label].slots[name] = { sceneName, sceneCode, room: deviceRoom };
-            if (!acc[1][name][sceneName]) {
-              acc[1][name][sceneName] = [];
+      defaultSlots.forEach((slotName) => {
+        if (light[slotName]) {
+          const sceneCode = light[slotName].sceneCode.trim();
+          // eslint-disable-next-line prefer-const
+          let { sceneName, diyName } = sceneNameIds[sceneCode] || { sceneName: null, diyName: null };
+          if (!sceneName) {
+            const sceneJson = scenesJson.find((s) => s.slot === slotName && s.room === deviceRoom);
+            if (sceneJson) {
+              sceneName = sceneJson.scene;
             }
-            acc[1][name][sceneName].push(light.label);
+          }
+          if (sceneName) {
+            acc[0][light.label].slots[slotName] = {
+              sceneName,
+              diyName,
+              sceneCode,
+              room: deviceRoom,
+            };
+            if (!acc[1][slotName][sceneName]) {
+              acc[1][slotName][sceneName] = [];
+            }
+            acc[1][slotName][sceneName].push(light.label);
           } else {
             console.warn('scene code not found: ', sceneName, `'${sceneCode}'`, 'device', light);
           }
@@ -169,11 +178,12 @@ export const ConfigProvider = ({ children }) => {
     goveeConf.devices = devices;
     goveeConf.configScenes = configScenes;
     goveeConf.configDevices = lightDevices;
+    goveeConf.ttrScenes = ttrScenes;
     setGoveeConfig(goveeConf);
-    console.log('configured devices', lightDevices, 'scenes', configScenes);
+    console.log('goveeConf', goveeConf);
 
     setLoaded(true);
-    return Promise.resolve();
+    return Promise.resolve(goveeConf);
   };
 
   const getSceneSlots = async () => {
@@ -193,7 +203,23 @@ export const ConfigProvider = ({ children }) => {
       });
       acc.push(...roomSlots);
       return acc;
+    }, []).reduce((acc, data) => {
+      const slotData = { ...data };
+      slotData.devices = [];
+      Object.keys(goveeConfig.configDevices).forEach((deviceName) => {
+        const deviceSlot = goveeConfig.configDevices[deviceName].slots[slotData.slot];
+        if (deviceSlot && slotData.room === deviceSlot.room) {
+          slotData.devices.push({
+            device: deviceName,
+            code: deviceSlot.sceneCode,
+            diyName: deviceSlot.diyName,
+          });
+        }
+      });
+      acc.push(slotData);
+      return acc;
     }, []);
+    console.log('sceneslots', slots);
     setSceneSlots(slots);
     return slots;
   };
@@ -225,18 +251,22 @@ export const ConfigProvider = ({ children }) => {
     return Promise.resolve();
   };
 
-  const reloadConfig = async () => {
+  const reloadConfig = async (silent = false) => {
     if (!token) {
       console.warn('Preventing reload config due to UNAUTHENTICATED TOKEN');
       return null;
     }
     // console.log('REloading config...');
-    setLoaded(false);
-    await loadConfig().catch((err) => {
+    if (!silent) {
+      setLoaded(false);
+    }
+    const gConfig = await loadConfig().catch((err) => {
       console.warn('Error occurred while loading config...', err);
     });
-    setLoaded(true);
-    return Promise.resolve();
+    if (!silent) {
+      setLoaded(true);
+    }
+    return Promise.resolve(gConfig);
   };
 
   const providerValue = useMemo(() => ({

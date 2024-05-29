@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { RestartAlt } from '@mui/icons-material';
+import { RestartAlt, Backup } from '@mui/icons-material';
 import Divider from '@mui/material/Divider';
 import React, { useContext } from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import ConfigContext from '../util/ConfigContext';
 import AlertContext from './Alert';
 import RoomToggle from './RoomToggle';
+import ApiContext from '../util/ApiContext';
 
 const drawerWidth = 280;
 
@@ -53,6 +54,7 @@ const TopMenu = ({ open, setOpen }) => {
     { label: 'Add Scene', slug: 'addScene' },
     { label: 'Remove Scene', slug: 'removeScene' },
     { label: 'Edit Scene Slots', slug: 'editSceneSlots' },
+    { label: 'Updater', slug: 'updater' },
   ];
 
   // const DrawerHeader = styled('div')(() => ({
@@ -95,6 +97,40 @@ const TopMenu = ({ open, setOpen }) => {
     </Link>
   );
 
+  const handleUpdate = async () => {
+    const { configDevices, scenes } = await reloadConfig();
+    Object.keys(configDevices).forEach((deviceName) => {
+      const { slots } = configDevices[deviceName];
+      Object.keys(slots).forEach((slotName) => {
+        if (slots[slotName]) {
+          const { sceneName, sceneCode, room } = slots[slotName];
+          // check scene code against ttr scenes
+          // if different, add to update list
+          const scene = scenes[sceneName];
+          if (scene) {
+            const sceneDeviceCode = scene.devices[deviceName];
+            if (sceneDeviceCode) {
+              if (sceneDeviceCode !== sceneCode) {
+                console.log('[handleUpdate] UPDATE for scene:', sceneName, 'device:', deviceName, 'slot:', slotName);
+              }
+            } else if (!sceneDeviceCode) {
+              console.log(
+                '[handleUpdate] no scene code for device, scene:',
+                sceneName,
+                'device:',
+                deviceName,
+                'slot:',
+                slotName,
+              );
+            }
+          } else if (!scene) {
+            console.log('[handleUpdate] deleted scene:', sceneName, 'device:', deviceName, 'slot:', slotName);
+          }
+        }
+      });
+    });
+  };
+
   return (
     <Drawer
       sx={{
@@ -113,7 +149,7 @@ const TopMenu = ({ open, setOpen }) => {
       anchor="right"
       open={open}
       onClose={toggleDrawer(false)}
-      onOpen={toggleDrawer(true)}
+      // onOpen={toggleDrawer(true)}
     >
       <Box
         onClick={toggleDrawer(false)}
@@ -161,6 +197,23 @@ const TopMenu = ({ open, setOpen }) => {
               {loaded && (
                 <span style={{ whiteSpace: 'nowrap', fontWeight: 500, width: '100%' }}>
                   RELOAD CONFIG
+                </span>
+              )}
+            </Button>
+          </ListItem>
+          <ListItem key="update">
+            <Button
+              size="large"
+              variant="contained"
+              disabled={!loaded}
+              onClick={handleUpdate}
+              startIcon={!loaded ? null : <Backup />}
+              sx={{ width: '100%' }}
+            >
+              {!loaded && <CircularProgress />}
+              {loaded && (
+                <span style={{ whiteSpace: 'nowrap', fontWeight: 500, width: '100%' }}>
+                  UPDATE SCENES
                 </span>
               )}
             </Button>

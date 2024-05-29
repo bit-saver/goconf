@@ -13,6 +13,7 @@ import AddScene from './pages/AddScene';
 import RemoveScene from './pages/RemoveScene';
 import EditSceneSlots from './pages/EditSceneSlots';
 import { Alert } from './components/Alert';
+import Updater from './pages/Updater';
 
 const darkTheme = createTheme({
   palette: {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: '/lightStates',
         element: <LightStates />,
+      },
+      {
+        path: '/updater',
+        element: <Updater />,
       },
     ],
   },

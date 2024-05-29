@@ -1,49 +1,2118 @@
 [
   {
-    "scene": "Lightwave",
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          173,
+          59,
+          59
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          173,
+          59,
+          59
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          185,
+          110,
+          53
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          185,
+          110,
+          53
+        ]
+      }
+    ],
+    "slot": "scene",
+    "scene": "Apricot Vanilla"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          87,
+          63
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          87,
+          63
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          213,
+          46,
+          88
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          213,
+          46,
+          88
+        ]
+      }
+    ],
     "slot": "sceneTwo",
+    "scene": "Fuzzy"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          198,
+          66,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          198,
+          66,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          61,
+          110
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          61,
+          110
+        ]
+      }
+    ],
+    "slot": "sceneThree",
+    "scene": "Pink Skies"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          87,
+          63
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          87,
+          63
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          213,
+          46,
+          46
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          213,
+          46,
+          46
+        ]
+      }
+    ],
+    "slot": "sceneFour",
+    "scene": "Doomsday"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          90,
+          66
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          90,
+          66
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          60,
+          60
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          60,
+          60
+        ]
+      }
+    ],
+    "slot": "diyMode",
+    "scene": "Peach Pulse"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          178,
+          38
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          178,
+          38
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          69,
+          177
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          69,
+          177
+        ]
+      }
+    ],
+    "slot": "diyModeTwo",
+    "scene": "Starburst"
+  },
+  {
+    "room": "living_room",
     "lights": [
       {
         "entity_id": "light.lamp",
-        "rgb_color": [1,2,3],
-        "brightness": 255
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          125,
+          12
+        ]
       }
-    ]
+    ],
+    "slot": "diyModeThree",
+    "scene": "Fluffy Chicken"
   },
   {
-    "scene": "Sea Breeze",
-    "slot": "sceneThree"
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.lamp",
+        "brightness": 255,
+        "rgb_color": [
+          69,
+          150,
+          233
+        ]
+      }
+    ],
+    "slot": "diyModeFour",
+    "scene": "Neon Meditation"
   },
   {
-    "scene": "Forest",
-    "slot": "sceneFour"
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          109,
+          171,
+          241
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          109,
+          171,
+          241
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          238,
+          172,
+          58
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          238,
+          172,
+          58
+        ]
+      }
+    ],
+    "slot": "segmented",
+    "scene": "Winter Sky"
   },
   {
-    "scene": "Grass Barney",
-    "slot": "diyMode"
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          39,
+          187,
+          231
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          39,
+          187,
+          231
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          243,
+          206,
+          29
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          243,
+          206,
+          29
+        ]
+      }
+    ],
+    "slot": "segmentedTwo",
+    "scene": "Chromatic Memories"
   },
   {
-    "scene": "Desert",
-    "slot": "diyModeTwo"
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          177,
+          58,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          177,
+          58,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          216,
+          52
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          216,
+          52
+        ]
+      }
+    ],
+    "slot": "segmentedThree",
+    "scene": "Joy"
   },
   {
-    "scene": "Star Flow",
-    "slot": "diyModeThree"
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          149,
+          221,
+          233
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          149,
+          221,
+          233
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          142,
+          235,
+          145
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          142,
+          235,
+          145
+        ]
+      }
+    ],
+    "slot": "segmentedFour",
+    "scene": "Continuum"
   },
   {
-    "scene": "Grow",
-    "slot": "segmented"
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          195,
+          77,
+          245
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          195,
+          77,
+          245
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          186,
+          241,
+          111
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          186,
+          241,
+          111
+        ]
+      }
+    ],
+    "slot": "musicMode",
+    "scene": "Neon Spring"
   },
   {
-    "scene": "Green Fader",
-    "slot": "segmentedTwo"
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          83,
+          223,
+          243
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          83,
+          223,
+          243
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          194,
+          206,
+          98
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          194,
+          206,
+          98
+        ]
+      }
+    ],
+    "slot": "musicModeTwo",
+    "scene": "Springtime"
   },
   {
-    "scene": "Dream Stars",
-    "slot": "segmentedThree"
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          101,
+          221,
+          76
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          101,
+          221,
+          76
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          231,
+          171,
+          60
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          231,
+          171,
+          60
+        ]
+      }
+    ],
+    "slot": "videoMode",
+    "scene": "Grow Bow"
   },
   {
-    "scene": "Cloud Dream",
-    "slot": "segmentedFour"
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          65,
+          100,
+          235
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          65,
+          100,
+          235
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          180,
+          48,
+          112
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          180,
+          48,
+          112
+        ]
+      }
+    ],
+    "slot": "videoModeTwo",
+    "scene": "Jelly Skies"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          172,
+          241,
+          64
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          172,
+          241,
+          64
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          190,
+          96,
+          25
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          190,
+          96,
+          25
+        ]
+      }
+    ],
+    "slot": "extra",
+    "scene": "Artemis"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          136,
+          18,
+          224
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          136,
+          18,
+          224
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          156,
+          255,
+          75
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          156,
+          255,
+          75
+        ]
+      }
+    ],
+    "slot": "extraTwo",
+    "scene": "Nitro"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          60,
+          202,
+          138
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          60,
+          202,
+          138
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          199,
+          135,
+          50
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          199,
+          135,
+          50
+        ]
+      }
+    ],
+    "slot": "extraThree",
+    "scene": "Blue Beach"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          7,
+          201,
+          248
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          7,
+          201,
+          248
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          91,
+          235,
+          139
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          91,
+          235,
+          139
+        ]
+      }
+    ],
+    "slot": "extraFour",
+    "scene": "Soundwave"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          16,
+          76,
+          231
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          16,
+          76,
+          231
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          159,
+          23,
+          182
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          159,
+          23,
+          182
+        ]
+      }
+    ],
+    "slot": "extraFive",
+    "scene": "Cyber Palms"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          20,
+          87,
+          209
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          20,
+          87,
+          209
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          17,
+          214,
+          241
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          17,
+          214,
+          241
+        ]
+      }
+    ],
+    "slot": "extraSix",
+    "scene": "Influx"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          238,
+          140,
+          22
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          238,
+          140,
+          22
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          138,
+          233,
+          19
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          138,
+          233,
+          19
+        ]
+      }
+    ],
+    "slot": "extraSeven",
+    "scene": "Grow"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          203,
+          255,
+          64
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          203,
+          255,
+          64
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          240,
+          217,
+          27
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          240,
+          217,
+          27
+        ]
+      }
+    ],
+    "slot": "extraEight",
+    "scene": "Hard to Get"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          33,
+          0
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          33,
+          0
+        ]
+      },
+      {
+        "entity_id": "light.lamp",
+        "brightness": 255,
+        "rgb_color": [
+          248,
+          0,
+          0
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          0,
+          0
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          0,
+          0
+        ]
+      }
+    ],
+    "slot": "extraNine",
+    "scene": "Vader"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          94,
+          255,
+          69
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          94,
+          255,
+          69
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          214,
+          255,
+          7
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          214,
+          255,
+          7
+        ]
+      }
+    ],
+    "slot": "extraTen",
+    "scene": "Yoda Matrix"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          186,
+          67,
+          224
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          186,
+          67,
+          224
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          168,
+          145,
+          53
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          168,
+          145,
+          53
+        ]
+      }
+    ],
+    "slot": "extraEleven",
+    "scene": "Another World"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          228,
+          131,
+          72
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          228,
+          131,
+          72
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          156,
+          219,
+          51
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          156,
+          219,
+          51
+        ]
+      }
+    ],
+    "slot": "extraTwelve",
+    "scene": "Neon Fields"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          180,
+          53,
+          127
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          180,
+          53,
+          127
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          133,
+          0
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          255,
+          133,
+          0
+        ]
+      }
+    ],
+    "slot": "extraThirteen",
+    "scene": "Blazing Bloom"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          32,
+          150,
+          247
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          32,
+          150,
+          247
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          185,
+          241,
+          106
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          185,
+          241,
+          106
+        ]
+      }
+    ],
+    "slot": "extraFourteen",
+    "scene": "Coconut Groove"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          199,
+          78,
+          31
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          199,
+          78,
+          31
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          138,
+          255,
+          40
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          138,
+          255,
+          40
+        ]
+      }
+    ],
+    "slot": "extraFifteen",
+    "scene": "Bird of Paradise"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          47,
+          242,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          47,
+          242,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          97,
+          247,
+          15
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          97,
+          247,
+          15
+        ]
+      }
+    ],
+    "slot": "extraSixteen",
+    "scene": "Party"
+  },
+  {
+    "room": "living_room",
+    "lights": [
+      {
+        "entity_id": "light.kitchen_1",
+        "brightness": 255,
+        "rgb_color": [
+          81,
+          202,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.kitchen_2",
+        "brightness": 255,
+        "rgb_color": [
+          81,
+          202,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.sink_1",
+        "brightness": 255,
+        "rgb_color": [
+          214,
+          105,
+          193
+        ]
+      },
+      {
+        "entity_id": "light.sink_2",
+        "brightness": 255,
+        "rgb_color": [
+          214,
+          105,
+          193
+        ]
+      }
+    ],
+    "slot": "extraSeventeen",
+    "scene": "Comet"
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraEighteen",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraNineteen",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwenty",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwentyOne",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwentyTwo",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwentyThree",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwentyFour",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwentyFive",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwentySix",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwentySeven",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwentyEight",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraTwentyNine",
+    "scene": null
+  },
+  {
+    "room": "living_room",
+    "lights": [],
+    "slot": "extraThirty",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [
+      {
+        "entity_id": "light.desk",
+        "brightness": 255,
+        "rgb_color": [
+          164,
+          225,
+          23
+        ]
+      }
+    ],
+    "slot": "scene",
+    "scene": "Lemon Lime"
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "sceneTwo",
+    "scene": "Fuzzy"
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "sceneThree",
+    "scene": "Fuzzydup"
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "sceneFour",
+    "scene": "Pinky Purple"
+  },
+  {
+    "room": "office",
+    "lights": [
+      {
+        "entity_id": "light.desk",
+        "brightness": 255,
+        "rgb_color": [
+          25,
+          225,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.office_1",
+        "brightness": 255,
+        "rgb_color": [
+          8,
+          166,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.office_2",
+        "brightness": 255,
+        "rgb_color": [
+          8,
+          166,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.office_3",
+        "brightness": 255,
+        "rgb_color": [
+          8,
+          166,
+          255
+        ]
+      }
+    ],
+    "slot": "diyMode",
+    "scene": "Arctic Sky"
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "diyModeTwo",
+    "scene": "Chromatic Mem"
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "diyModeThree",
+    "scene": "Azure Blush"
+  },
+  {
+    "room": "office",
+    "lights": [
+      {
+        "entity_id": "light.desk",
+        "brightness": 255,
+        "rgb_color": [
+          7,
+          255,
+          151
+        ]
+      },
+      {
+        "entity_id": "light.office_1",
+        "brightness": 255,
+        "rgb_color": [
+          112,
+          24,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.office_2",
+        "brightness": 255,
+        "rgb_color": [
+          112,
+          24,
+          255
+        ]
+      },
+      {
+        "entity_id": "light.office_3",
+        "brightness": 255,
+        "rgb_color": [
+          112,
+          24,
+          255
+        ]
+      }
+    ],
+    "slot": "diyModeFour",
+    "scene": "Aurora"
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "segmented",
+    "scene": "Swirling Galaxy"
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "segmentedTwo",
+    "scene": "Tropic Chase"
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "segmentedThree",
+    "scene": "Serene Forest"
+  },
+  {
+    "room": "office",
+    "lights": [
+      {
+        "entity_id": "light.office_1",
+        "brightness": 255,
+        "rgb_color": [
+          13,
+          165,
+          17
+        ]
+      },
+      {
+        "entity_id": "light.office_2",
+        "brightness": 255,
+        "rgb_color": [
+          13,
+          165,
+          17
+        ]
+      },
+      {
+        "entity_id": "light.office_3",
+        "brightness": 255,
+        "rgb_color": [
+          13,
+          165,
+          17
+        ]
+      }
+    ],
+    "slot": "segmentedFour",
+    "scene": "Matrix"
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "musicMode",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "musicModeTwo",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "videoMode",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "videoModeTwo",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extra",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwo",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraThree",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraFour",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraFive",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraSix",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraSeven",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraEight",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraNine",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTen",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraEleven",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwelve",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraThirteen",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraFourteen",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraFifteen",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraSixteen",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraSeventeen",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraEighteen",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraNineteen",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwenty",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwentyOne",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwentyTwo",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwentyThree",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwentyFour",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwentyFive",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwentySix",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwentySeven",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwentyEight",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraTwentyNine",
+    "scene": null
+  },
+  {
+    "room": "office",
+    "lights": [],
+    "slot": "extraThirty",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "scene",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "sceneTwo",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "sceneThree",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "sceneFour",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "diyMode",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "diyModeTwo",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "diyModeThree",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "diyModeFour",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "segmented",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "segmentedTwo",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "segmentedThree",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "segmentedFour",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "musicMode",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "musicModeTwo",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "videoMode",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "videoModeTwo",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extra",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwo",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraThree",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraFour",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraFive",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraSix",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraSeven",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraEight",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraNine",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTen",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraEleven",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwelve",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraThirteen",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraFourteen",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraFifteen",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraSixteen",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraSeventeen",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraEighteen",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraNineteen",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwenty",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwentyOne",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwentyTwo",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwentyThree",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwentyFour",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwentyFive",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwentySix",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwentySeven",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwentyEight",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraTwentyNine",
+    "scene": null
+  },
+  {
+    "room": "bedroom",
+    "lights": [],
+    "slot": "extraThirty",
+    "scene": null
   }
 ]
