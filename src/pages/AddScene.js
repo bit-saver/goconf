@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Card,
   Checkbox,
@@ -17,7 +16,6 @@ import {
   Stack,
   Switch,
 } from '@mui/material';
-import Typography from '@mui/material/Typography';
 import React, { useContext, useEffect, useState } from 'react';
 import ListTable from '../components/ListTable';
 import ApiContext from '../util/ApiContext';
@@ -27,13 +25,13 @@ import AlertContext from '../components/Alert';
 import PageTitle from '../components/PageTitle';
 
 const AddScene = () => {
-  const { apiPost, apiSaveScenes } = useContext(ApiContext);
+  const { apiPost, apiSaveScenes, apiGetScenes } = useContext(ApiContext);
   const {
-    goveeConfig, getSceneSlots, getRoomScenes, room,
+    govee, goconf, hb, room,
   } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
-  const { scenes, devices } = goveeConfig || { scenes: {}, devices: {} };
+  const { scenes, devices } = govee || { scenes: {}, devices: {} };
 
   const [selectedScene, setSelectedScene] = useState('');
   const [selectedSlot, setSelectedSlot] = useState('');
@@ -44,16 +42,14 @@ const AddScene = () => {
   const [prefixFilter, setPrefixFilter] = useState(true);
 
   useEffect(() => {
-    getSceneSlots().then((result) => {
-      const sss = result.reduce((acc, ss) => {
-        if (!acc[ss.room]) {
-          acc[ss.room] = {};
-        }
-        acc[ss.room][ss.slot] = ss.scene;
-        return acc;
-      }, {});
-      setSceneSlots(sss);
-    });
+    const sss = goconf.sceneSlots.reduce((acc, ss) => {
+      if (!acc[ss.room]) {
+        acc[ss.room] = {};
+      }
+      acc[ss.room][ss.slot] = ss.scene;
+      return acc;
+    }, {});
+    setSceneSlots(sss);
   }, [room]);
 
   const handleSelectScene = (e) => {
@@ -90,30 +86,17 @@ const AddScene = () => {
     if (!sceneData) {
       return;
     }
-    const { lightDevices } = goveeConfig.config;
-    selectedDevices.forEach(({ name: deviceName }) => {
-      const index = lightDevices.findIndex((light) => light.label === deviceName);
-      if (index >= 0) {
-        lightDevices[index][selectedSlot] = {
-          sceneCode: sceneData.devices[deviceName],
-          showAs: 'switch',
-        };
-      }
-    });
 
-    const updatedConfig = { ...goveeConfig.config, lightDevices };
-    await apiPost('/api/config-editor/plugin/homebridge-govee', [updatedConfig]);
-    // const { data: result } =
-    // console.log('save config result:', result);
-    // console.log('slot', selectedSlot, 'scene', selectedScene);
+    hb.updateConfig(selectedDevices, selectedSlot, sceneData);
+    await apiPost('/api/config-editor/plugin/homebridge-govee', [hb.pluginConfig]);
 
-    const update = await getSceneSlots();
-    const index = update.findIndex((ss) => ss.slot === selectedSlot && ss.room === room);
+    const { data: scenesJson } = await apiGetScenes();
+    goconf.reconstruct(scenesJson, hb.devices);
+    const index = goconf.sceneSlots.findIndex((ss) => ss.slot === selectedSlot && ss.room === room);
     if (index > -1) {
-      update[index].scene = selectedScene.replace('Office ', '');
-      update[index].room = room;
-      // console.log('save scenes.json', update);
-      await apiSaveScenes(update);
+      goconf.sceneSlots[index].scene = selectedScene.replace('Office ', '');
+      goconf.sceneSlots[index].room = room;
+      await apiSaveScenes(goconf.sceneSlots);
     } else {
       console.error('no index found for ', selectedSlot, room);
     }
@@ -134,12 +117,13 @@ const AddScene = () => {
   const saveDisabled = !selectedScene || !selectedSlot || selectedDevices.length < 1;
 
   const getScenes = () => {
+    const goveeRoomScenes = govee.getGoveeRoomScenes(room);
     if (!prefixFilter) {
-      return Object.keys(getRoomScenes()).sort();
+      return Object.keys(goveeRoomScenes).sort();
     }
     const roomObj = rooms.find((r) => r.key === room);
     const roomPrefix = roomObj.prefix;
-    return Object.keys(getRoomScenes()).filter((s) => s.startsWith(roomPrefix)).sort();
+    return Object.keys(goveeRoomScenes).filter((s) => s.startsWith(roomPrefix)).sort();
   };
 
   return (

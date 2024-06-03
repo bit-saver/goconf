@@ -17,7 +17,7 @@ import { getRoomName } from '../util/util';
 import PageTitle from '../components/PageTitle';
 
 const EditSceneSlots = () => {
-  const { getSceneSlots, getRoomSlots, room } = useContext(ConfigContext);
+  const { goconf, room } = useContext(ConfigContext);
   const { token, apiSaveScenes } = useContext(ApiContext);
   // const { showAlert } = useContext(AlertContext);
   const [sceneSlots, setSceneSlots] = useState([]);
@@ -25,7 +25,7 @@ const EditSceneSlots = () => {
 
   useEffect(() => {
     if (token) {
-      getSceneSlots().then((result) => setSceneSlots(result));
+      goconf.reload().then((result) => setSceneSlots(result));
     }
   }, []);
 
@@ -33,6 +33,7 @@ const EditSceneSlots = () => {
     setSaving(true);
     const result = await apiSaveScenes(sceneSlots);
     console.log('scene slot save result:', result);
+    goconf.setSceneSlots(sceneSlots);
     setSaving(false);
     // showAlert('success', 'Slots updated!');
   };
@@ -47,6 +48,8 @@ const EditSceneSlots = () => {
     update[index].scene = scene;
     setSceneSlots(update);
   };
+
+  const roomSlots = goconf.getRoomSlots(room);
 
   return (
     <Grid container item xs={12} spacing={4} justifyContent="center">
@@ -81,7 +84,7 @@ const EditSceneSlots = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {getRoomSlots().map((sceneSlot) => {
+                  {roomSlots.map((sceneSlot) => {
                     const { slot, scene, room: sceneRoom } = sceneSlot;
                     const labelId = `scene-slot-${room}-${slot}`;
                     return (

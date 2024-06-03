@@ -138,7 +138,7 @@ export const ApiProvider = ({ children }) => {
     return ttrToken;
   };
 
-  const gvGetScenes = async (freshToken = null) => axios({
+  const gvGetComponents = async (freshToken = null) => axios({
     url: 'https://app2.govee.com/bff-app/v1/exec-plat/home',
     method: 'get',
     headers: {
@@ -184,6 +184,28 @@ export const ApiProvider = ({ children }) => {
     });
   };
 
+  const gvGetScenes = async (username = null, password = null) => {
+    let res = await gvGetComponents();
+    // Check to see we got a response
+    if (!res?.data?.data?.components) {
+      if (username && password) {
+        // Try to get a fresh token
+        const ttrToken = await gvGetToken(username, password).catch(() => null);
+        if (!ttrToken) {
+          return new Error('Error retrieving Govee token.');
+        }
+        res = await gvGetComponents(ttrToken);
+        if (!res) {
+          return new Error('Error retrieving Govee scenes.');
+        }
+      }
+    }
+    if (res?.data?.data?.components) {
+      return res.data.data.components;
+    }
+    return null;
+  };
+
   const providerValue = useMemo(() => ({
     token,
     setToken,
@@ -201,11 +223,12 @@ export const ApiProvider = ({ children }) => {
     haCallService,
     haCallWebhook,
     gvGetToken,
-    gvGetScenes,
+    gvGetComponents,
     gvGetDevices,
+    gvGetScenes,
   }), [
     token, setToken, saveToken, goveeToken,
-    gvGetToken, gvGetScenes, gvGetDevices,
+    gvGetToken, gvGetComponents, gvGetDevices, gvGetScenes,
     authenticated, setAuthenticated,
     apiGet, apiPost, apiPut,
     apiGetScenes, apiSaveScenes, apiCheckAuth,

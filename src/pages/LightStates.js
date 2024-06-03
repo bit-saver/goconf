@@ -43,7 +43,7 @@ const LightStates = () => {
   const {
     haGetStates, haCallService, haCallWebhook, apiSaveScenes,
   } = useContext(ApiContext);
-  const { showAlert } = useContext(AlertContext);
+  const { goconf, showAlert } = useContext(AlertContext);
   const [, copy] = useCopy();
 
   const preferedLights = {
@@ -189,6 +189,7 @@ const LightStates = () => {
     const result = await apiSaveScenes(sceneSlots);
     // console.log('scene slot save result:', result);
     setSaving(false);
+    goconf.setSceneSlots(sceneSlots);
     showAlert('success', 'Light states updated!');
     return result;
   };

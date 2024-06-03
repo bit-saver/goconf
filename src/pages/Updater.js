@@ -8,7 +8,7 @@ import PageTitle from '../components/PageTitle';
 const Updater = () => {
   const { apiPost, apiSaveScenes } = useContext(ApiContext);
   const {
-    goveeConfig, getSceneSlots, restartHomebridge,
+    hb, goconf, govee, restartHomebridge,
   } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
   const [log, setLog] = useState([]);
@@ -20,8 +20,8 @@ const Updater = () => {
       return;
     }
     const toLog = [];
-    const { lightDevices } = goveeConfig.config;
-    const sceneSlots = await getSceneSlots();
+    const { lightDevices } = hb.pluginConfig;
+    const sceneSlots = await goconf.reload();
     updates.forEach((update) => {
       let success = false;
       let index = sceneSlots.findIndex(
@@ -55,9 +55,10 @@ const Updater = () => {
       }
     });
 
-    const updatedConfig = { ...goveeConfig.config, lightDevices };
+    const updatedConfig = { ...hb.pluginConfig, lightDevices };
     await apiPost('/api/config-editor/plugin/homebridge-govee', [updatedConfig]);
     await apiSaveScenes(sceneSlots);
+    goconf.setSceneSlots(sceneSlots);
     await restartHomebridge();
     setLog(toLog);
   };
@@ -69,8 +70,8 @@ const Updater = () => {
     //     scene code for each device
     const toUpdate = [];
     const toLog = [];
-    const { scenes } = goveeConfig;
-    const sceneSlots = await getSceneSlots();
+    const { scenes } = govee;
+    const sceneSlots = await goconf.reload();
     sceneSlots.forEach((sceneSlot) => {
       const sceneName = (sceneSlot.room === 'office' ? 'Office ' : '') + sceneSlot.scene;
       if (sceneSlot.scene) {
