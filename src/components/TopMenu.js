@@ -1,10 +1,12 @@
-import { Box, Button, CircularProgress } from '@mui/material';
+import {
+  Box, Button, CircularProgress, useMediaQuery,
+} from '@mui/material';
 import List from '@mui/material/List';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { RestartAlt, Backup } from '@mui/icons-material';
+import { RestartAlt } from '@mui/icons-material';
 import Divider from '@mui/material/Divider';
 import React, { useContext } from 'react';
 import { useTheme } from '@mui/material/styles';
@@ -12,9 +14,8 @@ import Drawer from '@mui/material/Drawer';
 import ConfigContext from '../util/ConfigContext';
 import AlertContext from './Alert';
 import RoomToggle from './RoomToggle';
-import ApiContext from '../util/ApiContext';
 
-const drawerWidth = 280;
+export const drawerWidth = 280;
 
 const TopMenu = ({ open, setOpen }) => {
   const { showAlert } = useContext(AlertContext);
@@ -23,7 +24,11 @@ const TopMenu = ({ open, setOpen }) => {
     restartHomebridge, reloadConfig,
   } = useContext(ConfigContext);
 
+  const location = useLocation();
+  const isLoginPage = location.pathname.startsWith('/login');
+
   const theme = useTheme();
+  const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
 
   const toggleDrawer = (value) => (event) => {
     if (
@@ -97,40 +102,6 @@ const TopMenu = ({ open, setOpen }) => {
     </Link>
   );
 
-  const handleUpdate = async () => {
-    const { configDevices, scenes } = await reloadConfig();
-    Object.keys(configDevices).forEach((deviceName) => {
-      const { slots } = configDevices[deviceName];
-      Object.keys(slots).forEach((slotName) => {
-        if (slots[slotName]) {
-          const { sceneName, sceneCode, room } = slots[slotName];
-          // check scene code against ttr scenes
-          // if different, add to update list
-          const scene = scenes[sceneName];
-          if (scene) {
-            const sceneDeviceCode = scene.devices[deviceName];
-            if (sceneDeviceCode) {
-              if (sceneDeviceCode !== sceneCode) {
-                console.log('[handleUpdate] UPDATE for scene:', sceneName, 'device:', deviceName, 'slot:', slotName);
-              }
-            } else if (!sceneDeviceCode) {
-              console.log(
-                '[handleUpdate] no scene code for device, scene:',
-                sceneName,
-                'device:',
-                deviceName,
-                'slot:',
-                slotName,
-              );
-            }
-          } else if (!scene) {
-            console.log('[handleUpdate] deleted scene:', sceneName, 'device:', deviceName, 'slot:', slotName);
-          }
-        }
-      });
-    });
-  };
-
   return (
     <Drawer
       sx={{
@@ -142,12 +113,12 @@ const TopMenu = ({ open, setOpen }) => {
           ...drawerTop,
         },
       }}
-      variant="temporary"
+      variant={!greaterThanSm || isLoginPage ? 'temporary' : 'permanent'}
       ModalProps={{
         keepMounted: true,
       }}
-      anchor="right"
-      open={open}
+      anchor={!greaterThanSm || isLoginPage ? 'right' : 'left'}
+      open={isLoginPage ? false : open}
       onClose={toggleDrawer(false)}
       // onOpen={toggleDrawer(true)}
     >
@@ -197,23 +168,6 @@ const TopMenu = ({ open, setOpen }) => {
               {loaded && (
                 <span style={{ whiteSpace: 'nowrap', fontWeight: 500, width: '100%' }}>
                   RELOAD CONFIG
-                </span>
-              )}
-            </Button>
-          </ListItem>
-          <ListItem key="update">
-            <Button
-              size="large"
-              variant="contained"
-              disabled={!loaded}
-              onClick={handleUpdate}
-              startIcon={!loaded ? null : <Backup />}
-              sx={{ width: '100%' }}
-            >
-              {!loaded && <CircularProgress />}
-              {loaded && (
-                <span style={{ whiteSpace: 'nowrap', fontWeight: 500, width: '100%' }}>
-                  UPDATE SCENES
                 </span>
               )}
             </Button>

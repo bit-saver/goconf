@@ -7,7 +7,7 @@ import TopBar from './TopBar';
 import TopMenu from './TopMenu';
 
 const Layout = ({ children }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const theme = useTheme();
 
@@ -25,14 +25,20 @@ const Layout = ({ children }) => {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <TopBar open={open} setOpen={setOpen} />
+      <TopMenu open={open} setOpen={setOpen} />
       <Box sx={{
-        display: 'flex', padding: '16px', width: '100%', ...drawerTop,
+        display: 'flex',
+        padding: '16px',
+        width: '100%',
+        // [theme.breakpoints.up('xs')]: {
+        //   marginLeft: `${drawerWidth}px`,
+        // },
+        ...drawerTop,
       }}>
         <Grid id="main-content-container" container spacing={0} justifyContent="center">
           { children }
         </Grid>
       </Box>
-      <TopMenu open={open} setOpen={setOpen} />
     </Box>
   );
 };

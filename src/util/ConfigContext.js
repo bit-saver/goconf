@@ -62,7 +62,6 @@ export const ConfigProvider = ({ children }) => {
       hb: hbConfig,
     };
 
-    // setLoaded(true);
     console.log(
       'configs',
       'goconf scene slots',
@@ -80,6 +79,8 @@ export const ConfigProvider = ({ children }) => {
       'govee devices',
       goveeConfig.devices,
     );
+
+    setLoaded(true);
 
     return Promise.resolve(configs);
   };

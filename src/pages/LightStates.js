@@ -1,22 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Checkbox,
-  CircularProgress,
-  Fab,
-  FormControl, FormControlLabel, FormGroup,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
-  Stack,
-  TextField,
-  Tooltip,
+  Box, Checkbox, CircularProgress, Fab, Grid, Paper, Stack, TextField, Tooltip,
 } from '@mui/material';
 import Typography from '@mui/material/Typography';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -24,7 +8,6 @@ import Colorful from '@uiw/react-color-colorful';
 import IconButton from '@mui/material/IconButton';
 import RestoreIcon from '@mui/icons-material/Restore';
 import CheckIcon from '@mui/icons-material/Check';
-import Drawer from '@mui/material/Drawer';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { useTheme } from '@mui/material/styles';
@@ -34,16 +17,14 @@ import {
   bulbs, checkSubset, getRoomName, hexToRgb, rgbToHex,
 } from '../util/util';
 import useCopy from '../util/useCopy';
-import AlertContext from '../components/Alert';
-import RoomToggle from '../components/RoomToggle';
 import PageTitle from '../components/PageTitle';
+import LightStatesSidebar, { lightStatesSidebarWidth } from '../components/sidebars/LightStatesSidebar';
 
 const LightStates = () => {
-  const { defaultSlots, getSceneSlots, room } = useContext(ConfigContext);
+  const { room, goconf } = useContext(ConfigContext);
   const {
-    haGetStates, haCallService, haCallWebhook, apiSaveScenes,
+    haGetStates, haCallService,
   } = useContext(ApiContext);
-  const { goconf, showAlert } = useContext(AlertContext);
   const [, copy] = useCopy();
 
   const preferedLights = {
@@ -57,11 +38,7 @@ const LightStates = () => {
   const [lights, setLights] = useState({ ...bulbs });
   const [sceneSlots, setSceneSlots] = useState([]);
   const [selectedLights, setSelectedLights] = useState([]);
-  const [selectedSlot, setSelectedSlot] = useState('');
-  const [selectedShowSlot, setSelectedShowSlot] = useState('current');
-  const [removeExisting, setRemoveExisting] = useState(false);
   const [showLights, setShowLights] = useState(preferedLights[room]);
-  const [saving, setSaving] = useState(false);
   const [open, setOpen] = useState(true);
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -93,16 +70,12 @@ const LightStates = () => {
       }, {});
       setOriginalStates(original);
     });
-    getSceneSlots().then((result) => setSceneSlots(result));
+    goconf.reload().then((result) => setSceneSlots(result));
   }, []);
 
   useEffect(() => {
     setShowLights(preferedLights[room]);
   }, [room]);
-
-  // useEffect(() => {
-  //   console.log(sceneSlots);
-  // }, [sceneSlots]);
 
   const getLightsByGroup = () => Object.values(lights).reduce((acc, light) => {
     if (light.room === room) {
@@ -140,8 +113,6 @@ const LightStates = () => {
       rgb_color: group[0].state.rgb_color,
     };
     await haCallService('light', 'turn_on', attr);
-    // const result =
-    // console.log('apply result: ', result);
   };
 
   const handleLightCheck = (groupId) => {
@@ -153,81 +124,6 @@ const LightStates = () => {
     } else {
       setSelectedLights([...selectedLights, ...groupEIDs]);
     }
-  };
-
-  const handleSave = async () => {
-    setSaving(true);
-    if (!selectedSlot || !selectedLights || !selectedLights.length) {
-      setSaving(false);
-      return false;
-    }
-    const sceneSlotIndex = sceneSlots.findIndex((ss) => ss.slot === selectedSlot && ss.room === room);
-    selectedLights.forEach((eid) => {
-      const light = lights[eid];
-      const rgb = light.state.rgb_color;
-      let ssLightIndex = -1;
-      // either add a new light to the sceneSlot.lights or update the existing
-      if (removeExisting) {
-        sceneSlots[sceneSlotIndex].lights = [];
-      } else {
-        ssLightIndex = sceneSlots[sceneSlotIndex].lights.findIndex(
-          (ssLight) => ssLight.entity_id === eid,
-        );
-      }
-      if (ssLightIndex > -1) {
-        sceneSlots[sceneSlotIndex].lights[ssLightIndex].rgb_color = rgb;
-      } else {
-        sceneSlots[sceneSlotIndex].lights.push({
-          entity_id: eid,
-          brightness: 255,
-          rgb_color: rgb,
-        });
-      }
-    });
-    setSceneSlots([...sceneSlots]);
-    // console.log('updated scene slots', sceneSlots);
-    const result = await apiSaveScenes(sceneSlots);
-    // console.log('scene slot save result:', result);
-    setSaving(false);
-    goconf.setSceneSlots(sceneSlots);
-    showAlert('success', 'Light states updated!');
-    return result;
-  };
-
-  const handleLoadSlot = () => {
-    if (selectedShowSlot === 'current') {
-      const updated = Object.values(originalStates).reduce((acc, light) => {
-        acc[light.entity_id] = { ...light, state: { ...light.state } };
-        return acc;
-      }, {});
-      setLights(updated);
-      return;
-    }
-    const sceneSlot = sceneSlots.find((ss) => ss.slot === selectedShowSlot);
-    const updated = { ...lights };
-    Object.keys(updated).forEach((eid) => {
-      let ssLight = null;
-      if (sceneSlot?.lights?.length) {
-        ssLight = sceneSlot.lights.find((ssl) => ssl.entity_id === eid);
-      }
-      if (ssLight) {
-        updated[eid].state.rgb_color = ssLight.rgb_color;
-      } else {
-        updated[eid].state.rgb_color = [0, 0, 0];
-      }
-    });
-    setLights(updated);
-  };
-
-  const handleActivateScene = () => {
-    const sceneSlot = sceneSlots.find((ss) => ss.slot === selectedShowSlot && ss.room === room);
-    if (!sceneSlot) return;
-    haCallWebhook('activate_view', { scene: sceneSlot.scene, room }).then(() => {
-      showAlert('success', 'Scene activated!');
-    }).catch((err) => {
-      console.error(err);
-      showAlert('error', 'Error activating scene.');
-    });
   };
 
   const handleCopy = (rgb) => {
@@ -250,29 +146,7 @@ const LightStates = () => {
     group.forEach((light) => updateLightState(light, rgb));
   };
 
-  const getSelectedGroups = () => {
-    const groups = selectedLights.reduce((acc, eid) => {
-      const light = lights[eid];
-      if (!acc[light.group]) {
-        acc[light.group] = [];
-      }
-      acc[light.group].push(light);
-      return acc;
-    }, {});
-    return Object.values(groups);
-  };
-
   const getLightFill = (light) => (light.state?.rgb_color ? `${light.state.rgb_color.join(', ')}` : '0, 0, 0');
-
-  const drawerTop = {
-    top: 'calc(calc(56px / 2) - 20px)',
-    [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
-      top: 'calc(calc(48px / 2) - 20px)',
-    },
-    [theme.breakpoints.up('sm')]: {
-      top: 'calc(calc(64px / 2) - 20px)',
-    },
-  };
 
   if (!loaded) {
     return <Grid item xs={12} sx={{ textAlign: 'center', marginTop: '30vh' }}><CircularProgress /></Grid>;
@@ -299,174 +173,19 @@ const LightStates = () => {
           subtitle={getRoomName(room)}
         />
         <Box sx={{ display: 'block' }}>
-
-          <Drawer
-            sx={{
-              width: 340,
-              flexShrink: 0,
-              // height: '100%',
-              // overflow: 'auto',
-              '& .MuiDrawer-paper': {
-                width: 340,
-                // marginTop: '56px',
-                zIndex: 1100,
-                // height: '100%',
-                // overflow: 'auto',
-              },
-            }}
-            ModalProps={{
-              keepMounted: true,
-            }}
-            variant="temporary"
-            anchor="right"
+          <LightStatesSidebar
             open={open}
-            onClose={() => setOpen(false)}
-            onOpen={() => setOpen(true)}
-            className="lightstates-drawer"
-          >
-            {/* <div> */}
-            {/*     <IconButton onClick={() => setOpen(false)}> */}
-            {/*         <ChevronRightIcon /> */}
-            {/*     </IconButton> */}
-            {/* </div> */}
-            {/* <Divider /> */}
-
-            <Stack spacing={2}>
-              <Card>
-                <CardHeader title="Room" />
-                <CardContent>
-                  <RoomToggle />
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader title="Load/Activate States" />
-                <CardContent>
-                  <Stack spacing={2}>
-                    <FormControl fullWidth>
-                      <InputLabel id="label-show-slot">Slot</InputLabel>
-                      <Select
-                        labelId="label-show-slot"
-                        id="select-show-slot"
-                        value={selectedShowSlot}
-                        label="Slot"
-                        onChange={(e) => setSelectedShowSlot(e.target.value)}
-                      >
-                        <MenuItem value="current" key="current">Current</MenuItem>
-                        {defaultSlots.map((s) => {
-                          // eslint-disable-next-line max-len
-                          let sceneSlot = null;
-                          if (sceneSlots && sceneSlots.length) {
-                            sceneSlot = sceneSlots.find(
-                              (ss) => ss.slot === s && ss.room === room,
-                            );
-                          }
-                          return (
-                            <MenuItem value={s} key={s}>{`${s}: ${sceneSlot?.scene || ''}`}</MenuItem>
-                          );
-                        })}
-                      </Select>
-                    </FormControl>
-                    <Stack spacing={1} direction="row" justifyContent="space-between">
-                      <Button
-                        variant="contained"
-                        color="secondary"
-                        size="large"
-                        onClick={handleActivateScene}
-                        sx={{ width: '50%' }}
-                      >
-                        Activate Scene
-                      </Button>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        onClick={handleLoadSlot}
-                        sx={{ width: '50%' }}
-                      >
-                        Load States
-                      </Button>
-                    </Stack>
-                  </Stack>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader title="Save to Slot" />
-                <CardContent>
-                  <Stack spacing={1}>
-                    <div style={{ marginBottom: '15px' }}>
-                      Selected:
-                      <ul>
-                        {
-                          getSelectedGroups().map((group) => (
-                            <li>{ group[0].group }</li>
-                          ))
-                        }
-                      </ul>
-                    </div>
-
-                    <FormControlLabel
-                      control={<Checkbox />}
-                      label="Remove existing states?"
-                      onChange={(e) => setRemoveExisting(e.target.checked)}
-                    />
-                    <FormControl fullWidth>
-                      <InputLabel id="label-slot">Slot</InputLabel>
-                      <Select
-                        labelId="label-slot"
-                        id="select-slot"
-                        value={selectedSlot}
-                        label="Slot"
-                        onChange={(e) => setSelectedSlot(e.target.value)}
-                      >
-                        {defaultSlots.map((s) => {
-                          // eslint-disable-next-line max-len
-                          const sceneSlot = sceneSlots.find((ss) => ss.slot === s && ss.room === room);
-                          return (
-                            <MenuItem value={s} key={s}>{`${s}: ${sceneSlot?.scene || ''}`}</MenuItem>
-                          );
-                        })}
-                      </Select>
-                    </FormControl>
-                    <Button
-                      variant="contained"
-                      color={saving ? 'primary' : 'success'}
-                      disabled={saving}
-                      size="large"
-                      onClick={handleSave}
-                    >
-                      { saving ? 'SAVING...' : 'SAVE'}
-                    </Button>
-                  </Stack>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader title="Show/Hide Lights" />
-                <CardContent>
-                  <FormGroup>
-                    { Object.keys(getLightsByGroup()).map((group) => (
-                      <FormControlLabel
-                        key={`light${Math.random()}`}
-                        label={group}
-                        control={(
-                          <Checkbox
-                            checked={showLights.has(group)}
-                            onChange={(event) => {
-                              const { checked } = event.target;
-                              if (checked) {
-                                showLights.add(group);
-                              } else {
-                                showLights.delete(group);
-                              }
-                              setShowLights(new Set(showLights));
-                            }} />
-                        )}
-                      />
-                    ))}
-                  </FormGroup>
-                </CardContent>
-              </Card>
-            </Stack>
-          </Drawer>
+            setOpen={setOpen}
+            sceneSlots={sceneSlots}
+            setSceneSlots={setSceneSlots}
+            getLightsByGroup={getLightsByGroup}
+            showLights={showLights}
+            setShowLights={setShowLights}
+            lights={lights}
+            setLights={setLights}
+            selectedLights={selectedLights}
+            originalStates={originalStates}
+          />
           <Fab
             color={open ? '' : 'primary'}
             size="small"
@@ -482,14 +201,22 @@ const LightStates = () => {
             {open && <ChevronRightIcon />}
             {!open && <SettingsIcon />}
           </Fab>
-          <Grid container item spacing={2}>
-            <Grid item xs={12} sm={12} md={8}>
+          <Grid
+            container
+            item
+            spacing={2}
+            className="lights-container"
+            sx={{
+              [theme.breakpoints.up('sm')]: { width: `calc(100% - ${lightStatesSidebarWidth}px)` },
+            }}
+          >
+            <Grid item xs={12} sm={12} md={12}>
               <Grid container item spacing={2}>
                 {Object.values(lightGroups).filter((g) => showLights.has(g[0].group)).map((group) => {
                   const light = group[0];
                   const fill = getLightFill(light);
                   return (
-                    <Grid item xs={12} sm={6} md={4} lg={3} key={`group-${light.group}`}>
+                    <Grid item xs={12} sm={6} md={6} lg={6} key={`group-${light.group}`}>
                       <Paper
                         square={false}
                         elevation={3}

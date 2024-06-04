@@ -42,15 +42,17 @@ const AddScene = () => {
   const [prefixFilter, setPrefixFilter] = useState(true);
 
   useEffect(() => {
-    const sss = goconf.sceneSlots.reduce((acc, ss) => {
-      if (!acc[ss.room]) {
-        acc[ss.room] = {};
-      }
-      acc[ss.room][ss.slot] = ss.scene;
-      return acc;
-    }, {});
-    setSceneSlots(sss);
-  }, [room]);
+    if (goconf) {
+      const sss = goconf.sceneSlots.reduce((acc, ss) => {
+        if (!acc[ss.room]) {
+          acc[ss.room] = {};
+        }
+        acc[ss.room][ss.slot] = ss.scene;
+        return acc;
+      }, {});
+      setSceneSlots(sss);
+    }
+  }, [goconf, room]);
 
   const handleSelectScene = (e) => {
     const scene = e.target.value;
@@ -117,6 +119,9 @@ const AddScene = () => {
   const saveDisabled = !selectedScene || !selectedSlot || selectedDevices.length < 1;
 
   const getScenes = () => {
+    if (!govee) {
+      return [];
+    }
     const goveeRoomScenes = govee.getGoveeRoomScenes(room);
     if (!prefixFilter) {
       return Object.keys(goveeRoomScenes).sort();
@@ -128,7 +133,7 @@ const AddScene = () => {
 
   return (
     <Grid container item xs={12} spacing={0} justifyContent="center" id="page-container">
-      <Grid item xs={12} md={6} lg={4} sx={{ position: 'relative' }}>
+      <Grid item xs={12} md={10} lg={8} sx={{ position: 'relative' }}>
         <Stack spacing={4}>
           <PageTitle
             title="Add Scene"
