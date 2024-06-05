@@ -17,14 +17,16 @@ import { getRoomName } from '../util/util';
 import PageTitle from '../components/PageTitle';
 
 const EditSceneSlots = () => {
-  const { goconf, room } = useContext(ConfigContext);
-  const { token, apiSaveScenes } = useContext(ApiContext);
+  const { getGoconf, room } = useContext(ConfigContext);
+  const { tokenRef, apiSaveScenes } = useContext(ApiContext);
   // const { showAlert } = useContext(AlertContext);
   const [sceneSlots, setSceneSlots] = useState([]);
   const [saving, setSaving] = useState(false);
 
+  const goconf = getGoconf();
+
   useEffect(() => {
-    if (token.current) {
+    if (tokenRef.current) {
       goconf.reload().then((result) => setSceneSlots(result));
     }
   }, []);

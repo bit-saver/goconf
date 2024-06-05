@@ -22,13 +22,15 @@ import LightStatesSidebar, { lightStatesSidebarWidth } from '../components/sideb
 import AlertContext from '../util/contexts/Alert';
 
 const LightStates = () => {
-  const { room, goconf } = useContext(ConfigContext);
+  const { room, getGoconf } = useContext(ConfigContext);
   const {
     haGetStates, haCallService,
   } = useContext(ApiContext);
   const { showAlert } = useContext(AlertContext);
 
   const [, copy] = useCopy();
+
+  const goconf = getGoconf();
 
   const preferedLights = {
     living_room: new Set(['Sink', 'Balcony']),
@@ -45,7 +47,8 @@ const LightStates = () => {
   const [open, setOpen] = useState(true);
 
   const theme = useTheme();
-  const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
+  // const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
+  const greaterThanMd = useMediaQuery(theme.breakpoints.up('md'));
 
   const getLightStates = async () => {
     const data = await haGetStates()
@@ -166,7 +169,8 @@ const LightStates = () => {
       item
       xs={12}
       sx={{
-        [theme.breakpoints.up('sm')]: { marginRight: `${lightStatesSidebarWidth}px` },
+        // [theme.breakpoints.up('sm')]: { marginRight: `${lightStatesSidebarWidth}px` },
+        [theme.breakpoints.up('md')]: { marginRight: `${lightStatesSidebarWidth}px` },
       }}
     >
       <PageTitle
@@ -192,7 +196,7 @@ const LightStates = () => {
           size="small"
           onClick={() => setOpen(!open)}
           sx={{
-            display: greaterThanSm ? 'none' : 'block',
+            display: greaterThanMd ? 'none' : 'inline-flex',
             position: 'fixed',
             bottom: '16px',
             right: '16px',

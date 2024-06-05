@@ -5,9 +5,11 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApiContext from '../util/contexts/ApiContext';
 import { TOKEN_KEY } from '../util/util';
+import ConfigContext from '../util/contexts/ConfigContext';
 
 const Login = () => {
   const { saveToken, apiPost, setAuthenticated } = useContext(ApiContext);
+  const { initializeConfigs } = useContext(ConfigContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -29,8 +31,16 @@ const Login = () => {
       return;
     }
     saveToken(TOKEN_KEY, result.access_token);
-    setAuthenticated(true);
-    navigate('/', { replace: true });
+    initializeConfigs()
+      .then(() => {
+        setAuthenticated(true);
+        navigate('/', { replace: true });
+      })
+      .catch((err) => {
+        setError(true);
+        setAuthenticated(false);
+        console.error(err);
+      });
   };
 
   return (

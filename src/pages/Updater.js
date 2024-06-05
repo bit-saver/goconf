@@ -8,11 +8,15 @@ import PageTitle from '../components/PageTitle';
 const Updater = () => {
   const { apiPost, apiSaveScenes } = useContext(ApiContext);
   const {
-    hb, goconf, govee, restartHomebridge,
+    getHb, getGoconf, getGovee, restartHomebridge,
   } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
   const [log, setLog] = useState([]);
   const [updates, setUpdates] = useState([]);
+
+  const hb = getHb();
+  const goconf = getGoconf();
+  const govee = getGovee();
 
   const handleUpdate = async () => {
     if (updates.length < 1) {

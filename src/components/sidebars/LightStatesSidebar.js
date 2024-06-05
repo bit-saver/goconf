@@ -43,7 +43,8 @@ const LightStatesSidebar = ({
   const { showAlert } = useContext(AlertContext);
 
   const theme = useTheme();
-  const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
+  // const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
+  const greaterThanMd = useMediaQuery(theme.breakpoints.up('md'));
 
   const handleSave = async () => {
     setSaving(true);
@@ -150,12 +151,12 @@ const LightStatesSidebar = ({
       ModalProps={{
         keepMounted: true,
       }}
-      variant={greaterThanSm ? 'permanent' : 'temporary'}
+      variant={greaterThanMd ? 'permanent' : 'temporary'}
       anchor="right"
       hideBackdrop
       open={open}
       onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
+      // onOpen={() => setOpen(true)}
       className="lightstates-drawer"
     >
       {/* <div> */}

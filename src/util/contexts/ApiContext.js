@@ -17,6 +17,7 @@ export const ApiProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
 
   const tokenRef = useRef(token);
+  const goveeTokenRef = useRef(goveeToken);
 
   const saveToken = (tokenKey, userToken) => {
     sessionStorage.setItem(tokenKey, userToken);
@@ -24,6 +25,7 @@ export const ApiProvider = ({ children }) => {
       tokenRef.current = userToken;
       setToken(userToken);
     } else if (tokenKey === GOVEE_TOKEN_KEY) {
+      goveeTokenRef.current = userToken;
       setGoveeToken(userToken);
     }
   };
@@ -137,7 +139,7 @@ export const ApiProvider = ({ children }) => {
       throw new Error('Error retrieving Govee token');
     }
     const { token: ttrToken } = ttrRes.data.data;
-    setGoveeToken(ttrToken);
+    saveToken(GOVEE_TOKEN_KEY, ttrToken);
     return ttrToken;
   };
 
@@ -145,7 +147,7 @@ export const ApiProvider = ({ children }) => {
     url: 'https://app2.govee.com/bff-app/v1/exec-plat/home',
     method: 'get',
     headers: {
-      Authorization: `Bearer ${freshToken ?? goveeToken}`,
+      Authorization: `Bearer ${freshToken ?? goveeTokenRef.current}`,
       appVersion: 1,
       clientId: 'goconf',
       clientType: 1,
@@ -215,6 +217,7 @@ export const ApiProvider = ({ children }) => {
     tokenRef,
     saveToken,
     goveeToken,
+    goveeTokenRef,
     authenticated,
     setAuthenticated,
     apiGet,
@@ -231,7 +234,7 @@ export const ApiProvider = ({ children }) => {
     gvGetDevices,
     gvGetScenes,
   }), [
-    token, setToken, saveToken, goveeToken, tokenRef,
+    token, setToken, tokenRef, saveToken, goveeToken, goveeTokenRef,
     gvGetToken, gvGetComponents, gvGetDevices, gvGetScenes,
     authenticated, setAuthenticated,
     apiGet, apiPost, apiPut,

@@ -6,7 +6,9 @@ import ConfigContext from '../util/contexts/ConfigContext';
 import PageTitle from '../components/PageTitle';
 
 const ViewDevices = () => {
-  const { hb } = useContext(ConfigContext);
+  const { getHb } = useContext(ConfigContext);
+  const hb = getHb();
+
   return (
     <Grid container item spacing={4} xs={12}>
       <Grid item xs={12}>

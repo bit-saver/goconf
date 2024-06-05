@@ -5,18 +5,43 @@ class HomebridgeConfig {
 
   goconfScenes = [];
 
+  apiProvider = null;
+
   devices = {};
 
   scenes = {};
 
-  constructor(pluginConfig, goconfScenes = []) {
-    this.pluginConfig = pluginConfig;
-    this.goconfScenes = goconfScenes;
-    this.setScenesAndDevices();
+  constructor(apiProvider) {
+    this.apiProvider = apiProvider;
+  }
+
+  get goveeCredentials() {
+    if (!this.pluginConfig) {
+      return { username: null, password: null };
+    }
+    return { username: this.pluginConfig.username, password: this.pluginConfig.password };
+  }
+
+  async loadConfig() {
+    try {
+      this.pluginConfig = await this.apiProvider.apiGet('/api/config-editor/plugin/homebridge-govee')
+        .then((result) => {
+          if (result?.data) {
+            return result.data[0];
+          } else {
+            throw new Error('Homebridge plugin config returned null');
+          }
+        });
+    } catch (err) {
+      this.pluginConfig = null;
+      console.error('[HB] Error loading homebridge config', err);
+      throw err;
+    }
   }
 
   setGoconfScenes(scenes) {
     this.goconfScenes = scenes;
+    this.setScenesAndDevices();
   }
 
   updateConfig(deviceUpdates, slot, sceneData) {

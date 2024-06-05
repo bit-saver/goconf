@@ -13,9 +13,13 @@ class GoveeConfig {
 
   scenes = [];
 
-  constructor(credentials, apiProvider) {
-    this.credentials = credentials;
+  constructor(apiProvider) {
     this.apiProvider = apiProvider;
+  }
+
+  getToken(credentials) {
+    this.credentials = credentials;
+    return this.apiProvider.gvGetToken(credentials.username, credentials.password);
   }
 
   async getTTRs() {

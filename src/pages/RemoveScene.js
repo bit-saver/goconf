@@ -11,10 +11,12 @@ import PageTitle from '../components/PageTitle';
 
 const RemoveScene = () => {
   const { apiPost, apiPut } = useContext(ApiContext);
-  const { hb } = useContext(ConfigContext);
+  const { getHb } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
   const [selectedSlotScenes, setSelSlotScenes] = useState([]);
+
+  const hb = getHb();
 
   const handleRemove = async () => {
     const { pluginConfig } = hb;

@@ -1,5 +1,5 @@
 import React, {
-  createContext, useContext, useMemo, useState,
+  createContext, useContext, useMemo, useRef, useState,
 } from 'react';
 import ApiContext from './ApiContext';
 import {
@@ -21,65 +21,75 @@ export const ConfigProvider = ({ children }) => {
   const [restarting, setRestarting] = useState(false);
   const [room, setRoom] = useState('living_room');
 
-  const [goconf, setGoconf] = useState(null);
-  const [govee, setGovee] = useState(null);
-  const [hb, setHb] = useState(null);
+  // const [goconf, setGoconf] = useState(null);
+  // const [govee, setGovee] = useState(null);
+  // const [hb, setHb] = useState(null);
 
-  const getHbConfigFile = () => apiGet('/api/config-editor/plugin/homebridge-govee')
-    .then((result) => (result?.data ? result.data[0] : null))
-    .catch((e) => e);
+  const goconfRef = useRef(null);
+  const goveeRef = useRef(null);
+  const hbRef = useRef(null);
+
+  const setGoconf = (config) => { goconfRef.current = config; };
+  const setGovee = (config) => { goveeRef.current = config; };
+  const setHb = (config) => { hbRef.current = config; };
+
+  const getGoconf = () => goconfRef.current;
+  const getGovee = () => goveeRef.current;
+  const getHb = () => hbRef.current;
+
+  const initializeConfigs = async () => {
+    console.log('[Config] Initializing configs...');
+    const goconfConfig = new GoconfConfig(apiProvider);
+    const hbConfig = new HomebridgeConfig(apiProvider);
+    try {
+      // Get Goconf Scenes JSON
+      // Get Homebridge plugin config file
+      console.log('[Config] loading goconf and hb...');
+      await Promise.all([goconfConfig.reload(), hbConfig.loadConfig()]);
+      console.log('[Config] loading govee...');
+      const goveeConfig = new GoveeConfig(apiProvider);
+      await goveeConfig.getToken(hbConfig.goveeCredentials);
+      setGoconf(goconfConfig);
+      setHb(hbConfig);
+      setGovee(goveeConfig);
+    } catch (err) {
+      console.error('[Config] Error initializing configs...', err);
+      setLoaded(false);
+      return Promise.reject(err);
+    }
+    return Promise.resolve();
+  };
 
   const loadConfig = async () => {
-    // Get Goconf Scenes JSON
-    // Get Homebridge plugin config file
-    console.log('[Config] loading goconf and hb...');
-    const goconfConfig = new GoconfConfig(apiProvider);
-    const promises = await Promise.all([goconfConfig.reload(), getHbConfigFile()]);
-    console.log('[Config] promises results', promises);
-    const hbConfigFile = promises[1];
-    if (!hbConfigFile) {
-      setLoaded(false);
-      return Promise.reject();
-    }
-
-    console.log('[Config] loading govee...');
-    // Set Govee credentials from hbConfig
-    const goveeCreds = { username: hbConfigFile.username, password: hbConfigFile.password };
-    const goveeConfig = new GoveeConfig(goveeCreds, apiProvider);
-
     // Load TTR scenes (goveeConfig) (gvGetScenes and parse)
     // Separate TTR scenes into scenes and devices (goveeConfig)
-    await goveeConfig.getTTRs();
+    await getGovee().getTTRs();
     console.log('[Config] govee loaded');
     // Load HB scenes and devices (hbConfig) (needs goconfScenes for scene names)
-    const hbConfig = new HomebridgeConfig(hbConfigFile, goconfConfig.sceneSlots);
-
-    setGoconf(goconfConfig);
-    setGovee(goveeConfig);
-    setHb(hbConfig);
+    getHb().setGoconfScenes(getGoconf().sceneSlots);
 
     const configs = {
-      goconf: goconfConfig,
-      govee: goveeConfig,
-      hb: hbConfig,
+      goconf: getGoconf(),
+      govee: getGovee(),
+      hb: getHb(),
     };
 
     console.log(
       'configs',
       'goconf scene slots',
-      goconfConfig.sceneSlots,
+      getGoconf().sceneSlots,
     );
     console.log(
       'hbconfig devices',
-      hbConfig.devices,
+      getHb().devices,
       'hbconfig scenes',
-      hbConfig.scenes,
+      getHb().scenes,
     );
     console.log(
       'govee scenes',
-      goveeConfig.scenes,
+      getGovee().scenes,
       'govee devices',
-      goveeConfig.devices,
+      getGovee().devices,
     );
 
     setLoaded(true);
@@ -115,6 +125,7 @@ export const ConfigProvider = ({ children }) => {
       setLoaded(false);
     }
     console.log('[Config] calling loadConfig...');
+    await initializeConfigs();
     const configs = await loadConfig().catch((err) => {
       console.warn('Error occurred while loading config...', err);
       return null;
@@ -128,20 +139,24 @@ export const ConfigProvider = ({ children }) => {
 
   const providerValue = useMemo(() => ({
     loaded,
+    initializeConfigs,
     reloadConfig,
     restartHomebridge,
     restarting,
     defaultSlots,
     room,
     setRoom,
-    govee,
-    goconf,
-    hb,
+    getGovee,
+    getGoconf,
+    getHb,
   }), [
+    initializeConfigs,
     loaded, restarting, defaultSlots,
     room,
     setRoom,
-    govee, goconf, hb,
+    getGovee,
+    getGoconf,
+    getHb,
   ]);
 
   return (

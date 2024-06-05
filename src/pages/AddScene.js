@@ -27,9 +27,13 @@ import PageTitle from '../components/PageTitle';
 const AddScene = () => {
   const { apiPost, apiSaveScenes, apiGetScenes } = useContext(ApiContext);
   const {
-    govee, goconf, hb, room,
+    getGovee, getGoconf, getHb, room,
   } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
+
+  const govee = getGovee();
+  const goconf = getGoconf();
+  const hb = getHb();
 
   const { scenes, devices } = govee || { scenes: {}, devices: {} };
 
