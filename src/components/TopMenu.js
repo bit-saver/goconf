@@ -11,8 +11,8 @@ import Divider from '@mui/material/Divider';
 import React, { useContext } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
-import ConfigContext from '../util/ConfigContext';
-import AlertContext from './Alert';
+import ConfigContext from '../util/contexts/ConfigContext';
+import AlertContext from '../util/contexts/Alert';
 import RoomToggle from './RoomToggle';
 
 export const drawerWidth = 280;

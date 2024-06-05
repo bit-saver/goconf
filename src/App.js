@@ -1,9 +1,9 @@
 import React, { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ApiProvider } from './util/ApiContext';
+import { ApiProvider } from './util/contexts/ApiContext';
 import './App.css';
-import { ConfigProvider } from './util/ConfigContext';
+import { ConfigProvider } from './util/contexts/ConfigContext';
 import Login from './pages/Login';
 // import Layout from './pages/Layout';
 import Home from './pages/Home';
@@ -12,7 +12,7 @@ import ViewDevices from './pages/ViewDevices';
 import AddScene from './pages/AddScene';
 import RemoveScene from './pages/RemoveScene';
 import EditSceneSlots from './pages/EditSceneSlots';
-import { Alert } from './components/Alert';
+import { Alert } from './util/contexts/Alert';
 import Updater from './pages/Updater';
 
 const darkTheme = createTheme({

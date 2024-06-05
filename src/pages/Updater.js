@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Button, Grid, Stack } from '@mui/material';
-import ApiContext from '../util/ApiContext';
-import ConfigContext from '../util/ConfigContext';
-import AlertContext from '../components/Alert';
+import ApiContext from '../util/contexts/ApiContext';
+import ConfigContext from '../util/contexts/ConfigContext';
+import AlertContext from '../util/contexts/Alert';
 import PageTitle from '../components/PageTitle';
 
 const Updater = () => {

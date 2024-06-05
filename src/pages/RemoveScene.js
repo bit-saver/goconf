@@ -4,38 +4,36 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import React, { useContext, useState } from 'react';
 import ListTable from '../components/ListTable';
-import ApiContext from '../util/ApiContext';
-import ConfigContext from '../util/ConfigContext';
-import AlertContext from '../components/Alert';
+import ApiContext from '../util/contexts/ApiContext';
+import ConfigContext from '../util/contexts/ConfigContext';
+import AlertContext from '../util/contexts/Alert';
 import PageTitle from '../components/PageTitle';
-import { getRoomName } from '../util/util';
 
 const RemoveScene = () => {
   const { apiPost, apiPut } = useContext(ApiContext);
-  const { goveeConfig } = useContext(ConfigContext);
+  const { hb } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
   const [selectedSlotScenes, setSelSlotScenes] = useState([]);
 
   const handleRemove = async () => {
-    const { lightDevices } = goveeConfig.config;
+    const { pluginConfig } = hb;
+    const { lightDevices } = pluginConfig;
     if (!lightDevices) {
       console.error('no light devices');
       return;
     }
     selectedSlotScenes.forEach(({ slotName, sceneName }) => {
-      const devices = goveeConfig.configScenes[slotName][sceneName];
+      const devices = hb.scenes[slotName][sceneName];
       devices.forEach((deviceName) => {
         const index = lightDevices.findIndex((light) => light.label === deviceName);
         delete lightDevices[index][slotName];
       });
     });
     // console.log(lightDevices);
+    hb.pluginConfig.lightDevices = lightDevices;
 
-    const { config } = goveeConfig;
-    config.lightDevices = lightDevices;
-
-    await apiPost('/api/config-editor/plugin/homebridge-govee', [config]).then((resp) => resp);
+    await apiPost('/api/config-editor/plugin/homebridge-govee', [hb.pluginConfig]).then((resp) => resp);
     await apiPut('/api/server/restart').then((resp) => resp);
     showAlert('success', 'Scene removed!');
   };
@@ -51,8 +49,8 @@ const RemoveScene = () => {
             selected={selectedSlotScenes}
             setSelected={setSelSlotScenes}
             rows={
-              Object.keys(goveeConfig.configScenes).reduce((acc, slotName) => {
-                const slotScenes = goveeConfig.configScenes[slotName];
+              Object.keys(hb.scenes).reduce((acc, slotName) => {
+                const slotScenes = hb.scenes[slotName];
                 Object.keys(slotScenes).reduce((acc2, sceneName) => {
                   acc2.push({
                     slotName,
@@ -74,7 +72,7 @@ const RemoveScene = () => {
             <Card variant="outlined">
               <List>
                 {selectedSlotScenes.map(({ slotName, sceneName }) => {
-                  const devices = goveeConfig.configScenes[slotName][sceneName];
+                  const devices = hb.scenes[slotName][sceneName];
                   return (
                     <ListItem key={`${slotName}.${sceneName}`}>
                       <ListItemText

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CircularProgress, Grid } from '@mui/material';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import ApiContext from '../util/ApiContext';
+import ApiContext from '../util/contexts/ApiContext';
 import Layout from '../components/Layout';
-import ConfigContext from '../util/ConfigContext';
+import ConfigContext from '../util/contexts/ConfigContext';
 
 const Home = () => {
   const { loaded, reloadConfig } = useContext(ConfigContext);
@@ -26,13 +26,16 @@ const Home = () => {
     7) Upon completion of config, set config loaded and authenticated
      */
   useEffect(() => {
+    console.log('[Home] token or loaded changed, token:', token, 'loaded: ', loaded);
+    console.log('[Home] auth check...');
     apiCheckAuth().then((auth) => {
+      console.log('[Home] auth result', auth);
       setAuthState(auth);
-      // console.log('auth', auth);
       if (!onLogin && (!auth || !token)) {
+        console.log('[Home] navigating to login');
         navigate('/login', { replace: true });
       } else if (!loaded) {
-        console.log('[Home] reloading config...');
+        console.log('[Home] reloading config (not loaded)... token:', token);
         reloadConfig().then();
       }
     }).catch((err) => {

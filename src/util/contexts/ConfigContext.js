@@ -4,17 +4,17 @@ import React, {
 import ApiContext from './ApiContext';
 import {
   asyncTimeout, defaultSlots,
-} from './util';
-import HomebridgeConfig from './configs/HomebridgeConfig';
-import GoveeConfig from './configs/GoveeConfig';
-import GoconfConfig from './configs/GoconfConfig';
+} from '../util';
+import HomebridgeConfig from '../configs/HomebridgeConfig';
+import GoveeConfig from '../configs/GoveeConfig';
+import GoconfConfig from '../configs/GoconfConfig';
 
 const ConfigContext = createContext(null);
 
 export const ConfigProvider = ({ children }) => {
   const apiProvider = useContext(ApiContext);
   const {
-    apiGet, apiPut, token,
+    apiGet, apiPut, token, tokenRef,
   } = apiProvider;
 
   const [loaded, setLoaded] = useState(false);
@@ -32,15 +32,17 @@ export const ConfigProvider = ({ children }) => {
   const loadConfig = async () => {
     // Get Goconf Scenes JSON
     // Get Homebridge plugin config file
+    console.log('[Config] loading goconf and hb...');
     const goconfConfig = new GoconfConfig(apiProvider);
     const promises = await Promise.all([goconfConfig.reload(), getHbConfigFile()]);
-
+    console.log('[Config] promises results', promises);
     const hbConfigFile = promises[1];
     if (!hbConfigFile) {
       setLoaded(false);
       return Promise.reject();
     }
 
+    console.log('[Config] loading govee...');
     // Set Govee credentials from hbConfig
     const goveeCreds = { username: hbConfigFile.username, password: hbConfigFile.password };
     const goveeConfig = new GoveeConfig(goveeCreds, apiProvider);
@@ -48,7 +50,7 @@ export const ConfigProvider = ({ children }) => {
     // Load TTR scenes (goveeConfig) (gvGetScenes and parse)
     // Separate TTR scenes into scenes and devices (goveeConfig)
     await goveeConfig.getTTRs();
-
+    console.log('[Config] govee loaded');
     // Load HB scenes and devices (hbConfig) (needs goconfScenes for scene names)
     const hbConfig = new HomebridgeConfig(hbConfigFile, goconfConfig.sceneSlots);
 
@@ -104,20 +106,23 @@ export const ConfigProvider = ({ children }) => {
   };
 
   const reloadConfig = async (silent = false) => {
-    if (!token) {
-      console.warn('Preventing reload config due to UNAUTHENTICATED TOKEN');
+    console.log('[Config] reloading config...');
+    if (!tokenRef.current) {
+      console.warn('[Config] Preventing reload config due to UNAUTHENTICATED TOKEN');
       return null;
     }
-    // console.log('REloading config...');
     if (!silent) {
       setLoaded(false);
     }
+    console.log('[Config] calling loadConfig...');
     const configs = await loadConfig().catch((err) => {
       console.warn('Error occurred while loading config...', err);
+      return null;
     });
     if (!silent) {
       setLoaded(true);
     }
+    console.log('[Config] resolving...');
     return Promise.resolve(configs);
   };
 

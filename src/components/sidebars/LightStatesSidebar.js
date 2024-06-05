@@ -18,9 +18,9 @@ import React, { useContext, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import RoomToggle from '../RoomToggle';
 import { defaultSlots } from '../../util/util';
-import ConfigContext from '../../util/ConfigContext';
-import ApiContext from '../../util/ApiContext';
-import AlertContext from '../Alert';
+import ConfigContext from '../../util/contexts/ConfigContext';
+import ApiContext from '../../util/contexts/ApiContext';
+import AlertContext from '../../util/contexts/Alert';
 
 export const lightStatesSidebarWidth = 340;
 
@@ -43,9 +43,7 @@ const LightStatesSidebar = ({
   const { showAlert } = useContext(AlertContext);
 
   const theme = useTheme();
-  const greaterThanSm = useMediaQuery(
-    theme.breakpoints.up('sm'),
-  );
+  const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
 
   const handleSave = async () => {
     setSaving(true);

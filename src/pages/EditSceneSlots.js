@@ -10,8 +10,8 @@ import {
   TextField,
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
-import ApiContext from '../util/ApiContext';
-import ConfigContext from '../util/ConfigContext';
+import ApiContext from '../util/contexts/ApiContext';
+import ConfigContext from '../util/contexts/ConfigContext';
 // import AlertContext from '../components/Alert';
 import { getRoomName } from '../util/util';
 import PageTitle from '../components/PageTitle';
@@ -24,7 +24,7 @@ const EditSceneSlots = () => {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    if (token) {
+    if (token.current) {
       goconf.reload().then((result) => setSceneSlots(result));
     }
   }, []);

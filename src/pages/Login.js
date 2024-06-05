@@ -3,10 +3,11 @@ import {
 } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ApiContext from '../util/ApiContext';
+import ApiContext from '../util/contexts/ApiContext';
+import { TOKEN_KEY } from '../util/util';
 
 const Login = () => {
-  const { setToken, apiPost, setAuthenticated } = useContext(ApiContext);
+  const { saveToken, apiPost, setAuthenticated } = useContext(ApiContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -27,7 +28,7 @@ const Login = () => {
       setError(true);
       return;
     }
-    setToken(result.access_token);
+    saveToken(TOKEN_KEY, result.access_token);
     setAuthenticated(true);
     navigate('/', { replace: true });
   };

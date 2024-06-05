@@ -18,10 +18,10 @@ import {
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import ListTable from '../components/ListTable';
-import ApiContext from '../util/ApiContext';
-import ConfigContext from '../util/ConfigContext';
+import ApiContext from '../util/contexts/ApiContext';
+import ConfigContext from '../util/contexts/ConfigContext';
 import { defaultSlots, getRoomName, rooms } from '../util/util';
-import AlertContext from '../components/Alert';
+import AlertContext from '../util/contexts/Alert';
 import PageTitle from '../components/PageTitle';
 
 const AddScene = () => {

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
-  Box, Checkbox, CircularProgress, Fab, Grid, Paper, Stack, TextField, Tooltip,
+  Box, Checkbox, CircularProgress, Fab, Grid, Paper, Stack, TextField, useMediaQuery,
 } from '@mui/material';
 import Typography from '@mui/material/Typography';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -11,20 +11,23 @@ import CheckIcon from '@mui/icons-material/Check';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { useTheme } from '@mui/material/styles';
-import ApiContext from '../util/ApiContext';
-import ConfigContext from '../util/ConfigContext';
+import ApiContext from '../util/contexts/ApiContext';
+import ConfigContext from '../util/contexts/ConfigContext';
 import {
   bulbs, checkSubset, getRoomName, hexToRgb, rgbToHex,
 } from '../util/util';
 import useCopy from '../util/useCopy';
 import PageTitle from '../components/PageTitle';
 import LightStatesSidebar, { lightStatesSidebarWidth } from '../components/sidebars/LightStatesSidebar';
+import AlertContext from '../util/contexts/Alert';
 
 const LightStates = () => {
   const { room, goconf } = useContext(ConfigContext);
   const {
     haGetStates, haCallService,
   } = useContext(ApiContext);
+  const { showAlert } = useContext(AlertContext);
+
   const [, copy] = useCopy();
 
   const preferedLights = {
@@ -40,9 +43,9 @@ const LightStates = () => {
   const [selectedLights, setSelectedLights] = useState([]);
   const [showLights, setShowLights] = useState(preferedLights[room]);
   const [open, setOpen] = useState(true);
-  const [showTooltip, setShowTooltip] = useState(false);
 
   const theme = useTheme();
+  const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
 
   const getLightStates = async () => {
     const data = await haGetStates()
@@ -70,6 +73,10 @@ const LightStates = () => {
       }, {});
       setOriginalStates(original);
     });
+    if (!goconf) {
+      console.error('goconf is null');
+      return;
+    }
     goconf.reload().then((result) => setSceneSlots(result));
   }, []);
 
@@ -126,11 +133,13 @@ const LightStates = () => {
     }
   };
 
+  const setShowTooltip = () => {
+    showAlert('info', 'Copied!');
+  };
+
   const handleCopy = (rgb) => {
     copy(rgb).then();
-    setShowTooltip(true);
-    // eslint-disable-next-line max-len
-    setTimeout(() => setShowTooltip(false), 1000);
+    setShowTooltip();
   };
 
   const handleClick = (e) => {
@@ -153,205 +162,194 @@ const LightStates = () => {
   }
   const lightGroups = getLightsByGroup();
   return (
-    <Grid item xs={12}>
-      <Tooltip
-        open={showTooltip}
-        title="Copied!"
-        followCursor
-        PopperProps={{
-          disablePortal: true,
-        }}
-        onClose={
-          () => setShowTooltip(false)
-        }
-        disableFocusListener
-        disableHoverListener
-        disableTouchListener
-      >
-        <PageTitle
-          title="Light States"
-          subtitle={getRoomName(room)}
+    <Grid
+      item
+      xs={12}
+      sx={{
+        [theme.breakpoints.up('sm')]: { marginRight: `${lightStatesSidebarWidth}px` },
+      }}
+    >
+      <PageTitle
+        title="Light States"
+        subtitle={getRoomName(room)}
+      />
+      <Box sx={{ display: 'block' }}>
+        <LightStatesSidebar
+          open={open}
+          setOpen={setOpen}
+          sceneSlots={sceneSlots}
+          setSceneSlots={setSceneSlots}
+          getLightsByGroup={getLightsByGroup}
+          showLights={showLights}
+          setShowLights={setShowLights}
+          lights={lights}
+          setLights={setLights}
+          selectedLights={selectedLights}
+          originalStates={originalStates}
         />
-        <Box sx={{ display: 'block' }}>
-          <LightStatesSidebar
-            open={open}
-            setOpen={setOpen}
-            sceneSlots={sceneSlots}
-            setSceneSlots={setSceneSlots}
-            getLightsByGroup={getLightsByGroup}
-            showLights={showLights}
-            setShowLights={setShowLights}
-            lights={lights}
-            setLights={setLights}
-            selectedLights={selectedLights}
-            originalStates={originalStates}
-          />
-          <Fab
-            color={open ? '' : 'primary'}
-            size="small"
-            onClick={() => setOpen(!open)}
-            sx={{
-              position: 'fixed',
-              bottom: '16px',
-              right: '16px',
-              zIndex: 9999,
-              // ...drawerTop,
-            }}
-          >
-            {open && <ChevronRightIcon />}
-            {!open && <SettingsIcon />}
-          </Fab>
-          <Grid
-            container
-            item
-            spacing={2}
-            className="lights-container"
-            sx={{
-              [theme.breakpoints.up('sm')]: { width: `calc(100% - ${lightStatesSidebarWidth}px)` },
-            }}
-          >
-            <Grid item xs={12} sm={12} md={12}>
-              <Grid container item spacing={2}>
-                {Object.values(lightGroups).filter((g) => showLights.has(g[0].group)).map((group) => {
-                  const light = group[0];
-                  const fill = getLightFill(light);
-                  return (
-                    <Grid item xs={12} sm={6} md={6} lg={6} key={`group-${light.group}`}>
-                      <Paper
-                        square={false}
-                        elevation={3}
+        <Fab
+          color={open ? '' : 'primary'}
+          size="small"
+          onClick={() => setOpen(!open)}
+          sx={{
+            display: greaterThanSm ? 'none' : 'block',
+            position: 'fixed',
+            bottom: '16px',
+            right: '16px',
+            zIndex: 9999,
+            // ...drawerTop,
+          }}
+        >
+          {open && <ChevronRightIcon />}
+          {!open && <SettingsIcon />}
+        </Fab>
+        <Grid
+          container
+          item
+          spacing={2}
+          className="lights-container"
+        >
+          <Grid item xs={12} sm={12} md={12}>
+            <Grid container item spacing={2}>
+              {Object.values(lightGroups).filter((g) => showLights.has(g[0].group)).map((group) => {
+                const light = group[0];
+                const fill = getLightFill(light);
+                return (
+                  <Grid item xs={12} sm={12} md={12} lg={6} key={`group-${light.group}`}>
+                    <Paper
+                      square={false}
+                      elevation={3}
+                      sx={{
+                        textAlign: 'center',
+                        justifyContent: 'center',
+                        padding: '15px 10px 20px',
+                        position: 'relative',
+                      }}
+                    >
+                      <Checkbox
                         sx={{
-                          textAlign: 'center',
-                          justifyContent: 'center',
-                          padding: '15px 10px 20px',
-                          position: 'relative',
+                          position: 'absolute',
+                          top: 9,
+                          left: 5,
                         }}
+                        onChange={() => handleLightCheck(light.group)}
+                        checked={selectedLights.includes(light.entity_id)}
+                      />
+                      <IconButton
+                        aria-label="restore"
+                        sx={{
+                          position: 'absolute',
+                          top: 9,
+                          right: 5,
+                        }}
+                        onClick={() => restoreGroup(group)}
                       >
-                        <Checkbox
+                        <RestoreIcon />
+                      </IconButton>
+                      <Stack alignItems="center">
+                        <Typography
+                          variant="h6"
+                          noWrap
                           sx={{
-                            position: 'absolute',
-                            top: 9,
-                            left: 5,
+                            flexGrow: 1,
+                            cursor: 'pointer',
                           }}
-                          onChange={() => handleLightCheck(light.group)}
-                          checked={selectedLights.includes(light.entity_id)}
-                        />
-                        <IconButton
-                          aria-label="restore"
-                          sx={{
-                            position: 'absolute',
-                            top: 9,
-                            right: 5,
-                          }}
-                          onClick={() => restoreGroup(group)}
+                          component="div"
+                          onClick={
+                            () => handleLightCheck(light.entity_id)
+                          }
                         >
-                          <RestoreIcon />
-                        </IconButton>
-                        <Stack alignItems="center">
-                          <Typography
-                            variant="h6"
-                            noWrap
-                            sx={{
-                              flexGrow: 1,
-                              cursor: 'pointer',
-                            }}
-                            component="div"
-                            onClick={
-                              () => handleLightCheck(light.entity_id)
-                            }
-                          >
-                            {light.group}
-                          </Typography>
-                          <Grid container justifyContent="center">
-                            {group.map((lightDevice) => {
-                              const lightFill = getLightFill(lightDevice);
-                              return (
-                                <Grid
-                                  item
-                                  xs={6}
-                                  sx={{ cursor: 'pointer' }}
-                                  onClick={() => {
-                                    handleCopy(lightFill);
-                                  }}
+                          {light.group}
+                        </Typography>
+                        <Grid container justifyContent="center">
+                          {group.map((lightDevice) => {
+                            const lightFill = getLightFill(lightDevice);
+                            return (
+                              <Grid
+                                item
+                                xs={6}
+                                sx={{ cursor: 'pointer' }}
+                                onClick={() => {
+                                  handleCopy(lightFill);
+                                }}
+                                key={lightDevice.entity_id}
+                              >
+                                <svg
+                                  width="100%"
+                                  viewBox="0 0 100 100"
                                   key={lightDevice.entity_id}
                                 >
-                                  <svg
-                                    width="100%"
-                                    viewBox="0 0 100 100"
-                                    key={lightDevice.entity_id}
-                                  >
-                                    <circle
-                                      cx="50"
-                                      cy="50"
-                                      r="40"
-                                      stroke="transparent"
-                                      strokeWidth="1"
-                                      fill={`rgb(${lightFill})`}
-                                    />
-                                  </svg>
-                                </Grid>
-                              );
-                            })}
-                          </Grid>
-                          <Stack direction="row">
-                            <TextField
-                              hiddenLabel
-                              id={light.group}
-                              variant="filled"
-                              size="small"
-                              value={fill}
-                              sx={{ textAlign: 'center' }}
-                              onClick={handleClick}
-                              onChange={handleLightChange(group)}
-                            />
-                            <IconButton
-                              size="small"
-                              color="primary"
-                              aria-label="apply"
-                              variant="outlined"
-                              onClick={() => applyColor(group)}
-                            >
-                              <CheckIcon />
-                            </IconButton>
-                          </Stack>
-                          <Box sx={{
-                            width: '80%',
-                            padding: '25px 1px 1px',
-                          }}
+                                  <circle
+                                    cx="50"
+                                    cy="50"
+                                    r="40"
+                                    stroke="transparent"
+                                    strokeWidth="1"
+                                    fill={`rgb(${lightFill})`}
+                                  />
+                                </svg>
+                              </Grid>
+                            );
+                          })}
+                        </Grid>
+                        <Stack direction="row">
+                          <TextField
+                            hiddenLabel
+                            id={light.group}
+                            variant="filled"
+                            size="small"
+                            value={fill}
+                            sx={{ textAlign: 'center' }}
+                            onClick={handleClick}
+                            onChange={handleLightChange(group)}
+                          />
+                          <IconButton
+                            size="small"
+                            color="primary"
+                            aria-label="apply"
+                            variant="outlined"
+                            onClick={() => applyColor(group)}
                           >
-                            <div style={{ position: 'relative' }}>
-                              <Colorful
-                                color={rgbToHex(fill)}
-                                disableAlpha
-                                onChange={(color) => {
-                                  const rgb = hexToRgb(color.hex);
-                                  group.forEach((ld) => {
-                                    updateLightState(ld, rgb);
-                                  });
-                                }}
-                              />
-                              <div style={{
-                                position: 'absolute',
-                                right: '-55px',
-                                top: 0,
-                                height: '100%',
-                                width: '62px',
-                                zIndex: 9998,
-                                backgroundColor: 'transparent',
-                              }}
-                              />
-                            </div>
-                          </Box>
+                            <CheckIcon />
+                          </IconButton>
                         </Stack>
-                      </Paper>
-                    </Grid>
-                  );
-                })}
-              </Grid>
+                        <Box sx={{
+                          width: '80%',
+                          padding: '25px 1px 1px',
+                        }}
+                        >
+                          <div style={{ position: 'relative' }}>
+                            <Colorful
+                              color={rgbToHex(fill)}
+                              disableAlpha
+                              onChange={(color) => {
+                                const rgb = hexToRgb(color.hex);
+                                group.forEach((ld) => {
+                                  updateLightState(ld, rgb);
+                                });
+                              }}
+                            />
+                            <div style={{
+                              position: 'absolute',
+                              right: '-55px',
+                              top: 0,
+                              height: '100%',
+                              width: '62px',
+                              zIndex: 9998,
+                              backgroundColor: 'transparent',
+                            }}
+                            />
+                          </div>
+                        </Box>
+                      </Stack>
+                    </Paper>
+                  </Grid>
+                );
+              })}
             </Grid>
           </Grid>
-        </Box>
-      </Tooltip>
+        </Grid>
+      </Box>
     </Grid>
   );
 };

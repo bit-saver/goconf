@@ -19,7 +19,7 @@ const TopBar = ({ open, setOpen }) => {
     <AppBar position="fixed" open={open}>
       <Toolbar>
         <Typography variant="h6" noWrap sx={{ flexGrow: 1, fontWeight: 600 }} component="div">
-          GOCONF
+          Goconf
         </Typography>
         <IconButton
           color="inherit"

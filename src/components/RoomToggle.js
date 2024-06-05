@@ -1,7 +1,7 @@
 import { Box, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import React, { useContext } from 'react';
 import { rooms } from '../util/util';
-import ConfigContext from '../util/ConfigContext';
+import ConfigContext from '../util/contexts/ConfigContext';
 
 const RoomToggle = ({ onToggleChange }) => {
   const { room, setRoom } = useContext(ConfigContext);

@@ -33,6 +33,7 @@
         "quotes": 0,
 
         // fix annoying
-        "react/jsx-closing-bracket-location": "off"
+        "react/jsx-closing-bracket-location": "off",
+        "no-trailing-spaces": ["error", { "skipBlankLines": true }]
     }
 }

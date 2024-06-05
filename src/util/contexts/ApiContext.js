@@ -1,10 +1,10 @@
 import React, {
-  createContext, useEffect, useMemo, useState,
+  createContext, useEffect, useMemo, useRef, useState,
 } from 'react';
 import axios from 'axios';
 import {
   getApiUrl, getHaApiUrl, getHbApiUrl, GOVEE_TOKEN_KEY, HA_TOKEN, TOKEN_KEY,
-} from './util';
+} from '../util';
 
 const ApiContext = createContext(null);
 
@@ -16,9 +16,12 @@ export const ApiProvider = ({ children }) => {
 
   const [authenticated, setAuthenticated] = useState(false);
 
+  const tokenRef = useRef(token);
+
   const saveToken = (tokenKey, userToken) => {
     sessionStorage.setItem(tokenKey, userToken);
     if (tokenKey === TOKEN_KEY) {
+      tokenRef.current = userToken;
       setToken(userToken);
     } else if (tokenKey === GOVEE_TOKEN_KEY) {
       setGoveeToken(userToken);
@@ -79,12 +82,12 @@ export const ApiProvider = ({ children }) => {
   };
 
   const apiGet = async (path) => {
-    if (!token) {
+    if (!tokenRef.current) {
       return new Error('Missing token.');
     }
     return axios.get(getHbApiUrl(path), {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${tokenRef.current}`,
       },
     }).catch((err) => checkAuthError(err));
   };
@@ -209,6 +212,7 @@ export const ApiProvider = ({ children }) => {
   const providerValue = useMemo(() => ({
     token,
     setToken,
+    tokenRef,
     saveToken,
     goveeToken,
     authenticated,
@@ -227,7 +231,7 @@ export const ApiProvider = ({ children }) => {
     gvGetDevices,
     gvGetScenes,
   }), [
-    token, setToken, saveToken, goveeToken,
+    token, setToken, saveToken, goveeToken, tokenRef,
     gvGetToken, gvGetComponents, gvGetDevices, gvGetScenes,
     authenticated, setAuthenticated,
     apiGet, apiPost, apiPut,
