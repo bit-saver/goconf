@@ -89,6 +89,8 @@ const AddScene = () => {
       return;
     }
     const sceneData = scenes[selectedScene];
+    console.log('sceneData', sceneData);
+    console.log('selectedDevices', selectedDevices, selectedSlot);
     if (!sceneData) {
       return;
     }
@@ -96,14 +98,21 @@ const AddScene = () => {
     hb.updateConfig(selectedDevices, selectedSlot, sceneData);
     await apiPost('/api/config-editor/plugin/homebridge-govee', [hb.pluginConfig]);
 
-    const { data: scenesJson } = await apiGetScenes();
-    console.log('hb devices', hb.devices);
-    goconf.reconstruct(scenesJson, hb.devices);
+    await goconf.reconstruct(hb.devices);
+
     const index = goconf.sceneSlots.findIndex((ss) => ss.slot === selectedSlot && ss.room === room);
     if (index > -1) {
-      goconf.sceneSlots[index].scene = selectedScene.replace('Office ', '');
-      goconf.sceneSlots[index].room = room;
-      await apiSaveScenes(goconf.sceneSlots);
+      const sceneDevices = Object.keys(sceneData.devices).map((deviceName) => ({
+        device: deviceName,
+        code: sceneData.devices[deviceName].code,
+        diyName: sceneData.devices[deviceName].diyName,
+      }));
+      await goconf.updateScene({
+        ...goconf.sceneSlots[index],
+        scene: selectedScene.replace('Office ', ''),
+        room,
+        devices: sceneDevices,
+      });
     } else {
       console.error('no index found for ', selectedSlot, room);
     }

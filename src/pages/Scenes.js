@@ -3,12 +3,12 @@ import React, {
 } from 'react';
 import {
   Button,
-  Card, CardActions, CardContent, CardMedia, Grid,
+  Card, CardActions, CardContent, CardMedia, FormControlLabel, Grid, List, ListItem, ListItemText, Switch,
 } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import PageTitle from '../components/PageTitle';
-import { getRoomName } from '../util/util';
+import { getDevicesByRoom, getRoomName } from '../util/util';
 import ConfigContext from '../util/contexts/ConfigContext';
 import ApiContext from '../util/contexts/ApiContext';
 import AlertContext from '../util/contexts/Alert';
@@ -28,6 +28,7 @@ const Scenes = () => {
     isError: false,
     imageInfos: [],
   });
+  const [showDevices, setShowDevices] = useState(false);
 
   const setUploadState = (state) => {
     setUploadData({ ...uploadData, ...state });
@@ -113,11 +114,31 @@ const Scenes = () => {
     }
   }, [uploadData.currentFile]);
 
+  const getSceneDeviceData = (sceneSlot) => {
+    const configured = sceneSlot.devices.map((ssd) => ssd.device);
+    const missing = getDevicesByRoom(room).filter((device) => !configured.includes(device));
+    return {
+      configured,
+      missing,
+    };
+  };
+
   return (
     <Grid item xs={12}>
       <PageTitle
         title="Scenes"
         subtitle={getRoomName(room)}
+        control={(
+          <FormControlLabel
+            control={(
+              <Switch
+                checked={showDevices}
+                onChange={(e) => setShowDevices(e.target.checked)}
+              />
+            )}
+            label="Show Devices"
+          />
+        )}
       />
 
       <input
@@ -147,17 +168,39 @@ const Scenes = () => {
                 title={sceneSlot.scene}
                 onClick={() => handleImageClick(sceneSlot)}
               >
-                {!sceneSlot?.image && (
+                {!sceneSlot?.imagePath && (
                   <UploadFileIcon
                     fontSize="large"
                   />
                 )}
               </CardMedia>
               <CardContent>
-                <Typography variant="h5" align="center">
+                <Typography variant="h5" align="center" fontWeight={700}>
                   {sceneSlot.scene}
                 </Typography>
-
+                {showDevices && (
+                  <List dense disablePadding sx={{ columns: 2, marginTop: '16px' }}>
+                    {getSceneDeviceData(sceneSlot).configured.map((device) => (
+                      <ListItem key={Math.random()} sx={{ paddingTop: 0, paddingBottom: 0 }}>
+                        <ListItemText
+                          sx={{ marginTop: 0, marginBottom: 0 }}
+                        >
+                          { device }
+                        </ListItemText>
+                      </ListItem>
+                    ))}
+                    {getSceneDeviceData(sceneSlot).missing.map((device) => (
+                      <ListItem key={Math.random()} sx={{ paddingTop: 0, paddingBottom: 0 }}>
+                        <ListItemText
+                          sx={{ marginTop: 0, marginBottom: 0 }}
+                          primaryTypographyProps={{ color: 'error' }}
+                        >
+                          { device }
+                        </ListItemText>
+                      </ListItem>
+                    ))}
+                  </List>
+                )}
               </CardContent>
               <CardActions>
                 <Button

@@ -40,7 +40,7 @@ export const ConfigProvider = ({ children }) => {
   const initializeConfigs = async () => {
     console.log('[Config] Initializing configs...');
     const goconfConfig = new GoconfConfig(apiProvider);
-    const hbConfig = new HomebridgeConfig(apiProvider);
+    const hbConfig = new HomebridgeConfig(apiProvider, goconfConfig);
     try {
       // Get Goconf Scenes JSON
       // Get Homebridge plugin config file

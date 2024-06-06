@@ -3,7 +3,7 @@ import { defaultSlots, deviceRooms } from '../util';
 class HomebridgeConfig {
   pluginConfig = null;
 
-  goconfScenes = [];
+  goconf = null;
 
   apiProvider = null;
 
@@ -11,8 +11,9 @@ class HomebridgeConfig {
 
   scenes = {};
 
-  constructor(apiProvider) {
+  constructor(apiProvider, goconf) {
     this.apiProvider = apiProvider;
+    this.goconf = goconf;
   }
 
   get goveeCredentials() {
@@ -39,24 +40,25 @@ class HomebridgeConfig {
     }
   }
 
-  setGoconfScenes(scenes) {
-    this.goconfScenes = scenes;
+  setGoconfScenes() {
     this.setScenesAndDevices();
   }
 
   updateConfig(deviceUpdates, slot, sceneData) {
+    console.log('[HB] update config: device updates', deviceUpdates, 'slot', slot, 'sceneData', sceneData);
     const { lightDevices } = this.pluginConfig;
     deviceUpdates.forEach(({ name: deviceName }) => {
       const index = lightDevices.findIndex((light) => light.label === deviceName);
       if (index >= 0) {
         lightDevices[index][slot] = {
-          sceneCode: sceneData.devices[deviceName],
+          sceneCode: sceneData.devices[deviceName].code,
           showAs: 'switch',
         };
       }
     });
 
     this.pluginConfig = { ...this.pluginConfig, lightDevices };
+    console.log('[HB] config updated', this.pluginConfig);
     this.setScenesAndDevices();
   }
 
@@ -86,7 +88,7 @@ class HomebridgeConfig {
           let sceneName = null;
           let diyName = null;
 
-          const goconfScene = this.goconfScenes.find(
+          const goconfScene = this.goconf.sceneSlots.find(
             (ss) => ss.room === deviceRoom && ss.slot === slotName && ss.devices.find(
               (ssd) => ssd.device === deviceName,
             ),

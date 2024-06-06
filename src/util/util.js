@@ -85,6 +85,10 @@ export const deviceRooms = {
   Desk: 'office',
 };
 
+export const getDevicesByRoom = (room) => Object.keys(deviceRooms).filter(
+  (device) => deviceRooms[device] === room,
+);
+
 export const rooms = [
   {
     key: 'living_room', name: 'Living Room', short: 'Living', prefix: '',

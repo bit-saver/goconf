@@ -106,9 +106,9 @@ class GoveeConfig {
       deviceName, ttrName, code, diyName, room,
     }) => {
       if (!scenes[ttrName]) {
-        scenes[ttrName] = { name: ttrName, devices: { [deviceName]: code }, rooms: [] };
+        scenes[ttrName] = { name: ttrName, devices: { [deviceName]: { code, diyName } }, rooms: [] };
       } else {
-        scenes[ttrName].devices[deviceName] = code;
+        scenes[ttrName].devices[deviceName] = { code, diyName };
       }
       if (!scenes[ttrName].rooms.includes(room)) {
         scenes[ttrName].rooms.push(room);

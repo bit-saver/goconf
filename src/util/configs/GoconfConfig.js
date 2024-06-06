@@ -27,7 +27,9 @@ class GoconfConfig {
     this.sceneSlots = slots;
   }
 
-  reconstruct(scenesJson, hbDevices) {
+  async reconstruct(hbDevices) {
+    const { data: scenesJson } = await this.apiProvider.apiGetScenes();
+    this.scenesJson = scenesJson;
     this.sceneSlots = rooms.reduce((acc, r) => {
       const roomSlots = defaultSlots.map((slot) => {
         const sceneSlot = this.scenesJson.find((ss) => ss.slot === slot && ss.room === r.key);
@@ -37,6 +39,7 @@ class GoconfConfig {
             room: r.key,
             scene: null,
             lights: [],
+            imagePath: null,
           };
         }
         return { room: r.key, lights: [], ...sceneSlot };
@@ -61,11 +64,16 @@ class GoconfConfig {
     }, []);
   }
 
-  updateScene(sceneSlot) {
-    const index = this.sceneSlots.indexOf((ss) => ss.room === sceneSlot.room && ss.slot === sceneSlot.slot);
+  async updateScene(sceneSlot) {
+    console.log('[Goconf] Updating sceneSlot', sceneSlot);
+    const index = this.sceneSlots.findIndex((ss) => ss.room === sceneSlot.room && ss.slot === sceneSlot.slot);
     if (index !== -1) {
+      console.log('[Goconf] saving scene slots...');
       this.sceneSlots[index] = { ...sceneSlot };
-      this.apiProvider.apiSaveScenes(this.sceneSlots).then();
+      await this.apiProvider.apiSaveScenes(this.sceneSlots);
+      this.scenesJson = this.sceneSlots;
+    } else {
+      console.log('[Goconf] scene slot not found!', this.sceneSlots);
     }
   }
 }
