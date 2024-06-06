@@ -60,6 +60,7 @@ const TopMenu = ({ open, setOpen }) => {
     { label: 'Remove Scene', slug: 'removeScene' },
     { label: 'Edit Scene Slots', slug: 'editSceneSlots' },
     { label: 'Updater', slug: 'updater' },
+    { label: 'Scenes', slug: 'scenes' },
   ];
 
   // const DrawerHeader = styled('div')(() => ({

@@ -14,6 +14,7 @@ import RemoveScene from './pages/RemoveScene';
 import EditSceneSlots from './pages/EditSceneSlots';
 import { Alert } from './util/contexts/Alert';
 import Updater from './pages/Updater';
+import Scenes from './pages/Scenes';
 
 const darkTheme = createTheme({
   palette: {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: '/updater',
         element: <Updater />,
+      },
+      {
+        path: '/scenes',
+        element: <Scenes />,
       },
     ],
   },

@@ -12,7 +12,6 @@ class GoconfConfig {
   }
 
   getRoomSlots(room) {
-    console.log('get room slots', room, this.sceneSlots);
     return this.sceneSlots.filter((ss) => ss.room === room);
   }
 
@@ -60,6 +59,14 @@ class GoconfConfig {
       acc.push(slotData);
       return acc;
     }, []);
+  }
+
+  updateScene(sceneSlot) {
+    const index = this.sceneSlots.indexOf((ss) => ss.room === sceneSlot.room && ss.slot === sceneSlot.slot);
+    if (index !== -1) {
+      this.sceneSlots[index] = { ...sceneSlot };
+      this.apiProvider.apiSaveScenes(this.sceneSlots).then();
+    }
   }
 }
 

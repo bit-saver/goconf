@@ -125,6 +125,21 @@ export const ApiProvider = ({ children }) => {
     },
   }).catch(() => null);
 
+  const apiUpload = (file, filename, onUploadProgress) => {
+    const formData = new FormData();
+
+    formData.append('file', file);
+    formData.append('filename', filename);
+
+    return axios.post(getApiUrl('upload'), formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+      onUploadProgress,
+    });
+  };
+
   const gvGetToken = async (email, password) => {
     const ttrRes = await axios({
       url: 'https://community-api.govee.com/os/v1/login',
@@ -226,6 +241,7 @@ export const ApiProvider = ({ children }) => {
     apiGetScenes,
     apiSaveScenes,
     apiCheckAuth,
+    apiUpload,
     haGetStates,
     haCallService,
     haCallWebhook,
@@ -237,7 +253,7 @@ export const ApiProvider = ({ children }) => {
     token, setToken, tokenRef, saveToken, goveeToken, goveeTokenRef,
     gvGetToken, gvGetComponents, gvGetDevices, gvGetScenes,
     authenticated, setAuthenticated,
-    apiGet, apiPost, apiPut,
+    apiGet, apiPost, apiPut, apiUpload,
     apiGetScenes, apiSaveScenes, apiCheckAuth,
     haGetStates, haCallService, haCallWebhook,
   ]);
