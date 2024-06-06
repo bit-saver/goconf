@@ -97,6 +97,7 @@ const AddScene = () => {
     await apiPost('/api/config-editor/plugin/homebridge-govee', [hb.pluginConfig]);
 
     const { data: scenesJson } = await apiGetScenes();
+    console.log('hb devices', hb.devices);
     goconf.reconstruct(scenesJson, hb.devices);
     const index = goconf.sceneSlots.findIndex((ss) => ss.slot === selectedSlot && ss.room === room);
     if (index > -1) {

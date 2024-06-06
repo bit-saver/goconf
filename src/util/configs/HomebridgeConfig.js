@@ -57,6 +57,7 @@ class HomebridgeConfig {
     });
 
     this.pluginConfig = { ...this.pluginConfig, lightDevices };
+    this.setScenesAndDevices();
   }
 
   setScenesAndDevices() {

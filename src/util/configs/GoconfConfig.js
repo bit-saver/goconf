@@ -47,7 +47,7 @@ class GoconfConfig {
       const slotData = { ...data };
       slotData.devices = [];
       Object.keys(hbDevices).forEach((deviceName) => {
-        const deviceSlot = hbDevices.configDevices[deviceName].slots[slotData.slot];
+        const deviceSlot = hbDevices[deviceName].slots[slotData.slot];
         if (deviceSlot && slotData.room === deviceSlot.room) {
           slotData.devices.push({
             device: deviceName,

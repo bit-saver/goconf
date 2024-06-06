@@ -143,7 +143,7 @@ const Scenes = () => {
                   backgroundColor: 'rgb(40, 40, 40)',
                   cursor: 'pointer',
                 }}
-                image={sceneSlot?.image}
+                image={sceneSlot?.imagePath ? `http://raspi:8080/images/${sceneSlot.imagePath}` : null}
                 title={sceneSlot.scene}
                 onClick={() => handleImageClick(sceneSlot)}
               >
