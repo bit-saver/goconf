@@ -123,6 +123,14 @@ const Scenes = () => {
     };
   };
 
+  const getComponent = (sceneSlot) => {
+    const path = sceneSlot?.imagePath;
+    if (path && path.endsWith('.mp4')) {
+      return 'video';
+    }
+    return '';
+  };
+
   return (
     <Grid item xs={12}>
       <PageTitle
@@ -146,7 +154,7 @@ const Scenes = () => {
         name="imageFile"
         style={{ display: 'none' }}
         type="file"
-        accept="image/*"
+        accept="image/*, video/*"
         onChange={handleSelectFile}
       />
 
@@ -165,7 +173,11 @@ const Scenes = () => {
                   cursor: 'pointer',
                 }}
                 image={sceneSlot?.imagePath ? `http://raspi:8080/images/${sceneSlot.imagePath}` : null}
+                component={getComponent(sceneSlot)}
                 title={sceneSlot.scene}
+                autoPlay
+                muted
+                loop
                 onClick={() => handleImageClick(sceneSlot)}
               >
                 {!sceneSlot?.imagePath && (
