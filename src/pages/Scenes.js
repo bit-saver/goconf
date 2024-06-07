@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import {
   Button,
-  Card, CardActions, CardContent, CardMedia, FormControlLabel, Grid, List, ListItem, ListItemText, Switch,
+  Card, CardActions, CardContent, CardHeader, CardMedia, FormControlLabel, Grid, List, ListItem, ListItemText, Switch,
 } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
@@ -162,15 +162,23 @@ const Scenes = () => {
         {scenes.filter((ss) => ss.scene).map((sceneSlot) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={Math.random()}>
             <Card>
+              <CardHeader
+                title={sceneSlot.scene}
+                titleTypographyProps={{
+                  align: 'center',
+                }}
+              />
               <CardMedia
                 sx={{
-                  height: '150px',
+                  height: 'auto',
+                  minHeight: '199px',
                   textAlign: 'center',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
                   backgroundColor: 'rgb(40, 40, 40)',
                   cursor: 'pointer',
+                  ...(sceneSlot?.imagePath ? {} : { margin: '0 18px' }),
                 }}
                 image={sceneSlot?.imagePath ? `http://raspi:8080/images/${sceneSlot.imagePath}` : null}
                 component={getComponent(sceneSlot)}
@@ -187,11 +195,8 @@ const Scenes = () => {
                 )}
               </CardMedia>
               <CardContent>
-                <Typography variant="h5" align="center" fontWeight={700}>
-                  {sceneSlot.scene}
-                </Typography>
                 {showDevices && (
-                  <List dense disablePadding sx={{ columns: 2, marginTop: '16px' }}>
+                  <List dense disablePadding sx={{ columns: 2 }}>
                     {getSceneDeviceData(sceneSlot).configured.map((device) => (
                       <ListItem key={Math.random()} sx={{ paddingTop: 0, paddingBottom: 0 }}>
                         <ListItemText
@@ -220,6 +225,7 @@ const Scenes = () => {
                   variant="outlined"
                   sx={{ width: '100%' }}
                   onClick={() => handleActivate(sceneSlot)}
+                  size="large"
                 >
                   Activate
                 </Button>
