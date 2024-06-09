@@ -40,7 +40,60 @@
       }
     ],
     "slot": "scene",
-    "scene": "Apricot Vanilla"
+    "scene": "Apricot Vanilla",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmGSECDwEFAAP/xHz/eXE=,o/80/0U3AAAAAAAAAAAAAAAAAOU=,MwUKdAAAAAAAAAAAAAAAAAAAAEg=",
+        "diyName": "Apricot Vanilla Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAABQJ/94e3UYA4AAAAP0=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKlgAAAAAAAAAAAAAAAAAAAKo=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAl4BDgAUBAP/3h7dRh4=,o/8A4AAAAAAAAAAAAAAAAAAAALw=,MwUKOwAAAAAAAAAAAAAAAAAAAAc=",
+        "diyName": "Apricot Vanilla"
+      }
+    ],
+    "imagePath": "living_room/Apricot Vanilla.jpeg"
   },
   {
     "room": "living_room",
@@ -83,7 +136,60 @@
       }
     ],
     "slot": "sceneTwo",
-    "scene": "Fuzzy"
+    "scene": "Fuzzy",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBQICIwAAAAQCAf//A+ZkAQM=,owEDABQE/ygA/wMe/wAT/ygAAL8=,owIA/BAA/AAgAAAAAwAB/wADzKM=,owMjZAMAFAOeEP8BAQEBAQEAAII=,o/+AEAD8AAAAAAAAAAAAAAAAADA=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Fuzzy v4"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBQICIwAAAAQCAf//A+ZkAQM=,owEDABQE/ygA/wMe/wAT/ygAAL8=,owIA/BAA/AAgAAAAAwAB/wADzKM=,owMjZAMAFAOeEP8BAQEBAQEAAII=,o/+AEAD8AAAAAAAAAAAAAAAAADA=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Fuzzy v4"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBQICIwAAAAQCAf//A+ZkAQM=,owEDABQE/ygA/wMe/wAT/ygAAL8=,owIA/BAA/AAgAAAAAwAB/wADzKM=,owMjZAMAFAOeEP8BAQEBAQEAAII=,o/+AEAD8AAAAAAAAAAAAAAAAADA=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Fuzzy v4"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBQICIwAAAAQCAf//A+ZkAQM=,owEDABQE/ygA/wMe/wAT/ygAAL8=,owIA/BAA/AAgAAAAAwAB/wADzKM=,owMjZAMAFAOeEP8BAQEBAQEAAII=,o/+AEAD8AAAAAAAAAAAAAAAAADA=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Fuzzy v4"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBQICIwAAAAQCAf//A+ZkAQM=,owEDABQE/ygA/wMe/wAT/ygAAL8=,owIA/BAA/AAgAAAAAwAB/wADzKM=,owMjZAMAFAOeEP8BAQEBAQEAAII=,o/+AEAD8AAAAAAAAAAAAAAAAADA=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Fuzzy v4"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBQICIwAAAAQCAf//A+ZkAQM=,owEDABQE/ygA/wMe/wAT/ygAAL8=,owIA/BAA/AAgAAAAAwAB/wADzKM=,owMjZAMAFAOeEP8BAQEBAQEAAII=,o/+AEAD8AAAAAAAAAAAAAAAAADA=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Fuzzy v4"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmGQ8BDgEFAAf/AA3/AJU=,o/8NAQEB/y4A/y4AAQEB0wb/AHs=,MwUKHgAAAAAAAAAAAAAAAAAAACI=",
+        "diyName": "Fuzzy Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAABwP/zEA/z8A/wChoEc=,o/8A//8AlgAAAAAAAAAAAAAAAMo=,MwUKdAAAAAAAAAAAAAAAAAAAAEg=",
+        "diyName": "Fuzzy"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABBQICIwAAAAQCAf//A+ZkAQM=,owEDABQE/ygA/wMe/wAT/ygAAL8=,owIA/BAA/AAgAAAAAwAB/wADzKM=,owMjZAMAFAOeEP8BAQEBAQEAAII=,o/+AEAD8AAAAAAAAAAAAAAAAADA=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Fuzzy v4"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAjABDgIFBATTBv//ABU=,o/90/wAM/yIAAAAAAAAAAAAAAAY=,MwUKaAAAAAAAAAAAAAAAAAAAAFQ=",
+        "diyName": "Fuzzy Curtain"
+      }
+    ],
+    "imagePath": "living_room/Fuzzy.jpg"
   },
   {
     "room": "living_room",
@@ -126,7 +232,60 @@
       }
     ],
     "slot": "sceneThree",
-    "scene": "Pink Skies"
+    "scene": "Pink Skies",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAwIBIAAAAAMAAf//AIAUFAA=,owEDABQD/ygAsw3//wA3EAD5AAE=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Pink Skies"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAwIBIAAAAAMAAf//AIAUFAA=,owEDABQD/ygAsw3//wA3EAD5AAE=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Pink Skies"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAwIBIAAAAAMAAf//AIAUFAA=,owEDABQD/ygAsw3//wA3EAD5AAE=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Pink Skies"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAwIBIAAAAAMAAf//AIAUFAA=,owEDABQD/ygAsw3//wA3EAD5AAE=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Pink Skies"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAwIBIAAAAAMAAf//AIAUFAA=,owEDABQD/ygAsw3//wA3EAD5AAE=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Pink Skies"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAwIBIAAAAAMAAf//AIAUFAA=,owEDABQD/ygAsw3//wA3EAD5AAE=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Pink Skies"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmGiUBBlQFhgYBBQAD/5M=,o/8AZc46//8/AAAAAAAAAAAAAPI=,MwUKLAAAAAAAAAAAAAAAAAAAABA=",
+        "diyName": "Pink Skies Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAABwP/zEA/z8A/wChoEc=,o/8A//8AlgAAAAAAAAAAAAAAAMo=,MwUKdAAAAAAAAAAAAAAAAAAAAEg=",
+        "diyName": "Fuzzy"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAwIBIAAAAAMAAf//AIAUFAA=,owEDABQD/ygAsw3//wA3EAD5AAE=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Pink Skies"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./3AMAABodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0xMjE=,MwUKTgAAAAAAAAAAAAAAAAAAAHI=",
+        "diyName": "Pink Skies"
+      }
+    ],
+    "imagePath": "living_room/Pink Skies.jpg"
   },
   {
     "room": "living_room",
@@ -169,7 +328,55 @@
       }
     ],
     "slot": "sceneFour",
-    "scene": "Doomsday"
+    "scene": "Doomsday",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBQICIFAAAAMAAf//AAEUFNQ=,owEDABQD/wEA/ywA/wAbEgD5AJQ=,owIAgAAgVQAAAwAB//8AARQUA1Q=,owMAFAP/AQD/LAD/ABsQAPkAAJc=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Doomsday v2"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBQICIFAAAAMAAf//AAEUFNQ=,owEDABQD/wEA/ywA/wAbEgD5AJQ=,owIAgAAgVQAAAwAB//8AARQUA1Q=,owMAFAP/AQD/LAD/ABsQAPkAAJc=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Doomsday v2"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBQICIFAAAAMAAf//AAEUFNQ=,owEDABQD/wEA/ywA/wAbEgD5AJQ=,owIAgAAgVQAAAwAB//8AARQUA1Q=,owMAFAP/AQD/LAD/ABsQAPkAAJc=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Doomsday v2"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBQICIFAAAAMAAf//AAEUFNQ=,owEDABQD/wEA/ywA/wAbEgD5AJQ=,owIAgAAgVQAAAwAB//8AARQUA1Q=,owMAFAP/AQD/LAD/ABsQAPkAAJc=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Doomsday v2"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBQICIFAAAAMAAf//AAEUFNQ=,owEDABQD/wEA/ywA/wAbEgD5AJQ=,owIAgAAgVQAAAwAB//8AARQUA1Q=,owMAFAP/AQD/LAD/ABsQAPkAAJc=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Doomsday v2"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBQICIFAAAAMAAf//AAEUFNQ=,owEDABQD/wEA/ywA/wAbEgD5AJQ=,owIAgAAgVQAAAwAB//8AARQUA1Q=,owMAFAP/AQD/LAD/ABsQAPkAAJc=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Doomsday v2"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFTUBBVMFQQYBMwUABIQ=,o///fwD/UgD/ADb/SEsAAAAAAEQ=,MwUKGwAAAAAAAAAAAAAAAAAAACc=",
+        "diyName": "Peach Pulse Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQFABMG/ygA/wAgAAAAALw=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKCQAAAAAAAAAAAAAAAAAAADU=",
+        "diyName": "Peach Pulse"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAjABDgIFBATTBv//ABU=,o/90/wAM/yIAAAAAAAAAAAAAAAY=,MwUKaAAAAAAAAAAAAAAAAAAAAFQ=",
+        "diyName": "Fuzzy Curtain"
+      }
+    ],
+    "imagePath": "living_room/Doomsday.jpg"
   },
   {
     "room": "living_room",
@@ -212,7 +419,60 @@
       }
     ],
     "slot": "diyMode",
-    "scene": "Peach Pulse"
+    "scene": "Peach Pulse",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBQICI1AAAAICAv9/AcxkZJs=,owH/fwPMZGSDABQC/xcA/wAaEmc=,owIA/AAAgAAjVQAAAgIC/38BzOQ=,owNkZP9/A8xkZIMAFAL/FwD/AG0=,o/8aEAD8AACAAAAAAAAAAAAAACo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Peach Pulse"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBQICI1AAAAICAv9mAckfAZk=,owH/ZgPHHwGDABQC/xcA/wAaEms=,owIA9wAAgAAjVQAAAgIC/2YByfM=,owMfAf9mA8cfAYMAFAL/FwD/AH8=,o/8aEAD3AACAAAAAAAAAAAAAACE=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Peach Pulse Center"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBQICI1AAAAICAv9/AcxkZJs=,owH/fwPMZGSDABQC/xcA/wAaEmc=,owIA/AAAgAAjVQAAAgIC/38BzOQ=,owNkZP9/A8xkZIMAFAL/FwD/AG0=,o/8aEAD8AACAAAAAAAAAAAAAACo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Peach Pulse"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBQICI1AAAAICAv9/AcxkZJs=,owH/fwPMZGSDABQC/xcA/wAaEmc=,owIA/AAAgAAjVQAAAgIC/38BzOQ=,owNkZP9/A8xkZIMAFAL/FwD/AG0=,o/8aEAD8AACAAAAAAAAAAAAAACo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Peach Pulse"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBQICI1AAAAICAv9/AcxkZJs=,owH/fwPMZGSDABQC/xcA/wAaEmc=,owIA/AAAgAAjVQAAAgIC/38BzOQ=,owNkZP9/A8xkZIMAFAL/FwD/AG0=,o/8aEAD8AACAAAAAAAAAAAAAACo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Peach Pulse"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBQICI1AAAAICAv9/AcxkZJs=,owH/fwPMZGSDABQC/xcA/wAaEmc=,owIA/AAAgAAjVQAAAgIC/38BzOQ=,owNkZP9/A8xkZIMAFAL/FwD/AG0=,o/8aEAD8AACAAAAAAAAAAAAAACo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Peach Pulse"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFTUBBVMFQQYBMwUABIQ=,o///fwD/UgD/ADb/SEsAAAAAAEQ=,MwUKGwAAAAAAAAAAAAAAAAAAACc=",
+        "diyName": "Peach Pulse Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQFABMG/ygA/wAgAAAAALw=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKCQAAAAAAAAAAAAAAAAAAADU=",
+        "diyName": "Peach Pulse"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABBQICI1AAAAICAv9/AcxkZJs=,owH/fwPMZGSDABQC/xcA/wAaEmc=,owIA/AAAgAAjVQAAAgIC/38BzOQ=,owNkZP9/A8xkZIMAFAL/FwD/AG0=,o/8aEAD8AACAAAAAAAAAAAAAACo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Peach Pulse"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./yiDAQBodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0xNDM=,MwUKCQAAAAAAAAAAAAAAAAAAADU=",
+        "diyName": "Sunset Beams"
+      }
+    ],
+    "imagePath": "living_room/Peach Pulse.jpg"
   },
   {
     "room": "living_room",
@@ -255,7 +515,60 @@
       }
     ],
     "slot": "diyModeTwo",
-    "scene": "Starburst"
+    "scene": "Starburst",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBQICI1AAAAQQAf//AIAUFEE=,owEDAF4E/6MH/xMH/xcw/yAHElk=,owIA+wAAgAAjVQAABBAB//8AgDk=,owMUFAMAXgT/owf/Ewf/FzD/IE4=,o/8HEAD7AACAAAAAAAAAAAAAADA=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Starburst"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBQICI1AAAAQQAf//AIAUFEE=,owEDAF4E/6MH/xMH/xcw/yAHElk=,owIA+wAAgAAjVQAABBAB//8AgDk=,owMUFAMAXgT/owf/Ewf/FzD/IE4=,o/8HEAD7AACAAAAAAAAAAAAAADA=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Starburst"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBQICI1AAAAQQAf//AIAUFEE=,owEDAF4E/6MH/xMH/xcw/yAHElk=,owIA+wAAgAAjVQAABBAB//8AgDk=,owMUFAMAXgT/owf/Ewf/FzD/IE4=,o/8HEAD7AACAAAAAAAAAAAAAADA=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Starburst"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBQICI1AAAAQQAf//AIAUFEE=,owEDAF4E/6MH/xMH/xcw/yAHElk=,owIA+wAAgAAjVQAABBAB//8AgDk=,owMUFAMAXgT/owf/Ewf/FzD/IE4=,o/8HEAD7AACAAAAAAAAAAAAAADA=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Starburst"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBQICI1AAAAQQAf//AIAUFEE=,owEDAF4E/6MH/xMH/xcw/yAHElk=,owIA+wAAgAAjVQAABBAB//8AgDk=,owMUFAMAXgT/owf/Ewf/FzD/IE4=,o/8HEAD7AACAAAAAAAAAAAAAADA=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Starburst"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBQICI1AAAAQQAf//AIAUFEE=,owEDAF4E/6MH/xMH/xcw/yAHElk=,owIA+wAAgAAjVQAABBAB//8AgDk=,owMUFAMAXgT/owf/Ewf/FzD/IE4=,o/8HEAD7AACAAAAAAAAAAAAAADA=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Starburst"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFSUBDgFkBQAE/8gA/xE=,o/9cAP8PTP9cAAAAAAAAAAAAAB8=,MwUKegAAAAAAAAAAAAAAAAAAAEY=",
+        "diyName": "Starburst Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAAYM/4kA/yoA/wAe/xM=,o/8oAAAAAAAAAAAAAAAAAAAAAHQ=,MwUKHwAAAAAAAAAAAAAAAAAAACM=",
+        "diyName": "Starburst"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABBQICI1AAAAQQAf//AIAUFEE=,owEDAF4E/6MH/xMH/xcw/yAHElk=,owIA+wAAgAAjVQAABBAB//8AgDk=,owMUFAMAXgT/owf/Ewf/FzD/IE4=,o/8HEAD7AACAAAAAAAAAAAAAADA=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Starburst"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAisBDgEKAwT/fgD/Mpw=,o/8A/wAN/ygAAAAAAAAAAAAAAHk=,MwUK0gAAAAAAAAAAAAAAAAAAAO4=",
+        "diyName": "Starburst"
+      }
+    ],
+    "imagePath": "living_room/Starburst.jpg"
   },
   {
     "room": "living_room",
@@ -271,7 +584,55 @@
       }
     ],
     "slot": "diyModeThree",
-    "scene": "Fluffy Chicken"
+    "scene": "Fluffy Chicken",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmGCkBBlMFQAYBBQAD/1w=,o//JWv99h1j/ngAAAAAAAAAAAPM=,MwUK6QAAAAAAAAAAAAAAAAAAANU=",
+        "diyName": "Fluffy Chicken Hex"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAjsBDgAIBQP/sAD/NEY=,o/9xAP9xAAAAAAAAAAAAAAAAAKM=,MwUK1AAAAAAAAAAAAAAAAAAAAOg=",
+        "diyName": "Fluffy Chicken"
+      }
+    ],
+    "imagePath": "living_room/Fluffy Chicken.jpg"
   },
   {
     "room": "living_room",
@@ -287,7 +648,60 @@
       }
     ],
     "slot": "diyModeFour",
-    "scene": "Neon Meditation"
+    "scene": "Neon Meditation",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBgICKQAAAAYCAf/mAc4UFF4=,owGDABQG2wD/TwD/AP8AAP8A7kk=,owIA/3gA/wAA+RIA9wApAAAABuo=,owMCAf/oAc0UFIMAFAbhAP9bAKw=,owT/AP8AAP8A4AD/AKv/AgD5EPg=,o/8A9gAAAAAAAAAAAAAAAAAAAKo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Neon Meditation"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBgICKQAAAAYCAf/mAc4UFF4=,owGDABQG2wD/TwD/AP8AAP8A7kk=,owIA/3gA/wAA+RIA9wApAAAABuo=,owMCAf/oAc0UFIMAFAbhAP9bAKw=,owT/AP8AAP8A4AD/AKv/AgD5EPg=,o/8A9gAAAAAAAAAAAAAAAAAAAKo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Neon Meditation"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBgICKQAAAAYCAf/mAc4UFF4=,owGDABQG2wD/TwD/AP8AAP8A7kk=,owIA/3gA/wAA+RIA9wApAAAABuo=,owMCAf/oAc0UFIMAFAbhAP9bAKw=,owT/AP8AAP8A4AD/AKv/AgD5EPg=,o/8A9gAAAAAAAAAAAAAAAAAAAKo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Neon Meditation"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBgICKQAAAAYCAf/mAc4UFF4=,owGDABQG2wD/TwD/AP8AAP8A7kk=,owIA/3gA/wAA+RIA9wApAAAABuo=,owMCAf/oAc0UFIMAFAbhAP9bAKw=,owT/AP8AAP8A4AD/AKv/AgD5EPg=,o/8A9gAAAAAAAAAAAAAAAAAAAKo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Neon Meditation"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBgICKQAAAAYCAf/mAc4UFF4=,owGDABQG2wD/TwD/AP8AAP8A7kk=,owIA/3gA/wAA+RIA9wApAAAABuo=,owMCAf/oAc0UFIMAFAbhAP9bAKw=,owT/AP8AAP8A4AD/AKv/AgD5EPg=,o/8A9gAAAAAAAAAAAAAAAAAAAKo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Neon Meditation"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBgICKQAAAAYCAf/mAc4UFF4=,owGDABQG2wD/TwD/AP8AAP8A7kk=,owIA/3gA/wAA+RIA9wApAAAABuo=,owMCAf/oAc0UFIMAFAbhAP9bAKw=,owT/AP8AAP8A4AD/AKv/AgD5EPg=,o/8A9gAAAAAAAAAAAAAAAAAAAKo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Neon Meditation"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFTIBDgFEBQAHc/9tUFw=,o///y1D/y////////5Kt//p1/7w=,MwUKGwAAAAAAAAAAAAAAAAAAACc=",
+        "diyName": "Neon Meditation"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAABkPAM3/AP+Y//gA/x8=,o/+EAP8P8QAAAAAAAAAAAAAAANk=,MwUKLgAAAAAAAAAAAAAAAAAAABI=",
+        "diyName": "Tropicana"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABBgICKQAAAAYCAf/mAc4UFF4=,owGDABQG2wD/TwD/AP8AAP8A7kk=,owIA/3gA/wAA+RIA9wApAAAABuo=,owMCAf/oAc0UFIMAFAbhAP9bAKw=,owT/AP8AAP8A4AD/AKv/AgD5EPg=,o/8A9gAAAAAAAAAAAAAAAAAAAKo=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Neon Meditation"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgHAhUDHdz/MP8Y/0TzAEo=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKLwAAAAAAAAAAAAAAAAAAABM=",
+        "diyName": "Neon Meditation"
+      }
+    ],
+    "imagePath": "living_room/Neon Meditation.jpeg"
   },
   {
     "room": "living_room",
@@ -330,7 +744,55 @@
       }
     ],
     "slot": "segmented",
-    "scene": "Winter Sky"
+    "scene": "Winter Sky",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBgIDKQAAAAYAAczMAwABAYg=,owEDABkGB0P//wfP/2gH/2MHBz4=,owL+YgZO/gAA0RAA+gAaAAIMAaU=,owMAAbIAA8sBAQEAFAH///8AADA=,owSAAACAABoAAgYBAAFlAAPLARU=,o/8BAQAUAf///wAAgAAAgAAAALY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Winter Sky"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBgIDKQAAAAYAAczMAwABAYg=,owEDABkGB0P//wfP/2gH/2MHBz4=,owL+YgZO/gAA0RAA+gAaAAIMAaU=,owMAAbIAA8sBAQEAFAH///8AADA=,owSAAACAABoAAgYBAAFlAAPLARU=,o/8BAQAUAf///wAAgAAAgAAAALY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Winter Sky"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBgIDKQAAAAYAAczMAwABAYg=,owEDABkGB0P//wfP/2gH/2MHBz4=,owL+YgZO/gAA0RAA+gAaAAIMAaU=,owMAAbIAA8sBAQEAFAH///8AADA=,owSAAACAABoAAgYBAAFlAAPLARU=,o/8BAQAUAf///wAAgAAAgAAAALY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Winter Sky"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBgIDKQAAAAYAAczMAwABAYg=,owEDABkGB0P//wfP/2gH/2MHBz4=,owL+YgZO/gAA0RAA+gAaAAIMAaU=,owMAAbIAA8sBAQEAFAH///8AADA=,owSAAACAABoAAgYBAAFlAAPLARU=,o/8BAQAUAf///wAAgAAAgAAAALY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Winter Sky"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBgIDKQAAAAYAAczMAwABAYg=,owEDABkGB0P//wfP/2gH/2MHBz4=,owL+YgZO/gAA0RAA+gAaAAIMAaU=,owMAAbIAA8sBAQEAFAH///8AADA=,owSAAACAABoAAgYBAAFlAAPLARU=,o/8BAQAUAf///wAAgAAAgAAAALY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Winter Sky"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBgIDKQAAAAYAAczMAwABAYg=,owEDABkGB0P//wfP/2gH/2MHBz4=,owL+YgZO/gAA0RAA+gAaAAIMAaU=,owMAAbIAA8sBAQEAFAH///8AADA=,owSAAACAABoAAgYBAAFlAAPLARU=,o/8BAQAUAf///wAAgAAAgAAAALY=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Winter Sky"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFTYBDgFkBQAF/6sb/3s=,o/845TR+/1L/jv///wAAAAAAAOg=,MwUKowAAAAAAAAAAAAAAAAAAAJ8=",
+        "diyName": "Winter Sky Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAEsM/6sb/zjlNH7/Umk=,o///jgAAAAAAAAAAAAAAAAAAAC0=,MwUKbQAAAAAAAAAAAAAAAAAAAFE=",
+        "diyName": "Winter Sky"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAhsBDgEBBAX/ZgD/AIs=,o/94AIb/AP+K////AAAAAAAAANc=,MwUKqwAAAAAAAAAAAAAAAAAAAJc=",
+        "diyName": "Winter Sky"
+      }
+    ],
+    "imagePath": "living_room/Winter Sky.jpg"
   },
   {
     "room": "living_room",
@@ -373,7 +835,55 @@
       }
     ],
     "slot": "segmentedTwo",
-    "scene": "Chromatic Memories"
+    "scene": "Chromatic Memories",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCjoY/xQc/z8A/7IAtEs=,o//qBAr/Rwr/5rTqBP9pBQAAANo=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCjoY/xQc/z8A/7IAtEs=,o//qBAr/Rwr/5rTqBP9pBQAAANo=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCjoY/xQc/z8A/7IAtEs=,o//qBAr/Rwr/5rTqBP9pBQAAANo=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCjoY/xQc/z8A/7IAtEs=,o//qBAr/Rwr/5rTqBP9pBQAAANo=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCjoY/xQc/z8A/7IAtEs=,o//qBAr/Rwr/5rTqBP9pBQAAANo=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCjoY/xQc/z8A/7IAtEs=,o//qBAr/Rwr/5rTqBP9pBQAAANo=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmGlUBEQEFAAf/hAD8/6Y=,o/8AAP7/AP915v8A/3QA/wB5AMM=,MwUKSwAAAAAAAAAAAAAAAAAAAHc=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAABEV/4QA/P8AAP7/ANk=,o///dfz/AP+EAP8AeQAAAAAAACg=,MwUKYgAAAAAAAAAAAAAAAAAAAF4=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgDBMfS/wX/5Bh26P95//Q=,o/+e/z52/4sZAAAAAAAAAAAAABg=,MwUKBAAAAAAAAAAAAAAAAAAAADg=",
+        "diyName": "Chromatic Fireworks"
+      }
+    ],
+    "imagePath": "living_room/Chromatic Memories.jpg"
   },
   {
     "room": "living_room",
@@ -416,7 +926,55 @@
       }
     ],
     "slot": "segmentedThree",
-    "scene": "Joy"
+    "scene": "Joy",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBAIBLwAAAAYCAv8+A4IUFMw=,owH/AAGAFBQDAAEG/wDrAP9Q/5w=,owL/ALb/wgD/lQD/ABAA/QAAgC0=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Joy"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBAIBLwAAAAYCAv8+A4IUFMw=,owH/AAGAFBQDAAEG/wDrAP9Q/5w=,owL/ALb/wgD/lQD/ABAA/QAAgC0=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Joy"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBAIBLwAAAAYCAv8+A4IUFMw=,owH/AAGAFBQDAAEG/wDrAP9Q/5w=,owL/ALb/wgD/lQD/ABAA/QAAgC0=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Joy"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBAIBLwAAAAYCAv8+A4IUFMw=,owH/AAGAFBQDAAEG/wDrAP9Q/5w=,owL/ALb/wgD/lQD/ABAA/QAAgC0=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Joy"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBAIBLwAAAAYCAv8+A4IUFMw=,owH/AAGAFBQDAAEG/wDrAP9Q/5w=,owL/ALb/wgD/lQD/ABAA/QAAgC0=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Joy"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBAIBLwAAAAYCAv8+A4IUFMw=,owH/AAGAFBQDAAEG/wDrAP9Q/5w=,owL/ALb/wgD/lQD/ABAA/QAAgC0=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Joy"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFkIBAwEFAAXw/wYA/yM=,o/9g2wD/Rf8cNu//AAAAAAAAAJg=,MwUKDQAAAAAAAAAAAAAAAAAAADE=",
+        "diyName": "Joy"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAEcM7P8AAP8hAP/g/8I=,o/8A2AAAAAAAAAAAAAAAAAAAAIQ=,MwUKuQAAAAAAAAAAAAAAAAAAAIU=",
+        "diyName": "Joy"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAmEBDgIJAAT5/wAE/2Q=,o/8AAv+7/wLcAAAAAAAAAAAAADs=,MwUKgQAAAAAAAAAAAAAAAAAAAL0=",
+        "diyName": "Joy"
+      }
+    ],
+    "imagePath": "living_room/Joy.jpg"
   },
   {
     "room": "living_room",
@@ -459,7 +1017,55 @@
       }
     ],
     "slot": "segmentedFour",
-    "scene": "Continuum"
+    "scene": "Continuum",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBQICIwAAAAQAAf//AIAUFAE=,owEDgBQEAP8AxQD/AP//hAD/EJ8=,owIA+AAAgAAjIAAAAQIB/wADgKQ=,owMUFACAFAQA/wD6AP8A//+EAE4=,o///AgD4EgD4AQAAAAAAAAAAALI=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Continuum"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBQICIwAAAAQAAf//AIAUFAE=,owEDgBQEAP8AxQD/AP//hAD/EJ8=,owIA+AAAgAAjIAAAAQIB/wADgKQ=,owMUFACAFAQA/wD6AP8A//+EAE4=,o///AgD4EgD4AQAAAAAAAAAAALI=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Continuum"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBQICIwAAAAQAAf//AIAUFAE=,owEDgBQEAP8AxQD/AP//hAD/EJ8=,owIA+AAAgAAjIAAAAQIB/wADgKQ=,owMUFACAFAQA/wD6AP8A//+EAE4=,o///AgD4EgD4AQAAAAAAAAAAALI=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Continuum"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBQICIwAAAAQAAf//AIAUFAE=,owEDgBQEAP8AxQD/AP//hAD/EJ8=,owIA+AAAgAAjIAAAAQIB/wADgKQ=,owMUFACAFAQA/wD6AP8A//+EAE4=,o///AgD4EgD4AQAAAAAAAAAAALI=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Continuum"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBQICIwAAAAQAAf//AIAUFAE=,owEDgBQEAP8AxQD/AP//hAD/EJ8=,owIA+AAAgAAjIAAAAQIB/wADgKQ=,owMUFACAFAQA/wD6AP8A//+EAE4=,o///AgD4EgD4AQAAAAAAAAAAALI=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Continuum"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBQICIwAAAAQAAf//AIAUFAE=,owEDgBQEAP8AxQD/AP//hAD/EJ8=,owIA+AAAgAAjIAAAAQIB/wADgKQ=,owMUFACAFAQA/wD6AP8A//+EAE4=,o///AgD4EgD4AQAAAAAAAAAAALI=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Continuum"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFTIBBvIGXwYBZAUAAm0=,o/8A/wCLAP8AAAAAAAAAAAAAANc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "From 🔥 Anbuc 🔥"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAADAPM/f/2mz/tDf//2o=,o////wAm/wAAAAAAAAAAAAAAAIU=,MwUKMwAAAAAAAAAAAAAAAAAAAA8=",
+        "diyName": "Cloud Dream"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgHAhUDHdz/MP8Y/0TzAEo=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKLwAAAAAAAAAAAAAAAAAAABM=",
+        "diyName": "Neon Meditation"
+      }
+    ],
+    "imagePath": "living_room/Continuum.mp4"
   },
   {
     "room": "living_room",
@@ -502,7 +1108,55 @@
       }
     ],
     "slot": "musicMode",
-    "scene": "Neon Spring"
+    "scene": "Neon Spring",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABCAIEGgAAAAYSAf8AAf9EFPI=,owEDAAEB//8AEAD8AACAAB0AANA=,owIABhIB/wAD/0QUAwABAgD/ABg=,owPwAP8SAPwAAIAAHQAAAAEQAcw=,owT/AAPBAjwA+hQC+QD///8AAE4=,owUAgAAAgAAdAAAAARAB/wADwZY=,owYCPAD6FAL3AP///wAAAIAAAP8=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Spring"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABCAIEGgAAAAYSAf8AAf9EFPI=,owEDAAEB//8AEAD8AACAAB0AANA=,owIABhIB/wAD/0QUAwABAgD/ABg=,owPwAP8SAPwAAIAAHQAAAAEQAcw=,owT/AAPBAjwA+hQC+QD///8AAE4=,owUAgAAAgAAdAAAAARAB/wADwZY=,owYCPAD6FAL3AP///wAAAIAAAP8=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Spring"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABCAIEGgAAAAYSAf8AAf9EFPI=,owEDAAEB//8AEAD8AACAAB0AANA=,owIABhIB/wAD/0QUAwABAgD/ABg=,owPwAP8SAPwAAIAAHQAAAAEQAcw=,owT/AAPBAjwA+hQC+QD///8AAE4=,owUAgAAAgAAdAAAAARAB/wADwZY=,owYCPAD6FAL3AP///wAAAIAAAP8=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Spring"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABCAIEGgAAAAYSAf8AAf9EFPI=,owEDAAEB//8AEAD8AACAAB0AANA=,owIABhIB/wAD/0QUAwABAgD/ABg=,owPwAP8SAPwAAIAAHQAAAAEQAcw=,owT/AAPBAjwA+hQC+QD///8AAE4=,owUAgAAAgAAdAAAAARAB/wADwZY=,owYCPAD6FAL3AP///wAAAIAAAP8=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Spring"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABCAIEGgAAAAYSAf8AAf9EFPI=,owEDAAEB//8AEAD8AACAAB0AANA=,owIABhIB/wAD/0QUAwABAgD/ABg=,owPwAP8SAPwAAIAAHQAAAAEQAcw=,owT/AAPBAjwA+hQC+QD///8AAE4=,owUAgAAAgAAdAAAAARAB/wADwZY=,owYCPAD6FAL3AP///wAAAIAAAP8=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Spring"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABCAIEGgAAAAYSAf8AAf9EFPI=,owEDAAEB//8AEAD8AACAAB0AANA=,owIABhIB/wAD/0QUAwABAgD/ABg=,owPwAP8SAPwAAIAAHQAAAAEQAcw=,owT/AAPBAjwA+hQC+QD///8AAE4=,owUAgAAAgAAdAAAAARAB/wADwZY=,owYCPAD6FAL3AP///wAAAIAAAP8=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Spring"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFRsBBlMFQAYBZAUABf4=,o/+e/0T/fO3a//y5/v/I/yMAAGI=,MwUKrQAAAAAAAAAAAAAAAAAAAJE=",
+        "diyName": "Neon Spring Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAFYMy/8a9Bj/oPz//Jw=,o///GQAAAAAAAAAAAAAAAAAAALo=,MwUKWgAAAAAAAAAAAAAAAAAAAGY=",
+        "diyName": "Neon Spring"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABCAIEGgAAAAYSAf8AAf9EFPI=,owEDAAEB//8AEAD8AACAAB0AANA=,owIABhIB/wAD/0QUAwABAgD/ABg=,owPwAP8SAPwAAIAAHQAAAAEQAcw=,owT/AAPBAjwA+hQC+QD///8AAE4=,owUAgAAAgAAdAAAAARAB/wADwZY=,owYCPAD6FAL3AP///wAAAIAAAP8=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Spring"
+      }
+    ],
+    "imagePath": "living_room/Neon Spring.mp4"
   },
   {
     "room": "living_room",
@@ -545,7 +1199,59 @@
       }
     ],
     "slot": "musicModeTwo",
-    "scene": "Springtime"
+    "scene": "Springtime",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEB/+8AEAD8AACAAB0AAMA=,owIABhIB/wAD/0QUAwABAgD/QFg=,owMAzf8SAPwAAIAAHQAAAAEQAfE=,owT/AAPBAjwA+hQCAMr///0AAH8=,o/8AgAAAgAAAAAAAAAAAAAAAAFw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Springtime"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQAAEkM9/8mHP+ALN///18=,o//J2AAAAAAAAAAAAAAAAAAAAE0=,MwUK7wAAAAAAAAAAAAAAAAAAANM=",
+        "diyName": "Springtime"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEB/+8AEAD8AACAAB0AAMA=,owIABhIB/wAD/0QUAwABAgD/QFg=,owMAzf8SAPwAAIAAHQAAAAEQAfE=,owT/AAPBAjwA+hQCAMr///0AAH8=,o/8AgAAAgAAAAAAAAAAAAAAAAFw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Springtime"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEB/+8AEAD8AACAAB0AAMA=,owIABhIB/wAD/0QUAwABAgD/QFg=,owMAzf8SAPwAAIAAHQAAAAEQAfE=,owT/AAPBAjwA+hQCAMr///0AAH8=,o/8AgAAAgAAAAAAAAAAAAAAAAFw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Springtime"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEB/+8AEAD8AACAAB0AAMA=,owIABhIB/wAD/0QUAwABAgD/QFg=,owMAzf8SAPwAAIAAHQAAAAEQAfE=,owT/AAPBAjwA+hQCAMr///0AAH8=,o/8AgAAAgAAAAAAAAAAAAAAAAFw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Springtime"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEB/+8AEAD8AACAAB0AAMA=,owIABhIB/wAD/0QUAwABAgD/QFg=,owMAzf8SAPwAAIAAHQAAAAEQAfE=,owT/AAPBAjwA+hQCAMr///0AAH8=,o/8AgAAAgAAAAAAAAAAAAAAAAFw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Springtime"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFjsBBlMFpAYBBQAF/KE=,o///c6b/01f//PH/cP/u+QAAAJg=,MwUKjQAAAAAAAAAAAAAAAAAAALE=",
+        "diyName": "Springtime Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAEkM9/8mHP+ALN///18=,o//J2AAAAAAAAAAAAAAAAAAAAE0=,MwUK7wAAAAAAAAAAAAAAAAAAANM=",
+        "diyName": "Springtime"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEB/+8AEAD8AACAAB0AAMA=,owIABhIB/wAD/0QUAwABAgD/QFg=,owMAzf8SAPwAAIAAHQAAAAEQAfE=,owT/AAPBAjwA+hQCAMr///0AAH8=,o/8AgAAAgAAAAAAAAAAAAAAAAFw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Springtime"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgHATIE9/8mHP+ALN///3Y=,o//J2AAAAAAAAAAAAAAAAAAAAE0=,MwUKLwAAAAAAAAAAAAAAAAAAABM=",
+        "diyName": "Springtime"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -588,7 +1294,54 @@
       }
     ],
     "slot": "videoMode",
-    "scene": "Grow Bow"
+    "scene": "Grow Bow",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCjIM/0gAAP8l/1YAAF0=,o///EAAAAAAAAAAAAAAAAAAAALM=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow CCRV"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmBzQBDgEFAAew/wnK/84=,o/8Av/8A/98A/60A/60A/70AAH4=,MwUKsAAAAAAAAAAAAAAAAAAAAIw=",
+        "diyName": "Grongey Lock 2"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAADIMAJYAkLcA8X4A3Xk=,o/9EAAAAAAAAAAAAAAAAAAAAABg=,MwUK2gAAAAAAAAAAAAAAAAAAAOY=",
+        "diyName": "Grow"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAjIBDgAFBAQArgCQt0k=,o/8A3G4A3UQAAAAAAAAAAAAAAHc=,MwUKEQAAAAAAAAAAAAAAAAAAAC0=",
+        "diyName": "Grow"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -631,7 +1384,54 @@
       }
     ],
     "slot": "videoModeTwo",
-    "scene": "Jelly Skies"
+    "scene": "Jelly Skies",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCVkY/wAM/wB/VAD/AD0=,o/8q/wD/1AAq/1QA//8AfwAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Jelly Skies S"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCVkY/wAM/wB/VAD/AD0=,o/8q/wD/1AAq/1QA//8AfwAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Jelly Skies S"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCVkY/wAM/wB/VAD/AD0=,o/8q/wD/1AAq/1QA//8AfwAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Jelly Skies S"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCVkY/wAM/wB/VAD/AD0=,o/8q/wD/1AAq/1QA//8AfwAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Jelly Skies S"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCVkY/wAM/wB/VAD/AD0=,o/8q/wD/1AAq/1QA//8AfwAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Jelly Skies S"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCVkY/wAM/wB/VAD/AD0=,o/8q/wD/1AAq/1QA//8AfwAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Jelly Skies S"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFRgBAwFNBQAH/2yf/zA=,o/9sn/87gyEtvkBOygCw0QC+25o=,MwUKpQAAAAAAAAAAAAAAAAAAAJk=",
+        "diyName": "Jelly Skies Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAABEJ3wA/LwCLALDRAJk=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKDQAAAAAAAAAAAAAAAAAAADE=",
+        "diyName": "Jelly Skies"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCVkY/wAM/wB/VAD/AD0=,o/8q/wD/1AAq/1QA//8AfwAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Jelly Skies S"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -674,7 +1474,59 @@
       }
     ],
     "slot": "extra",
-    "scene": "Artemis"
+    "scene": "Artemis",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABCAIEIAAAAAMQAX9/AgIBAZ4=,owEDAAED/z8F/8uY/2QFEgD8ALo=,owIAgAAaAAIFAhABwQADzgEBACM=,owMAAQH/y5gAAIAAAIAAJgAAACo=,owQFEAH/AAPMAR4DAAEFAQEBAZs=,owUBASL/BQEBAQEBARIA/AAAgBA=,owYAGgACAgEQAZkAA8kBAQAAAf0=,o/8B/8uYAACAAACAAAAAAAAAAPE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Artemis"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABCAIEIAAAAAMQAX9/AgIBAZ4=,owEDAAED/z8F/8uY/2QFEgD8ALo=,owIAgAAaAAIFAhABwQADzgEBACM=,owMAAQH/y5gAAIAAAIAAJgAAACo=,owQFEAH/AAPMAR4DAAEFAQEBAZs=,owUBASL/BQEBAQEBARIA/AAAgBA=,owYAGgACAgEQAZkAA8kBAQAAAf0=,o/8B/8uYAACAAACAAAAAAAAAAPE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Artemis"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABCAIEIAAAAAMQAX9/AgIBAZ4=,owEDAAED/z8F/8uY/2QFEgD8ALo=,owIAgAAaAAIFAhABwQADzgEBACM=,owMAAQH/y5gAAIAAAIAAJgAAACo=,owQFEAH/AAPMAR4DAAEFAQEBAZs=,owUBASL/BQEBAQEBARIA/AAAgBA=,owYAGgACAgEQAZkAA8kBAQAAAf0=,o/8B/8uYAACAAACAAAAAAAAAAPE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Artemis"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABCAIEIAAAAAMQAX9/AgIBAZ4=,owEDAAED/z8F/8uY/2QFEgD8ALo=,owIAgAAaAAIFAhABwQADzgEBACM=,owMAAQH/y5gAAIAAAIAAJgAAACo=,owQFEAH/AAPMAR4DAAEFAQEBAZs=,owUBASL/BQEBAQEBARIA/AAAgBA=,owYAGgACAgEQAZkAA8kBAQAAAf0=,o/8B/8uYAACAAACAAAAAAAAAAPE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Artemis"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABCAIEIAAAAAMQAX9/AgIBAZ4=,owEDAAED/z8F/8uY/2QFEgD8ALo=,owIAgAAaAAIFAhABwQADzgEBACM=,owMAAQH/y5gAAIAAAIAAJgAAACo=,owQFEAH/AAPMAR4DAAEFAQEBAZs=,owUBASL/BQEBAQEBARIA/AAAgBA=,owYAGgACAgEQAZkAA8kBAQAAAf0=,o/8B/8uYAACAAACAAAAAAAAAAPE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Artemis"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABCAIEIAAAAAMQAX9/AgIBAZ4=,owEDAAED/z8F/8uY/2QFEgD8ALo=,owIAgAAaAAIFAhABwQADzgEBACM=,owMAAQH/y5gAAIAAAIAAJgAAACo=,owQFEAH/AAPMAR4DAAEFAQEBAZs=,owUBASL/BQEBAQEBARIA/AAAgBA=,owYAGgACAgEQAZkAA8kBAQAAAf0=,o/8B/8uYAACAAACAAAAAAAAAAPE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Artemis"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAwQmFSgCAwFkBQAI/7Nv/ws=,owGtIf+4df/j1uD/fc//PeL/iS0=,o///6+IAAAAAAAAAAAAAAAAAAKo=,MwUKEgAAAAAAAAAAAAAAAAAAAC4=",
+        "diyName": "Artemis Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAACMM3UcA/588kLcA2rA=,o//zYgAAAAAAAAAAAAAAAAAAAM0=,MwUK0AAAAAAAAAAAAAAAAAAAAOw=",
+        "diyName": "Artemis"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABCAIEIAAAAAMQAX9/AgIBAZ4=,owEDAAED/z8F/8uY/2QFEgD8ALo=,owIAgAAaAAIFAhABwQADzgEBACM=,owMAAQH/y5gAAIAAAIAAJgAAACo=,owQFEAH/AAPMAR4DAAEFAQEBAZs=,owUBASL/BQEBAQEBARIA/AAAgBA=,owYAGgACAgEQAZkAA8kBAQAAAf0=,o/8B/8uYAACAAACAAAAAAAAAAPE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Artemis"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgBAQoBBgEaAwEG+UwA3YI=,o/9EAP+GAP+yNnLKAP+yNgAAANk=,MwUKAgAAAAAAAAAAAAAAAAAAAD4=",
+        "diyName": "Artemis"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -717,7 +1569,59 @@
       }
     ],
     "slot": "extraTwo",
-    "scene": "Nitro"
+    "scene": "Nitro",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAwIBKQAAAAYQAf//AwIBAZ0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Nitro"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAwIBKQAAAAYQAf//AwIBAZ0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Nitro"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAwIBKQAAAAYQAf//AwIBAZ0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Nitro"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAwIBKQAAAAYQAf//AwIBAZ0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Nitro"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAwIBKQAAAAYQAf//AwIBAZ0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Nitro"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAwIBKQAAAAYQAf//AwIBAZ0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Nitro"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFU4BDwEoBQACoNwdmwM=,o/9c/wAAAAAAAAAAAAAAAAAAAP8=,MwUKjAAAAAAAAAAAAAAAAAAAALA=",
+        "diyName": "Nitro Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAADIGWqAAWACDAAAAALE=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKfAAAAAAAAAAAAAAAAAAAAEA=",
+        "diyName": "Nitro"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAwIBKQAAAAYQAf//AwIBAZ0=,owEDAAEGrf8Agf8AAP8AiwD/bWw=,o/9Q2Xn/ABIA/AIA+QAAAAAAAEY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Nitro"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./3AKAQBodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0yMjE=,MwUKogAAAAAAAAAAAAAAAAAAAJ4=",
+        "diyName": null
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -760,7 +1664,59 @@
       }
     ],
     "slot": "extraThree",
-    "scene": "Blue Beach"
+    "scene": "Blue Beach",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAwIBKQAAAAYSAf//AAIBAZw=,owEDAP8G/1sA/9YAAP9fEUT/AN8=,o///aP9nABAA/AAAgAAAAAAAAD8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Blue Beach"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAwIBKQAAAAYSAf//AAIBAZw=,owEDAP8G/1sA/9YAAP9fEUT/AN8=,o///aP9nABAA/AAAgAAAAAAAAD8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Blue Beach"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAwIBKQAAAAYSAf//AAIBAZw=,owEDAP8G/1sA/9YAAP9fEUT/AN8=,o///aP9nABAA/AAAgAAAAAAAAD8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Blue Beach"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAwIBKQAAAAYSAf//AAIBAZw=,owEDAP8G/1sA/9YAAP9fEUT/AN8=,o///aP9nABAA/AAAgAAAAAAAAD8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Blue Beach"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAwIBKQAAAAYSAf//AAIBAZw=,owEDAP8G/1sA/9YAAP9fEUT/AN8=,o///aP9nABAA/AAAgAAAAAAAAD8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Blue Beach"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAwIBKQAAAAYSAf//AAIBAZw=,owEDAP8G/1sA/9YAAP9fEUT/AN8=,o///aP9nABAA/AAAgAAAAAAAAD8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Blue Beach"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAwQmFT0BBWYEQQYBKwUACK0=,owH//w3/hgD//w0N36Y+z+Q4be8=,o//MPs/kDd+mAAAAAAAAAAAAAPE=,MwUKMQAAAAAAAAAAAAAAAAAAAA0=",
+        "diyName": "Blue Beach Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAE0S3UQA158AAKdTAN4=,o/9kmgASiQCnUwAAAAAAAAAAAM0=,MwUKaQAAAAAAAAAAAAAAAAAAAFU=",
+        "diyName": "Blue Beach"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAwIBKQAAAAYSAf//AAIBAZw=,owEDAP8G/1sA/9YAAP9fEUT/AN8=,o///aP9nABAA/AAAgAAAAAAAAD8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Blue Beach"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCATIBAgMF3UUBzMwAAFU=,o/+nUwBNlgAwjwAAAAAAAAAAAMw=,MwUKUgAAAAAAAAAAAAAAAAAAAG4=",
+        "diyName": "Blue Beach"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -803,7 +1759,59 @@
       }
     ],
     "slot": "extraFour",
-    "scene": "Soundwave"
+    "scene": "Soundwave",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQGiwD/AP//AAD/AP8AADk=,owIA/4sA/wAAgBAA/QApYQEAGBY=,owMSAf8AA4AUFAP9FAaLAP8A/6g=,owT/AAD/AP8AAAD/iwD/AACAEEM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAaLAP8A//8AAP8A/wAAAD4=,owf/iwD/AACAEAD9ACljAQAYEgM=,owgB/wADgBQUA/4UBosA/wD//00=,owkAAP8A/wAAAP+LAP8AAIAQALE=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBosA/wD//wAA/wD/AAAA/zE=,o/+LAP8AAIAQAP0AAAAAAAAAAEU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Soundwave"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQGiwD/AP//AAD/AP8AADk=,owIA/4sA/wAAgBAA/QApYQEAGBY=,owMSAf8AA4AUFAP9FAaLAP8A/6g=,owT/AAD/AP8AAAD/iwD/AACAEEM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAaLAP8A//8AAP8A/wAAAD4=,owf/iwD/AACAEAD9ACljAQAYEgM=,owgB/wADgBQUA/4UBosA/wD//00=,owkAAP8A/wAAAP+LAP8AAIAQALE=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBosA/wD//wAA/wD/AAAA/zE=,o/+LAP8AAIAQAP0AAAAAAAAAAEU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Soundwave"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQGiwD/AP//AAD/AP8AADk=,owIA/4sA/wAAgBAA/QApYQEAGBY=,owMSAf8AA4AUFAP9FAaLAP8A/6g=,owT/AAD/AP8AAAD/iwD/AACAEEM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAaLAP8A//8AAP8A/wAAAD4=,owf/iwD/AACAEAD9ACljAQAYEgM=,owgB/wADgBQUA/4UBosA/wD//00=,owkAAP8A/wAAAP+LAP8AAIAQALE=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBosA/wD//wAA/wD/AAAA/zE=,o/+LAP8AAIAQAP0AAAAAAAAAAEU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Soundwave"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQGiwD/AP//AAD/AP8AADk=,owIA/4sA/wAAgBAA/QApYQEAGBY=,owMSAf8AA4AUFAP9FAaLAP8A/6g=,owT/AAD/AP8AAAD/iwD/AACAEEM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAaLAP8A//8AAP8A/wAAAD4=,owf/iwD/AACAEAD9ACljAQAYEgM=,owgB/wADgBQUA/4UBosA/wD//00=,owkAAP8A/wAAAP+LAP8AAIAQALE=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBosA/wD//wAA/wD/AAAA/zE=,o/+LAP8AAIAQAP0AAAAAAAAAAEU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Soundwave"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQGiwD/AP//AAD/AP8AADk=,owIA/4sA/wAAgBAA/QApYQEAGBY=,owMSAf8AA4AUFAP9FAaLAP8A/6g=,owT/AAD/AP8AAAD/iwD/AACAEEM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAaLAP8A//8AAP8A/wAAAD4=,owf/iwD/AACAEAD9ACljAQAYEgM=,owgB/wADgBQUA/4UBosA/wD//00=,owkAAP8A/wAAAP+LAP8AAIAQALE=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBosA/wD//wAA/wD/AAAA/zE=,o/+LAP8AAIAQAP0AAAAAAAAAAEU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Soundwave"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQGiwD/AP//AAD/AP8AADk=,owIA/4sA/wAAgBAA/QApYQEAGBY=,owMSAf8AA4AUFAP9FAaLAP8A/6g=,owT/AAD/AP8AAAD/iwD/AACAEEM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAaLAP8A//8AAP8A/wAAAD4=,owf/iwD/AACAEAD9ACljAQAYEgM=,owgB/wADgBQUA/4UBosA/wD//00=,owkAAP8A/wAAAP+LAP8AAIAQALE=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBosA/wD//wAA/wD/AAAA/zE=,o/+LAP8AAIAQAP0AAAAAAAAAAEU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Soundwave"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFTIBAQFkBQAEIv/++hg=,o/9L/y9Q/1X/XQAAAAAAAAAAAJ8=,MwUK6QAAAAAAAAAAAAAAAAAAANU=",
+        "diyName": "Soundwave Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAGEMIv/++kv/L1D/VXE=,o///XQAAAAAAAAAAAAAAAAAAAP4=,MwUKeAAAAAAAAAAAAAAAAAAAAEQ=",
+        "diyName": "Soundwave"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQGiwD/AP//AAD/AP8AADk=,owIA/4sA/wAAgBAA/QApYQEAGBY=,owMSAf8AA4AUFAP9FAaLAP8A/6g=,owT/AAD/AP8AAAD/iwD/AACAEEM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAaLAP8A//8AAP8A/wAAAD4=,owf/iwD/AACAEAD9ACljAQAYEgM=,owgB/wADgBQUA/4UBosA/wD//00=,owkAAP8A/wAAAP+LAP8AAIAQALE=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBosA/wD//wAA/wD/AAAA/zE=,o/+LAP8AAIAQAP0AAAAAAAAAAEU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Soundwave"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./+ALAQBodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0xMzI=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "BW Circle"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -846,7 +1854,59 @@
       }
     ],
     "slot": "extraFive",
-    "scene": "Cyber Palms"
+    "scene": "Cyber Palms",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCRkS5wD/AAL/AP8AALU=,o///2wCK/1sA/wAAAAAAAAAAAKk=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Cyber Palms"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCRkS5wD/AAL/AP8AALU=,o///2wCK/1sA/wAAAAAAAAAAAKk=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Cyber Palms"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCRkS5wD/AAL/AP8AALU=,o///2wCK/1sA/wAAAAAAAAAAAKk=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Cyber Palms"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCRkS5wD/AAL/AP8AALU=,o///2wCK/1sA/wAAAAAAAAAAAKk=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Cyber Palms"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCRkS5wD/AAL/AP8AALU=,o///2wCK/1sA/wAAAAAAAAAAAKk=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Cyber Palms"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCRkS5wD/AAL/AP8AALU=,o///2wCK/1sA/wAAAAAAAAAAAKk=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Cyber Palms"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAwQmGRkBDwEFAAhmav/mMaU=,owH//lj/S1X/d/99G/+oHP/7G18=,o/+F/wAAAAAAAAAAAAAAAAAAACY=,MwUKkwAAAAAAAAAAAAAAAAAAAK8=",
+        "diyName": "Cyber Palms Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAADIYZmr/5jH//lj/S0c=,o/9V/3f/fRv/qBz/+xuF/wAAADY=,MwUK5QAAAAAAAAAAAAAAAAAAANk=",
+        "diyName": "Cyber Palms"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCRkS5wD/AAL/AP8AALU=,o///2wCK/1sA/wAAAAAAAAAAAKk=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Cyber Palms"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./4RKAQBodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0xMzg=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Blue Spinning Rings"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -889,7 +1949,59 @@
       }
     ],
     "slot": "extraSix",
-    "scene": "Influx"
+    "scene": "Influx",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBQICIwAAAAQSAf8AA4AUFO8=,owED5xQEiwD/AAD/AP//////FTc=,owIA/AAA+wAjAAAABBIB/wADgO4=,owMUFAPnFASLAP8AAP8A/////98=,o///FwD8AAD7AAAAAAAAAAAAALM=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Influx"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBQICIwAAAAQSAf8AA4AUFO8=,owED5xQEiwD/AAD/AP//////FTc=,owIA/AAA+wAjAAAABBIB/wADgO4=,owMUFAPnFASLAP8AAP8A/////98=,o///FwD8AAD7AAAAAAAAAAAAALM=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Influx"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBQICIwAAAAQSAf8AA4AUFO8=,owED5xQEiwD/AAD/AP//////FTc=,owIA/AAA+wAjAAAABBIB/wADgO4=,owMUFAPnFASLAP8AAP8A/////98=,o///FwD8AAD7AAAAAAAAAAAAALM=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Influx"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBQICIwAAAAQSAf8AA4AUFO8=,owED5xQEiwD/AAD/AP//////FTc=,owIA/AAA+wAjAAAABBIB/wADgO4=,owMUFAPnFASLAP8AAP8A/////98=,o///FwD8AAD7AAAAAAAAAAAAALM=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Influx"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBQICIwAAAAQSAf8AA4AUFO8=,owED5xQEiwD/AAD/AP//////FTc=,owIA/AAA+wAjAAAABBIB/wADgO4=,owMUFAPnFASLAP8AAP8A/////98=,o///FwD8AAD7AAAAAAAAAAAAALM=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Influx"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBQICIwAAAAQSAf8AA4AUFO8=,owED5xQEiwD/AAD/AP//////FTc=,owIA/AAA+wAjAAAABBIB/wADgO4=,owMUFAPnFASLAP8AAP8A/////98=,o///FwD8AAD7AAAAAAAAAAAAALM=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Influx"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmBz8BBAEFAAXlq/96l+I=,o///Rvr/68P/4/P/AAAAAAAAANg=,MwUK8AAAAAAAAAAAAAAAAAAAAMw=",
+        "diyName": "Influx Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAFUP5av/epf/Rvr/6/U=,o//D/+Pz/wAAAAAAAAAAAAAAAI8=,MwUKWQAAAAAAAAAAAAAAAAAAAGU=",
+        "diyName": "Influx"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABBQICIwAAAAQSAf8AA4AUFO8=,owED5xQEiwD/AAD/AP//////FTc=,owIA/AAA+wAjAAAABBIB/wADgO4=,owMUFAPnFASLAP8AAP8A/////98=,o///FwD8AAD7AAAAAAAAAAAAALM=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Influx"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./4DfAABodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0xNDg=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "White Black Spiral"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -932,7 +2044,59 @@
       }
     ],
     "slot": "extraSeven",
-    "scene": "Grow"
+    "scene": "Grow",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCjIM/0gAAP8l/1YAAF0=,o///EAAAAAAAAAAAAAAAAAAAALM=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow CCRV"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCTIMAP8Q/1YAAP8l//k=,o/9IAAAAAAAAAAAAAAAAAAAAABQ=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Green Orange Bow"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmBzQBDgEFAAew/wnK/84=,o/8Av/8A/98A/60A/60A/70AAH4=,MwUKsAAAAAAAAAAAAAAAAAAAAIw=",
+        "diyName": "Grongey Lock 2"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAADIMAJYAkLcA8X4A3Xk=,o/9EAAAAAAAAAAAAAAAAAAAAABg=,MwUK2gAAAAAAAAAAAAAAAAAAAOY=",
+        "diyName": "Grow"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCUQSRJ8CW6EAW6EA3fY=,o/9EAN1EAN1EAAAAAAAAAAAAABg=,MwUKbgAAAAAAAAAAAAAAAAAAAFI=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": null
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAjIBDgAFBAQArgCQt0k=,o/8A3G4A3UQAAAAAAAAAAAAAAHc=,MwUKEQAAAAAAAAAAAAAAAAAAAC0=",
+        "diyName": "Grow"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -975,7 +2139,59 @@
       }
     ],
     "slot": "extraEight",
-    "scene": "Hard to Get"
+    "scene": "Hard to Get",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAwIBIwABAFQSAf8AAVQUFG0=,owEDjhQEuuUd8pwk+VUE6wU8EF0=,o/8APxAA/AAAAAAAAAAAAAAAAI8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Hard to Get"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAwIBIwABAFQSAf8AAVQUFG0=,owEDjhQEuuUd8pwk+VUE6wU8EF0=,o/8APxAA/AAAAAAAAAAAAAAAAI8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Hard to Get"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAwIBIwABAFQSAf8AAVQUFG0=,owEDjhQEuuUd8pwk+VUE6wU8EF0=,o/8APxAA/AAAAAAAAAAAAAAAAI8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Hard to Get"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAwIBIwABAFQSAf8AAVQUFG0=,owEDjhQEuuUd8pwk+VUE6wU8EF0=,o/8APxAA/AAAAAAAAAAAAAAAAI8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Hard to Get"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAwIBIwABAFQSAf8AAVQUFG0=,owEDjhQEuuUd8pwk+VUE6wU8EF0=,o/8APxAA/AAAAAAAAAAAAAAAAI8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Hard to Get"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAwIBIwABAFQSAf8AAVQUFG0=,owEDjhQEuuUd8pwk+VUE6wU8EF0=,o/8APxAA/AAAAAAAAAAAAAAAAI8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Hard to Get"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQAACAM/8cZ/zNszMwA3dQ=,o/9EAAAAAAAAAAAAAAAAAAAAABg=,MwUKaQAAAAAAAAAAAAAAAAAAAFU=",
+        "diyName": "Hard to Get"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAACAM/8cZ/zNszMwA3dQ=,o/9EAAAAAAAAAAAAAAAAAAAAABg=,MwUKaQAAAAAAAAAAAAAAAAAAAFU=",
+        "diyName": "Hard to Get"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAwIBIwABAFQSAf8AAVQUFG0=,owEDjhQEuuUd8pwk+VUE6wU8EF0=,o/8APxAA/AAAAAAAAAAAAAAAAI8=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Hard to Get"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgBA1sCBP/HGf8zbMzMACY=,o//dRAAAAAAAAAAAAAAAAAAAAMU=,MwUKeAAAAAAAAAAAAAAAAAAAAEQ=",
+        "diyName": "Hard to Get"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -1027,7 +2243,59 @@
       }
     ],
     "slot": "extraNine",
-    "scene": "Vader"
+    "scene": "Vader",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABCgIEJlAAAAEQAf8cAoAUFKk=,owEDgBQF/wAAAAAAAAAAAAAA/zA=,owIAABAA+BAA8wAmUAAAARAB/zM=,owMcAIAUFAOAFAX/AAAAAAD/AK4=,owQAAAAA/wAAEgD4EgDzACZVACA=,owUAARAB/xwAgBQUA4AUBf8AALg=,owYAAAD/AAAAAAD/AAASAPgSAF0=,owfzACZVAAABEAH/HAKAFBQDgNY=,owgUBf8AAAAAAAAAAAAAAP8AALo=,o/8QAPgQAPMAAAAAAAAAAAAAAFc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Vader"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABCgIEJlAAAAEQAf8cAoAUFKk=,owEDgBQF/wAAAAAAAAAAAAAA/zA=,owIAABAA+BAA8wAmUAAAARAB/zM=,owMcAIAUFAOAFAX/AAAAAAD/AK4=,owQAAAAA/wAAEgD4EgDzACZVACA=,owUAARAB/xwAgBQUA4AUBf8AALg=,owYAAAD/AAAAAAD/AAASAPgSAF0=,owfzACZVAAABEAH/HAKAFBQDgNY=,owgUBf8AAAAAAAAAAAAAAP8AALo=,o/8QAPgQAPMAAAAAAAAAAAAAAFc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Vader"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABCgIEJlAAAAEQAf8cAoAUFKk=,owEDgBQF/wAAAAAAAAAAAAAA/zA=,owIAABAA+BAA8wAmUAAAARAB/zM=,owMcAIAUFAOAFAX/AAAAAAD/AK4=,owQAAAAA/wAAEgD4EgDzACZVACA=,owUAARAB/xwAgBQUA4AUBf8AALg=,owYAAAD/AAAAAAD/AAASAPgSAF0=,owfzACZVAAABEAH/HAKAFBQDgNY=,owgUBf8AAAAAAAAAAAAAAP8AALo=,o/8QAPgQAPMAAAAAAAAAAAAAAFc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Vader"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABCgIEJlAAAAEQAf8cAoAUFKk=,owEDgBQF/wAAAAAAAAAAAAAA/zA=,owIAABAA+BAA8wAmUAAAARAB/zM=,owMcAIAUFAOAFAX/AAAAAAD/AK4=,owQAAAAA/wAAEgD4EgDzACZVACA=,owUAARAB/xwAgBQUA4AUBf8AALg=,owYAAAD/AAAAAAD/AAASAPgSAF0=,owfzACZVAAABEAH/HAKAFBQDgNY=,owgUBf8AAAAAAAAAAAAAAP8AALo=,o/8QAPgQAPMAAAAAAAAAAAAAAFc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Vader"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABCgIEJlAAAAEQAf8cAoAUFKk=,owEDgBQF/wAAAAAAAAAAAAAA/zA=,owIAABAA+BAA8wAmUAAAARAB/zM=,owMcAIAUFAOAFAX/AAAAAAD/AK4=,owQAAAAA/wAAEgD4EgDzACZVACA=,owUAARAB/xwAgBQUA4AUBf8AALg=,owYAAAD/AAAAAAD/AAASAPgSAF0=,owfzACZVAAABEAH/HAKAFBQDgNY=,owgUBf8AAAAAAAAAAAAAAP8AALo=,o/8QAPgQAPMAAAAAAAAAAAAAAFc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Vader"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABCgIEJlAAAAEQAf8cAoAUFKk=,owEDgBQF/wAAAAAAAAAAAAAA/zA=,owIAABAA+BAA8wAmUAAAARAB/zM=,owMcAIAUFAOAFAX/AAAAAAD/AK4=,owQAAAAA/wAAEgD4EgDzACZVACA=,owUAARAB/xwAgBQUA4AUBf8AALg=,owYAAAD/AAAAAAD/AAASAPgSAF0=,owfzACZVAAABEAH/HAKAFBQDgNY=,owgUBf8AAAAAAAAAAAAAAP8AALo=,o/8QAPgQAPMAAAAAAAAAAAAAAFc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Vader"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFTUBBVMFQQYBMwUABIQ=,o///fwD/UgD/ADb/SEsAAAAAAEQ=,MwUKGwAAAAAAAAAAAAAAAAAAACc=",
+        "diyName": "Peach Pulse Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAACUPAP+SAP+yAPf/AKY=,o//K/4n/AAAAAAAAAAAAAAAAAB8=,MwUK0AAAAAAAAAAAAAAAAAAAAOw=",
+        "diyName": "Jewel"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABCgIEJlAAAAEQAf8cAoAUFKk=,owEDgBQF/wAAAAAAAAAAAAAA/zA=,owIAABAA+BAA8wAmUAAAARAB/zM=,owMcAIAUFAOAFAX/AAAAAAD/AK4=,owQAAAAA/wAAEgD4EgDzACZVACA=,owUAARAB/xwAgBQUA4AUBf8AALg=,owYAAAD/AAAAAAD/AAASAPgSAF0=,owfzACZVAAABEAH/HAKAFBQDgNY=,owgUBf8AAAAAAAAAAAAAAP8AALo=,o/8QAPgQAPMAAAAAAAAAAAAAAFc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Vader"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./yiDAQBodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0xNDM=,MwUKCQAAAAAAAAAAAAAAAAAAADU=",
+        "diyName": "Sunset Beams"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -1070,7 +2338,59 @@
       }
     ],
     "slot": "extraTen",
-    "scene": "Yoda Matrix"
+    "scene": "Yoda Matrix",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABCQIFGgAAAAESAf8AAYAUFNo=,owEAgBQBAP8AAACAEAD5ABoAArk=,owIZGRAB/wADzRQUAIAUAQD/AOs=,owMAAIAAAIAAGhAAAAESAf8AA0Q=,owSAFBQAgBQBAP8AAACAEwD5ACc=,owUaFQAAARIB/wADgBQUAIAUAVI=,owYA/wAAAIARAPkAGhgAAAESASI=,owf/AAOAFBQAgBQBAP8AAACAEyE=,o/8A+QAAAAAAAAAAAAAAAAAAAKU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Yoda"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABCQIFGgAAAAESAf8AAYAUFNo=,owEAgBQBAP8AAACAEAD5ABoAArk=,owIZGRAB/wADzRQUAIAUAQD/AOs=,owMAAIAAAIAAGhAAAAESAf8AA0Q=,owSAFBQAgBQBAP8AAACAEwD5ACc=,owUaFQAAARIB/wADgBQUAIAUAVI=,owYA/wAAAIARAPkAGhgAAAESASI=,owf/AAOAFBQAgBQBAP8AAACAEyE=,o/8A+QAAAAAAAAAAAAAAAAAAAKU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Yoda"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABCQIFGgAAAAESAf8AAYAUFNo=,owEAgBQBAP8AAACAEAD5ABoAArk=,owIZGRAB/wADzRQUAIAUAQD/AOs=,owMAAIAAAIAAGhAAAAESAf8AA0Q=,owSAFBQAgBQBAP8AAACAEwD5ACc=,owUaFQAAARIB/wADgBQUAIAUAVI=,owYA/wAAAIARAPkAGhgAAAESASI=,owf/AAOAFBQAgBQBAP8AAACAEyE=,o/8A+QAAAAAAAAAAAAAAAAAAAKU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Yoda"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABCQIFGgAAAAESAf8AAYAUFNo=,owEAgBQBAP8AAACAEAD5ABoAArk=,owIZGRAB/wADzRQUAIAUAQD/AOs=,owMAAIAAAIAAGhAAAAESAf8AA0Q=,owSAFBQAgBQBAP8AAACAEwD5ACc=,owUaFQAAARIB/wADgBQUAIAUAVI=,owYA/wAAAIARAPkAGhgAAAESASI=,owf/AAOAFBQAgBQBAP8AAACAEyE=,o/8A+QAAAAAAAAAAAAAAAAAAAKU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Yoda"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABCQIFGgAAAAESAf8AAYAUFNo=,owEAgBQBAP8AAACAEAD5ABoAArk=,owIZGRAB/wADzRQUAIAUAQD/AOs=,owMAAIAAAIAAGhAAAAESAf8AA0Q=,owSAFBQAgBQBAP8AAACAEwD5ACc=,owUaFQAAARIB/wADgBQUAIAUAVI=,owYA/wAAAIARAPkAGhgAAAESASI=,owf/AAOAFBQAgBQBAP8AAACAEyE=,o/8A+QAAAAAAAAAAAAAAAAAAAKU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Yoda"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABCQIFGgAAAAESAf8AAYAUFNo=,owEAgBQBAP8AAACAEAD5ABoAArk=,owIZGRAB/wADzRQUAIAUAQD/AOs=,owMAAIAAAIAAGhAAAAESAf8AA0Q=,owSAFBQAgBQBAP8AAACAEwD5ACc=,owUaFQAAARIB/wADgBQUAIAUAVI=,owYA/wAAAIARAPkAGhgAAAESASI=,owf/AAOAFBQAgBQBAP8AAACAEyE=,o/8A+QAAAAAAAAAAAAAAAAAAAKU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Yoda"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAwQmGR8BAQEFAAgA/wBo/+E=,owEAuf9AAQEBM/8tvP+EAQEBKas=,o///AAAAAAAAAAAAAAAAAAAAAKM=,MwUKgwAAAAAAAAAAAAAAAAAAAL8=",
+        "diyName": "Matrix Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQCADIPAP8Oq/+FWv8ScX0=,o///arn/FQAAAAAAAAAAAAAAAJo=,MwUKeAAAAAAAAAAAAAAAAAAAAEQ=",
+        "diyName": "Matrix"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABCQIFGgAAAAESAf8AAYAUFNo=,owEAgBQBAP8AAACAEAD5ABoAArk=,owIZGRAB/wADzRQUAIAUAQD/AOs=,owMAAIAAAIAAGhAAAAESAf8AA0Q=,owSAFBQAgBQBAP8AAACAEwD5ACc=,owUaFQAAARIB/wADgBQUAIAUAVI=,owYA/wAAAIARAPkAGhgAAAESASI=,owf/AAOAFBQAgBQBAP8AAACAEyE=,o/8A+QAAAAAAAAAAAAAAAAAAAKU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Yoda"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./yQbAQBodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0xNDQ=,MwUK7wAAAAAAAAAAAAAAAAAAANM=",
+        "diyName": "Matrix"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -1113,7 +2433,59 @@
       }
     ],
     "slot": "extraEleven",
-    "scene": "Another World"
+    "scene": "Another World",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBQICKQAAAAYQAf//Af9EFDc=,owEDAAEG/wD+/2oA//8ApQD/+ZE=,owIA/wD/ABAA/QAAgAAgMAAAAd0=,owMSAf8AAoAUFADoFAP/APj/dL0=,o/8AAP8AAACAEgD6AAAAAAAAAMs=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Another World"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBQICKQAAAAYQAf//Af9EFDc=,owEDAAEG/wD+/2oA//8ApQD/+ZE=,owIA/wD/ABAA/QAAgAAgMAAAAd0=,owMSAf8AAoAUFADoFAP/APj/dL0=,o/8AAP8AAACAEgD6AAAAAAAAAMs=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Another World"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBQICKQAAAAYQAf//Af9EFDc=,owEDAAEG/wD+/2oA//8ApQD/+ZE=,owIA/wD/ABAA/QAAgAAgMAAAAd0=,owMSAf8AAoAUFADoFAP/APj/dL0=,o/8AAP8AAACAEgD6AAAAAAAAAMs=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Another World"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBQICKQAAAAYQAf//Af9EFDc=,owEDAAEG/wD+/2oA//8ApQD/+ZE=,owIA/wD/ABAA/QAAgAAgMAAAAd0=,owMSAf8AAoAUFADoFAP/APj/dL0=,o/8AAP8AAACAEgD6AAAAAAAAAMs=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Another World"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBQICKQAAAAYQAf//Af9EFDc=,owEDAAEG/wD+/2oA//8ApQD/+ZE=,owIA/wD/ABAA/QAAgAAgMAAAAd0=,owMSAf8AAoAUFADoFAP/APj/dL0=,o/8AAP8AAACAEgD6AAAAAAAAAMs=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Another World"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBQICKQAAAAYQAf//Af9EFDc=,owEDAAEG/wD+/2oA//8ApQD/+ZE=,owIA/wD/ABAA/QAAgAAgMAAAAd0=,owMSAf8AAoAUFADoFAP/APj/dL0=,o/8AAP8AAACAEgD6AAAAAAAAAMs=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Another World"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFjsBBlMFpAYBBQAF/KE=,o///c6b/01f//PH/cP/u+QAAAJg=,MwUKjQAAAAAAAAAAAAAAAAAAALE=",
+        "diyName": "Springtime Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAEkM9/8mHP+ALN///18=,o//J2AAAAAAAAAAAAAAAAAAAAE0=,MwUK7wAAAAAAAAAAAAAAAAAAANM=",
+        "diyName": "Springtime"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABBQICKQAAAAYQAf//Af9EFDc=,owEDAAEG/wD+/2oA//8ApQD/+ZE=,owIA/wD/ABAA/QAAgAAgMAAAAd0=,owMSAf8AAoAUFADoFAP/APj/dL0=,o/8AAP8AAACAEgD6AAAAAAAAAMs=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Another World"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgHATIE9/8mHP+ALN///3Y=,o//J2AAAAAAAAAAAAAAAAAAAAE0=,MwUKLwAAAAAAAAAAAAAAAAAAABM=",
+        "diyName": "Springtime"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -1156,7 +2528,54 @@
       }
     ],
     "slot": "extraTwelve",
-    "scene": "Neon Fields"
+    "scene": "Neon Fields",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAwIBKQAAAAYQAf//AAIBAZ4=,owEDAAEGAP+rAP9iiP8A/kYn+H8=,o/9gMq4A/xAA+QAAgAAAAAAAADY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Fields"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAwIBKQAAAAYQAf//AAIBAZ4=,owEDAAEGAP+rAP9iiP8A/kYn+H8=,o/9gMq4A/xAA+QAAgAAAAAAAADY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Fields"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAwIBKQAAAAYQAf//AAIBAZ4=,owEDAAEGAP+rAP9iiP8A/kYn+H8=,o/9gMq4A/xAA+QAAgAAAAAAAADY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Fields"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAwIBKQAAAAYQAf//AAIBAZ4=,owEDAAEGAP+rAP9iiP8A/kYn+H8=,o/9gMq4A/xAA+QAAgAAAAAAAADY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Fields"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAwIBKQAAAAYQAf//AAIBAZ4=,owEDAAEGAP+rAP9iiP8A/kYn+H8=,o/9gMq4A/xAA+QAAgAAAAAAAADY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Fields"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBQICKQAAAAYQAf//Af9EFDc=,owEDAAEG/wD+/2oA//8ApQD/+ZE=,owIA/wD/ABAA/QAAgAAgMAAAAd0=,owMSAf8AAoAUFADoFAP/APj/dL0=,o/8AAP8AAACAEgD6AAAAAAAAAMs=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Another World"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAwQmFTEBDgFLBQAI/55i/xM=,owGeYpT/Q5T/QxD/7RD/7cxg/w0=,o//MYP8AAAAAAAAAAAAAAAAAAA8=,MwUKgwAAAAAAAAAAAAAAAAAAAL8=",
+        "diyName": "Neon Fields Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAABkM/55iRP8KEP/tzM0=,o/9g/wAAAAAAAAAAAAAAAAAAAMM=,MwUKUgAAAAAAAAAAAAAAAAAAAG4=",
+        "diyName": "Neon Spring"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAwIBKQAAAAYQAf//AAIBAZ4=,owEDAAEGAP+rAP9iiP8A/kYn+H8=,o/9gMq4A/xAA+QAAgAAAAAAAADY=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Neon Fields"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -1199,7 +2618,59 @@
       }
     ],
     "slot": "extraThirteen",
-    "scene": "Blazing Bloom"
+    "scene": "Blazing Bloom",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJClYM/CAM/20F/CAM/JY=,o/8McAAAAAAAAAAAAAAAAAAAACA=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Blazing Bloom S"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJClYM/CAM/20F/CAM/JY=,o/8McAAAAAAAAAAAAAAAAAAAACA=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Blazing Bloom S"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJClYM/CAM/20F/CAM/JY=,o/8McAAAAAAAAAAAAAAAAAAAACA=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Blazing Bloom S"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJClYM/CAM/20F/CAM/JY=,o/8McAAAAAAAAAAAAAAAAAAAACA=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Blazing Bloom S"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJClYM/CAM/20F/CAM/JY=,o/8McAAAAAAAAAAAAAAAAAAAACA=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Blazing Bloom S"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJClYM/CAM/20F/CAM/JY=,o/8McAAAAAAAAAAAAAAAAAAAACA=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Blazing Bloom S"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAwQmFTIBBlMFQAYBRQUACPo=,owH/shf/shf/ikv/ikv/ikv/iuk=,o/9L/3Cd/3CdAAAAAAAAAAAAABc=,MwUKMQAAAAAAAAAAAAAAAAAAAA0=",
+        "diyName": "Blazing Bloom Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAFAJ/7IX/4pL/3CdAIs=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKywAAAAAAAAAAAAAAAAAAAPc=",
+        "diyName": "Blazing Bloom"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJClYM/CAM/20F/CAM/JY=,o/8McAAAAAAAAAAAAAAAAAAAACA=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Blazing Bloom S"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgCAkcBDgIEBQb/pQD/p7c=,o/8A/z8A/00A/1cA/wBWAAAAAC8=,MwUKvgAAAAAAAAAAAAAAAAAAAII=",
+        "diyName": "Blazing Bloom"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -1242,7 +2713,59 @@
       }
     ],
     "slot": "extraFourteen",
-    "scene": "Coconut Groove"
+    "scene": "Coconut Groove",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCVUVBGHCDJH0QZzYupU=,o//T6IP/gpP0DATMBwAAAAAAAD0=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Coconut Groove R"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCVUVBGHCDJH0QZzYupU=,o//T6IP/gpP0DATMBwAAAAAAAD0=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Coconut Groove R"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCVUVBGHCDJH0QZzYupU=,o//T6IP/gpP0DATMBwAAAAAAAD0=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Coconut Groove R"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCVUVBGHCDJH0QZzYupU=,o//T6IP/gpP0DATMBwAAAAAAAD0=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Coconut Groove R"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCVUVBGHCDJH0QZzYupU=,o//T6IP/gpP0DATMBwAAAAAAAD0=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Coconut Groove R"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCVUVBGHCDJH0QZzYupU=,o//T6IP/gpP0DATMBwAAAAAAAD0=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Coconut Groove R"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFTIBDgFkBQAEUc//uhU=,o//o/77/GVT/GwAAAAAAAAAAAKM=,MwUKcgAAAAAAAAAAAAAAAAAAAE4=",
+        "diyName": "Coconut Groove Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAABgMO7T/tOX/vv8QLRI=,o///BgAAAAAAAAAAAAAAAAAAAKU=,MwUKaAAAAAAAAAAAAAAAAAAAAFQ=",
+        "diyName": "Coconut Groove"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCVUVBGHCDJH0QZzYupU=,o//T6IP/gpP0DATMBwAAAAAAAD0=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Coconut Groove R"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl.//QoAQBodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0xNTM=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Bleen Skinny Petals"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -1285,7 +2808,59 @@
       }
     ],
     "slot": "extraFifteen",
-    "scene": "Bird of Paradise"
+    "scene": "Bird of Paradise",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCR8MdP8K/w8HdP8KCko=,o///lAAAAAAAAAAAAAAAAAAAADc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Bird of Paradise"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCR8MdP8K/w8HdP8KCko=,o///lAAAAAAAAAAAAAAAAAAAADc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Bird of Paradise"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCR8MdP8K/w8HdP8KCko=,o///lAAAAAAAAAAAAAAAAAAAADc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Bird of Paradise"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCR8MdP8K/w8HdP8KCko=,o///lAAAAAAAAAAAAAAAAAAAADc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Bird of Paradise"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCR8MdP8K/w8HdP8KCko=,o///lAAAAAAAAAAAAAAAAAAAADc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Bird of Paradise"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCR8MdP8K/w8HdP8KCko=,o///lAAAAAAAAAAAAAAAAAAAADc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Bird of Paradise"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFRgBDgFkBQAHA//2K8Y=,o///mKH/YPT/X/90Q+n/asv/eqs=,MwUK7wAAAAAAAAAAAAAAAAAAANM=",
+        "diyName": "Bird of Paradise Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAABgMO7T/tOX/vv8QLRI=,o///BgAAAAAAAAAAAAAAAAAAAKU=,MwUKaAAAAAAAAAAAAAAAAAAAAFQ=",
+        "diyName": "Coconut Groove"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCR8MdP8K/w8HdP8KCko=,o///lAAAAAAAAAAAAAAAAAAAADc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "RA Bird of Paradise"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./whWAABodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0zMzY=,MwUKAQAAAAAAAAAAAAAAAAAAAD0=",
+        "diyName": "Bird of Paradise"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -1328,7 +2903,59 @@
       }
     ],
     "slot": "extraSixteen",
-    "scene": "Party"
+    "scene": "Party",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCSoM/0sUUv8UFMj/wHg=,o/8U/wAAAAAAAAAAAAAAAAAAALc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Party R2"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCSoM/0sUUv8UFMj/wHg=,o/8U/wAAAAAAAAAAAAAAAAAAALc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Party R2"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCSoM/0sUUv8UFMj/wHg=,o/8U/wAAAAAAAAAAAAAAAAAAALc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Party R2"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCSoM/0sUUv8UFMj/wHg=,o/8U/wAAAAAAAAAAAAAAAAAAALc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Party R2"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCSoM/0sUUv8UFMj/wHg=,o/8U/wAAAAAAAAAAAAAAAAAAALc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Party R2"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCSoM/0sUUv8UFMj/wHg=,o/8U/wAAAAAAAAAAAAAAAAAAALc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "RA Party R2"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFjgBBVMFQAYBBQAF7VQ=,o///J2f/NkX//f8X/f+HKwAAACs=,MwUKsgAAAAAAAAAAAAAAAAAAAI4=",
+        "diyName": "Party Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAEEP7f8nZ/82Rf/9/8k=,o/8X/f+HKwAAAAAAAAAAAAAAAOU=,MwUKRgAAAAAAAAAAAAAAAAAAAHo=",
+        "diyName": "Party"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCSoM/0sUUv8UFMj/wHg=,o/8U/wAAAAAAAAAAAAAAAAAAALc=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "RA Party R2"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./whWAABodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0zMzY=,MwUKAQAAAAAAAAAAAAAAAAAAAD0=",
+        "diyName": "Bird of Paradise"
+      }
+    ]
   },
   {
     "room": "living_room",
@@ -1371,85 +2998,390 @@
       }
     ],
     "slot": "extraSeventeen",
-    "scene": "Comet"
+    "scene": "Comet",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQG/wDWAP//+QD/AP8ADZA=,owIA//8A7wAAgBAA/QApYQEAGHI=,owMSAf8AA4AUFAP9FAb/APIA/9E=,owT/7wD/AP8A9QD/AQD/AACAENM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAb/APoA//8AAP8A/wAAAE8=,owf//gD/AACAEAD9ACljAQAYEnY=,owgB/wADgBQUA/4UBvgA/wD//z4=,owkAAf8A/wAAAP/5AP8AAIAQAMI=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBvkA/wD//wAF/wD/AAAA/0Y=,o//5AP8AAIAQAP0AAAAAAAAAADc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Changing Comet"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQG/wDWAP//+QD/AP8ADZA=,owIA//8A7wAAgBAA/QApYQEAGHI=,owMSAf8AA4AUFAP9FAb/APIA/9E=,owT/7wD/AP8A9QD/AQD/AACAENM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAb/APoA//8AAP8A/wAAAE8=,owf//gD/AACAEAD9ACljAQAYEnY=,owgB/wADgBQUA/4UBvgA/wD//z4=,owkAAf8A/wAAAP/5AP8AAIAQAMI=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBvkA/wD//wAF/wD/AAAA/0Y=,o//5AP8AAIAQAP0AAAAAAAAAADc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Changing Comet"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQG/wDWAP//+QD/AP8ADZA=,owIA//8A7wAAgBAA/QApYQEAGHI=,owMSAf8AA4AUFAP9FAb/APIA/9E=,owT/7wD/AP8A9QD/AQD/AACAENM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAb/APoA//8AAP8A/wAAAE8=,owf//gD/AACAEAD9ACljAQAYEnY=,owgB/wADgBQUA/4UBvgA/wD//z4=,owkAAf8A/wAAAP/5AP8AAIAQAMI=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBvkA/wD//wAF/wD/AAAA/0Y=,o//5AP8AAIAQAP0AAAAAAAAAADc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Changing Comet"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQG/wDWAP//+QD/AP8ADZA=,owIA//8A7wAAgBAA/QApYQEAGHI=,owMSAf8AA4AUFAP9FAb/APIA/9E=,owT/7wD/AP8A9QD/AQD/AACAENM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAb/APoA//8AAP8A/wAAAE8=,owf//gD/AACAEAD9ACljAQAYEnY=,owgB/wADgBQUA/4UBvgA/wD//z4=,owkAAf8A/wAAAP/5AP8AAIAQAMI=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBvkA/wD//wAF/wD/AAAA/0Y=,o//5AP8AAIAQAP0AAAAAAAAAADc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Changing Comet"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQG/wDWAP//+QD/AP8ADZA=,owIA//8A7wAAgBAA/QApYQEAGHI=,owMSAf8AA4AUFAP9FAb/APIA/9E=,owT/7wD/AP8A9QD/AQD/AACAENM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAb/APoA//8AAP8A/wAAAE8=,owf//gD/AACAEAD9ACljAQAYEnY=,owgB/wADgBQUA/4UBvgA/wD//z4=,owkAAf8A/wAAAP/5AP8AAIAQAMI=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBvkA/wD//wAF/wD/AAAA/0Y=,o//5AP8AAIAQAP0AAAAAAAAAADc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Changing Comet"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQG/wDWAP//+QD/AP8ADZA=,owIA//8A7wAAgBAA/QApYQEAGHI=,owMSAf8AA4AUFAP9FAb/APIA/9E=,owT/7wD/AP8A9QD/AQD/AACAENM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAb/APoA//8AAP8A/wAAAE8=,owf//gD/AACAEAD9ACljAQAYEnY=,owgB/wADgBQUA/4UBvgA/wD//z4=,owkAAf8A/wAAAP/5AP8AAIAQAMI=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBvkA/wD//wAF/wD/AAAA/0Y=,o//5AP8AAIAQAP0AAAAAAAAAADc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Changing Comet"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmFUUBAwFkBQAHUP9jRj0=,o//w/3P/e87/+v9b75b/jwEBAcM=,MwUKowAAAAAAAAAAAAAAAAAAAJ8=",
+        "diyName": "Comet Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAADsSAP9cAMH/Av9qz0g=,o//7//8u6hz/UAAAAAAAAAAAANA=,MwUKowAAAAAAAAAAAAAAAAAAAJ8=",
+        "diyName": "Comet"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABDQIFKWABABgSAf8AA4AUFJc=,owED/hQG/wDWAP//+QD/AP8ADZA=,owIA//8A7wAAgBAA/QApYQEAGHI=,owMSAf8AA4AUFAP9FAb/APIA/9E=,owT/7wD/AP8A9QD/AQD/AACAENM=,owUA/QApYgEAGBIB/wADgBQUA2U=,owb9FAb/APoA//8AAP8A/wAAAE8=,owf//gD/AACAEAD9ACljAQAYEnY=,owgB/wADgBQUA/4UBvgA/wD//z4=,owkAAf8A/wAAAP/5AP8AAIAQAMI=,owr9AClkAQAYEgH/AAOAFBQD/pI=,owsUBvkA/wD//wAF/wD/AAAA/0Y=,o//5AP8AAIAQAP0AAAAAAAAAADc=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Changing Comet"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./whWAABodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0zMzY=,MwUKAQAAAAAAAAAAAAAAAAAAAD0=",
+        "diyName": "Bird of Paradise"
+      }
+    ]
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraEighteen",
-    "scene": null
+    "scene": "Dark Rainbow",
+    "devices": [
+      {
+        "device": "TV Strip",
+        "code": "owABBgICKQAAAAYQAf8AAc08PKk=,owEDgBQG/QD/GAD/AP/oAP8AAD4=,owIA/wD//wAAgBAA+AApAAAABhk=,owMQAf8AA808PAOAFAYA//8AABE=,owT/AP8A//8A/38A/wAAAACAEko=,o/8A+AAAAAAAAAAAAAAAAAAAAKQ=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Dark Rainbow"
+      },
+      {
+        "device": "Beam Strip",
+        "code": "owABBgICKQAAAAYQAf8AAc08PKk=,owEDgBQG/QD/GAD/AP/oAP8AAD4=,owIA/wD//wAAgBAA+AApAAAABhk=,owMQAf8AA808PAOAFAYA//8AABE=,owT/AP8A//8A/38A/wAAAACAEko=,o/8A+AAAAAAAAAAAAAAAAAAAAKQ=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Dark Rainbow"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBgICKQAAAAYQAf8AAc08PKk=,owEDgBQG/QD/GAD/AP/oAP8AAD4=,owIA/wD//wAAgBAA+AApAAAABhk=,owMQAf8AA808PAOAFAYA//8AABE=,owT/AP8A//8A/38A/wAAAACAEko=,o/8A+AAAAAAAAAAAAAAAAAAAAKQ=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Dark Rainbow"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBgICKQAAAAYQAf8AAc08PKk=,owEDgBQG/QD/GAD/AP/oAP8AAD4=,owIA/wD//wAAgBAA+AApAAAABhk=,owMQAf8AA808PAOAFAYA//8AABE=,owT/AP8A//8A/38A/wAAAACAEko=,o/8A+AAAAAAAAAAAAAAAAAAAAKQ=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Dark Rainbow"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBgICKQAAAAYQAf8AAc08PKk=,owEDgBQG/QD/GAD/AP/oAP8AAD4=,owIA/wD//wAAgBAA+AApAAAABhk=,owMQAf8AA808PAOAFAYA//8AABE=,owT/AP8A//8A/38A/wAAAACAEko=,o/8A+AAAAAAAAAAAAAAAAAAAAKQ=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Dark Rainbow"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBgICKQAAAAYQAf8AAc08PKk=,owEDgBQG/QD/GAD/AP/oAP8AAD4=,owIA/wD//wAAgBAA+AApAAAABhk=,owMQAf8AA808PAOAFAYA//8AABE=,owT/AP8A//8A/38A/wAAAACAEko=,o/8A+AAAAAAAAAAAAAAAAAAAAKQ=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Dark Rainbow"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAwQmFUUBDgFkBQAIKf+ZAPs=,owH/+CRF//9Gzk7/XPz/Tf9JUwo=,o//Q//8AAAAAAAAAAAAAAAAAAIw=,MwUKIAAAAAAAAAAAAAAAAAAAABw=",
+        "diyName": "Dark Rainbow Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAFYYKf+ZAP/4JEX//8M=,o/9Gzk7/XPz/Tf9JU9D//wAAAEI=,MwUKeQAAAAAAAAAAAAAAAAAAAEU=",
+        "diyName": "Dark Rainbow"
+      },
+      {
+        "device": "Curtain",
+        "code": "ptUrl./wjEAABodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD00ODQ=,MwUKzQAAAAAAAAAAAAAAAAAAAPE=",
+        "diyName": "Dark Rainbow"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABBgICKQAAAAYQAf8AAc08PKk=,owEDgBQG/QD/GAD/AP/oAP8AAD4=,owIA/wD//wAAgBAA+AApAAAABhk=,owMQAf8AA808PAOAFAYA//8AABE=,owT/AP8A//8A/38A/wAAAACAEko=,o/8A+AAAAAAAAAAAAAAAAAAAAKQ=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "AN Dark Rainbow"
+      }
+    ]
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraNineteen",
-    "scene": null
+    "scene": "Lemon Lime",
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEBAP8BEAD8AACAABoAACk=,owIABhIB/wAD/0QUAwABAf//AOQ=,owMSAPwAAIAAHQAAAAEQAf8AAz8=,owTBAjwA+hQC//8AAP8AAACAAMs=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Spring"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEBAP8BEAD8AACAABoAACk=,owIABhIB/wAD/0QUAwABAf//AOQ=,owMSAPwAAIAAHQAAAAEQAf8AAz8=,owTBAjwA+hQC//8AAP8AAACAAMs=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Spring"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEBAP8BEAD8AACAABoAACk=,owIABhIB/wAD/0QUAwABAf//AOQ=,owMSAPwAAIAAHQAAAAEQAf8AAz8=,owTBAjwA+hQC//8AAP8AAACAAMs=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Spring"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEBAP8BEAD8AACAABoAACk=,owIABhIB/wAD/0QUAwABAf//AOQ=,owMSAPwAAIAAHQAAAAEQAf8AAz8=,owTBAjwA+hQC//8AAP8AAACAAMs=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Spring"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEBAP8BEAD8AACAABoAACk=,owIABhIB/wAD/0QUAwABAf//AOQ=,owMSAPwAAIAAHQAAAAEQAf8AAz8=,owTBAjwA+hQC//8AAP8AAACAAMs=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Spring"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABBgIDGgAAAAYSAf8AAf9EFPs=,owEDAAEBAP8BEAD8AACAABoAACk=,owIABhIB/wAD/0QUAwABAf//AOQ=,owMSAPwAAIAAHQAAAAEQAf8AAz8=,owTBAjwA+hQC//8AAP8AAACAAMs=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Spring"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmGSQBAgEFAAYU/wB//9U=,o/8AvP8A9/8A+v8A/v9SAAAAAEE=,MwUKtAAAAAAAAAAAAAAAAAAAAIg=",
+        "diyName": "Spring Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAADIMCP8Akf8A3P8A+dk=,o///AAAAAAAAAAAAAAAAAAAAAKM=,MwUKEAAAAAAAAAAAAAAAAAAAACw=",
+        "diyName": "Spring"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABBgICKQAAAAYQAf8AAc08PKk=,owEDgBQG/QD/GAD/AP/oAP8AAD4=,owIA/wD//wAAgBAA+AApAAAABhk=,owMQAf8AA808PAOAFAYA//8AABE=,owT/AP8A//8A/38A/wAAAACAEko=,o/8A+AAAAAAAAAAAAAAAAAAAAKQ=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Spring"
+      },
+      {
+        "device": "Curtain",
+        "code": "owABAlgHAkAIKf+ZAP/4JEX//5w=,o/9Gzk7/XPz/Tf9JU9D//wAAAEI=,MwUK7QAAAAAAAAAAAAAAAAAAANE=",
+        "diyName": null
+      }
+    ]
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwenty",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABCAIDJgAAAAESAf8AA4AUFOM=,owEA/RQF+QD//38A//8A/38A9Lw=,owIA/wAAgBAA/QAmAAAAARIB//g=,owMAA4AUFAP9FAX/APv/fwD//0g=,owQA/38A9wD/EQD8AgD9ACYAABs=,owUAARIB/wADgBQUA/0UBf9/AKc=,owbrAP///wD6AP//fwAAAIASAKY=,o//9AAAAAAAAAAAAAAAAAAAAAKE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Sundae Sunset"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABCAIDJgAAAAESAf8AA4AUFOM=,owEA/RQF+QD//38A//8A/38A9Lw=,owIA/wAAgBAA/QAmAAAAARIB//g=,owMAA4AUFAP9FAX/APv/fwD//0g=,owQA/38A9wD/EQD8AgD9ACYAABs=,owUAARIB/wADgBQUA/0UBf9/AKc=,owbrAP///wD6AP//fwAAAIASAKY=,o//9AAAAAAAAAAAAAAAAAAAAAKE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Sundae Sunset"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABCAIDJgAAAAESAf8AA4AUFOM=,owEA/RQF+QD//38A//8A/38A9Lw=,owIA/wAAgBAA/QAmAAAAARIB//g=,owMAA4AUFAP9FAX/APv/fwD//0g=,owQA/38A9wD/EQD8AgD9ACYAABs=,owUAARIB/wADgBQUA/0UBf9/AKc=,owbrAP///wD6AP//fwAAAIASAKY=,o//9AAAAAAAAAAAAAAAAAAAAAKE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Sundae Sunset"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABCAIDJgAAAAESAf8AA4AUFOM=,owEA/RQF+QD//38A//8A/38A9Lw=,owIA/wAAgBAA/QAmAAAAARIB//g=,owMAA4AUFAP9FAX/APv/fwD//0g=,owQA/38A9wD/EQD8AgD9ACYAABs=,owUAARIB/wADgBQUA/0UBf9/AKc=,owbrAP///wD6AP//fwAAAIASAKY=,o//9AAAAAAAAAAAAAAAAAAAAAKE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Sundae Sunset"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABCAIDJgAAAAESAf8AA4AUFOM=,owEA/RQF+QD//38A//8A/38A9Lw=,owIA/wAAgBAA/QAmAAAAARIB//g=,owMAA4AUFAP9FAX/APv/fwD//0g=,owQA/38A9wD/EQD8AgD9ACYAABs=,owUAARIB/wADgBQUA/0UBf9/AKc=,owbrAP///wD6AP//fwAAAIASAKY=,o//9AAAAAAAAAAAAAAAAAAAAAKE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Sundae Sunset"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABCAIDJgAAAAESAf8AA4AUFOM=,owEA/RQF+QD//38A//8A/38A9Lw=,owIA/wAAgBAA/QAmAAAAARIB//g=,owMAA4AUFAP9FAX/APv/fwD//0g=,owQA/38A9wD/EQD8AgD9ACYAABs=,owUAARIB/wADgBQUA/0UBf9/AKc=,owbrAP///wD6AP//fwAAAIASAKY=,o//9AAAAAAAAAAAAAAAAAAAAAKE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Sundae Sunset"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmGQABCAEFAARp/wDfDdY=,o////9AA/5cRAAAAAAAAAAAAAPU=,MwUKSQAAAAAAAAAAAAAAAAAAAHU=",
+        "diyName": "Sundae Sunset Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQAAEwMkP8AxAD//9oA/2o=,o/9yAAAAAAAAAAAAAAAAAAAAAC4=,MwUKkwAAAAAAAAAAAAAAAAAAAK8=",
+        "diyName": "Sundae Sunset"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABCAIDJgAAAAESAf8AA4AUFOM=,owEA/RQF+QD//38A//8A/38A9Lw=,owIA/wAAgBAA/QAmAAAAARIB//g=,owMAA4AUFAP9FAX/APv/fwD//0g=,owQA/38A9wD/EQD8AgD9ACYAABs=,owUAARIB/wADgBQUA/0UBf9/AKc=,owbrAP///wD6AP//fwAAAIASAKY=,o//9AAAAAAAAAAAAAAAAAAAAAKE=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Sundae Sunset"
+      }
+    ]
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwentyOne",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmGCkBBlMFQAYBBQAD/1w=,o//JWv99h1j/ngAAAAAAAAAAAPM=,MwUK6QAAAAAAAAAAAAAAAAAAANU=",
+        "diyName": "Fluffy Chicken Hex"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCVEY/5kU/14Z/y0t/yc=,o/8tLZIy/z//Xz//X/+ZFAAAAHE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Fluffy Chicken"
+      }
+    ]
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwentyTwo",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Beam Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Center Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Couch Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Kitchen Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "TV Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Window Strip",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Hex",
+        "code": "owABAgQmGCkBBlMFQAYBBQAD/1w=,o//JWv99h1j/ngAAAAAAAAAAAPM=,MwUK6QAAAAAAAAAAAAAAAAAAANU=",
+        "diyName": "Fluffy Chicken Hex"
+      },
+      {
+        "device": "Lamp",
+        "code": "owABAgQFABMG/ygA/wAgAAAAALw=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKCQAAAAAAAAAAAAAAAAAAADU=",
+        "diyName": "Peach Pulse"
+      },
+      {
+        "device": "String Lights",
+        "code": "owABAgQJCVoY/w8T/y8P/y8P//o=,o/9PD/+5OP+5OP9PD/8vDwAAAHw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=,qgUBAAAAAAAAAAAAAAAAAAAAAK4=",
+        "diyName": "Apricot Vanilla"
+      },
+      {
+        "device": "Curtain",
+        "code": "QFAABodHRwOi8vYXBwLmdvdmVlLmNvbS9iZmYtZGV2aWNlL3YxL2VmZmVjdC9iaWctY29tbWFuZD9pZD0xMjA=,MwUKaAAAAAAAAAAAAAAAAAAAAFQ=",
+        "diyName": null
+      }
+    ]
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwentyThree",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwentyFour",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwentyFive",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwentySix",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwentySeven",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwentyEight",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraTwentyNine",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "living_room",
     "lights": [],
     "slot": "extraThirty",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
@@ -1465,25 +3397,83 @@
       }
     ],
     "slot": "scene",
-    "scene": "Lemon Lime"
+    "scene": "Lemon Lime",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQWAAICMgEOAAAZAQQA/zw=,o/8A//8AiwD/AP//AAAAAAAAACg=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Psychedelic"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABBgIDGgAAAAYCAf8AAf9EFOs=,owEDAAEBAP8BEAD8AACAABoAACk=,owIABgIB/wAD/0QUAwABAf//APQ=,owMSAPwAAIAAHQAAAAEAAf8AAy8=,owTBAjwA+hQC//8AAP8AAACAAMs=,o/8AgAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Lemon Lime"
+      },
+      {
+        "device": "Desk",
+        "code": "owABAgQAADIMCP8Akf8A3P8A+dk=,o///AAAAAAAAAAAAAAAAAAAAAKM=,MwUKEAAAAAAAAAAAAAAAAAAAACw=",
+        "diyName": "Serene Forest"
+      },
+      {
+        "device": "Office Squares",
+        "code": "owABAgQmFUUBCAFkBQAGAP8GAUU=,o/8BAYD/AJ3/kgEBAQEBAQAAANM=,MwUKPAAAAAAAAAAAAAAAAAAAAAA=",
+        "diyName": "Forest Mirage"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "sceneTwo",
-    "scene": "Fuzzy"
+    "scene": "Fuzzy",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQWAAICKAMOAQoNAQTTBhE=,o////wB0/wAM/yIAAAAAAAAAAAY=,MwUKtwAAAAAAAAAAAAAAAAAAAIs=",
+        "diyName": "Fuzzy Curtain"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABBQICIwAAAAQCAf//A+ZkAQM=,owEDABQE/ygA/wMe/wAT/ygAAL8=,owIA/BAA/AAgAAAAAwAB/wADzKM=,owMjZAMAFAOeEP8BAQEBAQEAAII=,o/+AEAD8AAAAAAAAAAAAAAAAADA=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Fuzzy v4"
+      },
+      {
+        "device": "Desk",
+        "code": "owABAgQAABwP/zEA/z8A/wChoEc=,o/8A//8AlgAAAAAAAAAAAAAAAMo=,MwUKdAAAAAAAAAAAAAAAAAAAAEg=",
+        "diyName": "Fuzzy"
+      },
+      {
+        "device": "Office Squares",
+        "code": "owABAgQmGQ8BDgEFAAf/AA3/AJU=,o/8NAQEB/y4A/y4AAQEB0wb/AHs=,MwUKHgAAAAAAAAAAAAAAAAAAACI=",
+        "diyName": "Fuzzy Hex"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "sceneThree",
-    "scene": "Fuzzydup"
+    "scene": "Fuzzydup",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQWAAICKAMOAQoNAQTTBhE=,o////wB0/wAM/yIAAAAAAAAAAAY=,MwUKtwAAAAAAAAAAAAAAAAAAAIs=",
+        "diyName": "Fuzzy Curtain"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "sceneFour",
-    "scene": "Pinky Purple"
+    "scene": "Pinky Purple",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQQAAcBTQQA/wCg/wDM/zg=,o/8A//4AAAAAAAAAAAAAAAAAAF0=,MwUKJwAAAAAAAAAAAAAAAAAAABs=",
+        "diyName": "Serene Forest"
+      }
+    ]
   },
   {
     "room": "office",
@@ -1526,19 +3516,80 @@
       }
     ],
     "slot": "diyMode",
-    "scene": "Arctic Sky"
+    "scene": "Arctic Sky",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABOlMBAQEAAAOCAgB5AolQTqU=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAACQOs=,owNJREFUOBGdVD1r3EAQfREqZqI=,owRBhhFcIZVyZ3cp07r0X8l/S+0=,owXpf5DW6VLedd4rDnYhCxrIFgU=,owZ5s3IgJJCTPYhjb9Gb99586FQ=,owfDw/R1KfhY8h2+zXi+xxfsjkQ=,owgOPfx5V3RpxCrvggKdDWZi1pQ=,ownD4DmOw+P+TJ0JHOnKxfF1P3k=,owoWXSIyYO0bEuFt4I02u+ywvvg=,owuVmWAnFySXrRR/1Ied0jsMsBo=,owwByZ0TPDbbe6vf4YBEvEhysCQ=,ow1SPA3sjI7vkzkHZFc+JkxWqfk=,ow58V8M63LjsKJYGyU4+UzwKvi0=,ow9P1527Z5IndeYokjGujVzLdRk=,oxDnHfj+Rn5DvERodvLZCl6uiYo=,oxEneAUnVHFWi9Q/ED8nLJ4i46c=,oxLlv9PaozeCcbB0kTjSgYhpqPI=,oxPLVnAt8UUeWZTby9O/LWhgktw=,oxSPagecigWuWJWQFXVhyzhzo5c=,oxUlscwUHD9O1J9ZuBCci9bgAw8=,oxZykcgdqyyVrEVnu5u982eWMrI=,oxd4Cs4hjv1rF2/rE5lXvur4mUo=,oxiZcfKt4oYKn1yQbZnqGDCpT+E=,oxlwG4XqMxSAZ3wmc3YzIhgEs58=,oxqfTr6htgaxH5IKoqmajpWKnG0=,oxu5DSD5PAhO7TMUHMzx4EUvkV8=,oxzTdrFzxlRkXIXSxSS4I4oEf64=,ox23+M3c8xI+MH2AqHdeJWakbPg=,ox5S2roYKyfysyH/BhPJPAwiWZM=,ox8FCVBBoXJYcfMojZZ7QyT5G2U=,oyC+yWZHtmDP3QXFs4Tq282vDLk=,oyGd8pofupWVZAkdzHYSsdHxIrk=,oyJ6z1i8ngj+sts80IJ7fH27cQ8=,oyN6Oh5aig3MLPyXWgt4aABXQd8=,oyQLrRaVrWnhamnHFnzi6Rdtu+M=,oyUXNCLOnzkAAAAASUVORK5CYGU=,oyaCAABkAf//sAAApwCJUE5HDag=,oycKGgoAAAANSUhEUgAAABQAAJA=,oygAGggCAAAAOOHrKgAAAG5JROA=,oylBVDgRtZBRDgAQDEN3Nvc/g5k=,oyqzEGIfyzKtlB9M+1Yzg1e3Bj8=,oytrj/DFc7z5XhGrt5xWVmncf2o=,oyxDmTc+0nEiYN05CqSGRGmYUJQ=,oy2UgZwrIBIIQjoTcur9pRePDyo=,oy4DPNx73BVIKw0FmoumlYbio1I=,oy/R4AhKKh2vQR1Bhha6lgAAAMY=,ozAASUVORK5CYIIBWGQC//+KAC4=,ozEAgQCJUE5HDQoaCgAAAA1JSNg=,ozJEUgAAABQAAAAaCAIAAAA44Vo=,ozPrKgAAAEhJREFUOBFjYKAnOJQ=,ozTKsJUu1tHLHpI8QxdH0cUSNAs=,ozVvD4SdaE6AcOnlEHrZg9WTmNs=,ozaCA+Ec2ttJexswQxK/CL1cRLI=,ozcve/D7Fk0W7igAenQTM3SCHoY=,ozgWAAAAAElFTkSuQmCCADZkAtU=,o////wAAAAAAAAAAAAAAAAAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Arctics Skies v2"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABAgQJCUkYABGZLQCZpQBopaE=,o/8AaDETxgC/XwC/XwDMMwAAAC8=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Arctic Skies"
+      },
+      {
+        "device": "Office Squares",
+        "code": "owABAgQmFTsBDwFkBQAFle//66k=,o//9/3Ky/6cw/+/F/wAAAAAAANw=,MwUK0wAAAAAAAAAAAAAAAAAAAO8=",
+        "diyName": "Dream Stars"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "diyModeTwo",
-    "scene": "Chromatic Mem"
+    "scene": "Chromatic Mem",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABA1QeAAMFAQEBCPCwAAr/RxY=,owEK/+YK/5m06gT/aQX/FBz/PyM=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABAgQAABEV/4QA/P8AAP7/ANk=,o///dfz/AP+EAP8AeQAAAAAAACg=,MwUKYgAAAAAAAAAAAAAAAAAAAF4=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Desk",
+        "code": "owABAgQAABEV/4QA/P8AAP7/ANk=,o///dfz/AP+EAP8AeQAAAAAAACg=,MwUKYgAAAAAAAAAAAAAAAAAAAF4=",
+        "diyName": "Chromatic Memories"
+      },
+      {
+        "device": "Office Squares",
+        "code": "owABAgQmGlUBEQEFAAf/hAD8/6Y=,o/8AAP7/AP915v8A/3QA/wB5AMM=,MwUKSwAAAAAAAAAAAAAAAAAAAHc=",
+        "diyName": "Chromatic Memories"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "diyModeThree",
-    "scene": "Azure Blush"
+    "scene": "Azure Blush",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQZAAICLAgOAQoNAQUA7yo=,o///AP+M/08L/wAF/08LAAAAACo=,MwUKgAAAAAAAAAAAAAAAAAAAALw=",
+        "diyName": "Azure Blush Curtain"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABAgQJCk8Y/wAP2FYK2IIKCt4=,o//YVkz/ogrYVtiCCthWCgAAAJM=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Azure Blush"
+      },
+      {
+        "device": "Desk",
+        "code": "owABAgQAADAPAO//AP+M/58A/2c=,o/8ABf+fAAAAAAAAAAAAAAAAADk=,MwUKDwAAAAAAAAAAAAAAAAAAADM=",
+        "diyName": "Azure Blush"
+      },
+      {
+        "device": "Office Squares",
+        "code": "owABAgQmFRABDwFkBQAFAO//APw=,o///jP+qAP8ABf+fAAAAAAAAAOA=,MwUKGQAAAAAAAAAAAAAAAAAAACU=",
+        "diyName": "Azure Blush Hex"
+      }
+    ]
   },
   {
     "room": "office",
@@ -1581,25 +3632,98 @@
       }
     ],
     "slot": "diyModeFour",
-    "scene": "Aurora"
+    "scene": "Aurora",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABK1MBAQEAAAMHAQD+AIlQTrc=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAAAxWw=,owNJREFUOBG1kMERwjAQA11IHo4=,owS0QBs8aYMSaIVW6A0HZ3Q6Id0=,owV7HM+Ql3TWyc6Wkr5ncutme/U=,owbFLus6FXstj4guq/vWfbkciSI=,oweduvF2eUuud1tvLutshYdYTmY=,owhCzzCbyaBwFxZMDH8ZpO3zxs8=,owmissPaPUMFTxiEGxVmAw1Re0c=,owoOHX+P7j8JS5dhsK5vEMuvGjA=,owv8PcfOasaDXTvcTy05DCFakUg=,owxYtBdLBcfj0xZjTqxRAsHYWGg=,ow0jsCZACCL1dH89pZLxKxaGHdI=,ow62sjGMdOHXRP4D608nQq13bZk=,ow9vAAAAAElFTkSuQmCCAlRkAvs=,oxD//6QAAJsAiVBORw0KGgoAAEs=,oxEADUlIRFIAAAAUAAAAGggCAKw=,oxIAADjh6yoAAABiSURBVDgR1S8=,oxOPwQ0AIQzDWIlhbkx25IFkqlI=,oxSmgnsSXqkLKG4tnP6NMO2oXKs=,oxXJvm2RSoESLp3DysI3l1QfCH8=,oxYhvzGd1SeSmBEsIdunA9UJ1BQ=,oxc9EF3xyi8gQ1gOafQT08al0gk=,oxh/qB/eyQRIYxzJVUaZBgAAABI=,oxkASUVORK5CYIIAK2QB//8gAd0=,oxoAFwGJUE5HDQoaCgAAAA1JSGQ=,oxtEUgAAABQAAAAaCAIAAAA44XM=,oxzrKgAAAN5JREFUOBFjYBgFoyw=,ox0hQJsQMGToIdZgEpTiMRJhitM=,ox4hIZvxKU2dA7SDCW4PQilM6L0=,ox88QwmUaSIAZcAtzPwAFEFohhY=,oyArRZiCqhSkH27KjWMgzZhK4WY=,oyGmoCkFaQZbCGK8SQYSTFiUYvU=,oyJaCFYK0nNEE0QCweXnQIKJAbY=,oyNTKdxtqErhekCM2SkgkgEcbs8=,oyQgxqStIBIIzsGiAS4FEUch/10=,oyUDeUwIb4BdAlIADgwQA2o8kI0=,oyYFUgoGcAYjmLssCCoOp+BOQOE=,oyfogcuhMJgg4QYWg5kKdwIDxFw=,oyh4FA2onMK1qHxKeTAnEGEOCS8=,oylKiTCNaCUA7IU+GPaF8GgAAB0=,o/8AAElFTkSuQmCCAl5kAf//AG0=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Aurora Sky"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABAwIBIAAAAAUQAf//AIAUFBY=,owEDABQDGQVoQQOUH95cAACAEBk=,o/8A+QAAAAAAAAAAAAAAAAAAAKU=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Aurora"
+      },
+      {
+        "device": "Desk",
+        "code": "owABAgQAADIMCP8Akf8A3P8A+dk=,o///AAAAAAAAAAAAAAAAAAAAAKM=,MwUKEAAAAAAAAAAAAAAAAAAAACw=",
+        "diyName": "Serene Forest"
+      },
+      {
+        "device": "Office Squares",
+        "code": "owABAgQmFjUBBAEFAAMA/32zAJI=,o///GQD/AAAAAAAAAAAAAAAAAEU=,MwUK5AAAAAAAAAAAAAAAAAAAANg=",
+        "diyName": "Aurora"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "segmented",
-    "scene": "Swirling Galaxy"
+    "scene": "Swirling Galaxy",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQQAAICPAQEAQMA/31UAAw=,o///GQD/AAAAAAAAAAAAAAAAAEU=,MwUKEgAAAAAAAAAAAAAAAAAAAC4=",
+        "diyName": "Aurora"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABCQIEIzAAAAESAf8AA4AUFNA=,owEDgBQEAP8ABwD/iwD/+gD/AEc=,owIAgBAA+QAjNgAAARIB/wADgLM=,owMUFAOAFAQA/wAHAP+LAP/6ALo=,owT/AACAEAD5ACMxAAABEgH/AM4=,owUDgBQUg4AUBAD/AAcA/4sA/0U=,owb6AP8AAIASAPkAIwAAAAQSAf8=,oweCAAOAFBSDABQEAP8ABwD/i7o=,o/8A//oA/wAAgBIA+QAAAAAAAM0=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Swirling Galaxy"
+      },
+      {
+        "device": "Office Squares",
+        "code": "owABAgQmFk8BBwEFAAXQAP99AI4=,o///hP8XCHr/AAD/AAAAAAAAAL0=,MwUKfAAAAAAAAAAAAAAAAAAAAEA=",
+        "diyName": "Swirling Galaxy Hex"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "segmentedTwo",
-    "scene": "Tropic Chase"
+    "scene": "Tropic Chase",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQWAAIDAgAEAQUA2/87/wE=,o/+d+P8A/6kA/w/xAAAAAAAAAJE=,MwUKegAAAAAAAAAAAAAAAAAAAEY=",
+        "diyName": "Tropicana 1"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABBQICKQAAAAYQAf//AAIBAZs=,owGDAAEGAKdTC8IL8LAA/20A/z0=,owIAEOzLABIA+QAA/AAaUwAAAck=,owMSAVsAAwIBAQIAAQH///8UAAA=,o//8EAD8AAAAAAAAAAAAAAAAAEw=,MwUEkgEAAAAAAAAAAAAAAAAAAKE=",
+        "diyName": "Tropic Chase"
+      },
+      {
+        "device": "Office Squares",
+        "code": "owABAgQmFRkBAgFkBQAF1v+T/60=,o/+cYgCWANxuAJC3AAAAAAAAAKE=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Sun Swirl"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "segmentedThree",
-    "scene": "Serene Forest"
+    "scene": "Serene Forest",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQQAAcBTQQA/wCg/wDM/zg=,o/8A//4AAAAAAAAAAAAAAAAAAF0=,MwUKJwAAAAAAAAAAAAAAAAAAABs=",
+        "diyName": "Serene Forest"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABAgQAADIMCP8Akf8A3P8A+dk=,o///AAAAAAAAAAAAAAAAAAAAAKM=,MwUKEAAAAAAAAAAAAAAAAAAAACw=",
+        "diyName": "Serene Forest"
+      },
+      {
+        "device": "Desk",
+        "code": "owABAgQAADIMCP8Akf8A3P8A+dk=,o///AAAAAAAAAAAAAAAAAAAAAKM=,MwUKEAAAAAAAAAAAAAAAAAAAACw=",
+        "diyName": "Serene Forest"
+      }
+    ]
   },
   {
     "room": "office",
@@ -1633,486 +3757,721 @@
       }
     ],
     "slot": "segmentedFour",
-    "scene": "Matrix"
+    "scene": "Matrix",
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABKlMBAQEAAAPrAADiAIlQTkc=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAAAAag=,owNzUkdCAK7OHOkAAAADc0JJVD4=,owQFBgUzC42AAAAAjUlEQVQ4jbQ=,owXNlEsOgCAMRKfc/87jAgIBSrA=,owY/GBO7IGr7mDpaAAJAW/c4PYg=,owcHAJRU9chShR122jsHi4gC09Y=,owhpV4+ibhmFh+aibd9W2Na0X4g=,ownHMUxEDDzntgYHnFb7Pyr36g0=,owp6cbaG2xroxFL22PkvDynP2eU=,owv3bv8CTowXN3j9nsFj6GKkB74=,owx8MdKOYUY7LUVGG45XfhwPSWo=,ow3RMwuxjaYoAAAAAElFTkSuQh8=,ow5gggJk/wEQJ/UAAOwAiVBORyk=,ow8NChoKAAAADUlIRFIAAAAUALU=,oxAAABoIAgAAADjh6yoAAAABc8k=,oxFSR0IArs4c6QAAAANzQklUBVo=,oxIGBTMLjYAAAACXSURBVDiNrRA=,oxNUSRLAIAgL/v/P6cF2KrIIM28=,oxRyQiQEWQQAEEpoFFeI4RlzkBg=,oxVxr9qpdIe5LhfBnccS7DG/tTY=,oxYkAIhIDywi63Gg3Zs4rexo7NE=,oxdZ2oWMGOgFt4C5VgQF7lZOgWU=,oxi3TkTCw97ZF3put2a7Pyln5v4=,oxmkimfwrKITYv0M8j79jVi8hlM=,oxpzXZbRGIx3lz//kOvY/MkcYI4=,oxuvbPgakXvEB22eOQESSUtFAC4=,oxwAAABJRU5ErkJgggJZ/wEQJyU=,ox3YAADPAIlQTkcNChoKAAAADWM=,ox5JSERSAAAAFAAAABoIAgAAAK4=,ox844esqAAAAAXNSR0IArs4c6RQ=,oyAAAAADc0JJVAUGBTMLjYAAAJ8=,oyEAeklEQVQ4jcVUQQ7AIAhD/t4=,oyL/5+60LEJl1JmsJ4JtpYZoljw=,oyMB0iN9mFfsNwtXdBGKeDAxtGc=,oyS5a9RWeAqPLQUks56izydjb00=,oyVZ+30qh25LwOv1ejZ858zi7Bo=,oyafd7sbPbHczMZIKx9VoPXaOwo=,oydz6M3b+EWMszef+1LK1waa39Q=,oyhNVyBSL8tPMvYvflFTAAAAAN8=,o/9JRU5ErkJgggJP/wEQJwAAANA=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Matrix"
+      },
+      {
+        "device": "Office Strip",
+        "code": "owABBQICIFAAAAEAAf//AIAUFFc=,owED5RQDAP8AYf9MOnQDEgD8AN0=,owIAgAAgVQAAAQAB//8AgBQUA9c=,owPlFAMA/wBh/0w6dAMQAPwAAN4=,o/+AAAAAAAAAAAAAAAAAAAAAANw=,MwUE/AEAAAAAAAAAAAAAAAAAAM8=",
+        "diyName": "Matrix"
+      },
+      {
+        "device": "Office Squares",
+        "code": "owABAwQmGR8BAQEFAAgA/wBo/+E=,owEAuf9AAQEBM/8tvP+EAQEBKas=,o///AAAAAAAAAAAAAAAAAAAAAKM=,MwUKgwAAAAAAAAAAAAAAAAAAAL8=",
+        "diyName": "Matrix Hex"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "musicMode",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQQAAICPAQEAQMA/31UAAw=,o///GQD/AAAAAAAAAAAAAAAAAEU=,MwUKEgAAAAAAAAAAAAAAAAAAAC4=",
+        "diyName": "Aurora"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "musicModeTwo",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABS1MBAQFkAQXwAADnAIlQTls=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAAAAag=,owNzUkdCAK7OHOkAAAADc0JJVD4=,owQFBgUzC42AAAAAkklEQVQ4jas=,owWtlDEOgDAMA/PO7gx8C4mxI6w=,owZf4DuMjGGmtugpoqOVxrGdNtk=,owfamvE+ee8jsl0D0rLHFDKtpfs=,owgRKsrzmLNpkdb0ZSRz/KpfEHM=,owlzDanVTkbIX25X1ZqQSLbFRqw=,owogSBRJUS0J0oykiOEvrqRCRVg=,owu3SZGzDQxZNMmkrW9L2UhrpKI=,owyNuQ2GNE+S7FZRLdot8m8g/Yg=,ow3fH/ADr1HB1rBREN8AAAAASRM=,ow5FTkSuQmCCAAD/ASADAgEA+cs=,ow8AiVBORw0KGgoAAAANSUhEUnE=,oxAAAAAUAAAAGggCAAAAOOHrKq8=,oxEAAAABc1JHQgCuzhzpAAAAAwE=,oxJzQklUBQYFMwuNgAAAAKRJRAc=,oxNBVDiNrZSxDYAwDAQzAvOlp+0=,oxRgLSRKSlZgHUrKUMO9yAmR0tk=,oxVK3v6znbKOrdxPm49+5Fweka0=,oxZCodrWrlCpE/Lv2zMy4FnIBq4=,oxchYy0UaSpS3ngnaIdsYKuwmT4=,oxhIcosIsalLbFLyT2x0y26rIeU=,oxkhJGor/sxPoY+zFSoipKBNSAI=,oxrCmroUuk22wUiAxGd/7bbaLXc=,oxtqU0i5DbSFtPtJ+G8aSKlsMXs=,oxxJarfJ9v1vvQDdg7zvR3RxhvI=,ox0AAAAASUVORK5CYIIAAP8BIGg=,ox4D+QAA8ACJUE5HDQoaCgAAAHA=,ox8NSUhEUgAAABQAAAAaCAIAAKI=,oyAAOOHrKgAAAAFzUkdCAK7OHMI=,oyHpAAAAA3NCSVQFBgUzC42AAHc=,oyIAAJtJREFUOI2dlKERgEAMBMY=,oyOpE4+gLWaQSFqgHSQyWMit2JI=,oyR55M5/LrncM9V1Tv9vXquRerM=,oyX2Ro6ln4FDtd29dB39WqIk2QQ=,oyYj1M6WDAGU8ycBlIWyRzIp/WQ=,oycXjpBJWTqImzbVxkwCt40aZZo=,oyhLhHQwW8ZIpQbbhkiIRwIoryk=,oykpfTMbZFupwZMMNJZ2lS1Ykpg=,oyqxzS1JNAnzm0ODvwQXyTTJuCQ=,oytt1L6lX/PawOeT6NzaAAAAAAY=,oyxJRU5ErkJgggAA/wEgA/kAAKM=,oy3wAIlQTkcNChoKAAAADUlIRPE=,oy5SAAAAFAAAABoIAgAAADjh6+k=,oy8qAAAAAXNSR0IArs4c6QAAABY=,ozADc0JJVAUGBTMLjYAAAACbSV0=,ozFEQVQ4jZ2UOw6AIBBEOae9hRg=,ozLXMrGk9Apex9ISW2VewguUm2A=,ozNllvmwpV1n+Z9la12l7Xff07M=,ozRqGZYMUKlrND3HsELYQSSnwQs=,ozX8xM4X5TDVpEQC/kkE+AcQyAE=,ozYGbIWTwDaxga1x26RNqe0iKY4=,ozcsMUGadRuu5XwTEtDf2AbcBAM=,oziQMwmuZQDNblHZNm7DNCGk+gE=,ozluaiUlkNokapMZkeYq6m9/e8w=,ozpezzK+ztjy2CcAAAAASUVORJk=,ozuuQmCCAAD/ASAD/AAA8wCJUJ0=,ozxORw0KGgoAAAANSUhEUgAAAJs=,oz0UAAAAGggCAAAAOOHrKgAAAII=,oz4Bc1JHQgCuzhzpAAAAA3NCSVY=,oz9UBQYFMwuNgAAAAJ5JREFUOEU=,o0CNrZMxDoAgEAR5J72F3zKxpEU=,o0H0C37H0hJbZTZhCik3x93esG0=,o0KUuvbyPf08BiXU3HuZSrW3+U8=,o0M1FrVFTKMlY5LDwrZBCduiiAY=,o0S2qShLan/zSFTUbr9B6ts1Nhc=,o0WiJW4b5ockoXeiLYocNpNtEEY=,o0ZJkSQ2QjJI1LOpbc01mgyQ2JI=,o0cpKIa2KXLZpu2QbRQFtgabgVo=,o0iksIW/Hb4Es2XmB9siSW/lAW4=,o0nOQ70RLUgj1gAAAABJRU5ErvM=,o/9CYIIAAP8BIAMAAAAAAAAAACE=,MwUKEAAAAAAAAAAAAAAAAAAAACw=",
+        "diyName": "Candy Dream"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "videoMode",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQVAAcCAQECBXP/bVD/y2Y=,o/////+Srf/6df8AAAAAAAAAABM=,MwUKRwAAAAAAAAAAAAAAAAAAAHs=",
+        "diyName": "Neon Meditation"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "videoModeTwo",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQZAAICLAgOAQoNAQUA7yo=,o///AP+M/08L/wAF/08LAAAAACo=,MwUKgAAAAAAAAAAAAAAAAAAAALw=",
+        "diyName": "Azure Blush Curtain"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extra",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQWAAICKAMOAQoNAQTTBhE=,o////wB0/wAM/yIAAAAAAAAAAAY=,MwUKtwAAAAAAAAAAAAAAAAAAAIs=",
+        "diyName": "Fuzzy Curtain"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwo",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABH1MBAQFkAAPAAAC3AIlQTmg=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAAAAag=,owNzUkdCAK7OHOkAAAADc0JJVD4=,owQFBgUzC42AAAAAYklEQVQ4jVs=,owW1k7ERACAIA9m/tnQmxrB1BI4=,owZs7PQgYviaCxCCyCfTzC/oNmk=,owcgIdVACKyJJ3oAHf6BZsqWTFQ=,owjAXOw0nHeCqxIUAxrMPDlQowg=,ownmO1QfQbxDvbsFP5zjvipnPA4=,owrwJXazH9MXlGtAB2tc674AALg=,owsAAElFTkSuQmCCAmD/ARAnp6w=,owwAAJ4AiVBORw0KGgoAAAANSbI=,ow1IRFIAAAAUAAAAGggCAAAAOMw=,ow7h6yoAAAABc1JHQgCuzhzpAD0=,ow8AAANzQklUBQYFMwuNgAAAALA=,oxBJSURBVDiNY2AgC7z//588je0=,oxGDF8z5/4wE1efOEQ4AYtTQBeQ=,oxJM+X9uoJ1AS0BazNEL4Il9KhE=,oxMnjCGdGamaNskJWFypZ0iHKlQ=,oxQuQIWUBwDYAySvZCP4fgAAAF4=,oxUASUVORK5CYIICS/8CECeZAKQ=,oxYAkACJUE5HDQoaCgAAAA1JSO4=,oxdEUgAAABQAAAAaCAIAAAA44X8=,oxjrKgAAAAFzUkdCAK7OHOkAAMo=,oxkAA3NCSVQFBgUzC42AAAAAO50=,oxpJREFUOI1jYBh48P7/f7Jlh6k=,oxs5oIHnz52jTXiSbC4NI5ZWfsM=,oxwkHQym1DuY3AIBg8dFNHQJaaU=,ox1G0zbpUsGbABmUJ68BYq0HADA=,o/8AAABJRU5ErkJgggJU/wEQJ8s=,MwUKMAAAAAAAAAAAAAAAAAAAAAw=",
+        "diyName": null
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraThree",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQQAAcBTQQA/wCg/wDM/zg=,o/8A//4AAAAAAAAAAAAAAAAAAF0=,MwUKJwAAAAAAAAAAAAAAAAAAABs=",
+        "diyName": "Serene Forest"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraFour",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABA1QeAAMFAQEBCPCwAAr/RxY=,owEK/+YK/5m06gT/aQX/FBz/PyM=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Chromatic Memories"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraFive",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABIVMBAQEAAAOhAACYAIlQTnw=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAAAX/Y=,owNJREFUOBFjYBjKoCf1PxCR6mY=,owQDRqAGZG0ls0EiRAImItXhU50=,owVGnrPxmUhbOcLBgyc4CWhG1uE=,owYJ8QVydODTjKkTTT9FUTVwmuI=,owfx+RnoQ0xvExtgkOBB1o+sE4I=,owgiO0qOhgD+EAAAVicZz74Es7A=,owlGAAAAAElFTkSuQmCCAVdkA9U=,owr//98AANYAiVBORw0KGgoAAGc=,owsADUlIRFIAAAAUAAAAGggCALY=,owwAADjh6yoAAACdSURBVDgR7fY=,ow2TUQqAMAiGW3TDjtJzPdRzR0Y=,ow7pjEsQ3D/nbBBFD8Vo4v5Pp/g=,ow/Mrnvii/NEy48czGPEwrabGq0=,oxByGjCSjNX4vha1xW9kJgyT12U=,oxHSetGJxxCe9D/7fgf0I4nrIdY=,oxKXDssotmlkMJKs9vkEl+Qlf1w=,oxNrMN6FcWBSzVRhWbZqGM4Zjcw=,oxRqBiveIbmXA2/yV4D4TUNnNs8=,oxVF4lTXFn+rgQ1rZUzdCZLRMDk=,oxZP00/xNQAAAABJRU5ErkJggqo=,oxcBYGQB//+VAACMAIlQTkcNCn4=,oxgaCgAAAA1JSERSAAAAFAAAAKU=,oxkaCAIAAAA44esqAAAAU0lEQa0=,oxpUOBFjYBhS4NJ/BiBiYGAk2Xk=,oxvVYG0QXUwka6ZUA8zZlJozql0=,oxx/+IUARtogOm0jJWkGPaguuj4=,ox2lbQxnD/GYIcs/4EDHFg3EBBI=,ox4GVaKKLGcT4zqcagCJ9BunxbU=,ox8D6R8AAAAASUVORK5CYIIBXBw=,o/9kAv//AAAAAAAAAAAAAAAAADo=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Cotton Candy"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraSix",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQNAAcBPgOG/wCw/wng/+I=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKNgAAAAAAAAAAAAAAAAAAAAo=",
+        "diyName": "Forest Grafiti"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraSeven",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQNAAYCCQoKDQJoAP8A/5M=,o/9+AAAAAAAAAAAAAAAAAAAAACI=,MwUKQAAAAAAAAAAAAAAAAAAAAHw=",
+        "diyName": "Bigrade"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraEight",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABUFMBAQEAAAUWAwANA4lQTik=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAAC1H8=,owNJREFUOBFFlMGq2zAQRW8fKs8=,owQo4IINCdjQQrPs/6/7G+3Sbxw=,owXnQB9YC4MF9aLnjpxUiESW54A=,owboXo3G+vRTv35rmlM/d3pkrZ0=,owdJS1JJEv2z3P5Kh/pDw6Hp0Ow=,owhYdd90P8oPLW9ZytrzodYJvu8=,owl4JhoYPR7b5CsMhPl0UR2koo4=,owpajlxi+RrR/L7afyYCBtVYq5I=,owsmy6q6HxlvFQtJLIfVinMWAvg=,owyI5bBNgBdS7c3vwB4N2kP55GI=,ow1XzEMehi0SgvxePHBwo94GPYs=,ow5wDu/+3LmXJ/RJtkfeup9iLO4=,ow9RUq+VvitPWuuRo1uQ1rYN2bM=,oxAMR7brpD14KI5Fy6CpaiDUC/A=,oxFVBrmlG/O0F9lX3MGUyHEBBA0=,oxL26Wb1g/nqTvqSZZ222DDifbI=,oxPVJGRxyxLsmZVdDZAPxKWds+0=,oxTjz24JiPcNxth0FPaFLKfDbqU=,oxVBQrkr2pasO15DigJZnefNPLs=,oxYtNMtd+xiHwoYzZUFMh/J11ZQ=,oxeG+DqwZTf84N8FlAmzeSdpVJk=,oxgZ7JHjZZaYBTDp9tDHFOL5Ygc=,oxnXtJapJgy8fw8SzThUpwpZ3Zo=,oxpQHhf9GbWBXXof7UuffXvMPsU=,oxvhGxmGF3Ks66Jxxrb0bXbKbBU=,oxwyxzbbwG7DCC9aMZMnTM3Ki/I=,ox2RK2fC6mOx/jsjYPoAzZnx+Lg=,ox6EGfEYJJ5HyAKYHAB1n7VlfT0=,ox+8ovusS/DG4wMsAZOnuckym6g=,oyDqF7IqXauncLeFWMieheaJJzY=,oyHZPRzGhdAJMJQ5XxjM77Pew7c=,oyLg6fk0EoWzKj/0FdKG21eaar0=,oyPnlTNpQ/9YfPUsVaXogHzCCcY=,oySpEpqLyaug6IkydeMbNMzVsq4=,oyUo71o5+cFZoPGiXzWAFR9NFAk=,oyYaJGDiumDkwvQVEfdeKgY2dvA=,oycRMInrVldp07y58Nfwmzg7Pgg=,oygaHuBPmL8OeDmVGRNKj63Wq8I=,oymDLZmUGPlzr2dNcoG5UMgfnW4=,oyoP1LaDjPQ2TRc3aQUuwBwol2U=,oyteLObzRYELoaUgNhK1501g86w=,oyxFMgCPusQ5GjHGiDPXdhGH4LE=,oy2HWHqPXzDEmPkHgxiNSv5w+UI=,oy4cAAAAAElFTkSuQmCCAABkAfw=,oy///4gAAH8AiVBORw0KGgoAALw=,ozAADUlIRFIAAAAUAAAAGggCAI0=,ozEAADjh6yoAAABGSURBVDgRY54=,ozJgoBv4//8/9eyiqmGUOIvuDjo=,ozOhu4X4Q2eQOQfiWCo5ikrG4DI=,ozQPQLJl6es6+tpGdqAQq5FK3jk=,ozWhkjHEupqQOno4BwDlhiPdr60=,ozbj7AQAAAAASUVORK5CYIICUcU=,ozdkAf//hgAAfQCJUE5HDQoaCs0=,ozgAAAANSUhEUgAAABQAAAAaCIc=,ozkCAAAAOOHrKgAAAERJREFUOOQ=,ozoRY2CAgf///8OYA0sPGocgB9M=,ozsDHR1FR6uQfYiLTVXnUNUwXMo=,ozwuJl58RDiHvp6kuW00s4BmBnk=,oz0Tnx6xqhwc7oK7AgAFLCnXs6Y=,oz7eo3oAAAAASUVORK5CYIICUcE=,oz9kAf//iAAAfwCJUE5HDQoaCsk=,o0AAAAANSUhEUgAAABQAAAAaCP8=,o0ECAAAAOOHrKgAAAEZJREFUOJ4=,o0IRY2CgG/j//z/17KKqYZQ4i9g=,o0PuDqG7hfhDZ5A5B+JYKjmKSoQ=,o0TG4A9AsmXp6zr62kZ2oBCrkfs=,o0VK3qGSMcS6mpA6ejgHAOWGIzs=,o0bdr+PsBAAAAABJRU5ErkJggpQ=,o0cCUWQB//+GAAB9AIlQTkcNCv4=,o0gaCgAAAA1JSERSAAAAFAAAAPU=,o0kaCAIAAAA44esqAAAARElEQeo=,o0pUOBFjYICB////w5gDSw8ah+g=,o0sgBwMdHUVHq5B9iItNVedQ1fE=,o0wwXC4mXnxEOIe+nqS5bTSzgAU=,o01mBhOfHrGqHBzugrsCAAUsKdI=,o07Xs96jegAAAABJRU5ErkJggoY=,o/8CUWQB//8AAAAAAAAAAAAAAGo=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Winter Skies"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraNine",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQNAAcBXgMA/4sA1f+j/6A=,o/8AAAAAAAAAAAAAAAAAAAAAAFw=,MwUKCAAAAAAAAAAAAAAAAAAAADQ=",
+        "diyName": "Jewel"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTen",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQRAAEDSgIErg7/AP+3ALw=,o///DAX/ygAAAAAAAAAAAAAAAJ8=,MwUKEwAAAAAAAAAAAAAAAAAAAC8=",
+        "diyName": "Nurple Flame"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraEleven",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQWAAICKAMOAQoNAQTTBhE=,o////wB0/wAM/yIAAAAAAAAAAAY=,MwUKtwAAAAAAAAAAAAAAAAAAAIs=",
+        "diyName": "Fuzzy Curtain"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwelve",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABUFMBAQEAAAUWAwANA4lQTik=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAAC1H8=,owNJREFUOBFFlMGq2zAQRW8fKs8=,owQo4IINCdjQQrPs/6/7G+3Sbxw=,owXnQB9YC4MF9aLnjpxUiESW54A=,owboXo3G+vRTv35rmlM/d3pkrZ0=,owdJS1JJEv2z3P5Kh/pDw6Hp0Ow=,owhYdd90P8oPLW9ZytrzodYJvu8=,owl4JhoYPR7b5CsMhPl0UR2koo4=,owpajlxi+RrR/L7afyYCBtVYq5I=,owsmy6q6HxlvFQtJLIfVinMWAvg=,owyI5bBNgBdS7c3vwB4N2kP55GI=,ow1XzEMehi0SgvxePHBwo94GPYs=,ow5wDu/+3LmXJ/RJtkfeup9iLO4=,ow9RUq+VvitPWuuRo1uQ1rYN2bM=,oxAMR7brpD14KI5Fy6CpaiDUC/A=,oxFVBrmlG/O0F9lX3MGUyHEBBA0=,oxL26Wb1g/nqTvqSZZ222DDifbI=,oxPVJGRxyxLsmZVdDZAPxKWds+0=,oxTjz24JiPcNxth0FPaFLKfDbqU=,oxVBQrkr2pasO15DigJZnefNPLs=,oxYtNMtd+xiHwoYzZUFMh/J11ZQ=,oxeG+DqwZTf84N8FlAmzeSdpVJk=,oxgZ7JHjZZaYBTDp9tDHFOL5Ygc=,oxnXtJapJgy8fw8SzThUpwpZ3Zo=,oxpQHhf9GbWBXXof7UuffXvMPsU=,oxvhGxmGF3Ks66Jxxrb0bXbKbBU=,oxwyxzbbwG7DCC9aMZMnTM3Ki/I=,ox2RK2fC6mOx/jsjYPoAzZnx+Lg=,ox6EGfEYJJ5HyAKYHAB1n7VlfT0=,ox+8ovusS/DG4wMsAZOnuckym6g=,oyDqF7IqXauncLeFWMieheaJJzY=,oyHZPRzGhdAJMJQ5XxjM77Pew7c=,oyLg6fk0EoWzKj/0FdKG21eaar0=,oyPnlTNpQ/9YfPUsVaXogHzCCcY=,oySpEpqLyaug6IkydeMbNMzVsq4=,oyUo71o5+cFZoPGiXzWAFR9NFAk=,oyYaJGDiumDkwvQVEfdeKgY2dvA=,oycRMInrVldp07y58Nfwmzg7Pgg=,oygaHuBPmL8OeDmVGRNKj63Wq8I=,oymDLZmUGPlzr2dNcoG5UMgfnW4=,oyoP1LaDjPQ2TRc3aQUuwBwol2U=,oyteLObzRYELoaUgNhK1501g86w=,oyxFMgCPusQ5GjHGiDPXdhGH4LE=,oy2HWHqPXzDEmPkHgxiNSv5w+UI=,oy4cAAAAAElFTkSuQmCCAABkAfw=,oy///4gAAH8AiVBORw0KGgoAALw=,ozAADUlIRFIAAAAUAAAAGggCAI0=,ozEAADjh6yoAAABGSURBVDgRY54=,ozJgoBv4//8/9eyiqmGUOIvuDjo=,ozOhu4X4Q2eQOQfiWCo5ikrG4DI=,ozQPQLJl6es6+tpGdqAQq5FK3jk=,ozWhkjHEupqQOno4BwDlhiPdr60=,ozbj7AQAAAAASUVORK5CYIICUcU=,ozdkAf//hgAAfQCJUE5HDQoaCs0=,ozgAAAANSUhEUgAAABQAAAAaCIc=,ozkCAAAAOOHrKgAAAERJREFUOOQ=,ozoRY2CAgf///8OYA0sPGocgB9M=,ozsDHR1FR6uQfYiLTVXnUNUwXMo=,ozwuJl58RDiHvp6kuW00s4BmBnk=,oz0Tnx6xqhwc7oK7AgAFLCnXs6Y=,oz7eo3oAAAAASUVORK5CYIICUcE=,oz9kAf//iAAAfwCJUE5HDQoaCsk=,o0AAAAANSUhEUgAAABQAAAAaCP8=,o0ECAAAAOOHrKgAAAEZJREFUOJ4=,o0IRY2CgG/j//z/17KKqYZQ4i9g=,o0PuDqG7hfhDZ5A5B+JYKjmKSoQ=,o0TG4A9AsmXp6zr62kZ2oBCrkfs=,o0VK3qGSMcS6mpA6ejgHAOWGIzs=,o0bdr+PsBAAAAABJRU5ErkJggpQ=,o0cCUWQB//+GAAB9AIlQTkcNCv4=,o0gaCgAAAA1JSERSAAAAFAAAAPU=,o0kaCAIAAAA44esqAAAARElEQeo=,o0pUOBFjYICB////w5gDSw8ah+g=,o0sgBwMdHUVHq5B9iItNVedQ1fE=,o0wwXC4mXnxEOIe+nqS5bTSzgAU=,o01mBhOfHrGqHBzugrsCAAUsKdI=,o07Xs96jegAAAABJRU5ErkJggoY=,o/8CUWQB//8AAAAAAAAAAAAAAGo=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Winter Skies"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraThirteen",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABNVMBAQFkAATLAQDCAYlQTjs=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAAAAag=,owNzUkdCAK7OHOkAAAADc0JJVD4=,owQFBgUzC42AAAABbUlEQVQ4jVU=,owWNkjtOw0AQhj9bU6ylFI5EESg=,owaXdMkhuAC34HBcgZaSG7ClG/0=,owckp8NFpGxhyRT78O6OQUzhzJ4=,owjO/xpn3awvr7xfuN0BwHEEJgI=,owl6YGIABiZgYAYM355G3/FkhTA=,owqPka87wHLxsKMbuBIr9YYQgAo=,owtYZpC55QZiwyiSPG/g6pVpslA=,owzRxHJzgnwic0j2QFghslNFd0A=,ow3EIhbpm/UMX89hulzC0zeVssM=,ow5ckP6tWc9w9ZrHTZ83VSYgI+k=,ow/AwUqB5TKxW7OFj/lE9uzHsDI=,oxCFTitjhKp8oKcmr8o9VrOe4YE=,oxEWT04tr2WmShZY6g10TonCUiQ=,oxKtnVydYhs1OdAG4FC+fkXNj5Q=,oxMCEiZSMFLgovSS0WK14beLgMk=,oxQpqbkyoV0u7kpqpZdsmKrzyPc=,oxUxbust7hnVKVlX9PGqiLelLTI=,oxa0LPLbeqSpu0ql2FtBo9mx5cs=,oxcBTookvzSpDIR/2+19QKKaXO8=,oxhp4OSRXKk/TBWYLlyK6R8WRhI=,oxk90cm7XrsWDgldP4S0f649TyE=,oxoIPx3XbTerwJKhAAAAAElFTgQ=,oxtErkJgggAA/wEQJ44AAIUAibk=,oxxQTkcNChoKAAAADUlIRFIAAOs=,ox0AFAAAABoIAgAAADjh6yoAAKI=,ox4AAXNSR0IArs4c6QAAAANzQj8=,ox9JVAUGBTMLjYAAAAAwSURBVLo=,oyA4jWNgoBD8//+foMjgAIPVXWU=,oyFkATTPDCu/DXswnGILi1+Gk/Y=,oyL3Bg2gaqBSYhgAcTYd424NVLE=,oyOLAAAAAElFTkSuQmCCAl7/AaE=,oyQQJ4gAAH8AiVBORw0KGgoAAIA=,oyUADUlIRFIAAAAUAAAAGggCAJg=,oyYAADjh6yoAAAABc1JHQgCuztg=,oycc6QAAAANzQklUBQYFMwuNgG0=,oygAAAAqSURBVDiNY2CgM/j//2Q=,oyn/oDOJKmCQOWcU0AfQMtpHk8Q=,oyoUbcDwCVfa+gSr6QDtFBfpzDM=,oyv3fdEAAAAASUVORK5CYIICXIU=,oyz/ARAnjwAAhgCJUE5HDQoaCog=,oy0AAAANSUhEUgAAABQAAAAaCJI=,oy4CAAAAOOHrKgAAAAFzUkdCALI=,oy+uzhzpAAAAA3NCSVQFBgUzCwg=,ozCNgAAAADFJREFUOI1jYBh24I8=,ozH77/8D7QRMQD1HDUrvUQEMV0Y=,ozJ/DRQYfOGJ6aLB58ahDfCEJ68=,ozPVghoA63kaemGLuUsAAAAASX4=,o/9FTkSuQmCCAln/ARAnAAAAAI8=,MwUKYwAAAAAAAAAAAAAAAAAAAF8=",
+        "diyName": null
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraFourteen",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABWlMBAQEAAAR6AQBxAYlQTjI=,owFHDQoaCgAAAA1JSERSAAAAFPw=,owIAAAAaCAIAAAA44esqAAABOJA=,owNJREFUOBGllMFywyAQQ7cdDgc=,owT5hf7/h/WIb/aNPXimlbSYUjw=,owXqNsZlEgyBh6Q1k5e39GFqj5M=,owZ4zPSvM5vHvRW+IYuT0j0sPPU=,owf8y3Yac1ybu7bdUQ4S+DTcSI4=,owjAc7Y7ksM5GMDDgOFTZmEXWZ0=,owlsB7xdhw+1iq0S9yu2Re4AoEk=,owrWend7Dm+2I17DMhhN8eNf8Lo=,owsguHgnW1Sz32yDXG2vgm5ZaqI=,owxZjAKTO1EOwbBKRiQHBcclrpg=,ow3iq4KN7znIqAriNcHNEgUVuDU=,ow6SePS2QcoSGSQMtdxhOpqyaN8=,ow/fLolIhsyeFuOLySUxs7PUDTI=,oxAj0xqUYwH3ZnF6W4hBtpKxirg=,oxH+C8MkWsBgNk/wScMi6f/QxHk=,oxJOko2pqDKjMITN3lVS8L3VKmI=,oxP4k8QRqH1nVTfpEKxWT7EQx/Q=,oxSfAUKuhdhQnnOrzTMGgMNzH1k=,oxXyuWYc8Qm/lN09l38RFwAAAFo=,oxYASUVORK5CYIIAAGQD//+RAEs=,oxcAiACJUE5HDQoaCgAAAA1JSPc=,oxhEUgAAABQAAAAaCAIAAAA44XA=,oxnrKgAAAE9JREFUOBFjYKAK+FQ=,oxr//z9VzKGlITR2I42NJz5kcFY=,oxs6BKcE8WZTR+WgcQhW79DedVg=,oxy0twHiMXrZgzUY8QjSxV10sRU=,ox0EjyexSlHbUdQ2D8nRuIwGAPU=,ox6YUinXFrdvsAAAAABJRU5Erl8=,ox9CYIIAFGQC//8dAQAUAYlQTvA=,oyBHDQoaCgAAAA1JSERSAAAAFN0=,oyEAAAAaCAIAAAA44esqAAAA21E=,oyJJREFUOBGlU0EKgzAQlBQK3vo=,oyOEnqSX+iWl/bjg1Z6K0IP5QVw=,oyQqLay7k93EEk8zk52dZROrKhc=,oyX3hRCsEmcdHNGLzCJAnbC/960=,oyaiiJGi5LzZe8/CBBTm4TGIwwY=,oycvWf0aiz9FmNUi/z6WrE44Pzk=,oyhnagobdZwnJiQ/B2LsxITcs8I=,oyljnryrBoI7d+qGDS/KYmw8jJI=,oyo4bNQBj+qFABt1wKlW3QVutLs=,oyu7dWTgQDXzghQuMsOtxDlb9/E=,oyz/tg0tTPORWzhBM6LNpVleCx8=,oy3RGIzTaCfbfyI1MpOzY7fX1iM=,oy5MpvYW2F6XmWx5SK/P9QfoASk=,oy9S0JhvemAAAAAASUVORK5CYGk=,ozCCAWFkA///uQIAsAKJUE5HDcI=,ozEKGgoAAAANSUhEUgAAABQAAIY=,ozIAGggCAAAAOOHrKgAAAndJROE=,ozNBVDgRjZMxa9tAGIafGA0qZCk=,ozSwoAGppCCVLs7WjO3v6NhfkHk=,ozWOJUOTbk07tKVLoUPHzv0ZWfk=,ozabLRoCkaGmEsQgDQHfYHDfTwg=,ozcnyyF1gg8jH9I99773ft9tcXE=,ozhzfDhl2LDteFgS50QlAbiIOvM=,ozmjiblOuA5xIQ0cvhCnj+14ddY=,ozpJWrLdGBwXPD4nbHAJdUwjMu4=,ozuhERNxFfJxr0M6+OVfdisSYWY=,ozwlac5ODmGrNmKaMI35E1GF/CY=,oz140mMH4SKce+WnFVnJbkF2xiw=,oz52iRtS7zHNDJtEvN3vGU2Ogj0=,oz9FNGfoeABbvDslq0hl9bdZ1as=,o0DBriQ4YpJQDPm6UjtikUAEQ+I=,o0EzZr+A0dg0dcigMavTZ0wyI9s=,o0LzkJ8d2WNxy4gX6QxOz0kKAro=,o0NHLbV9JikXEZ+6VA6CRTZHggA=,o0RS80/F7QhLqAzeqYy8kto+4xQ=,o0WUPOH7DcE5WUeqRDYawgIEO4I=,o0ZcQFCb2/Fzxhn5sI9UVqUun2Q=,o0cSTKy41FAQjm3iVMaaWWCkuRc=,o0iNuViR71lIMG0xwRqSEinNFi0=,o0lzJxacbPtzFiu3n1tScGZFU8w=,o0ouxuT2lCDHVqNuCE6tB5Yl+V0=,o0u2JGW1JSXIWUvKrRdcslIWuRM=,o0zsuJ6UplLVIln1mv+T+rrVbxI=,o00jtyOzam49WRJKM8eV1F941JQ=,o06v7CcDP/MJ3SK95l2kQINVFZE=,o09ptrKdZltMS+ge0mBfT2m2xWg=,o1C0c/o2GOMEn6xzqzV+DISpE5U=,o1HiZbai25IqqtvZLpHVv8FKSLw=,o1Ky/p1CEqxredy2wWrhutlAmFU=,o1PvIX31pAr7egNS6wXrfpms7mg=,o1SKGkh3pbIu3mgM/F3R2tatNz0=,o1W8pqRrNxNsskpYcIXb0LDfy5E=,o1bq3F/uktlahbteCg51RJ/wm8I=,o1d7q7pmixmzS2a/Ng7p5hb/AJU=,o1g71w9H5QH2GAAAAABJRU5Erv0=,o/9CYIIAAGQB//8AAAAAAAAAAJk=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Arctic Skies"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraFifteen",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owACEVwDA0+QluWNAQGQVRJ6t9c=,owHd8v9eIt8+fXKcvB7qaXqeGaA=,owJ70sSwkCaGb1VJKNr+74tmh7Y=,owMQIC7DzjIkEZWIrT7Epa7cNh8=,owTzTJo4z8okVmISdwfSxPjDPd0=,owV/Idz6t3IO402YrTVy3dN3MIA=,owZaf558mpVJ/KVs5A1VEoLxDcE=,oweFllwnX4SDI7jebnp3D2TPu60=,owjtMpMmBj1pYmWgSjz42r6fdDU=,owk2KgLiGpycwewblKv1wTrP52M=,owqbp/DnouuHMM88myH0t7ozgH8=,owvVHIMvMNgHbx77AcMKwvsD+KI=,owz50G+ZX6ew2LnnOdkoYb07aPk=,ow03WYDVMfw4b7S6j6eQx/nvtt4=,ow43Ar3Q9H+kP4TjQzj6DMVzzHU=,ow/7KUrIy8fW/wEkGKwVcO2irM4=,o/8AAAAASUVORK5CYIIAAAAAAFQ=,MwUK/wAAAAAAAAAAAAAAAAAAAMM=",
+        "diyName": "Rainbow Pixels"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraSixteen",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraSeventeen",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQWAAICKAYOAQoZAQT/flQ=,o/8A/zIA/wAN/ygAAAAAAAAAALQ=,MwUKkAAAAAAAAAAAAAAAAAAAAKw=",
+        "diyName": null
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraEighteen",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQQAAcBTQQA/wCg/wDM/zg=,o/8A//4AAAAAAAAAAAAAAAAAAF0=,MwUKJwAAAAAAAAAAAAAAAAAAABs=",
+        "diyName": "Serene Forest"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraNineteen",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQTAAICMgUOAAoNAQMn/wM=,o/8k/y2g/1kAAAAAAAAAAAAAAKw=,MwUKbwAAAAAAAAAAAAAAAAAAAFM=",
+        "diyName": "Spring"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwenty",
-    "scene": null
+    "scene": null,
+    "devices": [
+      {
+        "device": "Office Curtain",
+        "code": "owABAlQRAAEDMgIEkP8AxAD//3g=,o//aAP9yAAAAAAAAAAAAAAAAAAs=,MwUKegAAAAAAAAAAAAAAAAAAAEY=",
+        "diyName": "Sundae Sunset"
+      }
+    ]
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwentyOne",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwentyTwo",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwentyThree",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwentyFour",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwentyFive",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwentySix",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwentySeven",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwentyEight",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraTwentyNine",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "office",
     "lights": [],
     "slot": "extraThirty",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "scene",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "sceneTwo",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "sceneThree",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "sceneFour",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "diyMode",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "diyModeTwo",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "diyModeThree",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "diyModeFour",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "segmented",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "segmentedTwo",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "segmentedThree",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "segmentedFour",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "musicMode",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "musicModeTwo",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "videoMode",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "videoModeTwo",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extra",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwo",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraThree",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraFour",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraFive",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraSix",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraSeven",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraEight",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraNine",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTen",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraEleven",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwelve",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraThirteen",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraFourteen",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraFifteen",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraSixteen",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraSeventeen",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraEighteen",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraNineteen",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwenty",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwentyOne",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwentyTwo",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwentyThree",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwentyFour",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwentyFive",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwentySix",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwentySeven",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwentyEight",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraTwentyNine",
-    "scene": null
+    "scene": null,
+    "devices": []
   },
   {
     "room": "bedroom",
     "lights": [],
     "slot": "extraThirty",
-    "scene": null
+    "scene": null,
+    "devices": []
   }
 ]

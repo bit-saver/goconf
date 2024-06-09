@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
       marginTop: '48px',
     },
-    [theme.breakpoints.up('sm')]: {
+    [`${theme.breakpoints.up('sm')} and (orientation: landscape)`]: {
       marginTop: '64px',
     },
   };

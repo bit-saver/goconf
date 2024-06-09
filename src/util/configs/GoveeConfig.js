@@ -23,9 +23,14 @@ class GoveeConfig {
   }
 
   async getTTRs() {
-    if (!this.apiProvider) return null;
+    if (!this.apiProvider) {
+      console.warn('[Govee][getTTRs] no api provider');
+      return null;
+    }
+    console.log('[Govee] gettings TTRs...');
     const components = await this.apiProvider.gvGetScenes(this.credentials.username, this.credentials.password);
     this.parseTTRs(components);
+    console.log('[Govee] ttrs: ', this.ttrScenes);
     return this.ttrScenes;
   }
 

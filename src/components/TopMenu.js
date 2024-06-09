@@ -27,6 +27,8 @@ const TopMenu = ({ open, setOpen }) => {
   const location = useLocation();
   const isLoginPage = location.pathname.startsWith('/login');
 
+  const isPage = (slug) => location.pathname.startsWith(`/${slug}`);
+
   const theme = useTheme();
   const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -60,7 +62,6 @@ const TopMenu = ({ open, setOpen }) => {
     { label: 'Remove Scene', slug: 'removeScene' },
     { label: 'Edit Scene Slots', slug: 'editSceneSlots' },
     { label: 'Updater', slug: 'updater' },
-    { label: 'Scenes', slug: 'scenes' },
   ];
 
   // const DrawerHeader = styled('div')(() => ({
@@ -96,7 +97,7 @@ const TopMenu = ({ open, setOpen }) => {
       }}
     >
       <ListItem disablePadding to={`/${slug}`}>
-        <ListItemButton>
+        <ListItemButton selected={isPage(slug)}>
           <ListItemText primary={label} />
         </ListItemButton>
       </ListItem>
@@ -130,6 +131,7 @@ const TopMenu = ({ open, setOpen }) => {
         <RoomToggle onToggleChange={onToggleChange} />
         <Divider />
         <List>
+          { getLink('Scenes', 'scenes') }
           { getLink('Light States', 'lightStates') }
           { getLink('View Devices', 'devices') }
         </List>

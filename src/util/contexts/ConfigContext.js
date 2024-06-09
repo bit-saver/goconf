@@ -77,19 +77,19 @@ export const ConfigProvider = ({ children }) => {
     console.log(
       'configs',
       'goconf scene slots',
-      getGoconf().sceneSlots,
+      configs.goconf.sceneSlots,
     );
     console.log(
       'hbconfig devices',
-      getHb().devices,
+      configs.hb.devices,
       'hbconfig scenes',
-      getHb().scenes,
+      configs.hb.scenes,
     );
     console.log(
       'govee scenes',
-      getGovee().scenes,
+      configs.govee.scenes,
       'govee devices',
-      getGovee().devices,
+      configs.govee.devices,
     );
 
     setLoaded(true);
