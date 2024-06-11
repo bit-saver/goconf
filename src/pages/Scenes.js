@@ -2,41 +2,64 @@ import React, {
   useContext, useEffect, useRef, useState,
 } from 'react';
 import {
+  Box,
   Button,
-  Card, CardActions, CardContent, CardHeader, CardMedia, FormControlLabel, Grid, List, ListItem, ListItemText, Switch,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  CircularProgress,
+  FormControlLabel,
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+  Switch,
 } from '@mui/material';
-import Typography from '@mui/material/Typography';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
+import UploadFileRoundedIcon from '@mui/icons-material/UploadFileRounded';
+import { useTheme } from '@mui/material/styles';
 import PageTitle from '../components/PageTitle';
 import { getDevicesByRoom, getRoomName } from '../util/util';
 import ConfigContext from '../util/contexts/ConfigContext';
 import ApiContext from '../util/contexts/ApiContext';
 import AlertContext from '../util/contexts/Alert';
+import SceneMedia from '../components/SceneMedia';
 
 const Scenes = () => {
   const { haCallWebhook, apiUpload } = useContext(ApiContext);
   const { room, getGoconf } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
+  const [showDevices, setShowDevices] = useState(false);
+  const [sceneSlots, setSceneSlots] = useState([]);
 
-  const inputFile = useRef(null);
   const [uploadData, setUploadData] = useState({
     sceneSlot: undefined,
     currentFile: '',
     previewImage: '',
     progress: 0,
-    message: '',
-    isError: false,
-    imageInfos: [],
   });
-  const [showDevices, setShowDevices] = useState(false);
+
+  const inputFile = useRef(null);
+
+  const theme = useTheme();
+
+  const goconf = getGoconf();
 
   const setUploadState = (state) => {
     setUploadData({ ...uploadData, ...state });
   };
 
-  const goconf = getGoconf();
+  const updateSceneSlots = () => {
+    const scenes = goconf.sceneSlots.filter((ss) => ss.room === room);
+    console.log('updated scenes', scenes);
+    setSceneSlots(scenes);
+  };
 
-  const scenes = goconf.sceneSlots.filter((ss) => ss.room === room);
+  useEffect(() => {
+    updateSceneSlots();
+  }, [room]);
 
   const handleActivate = (sceneSlot) => {
     if (!sceneSlot) return;
@@ -67,43 +90,44 @@ const Scenes = () => {
     setUploadState({ progress: 0 });
     const { scene, room: sceneRoom } = uploadData.sceneSlot;
     const filenameParts = uploadData.currentFile.name.split('.');
-    const filename = `${sceneRoom}/${scene}.${filenameParts[filenameParts.length - 1]}`;
+    const ext = filenameParts[filenameParts.length - 1];
+    const filename = `${sceneRoom}/${scene.replaceAll(' ', '_')}.${ext}`;
     apiUpload(uploadData.currentFile, filename, (event) => {
       const progress = Math.round((100 * event.loaded) / event.total);
       console.log('[handleUpload] progress', progress);
       setUploadState({ progress });
     })
       .then((response) => {
-        uploadData.sceneSlot.imagePath = filename;
-        goconf.updateScene(uploadData.sceneSlot);
-        setUploadState({
-          message: response.data.message,
-          isError: false,
-          progress: 0,
-          currentFile: undefined,
-          sceneSlot: null,
+        uploadData.sceneSlot.imagePath = response.data.url;
+        console.log('upload response', response);
+        return goconf.updateScene(uploadData.sceneSlot).then(() => {
+          updateSceneSlots();
+          setUploadState({
+            progress: 0,
+            currentFile: undefined,
+            sceneSlot: null,
+          });
+          return uploadData.currentFile;
         });
-        return uploadData.currentFile;
       })
       .catch((err) => {
         showAlert('error', `Image could not be uploaded. ${err.toString()}`);
         setUploadState({
           progress: 0,
-          message: 'Could not upload the image!',
           currentFile: undefined,
-          isError: true,
           sceneSlot: null,
         });
         console.error(err);
+        return null;
       });
   };
 
   const handleImageClick = (sceneSlot) => {
-    if (uploadData.progress !== 0) {
+    if (uploadData.progress !== 0 && uploadData.currentFile) {
       showAlert('error', 'Upload currently in progress');
       return;
     }
-    setUploadState({ sceneSlot });
+    setUploadState({ sceneSlot, progress: 0, currentFile: undefined });
     inputFile.current.click();
   };
 
@@ -123,12 +147,11 @@ const Scenes = () => {
     };
   };
 
-  const getComponent = (sceneSlot) => {
-    const path = sceneSlot?.imagePath;
-    if (path && path.endsWith('.mp4')) {
-      return 'video';
+  const isUploading = (sceneSlot) => {
+    if (!uploadData.sceneSlot || !uploadData.progress) {
+      return false;
     }
-    return '';
+    return uploadData.sceneSlot.scene === sceneSlot.scene && uploadData.sceneSlot.slot === sceneSlot.slot;
   };
 
   return (
@@ -148,18 +171,8 @@ const Scenes = () => {
           />
         )}
       />
-
-      <input
-        ref={inputFile}
-        name="imageFile"
-        style={{ display: 'none' }}
-        type="file"
-        accept="image/*, video/*"
-        onChange={handleSelectFile}
-      />
-
       <Grid container spacing={2}>
-        {scenes.filter((ss) => ss.scene).map((sceneSlot) => (
+        {sceneSlots.filter((ss) => ss.scene).map((sceneSlot) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={Math.random()}>
             <Card>
               <CardHeader
@@ -168,32 +181,60 @@ const Scenes = () => {
                   align: 'center',
                 }}
               />
-              <CardMedia
-                sx={{
-                  height: 'auto',
-                  minHeight: '199px',
-                  textAlign: 'center',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  backgroundColor: 'rgb(40, 40, 40)',
-                  cursor: 'pointer',
-                  ...(sceneSlot?.imagePath ? {} : { margin: '0 18px' }),
-                }}
-                image={sceneSlot?.imagePath ? `http://raspi:8080/images/${sceneSlot.imagePath}` : null}
-                component={getComponent(sceneSlot)}
-                title={sceneSlot.scene}
-                autoPlay
-                muted
-                loop
-                onClick={() => handleImageClick(sceneSlot)}
-              >
-                {!sceneSlot?.imagePath && (
+              <Box sx={{ display: 'inline-block', position: 'relative', width: '100%' }}>
+                <SceneMedia sceneSlot={sceneSlot} />
+                {isUploading(sceneSlot) && (
+                  <Box sx={{
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    background: 'rgb(0, 0, 0, 0.75)',
+                    zIndex: 9998,
+                  }} />
+                )}
+                {(!sceneSlot?.imagePath && !isUploading(sceneSlot)) && (
                   <UploadFileIcon
                     fontSize="large"
+                    sx={{
+                      position: 'absolute',
+                      right: 'calc(50% - 17px)',
+                      top: 'calc(50% - 17px)',
+                      zIndex: 9999,
+                      cursor: 'pointer',
+                    }}
                   />
                 )}
-              </CardMedia>
+                {(sceneSlot?.imagePath && !isUploading(sceneSlot)) && (
+                  <UploadFileRoundedIcon
+                    fontSize="large"
+                    sx={{
+                      position: 'absolute',
+                      right: '5px',
+                      bottom: '5px',
+                      zIndex: 9999,
+                      cursor: 'pointer',
+                      '&:hover': { color: theme.palette.success.main },
+                    }}
+                    onClick={() => handleImageClick(sceneSlot)}
+                  />
+                )}
+                {isUploading(sceneSlot) && (
+                  <CircularProgress
+                    variant="determinate"
+                    value={uploadData.progress}
+                    sx={{
+                      position: 'absolute',
+                      right: 'calc(50% - 17px)',
+                      top: 'calc(50% - 17px)',
+                      zIndex: 9999,
+                    }}
+                    onClick={() => handleImageClick(sceneSlot)}
+                  />
+                )}
+              </Box>
               <CardContent>
                 {showDevices && (
                   <List dense disablePadding sx={{ columns: 2 }}>
@@ -202,7 +243,7 @@ const Scenes = () => {
                         <ListItemText
                           sx={{ marginTop: 0, marginBottom: 0 }}
                         >
-                          { device }
+                          {device}
                         </ListItemText>
                       </ListItem>
                     ))}
@@ -212,7 +253,7 @@ const Scenes = () => {
                           sx={{ marginTop: 0, marginBottom: 0 }}
                           primaryTypographyProps={{ color: 'error' }}
                         >
-                          { device }
+                          {device}
                         </ListItemText>
                       </ListItem>
                     ))}
@@ -223,7 +264,7 @@ const Scenes = () => {
                 <Button
                   color="success"
                   variant="outlined"
-                  sx={{ width: '100%' }}
+                  sx={{ width: '100%', height: '50px' }}
                   onClick={() => handleActivate(sceneSlot)}
                   size="large"
                 >
@@ -234,6 +275,14 @@ const Scenes = () => {
           </Grid>
         ))}
       </Grid>
+      <input
+        ref={inputFile}
+        name="imageFile"
+        style={{ display: 'none' }}
+        type="file"
+        accept="image/*, video/*"
+        onChange={handleSelectFile}
+      />
     </Grid>
   );
 };

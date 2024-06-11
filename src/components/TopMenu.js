@@ -27,7 +27,8 @@ const TopMenu = ({ open, setOpen }) => {
   const location = useLocation();
   const isLoginPage = location.pathname.startsWith('/login');
 
-  const isPage = (slug) => location.pathname.startsWith(`/${slug}`);
+  const isPage = (slug) => location.pathname.startsWith(`/${slug}`)
+    || (location.pathname.startsWith('/') && slug === 'scenes');
 
   const theme = useTheme();
   const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
