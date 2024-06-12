@@ -34,11 +34,11 @@ const Scenes = () => {
   const [showDevices, setShowDevices] = useState(false);
   const [sceneSlots, setSceneSlots] = useState([]);
 
+  const [uploadProgress, setUploadProgress] = useState(0);
   const [uploadData, setUploadData] = useState({
     sceneSlot: undefined,
     currentFile: '',
     previewImage: '',
-    progress: 0,
   });
 
   const inputFile = useRef(null);
@@ -73,21 +73,20 @@ const Scenes = () => {
 
   const handleSelectFile = (event) => {
     console.log('[handleSelectFile]', event.target.files[0]);
-    if (uploadData.progress) {
+    if (uploadProgress) {
       showAlert('error', 'Upload currently in progress');
       return;
     }
     setUploadState({
       currentFile: event.target.files[0],
       previewImage: URL.createObjectURL(event.target.files[0]),
-      progress: 0,
-      message: '',
     });
+    setUploadProgress(0);
   };
 
   const handleUpload = () => {
     console.log('[handleUpload] starting upload...');
-    setUploadState({ progress: 0 });
+    setUploadProgress(0);
     const { scene, room: sceneRoom } = uploadData.sceneSlot;
     const filenameParts = uploadData.currentFile.name.split('.');
     const ext = filenameParts[filenameParts.length - 1];
@@ -95,7 +94,8 @@ const Scenes = () => {
     apiUpload(uploadData.currentFile, filename, (event) => {
       const progress = Math.round((100 * event.loaded) / event.total);
       console.log('[handleUpload] progress', progress);
-      setUploadState({ progress });
+
+      setUploadProgress(progress);
     })
       .then((response) => {
         uploadData.sceneSlot.imagePath = response.data.url;
@@ -103,36 +103,37 @@ const Scenes = () => {
         return goconf.updateScene(uploadData.sceneSlot).then(() => {
           updateSceneSlots();
           setUploadState({
-            progress: 0,
             currentFile: undefined,
             sceneSlot: null,
           });
+          setUploadProgress(0);
           return uploadData.currentFile;
         });
       })
       .catch((err) => {
         showAlert('error', `Image could not be uploaded. ${err.toString()}`);
         setUploadState({
-          progress: 0,
           currentFile: undefined,
           sceneSlot: null,
         });
+        setUploadProgress(0);
         console.error(err);
         return null;
       });
   };
 
   const handleImageClick = (sceneSlot) => {
-    if (uploadData.progress !== 0 && uploadData.currentFile) {
+    if (uploadProgress !== 0 && uploadData.currentFile) {
       showAlert('error', 'Upload currently in progress');
       return;
     }
-    setUploadState({ sceneSlot, progress: 0, currentFile: undefined });
+    setUploadState({ sceneSlot, currentFile: undefined });
+    setUploadProgress(0);
     inputFile.current.click();
   };
 
   useEffect(() => {
-    if (uploadData.currentFile && !uploadData.progress) {
+    if (uploadData.currentFile && !uploadProgress) {
       console.log('Current file changed, beginning upload', uploadData.currentFile);
       handleUpload();
     }
@@ -148,7 +149,7 @@ const Scenes = () => {
   };
 
   const isUploading = (sceneSlot) => {
-    if (!uploadData.sceneSlot || !uploadData.progress) {
+    if (!uploadData.sceneSlot || !uploadProgress) {
       return false;
     }
     return uploadData.sceneSlot.scene === sceneSlot.scene && uploadData.sceneSlot.slot === sceneSlot.slot;
@@ -224,7 +225,7 @@ const Scenes = () => {
                 {isUploading(sceneSlot) && (
                   <CircularProgress
                     variant="determinate"
-                    value={uploadData.progress}
+                    value={uploadProgress}
                     sx={{
                       position: 'absolute',
                       right: 'calc(50% - 17px)',
