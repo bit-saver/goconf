@@ -206,6 +206,7 @@ const Scenes = () => {
                       zIndex: 9999,
                       cursor: 'pointer',
                     }}
+                    onClick={() => handleImageClick(sceneSlot)}
                   />
                 )}
                 {(sceneSlot?.imagePath && !isUploading(sceneSlot)) && (
@@ -215,7 +216,7 @@ const Scenes = () => {
                       position: 'absolute',
                       right: '5px',
                       bottom: '5px',
-                      zIndex: 9999,
+                      zIndex: 999,
                       cursor: 'pointer',
                       '&:hover': { color: theme.palette.success.main },
                     }}
@@ -230,7 +231,7 @@ const Scenes = () => {
                       position: 'absolute',
                       right: 'calc(50% - 17px)',
                       top: 'calc(50% - 17px)',
-                      zIndex: 9999,
+                      zIndex: 999,
                     }}
                     onClick={() => handleImageClick(sceneSlot)}
                   />

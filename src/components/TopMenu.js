@@ -115,6 +115,7 @@ const TopMenu = ({ open, setOpen }) => {
           width: drawerWidth,
           ...drawerTop,
         },
+        zIndex: 1002,
       }}
       variant={!greaterThanSm || isLoginPage ? 'temporary' : 'permanent'}
       ModalProps={{

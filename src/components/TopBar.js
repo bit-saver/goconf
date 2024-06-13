@@ -17,7 +17,7 @@ const TopBar = ({ open, setOpen }) => {
   const showMenuIcon = !greaterThanSm && !isLoginPage;
   return (
     <AppBar position="fixed" open={open}>
-      <Toolbar>
+      <Toolbar sx={{ zIndex: 1001 }}>
         <Typography variant="h6" noWrap sx={{ flexGrow: 1, fontWeight: 600 }} component="div">
           Goconf
         </Typography>
