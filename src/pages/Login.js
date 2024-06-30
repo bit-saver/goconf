@@ -8,7 +8,9 @@ import { TOKEN_KEY } from '../util/util';
 import ConfigContext from '../util/contexts/ConfigContext';
 
 const Login = () => {
-  const { saveToken, apiPost, setAuthenticated } = useContext(ApiContext);
+  const {
+    saveToken, apiPost, apiHb, setAuthenticated,
+  } = useContext(ApiContext);
   const { initializeConfigs } = useContext(ConfigContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,11 +20,14 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(false);
-    const result = await apiPost('/api/auth/login', {
-      username,
-      password,
-      otp: 'string',
-    })
+    // const result = await apiPost('/api/auth/login', {
+    //   username,
+    //   password,
+    //   otp: 'string',
+    // })
+    //   .then((resp) => (resp?.data ? resp.data : null))
+    //   .catch(() => null);
+    const result = await apiHb()
       .then((resp) => (resp?.data ? resp.data : null))
       .catch(() => null);
     if (!result?.access_token) {

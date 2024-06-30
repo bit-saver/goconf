@@ -118,6 +118,13 @@ export const ApiProvider = ({ children }) => {
     }).catch((err) => checkAuthError(err));
   };
 
+  const apiHb = async () => axios.get(getApiUrl('/api/hb'), {
+    headers: {
+      Accept: 'application/json',
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).catch((err) => checkAuthError(err));
+
   const apiCheckAuth = async () => axios.get(getHbApiUrl('/api/auth/check'), {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -235,6 +242,7 @@ export const ApiProvider = ({ children }) => {
     goveeTokenRef,
     authenticated,
     setAuthenticated,
+    apiHb,
     apiGet,
     apiPost,
     apiPut,
@@ -253,6 +261,7 @@ export const ApiProvider = ({ children }) => {
     token, setToken, tokenRef, saveToken, goveeToken, goveeTokenRef,
     gvGetToken, gvGetComponents, gvGetDevices, gvGetScenes,
     authenticated, setAuthenticated,
+    apiHb,
     apiGet, apiPost, apiPut, apiUpload,
     apiGetScenes, apiSaveScenes, apiCheckAuth,
     haGetStates, haCallService, haCallWebhook,

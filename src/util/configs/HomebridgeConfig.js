@@ -44,7 +44,7 @@ class HomebridgeConfig {
     this.setScenesAndDevices();
   }
 
-  updateConfig(deviceUpdates, slot, sceneData) {
+  async updateConfig(deviceUpdates, slot, sceneData) {
     console.log('[HB] update config: device updates', deviceUpdates, 'slot', slot, 'sceneData', sceneData);
     const { lightDevices } = this.pluginConfig;
     deviceUpdates.forEach(({ name: deviceName }) => {
@@ -58,8 +58,17 @@ class HomebridgeConfig {
     });
 
     this.pluginConfig = { ...this.pluginConfig, lightDevices };
-    console.log('[HB] config updated', this.pluginConfig);
     this.setScenesAndDevices();
+    console.log('[HB] config updated', this.pluginConfig);
+    await this.saveConfig();
+  }
+
+  async saveConfig(config = null) {
+    if (config) {
+      this.pluginConfig = config;
+    }
+    await this.apiProvider.apiPost('/api/config-editor/plugin/homebridge-govee', [this.pluginConfig]);
+    console.log('[HB] config saved', this.pluginConfig);
   }
 
   setScenesAndDevices() {

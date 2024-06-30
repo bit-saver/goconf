@@ -95,8 +95,7 @@ const AddScene = () => {
       return;
     }
 
-    hb.updateConfig(selectedDevices, selectedSlot, sceneData);
-    await apiPost('/api/config-editor/plugin/homebridge-govee', [hb.pluginConfig]);
+    await hb.updateConfig(selectedDevices, selectedSlot, sceneData);
 
     await goconf.reconstruct(hb.devices);
 

@@ -8,7 +8,7 @@ import AlertContext from '../util/contexts/Alert';
 import PageTitle from '../components/PageTitle';
 
 const Updater = () => {
-  const { apiPost, apiSaveScenes } = useContext(ApiContext);
+  const { apiSaveScenes } = useContext(ApiContext);
   const {
     getHb, getGoconf, getGovee, restartHomebridge,
   } = useContext(ConfigContext);
@@ -27,8 +27,9 @@ const Updater = () => {
       showAlert('error', 'No updates available');
       return;
     }
-    setUpdating(true);
     const toLog = [];
+    setUpdating(true);
+    setLog([]);
     const { lightDevices } = hb.pluginConfig;
     const sceneSlots = await goconf.reload();
     updates.goconf.forEach((update) => {
@@ -73,29 +74,29 @@ const Updater = () => {
     });
 
     const updatedConfig = { ...hb.pluginConfig, lightDevices };
-    await apiPost('/api/config-editor/plugin/homebridge-govee', [updatedConfig]);
-    hb.pluginConfig = updatedConfig;
-    await apiSaveScenes(sceneSlots);
+    await Promise.all([hb.saveConfig(updatedConfig), apiSaveScenes(sceneSlots)]);
     goconf.setSceneSlots(sceneSlots);
-    restartHomebridge().then();
     setLog(toLog);
+    await restartHomebridge();
     setUpdating(false);
   };
 
   const handleGetUpdates = async () => {
+    const toUpdate = [];
+    const toLog = [];
+    const hbUpdates = [];
+    setUpdates({ goconf: [], hb: [] });
+    setLog([]);
     // for each sceneSlot
     //   compare with TTR
     //     device list (if any were removed, not added since we can't assume it's the right room)
     //     scene code for each device
     setGettingUpdates(true);
     await govee.getTTRs();
-    const toUpdate = [];
-    const toLog = [];
     const { scenes } = govee;
     const sceneSlots = await goconf.reload();
     const { lightDevices } = hb.pluginConfig;
     const hbDevices = [...lightDevices];
-    const hbUpdates = [];
     sceneSlots.forEach((sceneSlot) => {
       const sceneName = (sceneSlot.room === 'office' ? 'Office ' : '') + sceneSlot.scene;
       if (sceneSlot.scene) {
