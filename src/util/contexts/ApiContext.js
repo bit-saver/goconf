@@ -118,7 +118,7 @@ export const ApiProvider = ({ children }) => {
     }).catch((err) => checkAuthError(err));
   };
 
-  const apiHb = async () => axios.get(getApiUrl('/api/hb'), {
+  const apiHb = async () => axios.get(getApiUrl('/hb'), {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json; charset=UTF-8',
