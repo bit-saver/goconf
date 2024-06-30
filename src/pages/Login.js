@@ -1,5 +1,5 @@
 import {
-  Alert, Button, Grid, Paper, Stack, TextField,
+  Alert, Button, CircularProgress, Grid, Paper, Stack, TextField,
 } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -15,25 +15,35 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [bypass, setBypass] = useState(true);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(false);
-    // const result = await apiPost('/api/auth/login', {
-    //   username,
-    //   password,
-    //   otp: 'string',
-    // })
-    //   .then((resp) => (resp?.data ? resp.data : null))
-    //   .catch(() => null);
-    const result = await apiHb()
-      .then((resp) => (resp?.data ? resp.data : null))
-      .catch(() => null);
-    if (!result?.access_token) {
-      setAuthenticated(false);
-      setError(true);
-      return;
+    setLoading(true);
+    let result;
+    if (bypass) {
+      result = await apiHb()
+        .then((resp) => (resp?.data ? resp.data : null))
+        .catch(() => null);
+      setBypass(false);
+      setLoading(false);
+      if (!result?.access_token) {
+        setAuthenticated(false);
+        setError(true);
+        return;
+      }
+    } else {
+      result = await apiPost('/api/auth/login', {
+        username,
+        password,
+        otp: 'string',
+      })
+        .then((resp) => (resp?.data ? resp.data : null))
+        .catch(() => null);
+      setLoading(false);
     }
     saveToken(TOKEN_KEY, result.access_token);
     initializeConfigs()
@@ -54,28 +64,34 @@ const Login = () => {
         <form onSubmit={handleLogin}>
           <Stack spacing={2}>
             {error && <Alert severity="error">Error, login failed!</Alert> }
-            <TextField
-              required
-              id="username"
-              label="Username"
-              value={username}
-              onChange={(e) => {
-                setError(false);
-                setUsername(e.target.value);
-              }}
-            />
-            <TextField
-              required
-              id="password"
-              type="password"
-              label="Password"
-              value={password}
-              onChange={(e) => {
-                setError(false);
-                setPassword(e.target.value);
-              }}
-            />
-            <Button variant="contained" type="submit">Login</Button>
+            { (!bypass && !loading) && (
+              <>
+                <TextField
+                  required
+                  id="username"
+                  label="Username"
+                  value={username}
+                  onChange={(e) => {
+                    setError(false);
+                    setUsername(e.target.value);
+                  }}
+                />
+                <TextField
+                  required
+                  id="password"
+                  type="password"
+                  label="Password"
+                  value={password}
+                  onChange={(e) => {
+                    setError(false);
+                    setPassword(e.target.value);
+                  }}
+                />
+              </>
+            )}
+            <Button variant="contained" type="submit" disabled={loading}>
+              { loading ? <CircularProgress /> : <>Login</> }
+            </Button>
           </Stack>
         </form>
       </Paper>
