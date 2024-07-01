@@ -38,6 +38,7 @@ class GoconfConfig {
             slot,
             room: r.key,
             scene: null,
+            ttrName: null,
             lights: [],
             imagePath: null,
           };

@@ -109,6 +109,7 @@ const AddScene = () => {
       await goconf.updateScene({
         ...goconf.sceneSlots[index],
         scene: selectedScene.replace('Office ', ''),
+        ttrName: selectedScene,
         room,
         devices: sceneDevices,
       });

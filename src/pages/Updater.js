@@ -34,7 +34,7 @@ const Updater = () => {
     const sceneSlots = await goconf.reload();
     updates.goconf.forEach((update) => {
       const index = sceneSlots.findIndex(
-        (ss) => ss.scene === update.sceneName && ss.room === update.room && ss.slot === update.slot,
+        (ss) => ss.ttrName === update.ttrName && ss.room === update.room && ss.slot === update.slot,
       );
       if (index > -1) {
         const ssdIndex = sceneSlots[index].devices.findIndex((d) => d.device === update.device);
@@ -98,14 +98,14 @@ const Updater = () => {
     const { lightDevices } = hb.pluginConfig;
     const hbDevices = [...lightDevices];
     sceneSlots.forEach((sceneSlot) => {
-      const sceneName = (sceneSlot.room === 'office' ? 'Office ' : '') + sceneSlot.scene;
+      const sceneName = sceneSlot.ttrName;
       if (sceneSlot.scene) {
         const goconfSceneDevices = sceneSlot?.devices || [];
         const ttrScene = scenes[sceneName];
         if (ttrScene && ttrScene?.devices) {
-          // we have a govee TTR scene and a list of goconf scene devices
-          // devices in the goconf scene not found in the govee scene need to be REMOVED from goconf scene
-          // devices in the govee scene not found in the goconf scene need to be ADDED to the goconf scene
+          // We have a govee TTR scene and a list of goconf scene devices.
+          // Devices in the goconf scene not found in the govee scene need to be REMOVED from goconf scene.
+          // Devices in the govee scene not found in the goconf scene need to be ADDED to the goconf scene.
           const ttrSceneDevices = ttrScene?.devices || {};
           Object.keys(ttrSceneDevices).forEach((device) => {
             // for each GOVEE device, check for changed codes, or new devices
@@ -114,6 +114,7 @@ const Updater = () => {
               // add this device to GOCONF
               toUpdate.push({
                 sceneName: sceneSlot.scene,
+                ttrName: sceneSlot.ttrName,
                 code: ttrSceneDevices[device].code,
                 diyName: ttrSceneDevices[device].diyName,
                 device,
@@ -125,6 +126,7 @@ const Updater = () => {
               // update the code for this device in GOCONF
               toUpdate.push({
                 sceneName: sceneSlot.scene,
+                ttrName: sceneSlot.ttrName,
                 device,
                 code: ttrSceneDevices[device].code,
                 diyName: ttrSceneDevices[device].diyName,
@@ -139,6 +141,7 @@ const Updater = () => {
             if (!ttrSceneDevices[device]?.code) {
               toUpdate.push({
                 sceneName: sceneSlot.scene,
+                ttrName: sceneSlot.ttrName,
                 code: null,
                 device,
                 room: sceneSlot.room,
@@ -159,6 +162,7 @@ const Updater = () => {
                     device,
                     room: sceneSlot.room,
                     scene: sceneSlot.scene,
+                    ttrName: sceneSlot.ttrName,
                   });
                 }
               } else {
@@ -169,6 +173,7 @@ const Updater = () => {
                   device,
                   room: sceneSlot.room,
                   scene: sceneSlot.scene,
+                  ttrName: sceneSlot.ttrName,
                 });
               }
             } else {
@@ -177,6 +182,7 @@ const Updater = () => {
           });
         } else {
           toLog.push(`[${sceneSlot.scene}][${sceneSlot.room}] ttrScene not found for device`);
+          console.log('missing ttr scene', sceneSlot, ttrScene);
         }
       }
     });
@@ -189,7 +195,7 @@ const Updater = () => {
     console.log('toUpdate', toUpdate);
     console.log('hbUpdates', hbUpdates);
     setUpdates({ goconf: toUpdate, hb: hbUpdates });
-    if (!toUpdate.length) {
+    if (!toUpdate.length && !hbUpdates.length) {
       toLog.push('No updates found');
     }
     setLog(toLog);

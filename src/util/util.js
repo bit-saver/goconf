@@ -262,6 +262,7 @@ export const rgbModels = [
   'H61C5',
   'H61E0',
   'H61E1',
+  'H61F6',
   'H6601',
   'H6602',
   'H6609',
