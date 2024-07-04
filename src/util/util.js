@@ -2,11 +2,11 @@ export const asyncTimeout = (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
 });
 
-export const getHbApiUrl = (path) => `http://raspi:5654/http://raspi:8581/${path.replace(/^\/+/, '')}`;
+export const getHbApiUrl = (path) => `http://raspi.local:5654/http://raspi.local:8581/${path.replace(/^\/+/, '')}`;
 
 export const getHaApiUrl = (path) => `https://raspity.duckdns.org/api/${path.replace(/^\/+/, '')}`;
 
-export const getApiUrl = (path) => `http://raspi:8080/api/${path.replace(/^\/+/, '')}`;
+export const getApiUrl = (path) => `http://raspi.local:8080/api/${path.replace(/^\/+/, '')}`;
 
 export const rgbToHex = (rgbColor) => {
   // Choose correct separator
