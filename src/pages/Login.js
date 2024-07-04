@@ -28,8 +28,6 @@ const Login = () => {
       result = await apiHb()
         .then((resp) => (resp?.data ? resp.data : null))
         .catch(() => null);
-      setBypass(false);
-      setLoading(false);
       if (!result?.access_token) {
         setAuthenticated(false);
         setError(true);
@@ -43,7 +41,6 @@ const Login = () => {
       })
         .then((resp) => (resp?.data ? resp.data : null))
         .catch(() => null);
-      setLoading(false);
     }
     saveToken(TOKEN_KEY, result.access_token);
     initializeConfigs()
@@ -52,9 +49,11 @@ const Login = () => {
         navigate('/', { replace: true });
       })
       .catch((err) => {
+        console.error(err);
         setError(true);
         setAuthenticated(false);
-        console.error(err);
+        setBypass(false);
+        setLoading(false);
       });
   };
 
