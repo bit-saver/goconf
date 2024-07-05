@@ -93,7 +93,7 @@ class HomebridgeConfig {
 
       defaultSlots.forEach((slotName) => {
         if (lightDevice[slotName]) {
-          const sceneCode = lightDevice[slotName].sceneCode.trim();
+          const sceneCode = (lightDevice[slotName]?.sceneCode ? lightDevice[slotName].sceneCode.trim() : null);
           let sceneName = null;
           let diyName = null;
 
