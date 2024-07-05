@@ -1,12 +1,14 @@
+const SERVER_IP = '192.168.68.70';
+
 export const asyncTimeout = (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
 });
 
-export const getHbApiUrl = (path) => `http://raspi.local:5654/http://raspi.local:8581/${path.replace(/^\/+/, '')}`;
+export const getHbApiUrl = (path) => `http://${SERVER_IP}:5654/http://${SERVER_IP}:8581/${path.replace(/^\/+/, '')}`;
 
 export const getHaApiUrl = (path) => `https://raspity.duckdns.org/api/${path.replace(/^\/+/, '')}`;
 
-export const getApiUrl = (path) => `http://raspi.local:8080/api/${path.replace(/^\/+/, '')}`;
+export const getApiUrl = (path) => `http://${SERVER_IP}:8080/api/${path.replace(/^\/+/, '')}`;
 
 export const rgbToHex = (rgbColor) => {
   // Choose correct separator
