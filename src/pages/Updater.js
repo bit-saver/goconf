@@ -65,10 +65,11 @@ const Updater = () => {
             sceneCode,
             showAs: 'switch',
           };
-          toLog.push(`[HB] Updated ${device} for scene: ${scene}`);
-        } else {
-          delete lightDevices[index][slot];
-          toLog.push(`[HB] Deleted ${device} from: ${scene}`);
+          if (sceneCode) {
+            toLog.push(`[HB] Updated ${device} for scene: ${scene}`);
+          } else {
+            toLog.push(`[HB] Deleted ${device} from: ${scene}`);
+          }
         }
       }
     });
