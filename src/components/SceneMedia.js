@@ -1,5 +1,6 @@
 import { CardMedia } from '@mui/material';
 import React from 'react';
+import { SERVER_IP } from '../util/util';
 
 const SceneMedia = ({ sceneSlot }) => {
   const path = sceneSlot?.imagePath;
@@ -21,7 +22,7 @@ const SceneMedia = ({ sceneSlot }) => {
         backgroundColor: 'rgb(40, 40, 40)',
         ...(sceneSlot?.imagePath ? {} : { margin: '0 18px' }),
       }}
-      image={sceneSlot?.imagePath ? `http://raspi:8080/images/${sceneSlot.imagePath}` : null}
+      image={sceneSlot?.imagePath ? `http://${SERVER_IP}:8080/images/${sceneSlot.imagePath}` : null}
       component={component}
       title={sceneSlot.scene}
       autoPlay
