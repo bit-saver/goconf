@@ -8,24 +8,21 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia,
   CircularProgress,
   FormControlLabel,
   Grid,
-  List,
-  ListItem,
-  ListItemText,
+  Stack,
   Switch,
 } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
-import UploadFileRoundedIcon from '@mui/icons-material/UploadFileRounded';
 import { useTheme } from '@mui/material/styles';
 import PageTitle from '../components/PageTitle';
-import { getDevicesByRoom, getRoomName } from '../util/util';
+import { getRoomName } from '../util/util';
 import ConfigContext from '../util/contexts/ConfigContext';
 import ApiContext from '../util/contexts/ApiContext';
 import AlertContext from '../util/contexts/Alert';
 import SceneMedia from '../components/SceneMedia';
+import DeviceList from '../components/DeviceList';
 
 const Scenes = () => {
   const { haCallWebhook, apiUpload } = useContext(ApiContext);
@@ -139,15 +136,6 @@ const Scenes = () => {
     }
   }, [uploadData.currentFile]);
 
-  const getSceneDeviceData = (sceneSlot) => {
-    const configured = sceneSlot.devices.map((ssd) => ssd.device);
-    const missing = getDevicesByRoom(room).filter((device) => !configured.includes(device));
-    return {
-      configured,
-      missing,
-    };
-  };
-
   const isUploading = (sceneSlot) => {
     if (!uploadData.sceneSlot || !uploadProgress) {
       return false;
@@ -196,33 +184,6 @@ const Scenes = () => {
                     zIndex: 9998,
                   }} />
                 )}
-                {(!sceneSlot?.imagePath && !isUploading(sceneSlot)) && (
-                  <UploadFileIcon
-                    fontSize="large"
-                    sx={{
-                      position: 'absolute',
-                      right: 'calc(50% - 17px)',
-                      top: 'calc(50% - 17px)',
-                      zIndex: 9999,
-                      cursor: 'pointer',
-                    }}
-                    onClick={() => handleImageClick(sceneSlot)}
-                  />
-                )}
-                {(sceneSlot?.imagePath && !isUploading(sceneSlot)) && (
-                  <UploadFileRoundedIcon
-                    fontSize="large"
-                    sx={{
-                      position: 'absolute',
-                      right: '5px',
-                      bottom: '5px',
-                      zIndex: 999,
-                      cursor: 'pointer',
-                      '&:hover': { color: theme.palette.success.main },
-                    }}
-                    onClick={() => handleImageClick(sceneSlot)}
-                  />
-                )}
                 {isUploading(sceneSlot) && (
                   <CircularProgress
                     variant="determinate"
@@ -237,29 +198,20 @@ const Scenes = () => {
                   />
                 )}
               </Box>
-              <CardContent>
+              <CardContent component={Stack} spacing={0} sx={{ margin: 0, padding: 0 }}>
+                <Box sx={{ width: '100%', textAlign: 'right' }}>
+                  <UploadFileIcon
+                    fontSize="large"
+                    sx={{
+                      margin: '0 12px',
+                      cursor: 'pointer',
+                      '&:hover': { color: theme.palette.success.main },
+                    }}
+                    onClick={() => handleImageClick(sceneSlot)}
+                  />
+                </Box>
                 {showDevices && (
-                  <List dense disablePadding sx={{ columns: 2 }}>
-                    {getSceneDeviceData(sceneSlot).configured.map((device) => (
-                      <ListItem key={Math.random()} sx={{ paddingTop: 0, paddingBottom: 0 }}>
-                        <ListItemText
-                          sx={{ marginTop: 0, marginBottom: 0 }}
-                        >
-                          {device}
-                        </ListItemText>
-                      </ListItem>
-                    ))}
-                    {getSceneDeviceData(sceneSlot).missing.map((device) => (
-                      <ListItem key={Math.random()} sx={{ paddingTop: 0, paddingBottom: 0 }}>
-                        <ListItemText
-                          sx={{ marginTop: 0, marginBottom: 0 }}
-                          primaryTypographyProps={{ color: 'error' }}
-                        >
-                          {device}
-                        </ListItemText>
-                      </ListItem>
-                    ))}
-                  </List>
+                  <DeviceList sceneSlot={sceneSlot} room={room} />
                 )}
               </CardContent>
               <CardActions>
