@@ -15,6 +15,7 @@ import {
   Switch,
 } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useTheme } from '@mui/material/styles';
 import PageTitle from '../components/PageTitle';
 import { getRoomName } from '../util/util';
@@ -128,6 +129,18 @@ const Scenes = () => {
     setUploadProgress(0);
     inputFile.current.click();
   };
+  
+  const handleImageDelete = (sceneSlot) => {
+    if (uploadProgress !== 0 && uploadData.currentFile) {
+      showAlert('error', 'Upload currently in progress');
+      return;
+    }
+    
+    sceneSlot.imagePath = null;
+    return goconf.updateScene(sceneSlot).then(() => {
+      updateSceneSlots();
+    });
+  };
 
   useEffect(() => {
     if (uploadData.currentFile && !uploadProgress) {
@@ -200,6 +213,17 @@ const Scenes = () => {
               </Box>
               <CardContent component={Stack} spacing={0} sx={{ margin: 0, padding: 0 }}>
                 <Box sx={{ width: '100%', textAlign: 'right' }}>
+                  {(sceneSlot?.imagePath && !isUploading(sceneSlot)) && (
+                    <DeleteForeverIcon
+                      fontSize="large"
+                      sx={{
+                        margin: '0 12px',
+                        cursor: 'pointer',
+                        '&:hover': { color: theme.palette.success.main },
+                      }}
+                      onClick={() => handleImageDelete(sceneSlot)}
+                    />
+                  )}
                   <UploadFileIcon
                     fontSize="large"
                     sx={{
