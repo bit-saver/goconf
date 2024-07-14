@@ -137,7 +137,7 @@ const Scenes = () => {
     }
     
     sceneSlot.imagePath = null;
-    return goconf.updateScene(sceneSlot).then(() => {
+    goconf.updateScene(sceneSlot).then(() => {
       updateSceneSlots();
     });
   };
