@@ -18,16 +18,14 @@ import {
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import ListTable from '../components/ListTable';
-import ApiContext from '../util/contexts/ApiContext';
 import ConfigContext from '../util/contexts/ConfigContext';
 import { defaultSlots, getRoomName, rooms } from '../util/util';
 import AlertContext from '../util/contexts/Alert';
 import PageTitle from '../components/PageTitle';
 
 const AddScene = () => {
-  const { apiPost, apiSaveScenes, apiGetScenes } = useContext(ApiContext);
   const {
-    getGovee, getGoconf, getHb, room,
+    getGovee, getGoconf, getHb, room, loaded,
   } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
@@ -56,7 +54,7 @@ const AddScene = () => {
       }, {});
       setSceneSlots(sss);
     }
-  }, [goconf.sceneSlots, room]);
+  }, [goconf, loaded, room]);
 
   const handleSelectScene = (e) => {
     const scene = e.target.value;

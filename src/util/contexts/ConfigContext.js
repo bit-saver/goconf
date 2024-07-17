@@ -14,7 +14,7 @@ const ConfigContext = createContext(null);
 export const ConfigProvider = ({ children }) => {
   const apiProvider = useContext(ApiContext);
   const {
-    apiGet, apiPut, token, tokenRef,
+    apiGet, apiPut, tokenRef,
   } = apiProvider;
 
   const [loaded, setLoaded] = useState(false);
