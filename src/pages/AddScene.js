@@ -56,7 +56,7 @@ const AddScene = () => {
       }, {});
       setSceneSlots(sss);
     }
-  }, [goconf, room]);
+  }, [goconf.sceneSlots, room]);
 
   const handleSelectScene = (e) => {
     const scene = e.target.value;
