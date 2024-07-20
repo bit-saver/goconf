@@ -101,6 +101,9 @@ export const rooms = [
   {
     key: 'bedroom', name: 'Bedroom', short: 'Bed', prefix: 'Bed',
   },
+  {
+    key: 'hallway', name: 'Hallway', short: 'Hall', prefix: 'Hall',
+  },
 ];
 
 export const bulbs = {
@@ -120,16 +123,16 @@ export const bulbs = {
     label: 'Sink 2', entity_id: 'light.sink_2', state: null, group: 'Sink', room: 'living_room',
   },
   'light.door_1': {
-    label: 'Door 1', entity_id: 'light.door_1', state: null, group: 'Door', room: 'living_room',
+    label: 'Door 1', entity_id: 'light.door_1', state: null, group: 'Door', room: 'hallway',
   },
   'light.door_2': {
-    label: 'Door 2', entity_id: 'light.door_2', state: null, group: 'Door', room: 'living_room',
+    label: 'Door 2', entity_id: 'light.door_2', state: null, group: 'Door', room: 'hallway',
   },
   'light.hall_1': {
-    label: 'Hall 1', entity_id: 'light.hall_1', state: null, group: 'Hall', room: 'living_room',
+    label: 'Hall 1', entity_id: 'light.hall_1', state: null, group: 'Hall', room: 'hallway',
   },
   'light.hall_2': {
-    label: 'Hall 2', entity_id: 'light.hall_2', state: null, group: 'Hall', room: 'living_room',
+    label: 'Hall 2', entity_id: 'light.hall_2', state: null, group: 'Hall', room: 'hallway',
   },
   'light.desk': {
     label: 'Desk', entity_id: 'light.desk', state: null, group: 'Desk', room: 'office',

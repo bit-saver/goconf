@@ -26,7 +26,7 @@ export const lightStatesSidebarWidth = 340;
 
 const LightStatesSidebar = ({
   open, setOpen,
-  sceneSlots, setSceneSlots,
+  sceneSlots,
   getLightsByGroup,
   showLights, setShowLights,
   lights, setLights,
@@ -38,13 +38,15 @@ const LightStatesSidebar = ({
   const [removeExisting, setRemoveExisting] = useState(false);
   const [saving, setSaving] = useState(false);
 
-  const { room, goconf } = useContext(ConfigContext);
-  const { apiSaveScenes, haCallWebhook } = useContext(ApiContext);
+  const { room, getGoconf } = useContext(ConfigContext);
+  const { haCallWebhook } = useContext(ApiContext);
   const { showAlert } = useContext(AlertContext);
 
   const theme = useTheme();
   // const greaterThanSm = useMediaQuery(theme.breakpoints.up('sm'));
   const greaterThanMd = useMediaQuery(theme.breakpoints.up('md'));
+
+  const goconf = getGoconf();
 
   const handleSave = async () => {
     setSaving(true);
@@ -52,37 +54,46 @@ const LightStatesSidebar = ({
       setSaving(false);
       return false;
     }
-    const sceneSlotIndex = sceneSlots.findIndex((ss) => ss.slot === selectedSlot && ss.room === room);
+    let sceneSlot = sceneSlots.find((ss) => ss.slot === selectedSlot && ss.room === room);
+    if (!sceneSlot) {
+      // No object in the scene array exists for this slot so create one
+      sceneSlot = {
+        slot: selectedSlot,
+        room,
+        scene: selectedSlot,
+        ttrName: null,
+        lights: [],
+        imagePath: null,
+      };
+    }
     selectedLights.forEach((eid) => {
       const light = lights[eid];
       const rgb = light.state.rgb_color;
       let ssLightIndex = -1;
       // either add a new light to the sceneSlot.lights or update the existing
       if (removeExisting) {
-        sceneSlots[sceneSlotIndex].lights = [];
+        sceneSlot.lights = [];
       } else {
-        ssLightIndex = sceneSlots[sceneSlotIndex].lights.findIndex(
+        ssLightIndex = sceneSlot.lights.findIndex(
           (ssLight) => ssLight.entity_id === eid,
         );
       }
       if (ssLightIndex > -1) {
-        sceneSlots[sceneSlotIndex].lights[ssLightIndex].rgb_color = rgb;
+        sceneSlot.lights[ssLightIndex].rgb_color = rgb;
       } else {
-        sceneSlots[sceneSlotIndex].lights.push({
+        sceneSlot.lights.push({
           entity_id: eid,
           brightness: 255,
           rgb_color: rgb,
         });
       }
     });
-    setSceneSlots([...sceneSlots]);
     // console.log('updated scene slots', sceneSlots);
-    const result = await apiSaveScenes(sceneSlots);
+    await goconf.updateScene(sceneSlot);
     // console.log('scene slot save result:', result);
     setSaving(false);
-    goconf.setSceneSlots(sceneSlots);
     showAlert('success', 'Light states updated!');
-    return result;
+    return null;
   };
 
   const handleLoadSlot = () => {
@@ -94,7 +105,7 @@ const LightStatesSidebar = ({
       setLights(updated);
       return;
     }
-    const sceneSlot = sceneSlots.find((ss) => ss.slot === selectedShowSlot);
+    const sceneSlot = sceneSlots.find((ss) => ss.slot === selectedShowSlot && ss.room === room);
     const updated = { ...lights };
     Object.keys(updated).forEach((eid) => {
       let ssLight = null;

@@ -12,13 +12,14 @@ const RoomToggle = ({ onToggleChange }) => {
     }
   };
   return (
-    <Box padding="10px">
+    <Box padding="10px" sx={{ textAlign: 'center' }}>
       <ToggleButtonGroup
         value={room}
         exclusive
         onChange={handleToggleChange}
-        sx={{ justifyContent: 'center' }}
+        sx={{ justifyContent: 'center', width: '100%' }}
         size="small"
+        orientation="vertical"
       >
         { rooms.map((r) => (
           <ToggleButton value={r.key} key={r.key}>

@@ -71,11 +71,12 @@ class GoconfConfig {
     if (index !== -1) {
       console.log('[Goconf] saving scene slots...');
       this.sceneSlots[index] = { ...sceneSlot };
-      await this.apiProvider.apiSaveScenes(this.sceneSlots);
-      this.scenesJson = this.sceneSlots;
     } else {
-      console.log('[Goconf] scene slot not found!', this.sceneSlots);
+      console.log('[Goconf] scene slot not found! (adding it anyway)', this.sceneSlots);
+      this.sceneSlots.push({ ...sceneSlot });
     }
+    this.scenesJson = this.sceneSlots;
+    await this.apiProvider.apiSaveScenes(this.sceneSlots);
   }
 }
 
