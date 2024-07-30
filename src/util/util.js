@@ -55,7 +55,7 @@ export const TOKEN_KEY = 'goconf_token';
 
 export const GOVEE_TOKEN_KEY = 'govee_token';
 
-export const HA_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4Mzc1NjA4MTg5ZTI0NTg5OTI4OGM1MDg0NjEwNzNkMyIsImlhdCI6MTY5MjE4OTYwMiwiZXhwIjoyMDA3NTQ5NjAyfQ.DV9uQrZ7oA3eNsSSNqhs1vWLEmj5xG68AOyDgLnpEtE';
+export const HA_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkOGYzNGExZTlmYWQ0MGI4YTUzMDU2NWUzM2IxYzEwZiIsImlhdCI6MTcyMjM0MTcxNCwiZXhwIjoyMDM3NzAxNzE0fQ.1hqoN7HJAmBx0NkTwqFPL6DJKnQKtvfv9GZF_GnC5Dw';
 
 export const defaultSlots = [
   'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
