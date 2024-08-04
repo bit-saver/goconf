@@ -30,8 +30,8 @@ const Updater = () => {
     const toLog = [];
     setUpdating(true);
     setLog([]);
+    const [, sceneSlots] = await Promise.all([hb.loadConfig(), goconf.reload()]);
     const { lightDevices } = hb.pluginConfig;
-    const sceneSlots = await goconf.reload();
     updates.goconf.forEach((update) => {
       const index = sceneSlots.findIndex(
         (ss) => ss.ttrName === update.ttrName && ss.room === update.room && ss.slot === update.slot,
@@ -65,11 +65,7 @@ const Updater = () => {
             sceneCode,
             showAs: 'switch',
           };
-          if (sceneCode) {
-            toLog.push(`[HB] Updated ${device} for scene: ${scene}`);
-          } else {
-            toLog.push(`[HB] Deleted ${device} from: ${scene}`);
-          }
+          toLog.push(`[HB] Updated ${device} for scene: ${scene}`);
         }
       }
     });
@@ -94,8 +90,8 @@ const Updater = () => {
     //     scene code for each device
     setGettingUpdates(true);
     await govee.getTTRs();
+    const [,, sceneSlots] = await Promise.all([govee.getTTRs(), hb.loadConfig(), goconf.reload()]);
     const { scenes } = govee;
-    const sceneSlots = await goconf.reload();
     const { lightDevices } = hb.pluginConfig;
     const hbDevices = [...lightDevices];
     sceneSlots.forEach((sceneSlot) => {
@@ -152,11 +148,11 @@ const Updater = () => {
             }
 
             // check for differences in the HB light devices
-            const lightDevice = hbDevices.find((ld) => ld.label === device);
-            if (lightDevice) {
-              const lightDeviceSlot = lightDevice[sceneSlot.slot];
-              if (lightDeviceSlot) {
-                if (code !== lightDeviceSlot.sceneCode) {
+            const hbLightDevice = hbDevices.find((ld) => ld.label === device);
+            if (hbLightDevice) {
+              const hbLightDeviceSlot = hbLightDevice[sceneSlot.slot];
+              if (hbLightDeviceSlot) {
+                if (code !== hbLightDeviceSlot.sceneCode) {
                   hbUpdates.push({
                     sceneCode: ttrSceneDevices[device]?.code ? code : null,
                     slot: sceneSlot.slot,
@@ -165,6 +161,8 @@ const Updater = () => {
                     scene: sceneSlot.scene,
                     ttrName: sceneSlot.ttrName,
                   });
+                  console.log('hb scene code update for', hbLightDevice, hbLightDeviceSlot, ttrSceneDevices[device]);
+                  toLog.push(`[${sceneSlot.scene}][${device}] Update to scene code on HB for: ${sceneSlot.slot}`);
                 }
               } else {
                 toLog.push(`[${sceneSlot.scene}][${device}] Homebridge missing device slot: ${sceneSlot.slot}`);
@@ -181,7 +179,7 @@ const Updater = () => {
               toLog.push(`[${sceneSlot.scene}][${device}] Homebridge missing device`);
             }
           });
-        } else {
+        } else if (sceneSlot.room !== 'hallway') {
           toLog.push(`[${sceneSlot.scene}][${sceneSlot.room}] ttrScene not found for device`);
           console.log('missing ttr scene', sceneSlot, ttrScene);
         }

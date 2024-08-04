@@ -25,7 +25,7 @@ import PageTitle from '../components/PageTitle';
 
 const AddScene = () => {
   const {
-    getGovee, getGoconf, getHb, room, loaded,
+    getGovee, getGoconf, getHb, room, loaded, setLoaded,
   } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
@@ -44,16 +44,34 @@ const AddScene = () => {
   const [prefixFilter, setPrefixFilter] = useState(true);
 
   useEffect(() => {
-    if (goconf) {
-      const sss = goconf.sceneSlots.reduce((acc, ss) => {
-        if (!acc[ss.room]) {
-          acc[ss.room] = {};
-        }
-        acc[ss.room][ss.slot] = ss.scene;
-        return acc;
-      }, {});
-      setSceneSlots(sss);
+    let isMounted = true;
+    const loadSceneSlots = () => {
+      if (!isMounted) {
+        return;
+      }
+      if (goconf) {
+        const sss = goconf.sceneSlots.reduce((acc, ss) => {
+          if (!acc[ss.room]) {
+            acc[ss.room] = {};
+          }
+          acc[ss.room][ss.slot] = ss.scene;
+          return acc;
+        }, {});
+        setSceneSlots(sss);
+      }
+    };
+    if (!scenes || !Object.keys(scenes).length) {
+      setLoaded(false);
+      govee.getTTRs().then(() => {
+        loadSceneSlots();
+        setLoaded(true);
+      });
+    } else {
+      loadSceneSlots();
     }
+    return () => {
+      isMounted = false;
+    };
   }, [goconf, loaded, room]);
 
   const handleSelectScene = (e) => {

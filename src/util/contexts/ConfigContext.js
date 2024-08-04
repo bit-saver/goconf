@@ -63,8 +63,10 @@ export const ConfigProvider = ({ children }) => {
   const loadConfig = async () => {
     // Load TTR scenes (goveeConfig) (gvGetScenes and parse)
     // Separate TTR scenes into scenes and devices (goveeConfig)
-    await getGovee().getTTRs();
-    console.log('[Config] govee loaded');
+
+    // await getGovee().getTTRs();
+    // console.log('[Config] govee loaded');
+
     // Load HB scenes and devices (hbConfig) (needs goconfScenes for scene names)
     getHb().setGoconfScenes(getGoconf().sceneSlots);
 
@@ -139,6 +141,7 @@ export const ConfigProvider = ({ children }) => {
 
   const providerValue = useMemo(() => ({
     loaded,
+    setLoaded,
     initializeConfigs,
     reloadConfig,
     restartHomebridge,
@@ -152,6 +155,7 @@ export const ConfigProvider = ({ children }) => {
   }), [
     initializeConfigs,
     loaded, restarting, defaultSlots,
+    setLoaded,
     room,
     setRoom,
     getGovee,
