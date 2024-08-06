@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import ConfigContext from '../util/contexts/ConfigContext';
 
 const Home = () => {
-  const { loaded, reloadConfig } = useContext(ConfigContext);
+  const { loaded, reloadConfig, pageLoading } = useContext(ConfigContext);
   const { token, apiCheckAuth } = useContext(ApiContext);
 
   const location = useLocation();
@@ -45,7 +45,7 @@ const Home = () => {
     });
   }, [token, loaded]);
 
-  const showOutlet = onLogin || (loaded && authState);
+  const showOutlet = onLogin || (loaded && authState && !pageLoading);
   const showLoader = !showOutlet;
 
   return (

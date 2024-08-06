@@ -25,7 +25,7 @@ import PageTitle from '../components/PageTitle';
 
 const AddScene = () => {
   const {
-    getGovee, getGoconf, getHb, room, loaded, setLoaded,
+    getGovee, getGoconf, getHb, room, loaded, setLoaded, pageLoading, setPageLoading,
   } = useContext(ConfigContext);
   const { showAlert } = useContext(AlertContext);
 
@@ -46,7 +46,7 @@ const AddScene = () => {
   useEffect(() => {
     let isMounted = true;
     const loadSceneSlots = () => {
-      if (!isMounted) {
+      if (!isMounted || !loaded) {
         return;
       }
       if (goconf) {
@@ -61,10 +61,10 @@ const AddScene = () => {
       }
     };
     if (!scenes || !Object.keys(scenes).length) {
-      setLoaded(false);
+      setPageLoading(true);
       govee.getTTRs().then(() => {
         loadSceneSlots();
-        setLoaded(true);
+        setPageLoading(false);
       });
     } else {
       loadSceneSlots();
@@ -72,7 +72,7 @@ const AddScene = () => {
     return () => {
       isMounted = false;
     };
-  }, [goconf, room]);
+  }, [goconf, loaded, room]);
 
   const handleSelectScene = (e) => {
     const scene = e.target.value;

@@ -18,6 +18,7 @@ export const ConfigProvider = ({ children }) => {
   } = apiProvider;
 
   const [loaded, setLoaded] = useState(false);
+  const [pageLoading, setPageLoading] = useState(false);
   const [restarting, setRestarting] = useState(false);
   const [room, setRoom] = useState('living_room');
 
@@ -142,6 +143,8 @@ export const ConfigProvider = ({ children }) => {
   const providerValue = useMemo(() => ({
     loaded,
     setLoaded,
+    pageLoading,
+    setPageLoading,
     initializeConfigs,
     reloadConfig,
     restartHomebridge,
@@ -156,6 +159,8 @@ export const ConfigProvider = ({ children }) => {
     initializeConfigs,
     loaded, restarting, defaultSlots,
     setLoaded,
+    pageLoading,
+    setPageLoading,
     room,
     setRoom,
     getGovee,

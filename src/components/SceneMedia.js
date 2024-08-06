@@ -22,7 +22,7 @@ const SceneMedia = ({ sceneSlot }) => {
         backgroundColor: 'rgb(40, 40, 40)',
         ...(sceneSlot?.imagePath ? {} : { margin: '0 18px' }),
       }}
-      image={sceneSlot?.imagePath ? `http://${SERVER_IP}:8080/images/${sceneSlot.imagePath}` : null}
+      image={sceneSlot?.imagePath ? `http://${SERVER_IP}:8080/images/${sceneSlot.imagePath}` : 'data:,'}
       component={component}
       title={sceneSlot.scene}
       autoPlay
