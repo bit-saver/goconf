@@ -72,7 +72,7 @@ const AddScene = () => {
     return () => {
       isMounted = false;
     };
-  }, [goconf, loaded, room]);
+  }, [goconf, room]);
 
   const handleSelectScene = (e) => {
     const scene = e.target.value;
