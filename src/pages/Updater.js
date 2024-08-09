@@ -44,6 +44,10 @@ const Updater = () => {
             sceneSlots[index].devices[ssdIndex].diyName = update.diyName;
           } else {
             sceneSlots[index].devices.splice(ssdIndex, 1);
+            const ldIndex = lightDevices.findIndex((light) => light.label === update.device);
+            if (ldIndex > -1) {
+              delete lightDevices[ldIndex][update.slot];
+            }
           }
         } else {
           sceneSlots[index].devices.push({
