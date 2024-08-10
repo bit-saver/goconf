@@ -54,6 +54,6 @@ const routes = createBrowserRouter([
       },
     ],
   },
-], { basename: process.env.PUBLIC_URL || '' });
+], { basename: process.env?.PUBLIC_URL || '' });
 
 export default routes;
