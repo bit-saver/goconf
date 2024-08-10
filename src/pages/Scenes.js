@@ -167,7 +167,7 @@ const Scenes = () => {
               position: 'fixed',
               top: '8px',
               right: '8px',
-              zIndex: 9999
+              zIndex: 9999,
             }}
             control={(
               <Switch
