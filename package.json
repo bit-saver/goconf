@@ -24,6 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "startproxy": "PUBLIC_URL='/absproxy/3000' react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

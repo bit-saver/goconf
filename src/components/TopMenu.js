@@ -90,7 +90,7 @@ const TopMenu = ({ open, setOpen }) => {
 
   const getLink = (label, slug) => (
     <Link
-      to={`/${slug}`}
+      to={`./${slug}`}
       key={slug}
       onClick={(e) => {
         setOpen(false);

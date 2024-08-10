@@ -84,10 +84,6 @@ const LightStates = () => {
     goconf.reload().then((result) => setSceneSlots(result));
   }, []);
 
-  useEffect(() => {
-    setShowLights(preferedLights[room]);
-  }, [room]);
-
   const getLightsByGroup = () => Object.values(lights).reduce((acc, light) => {
     if (light.room === room) {
       if (!acc[light.group]) {
@@ -97,6 +93,16 @@ const LightStates = () => {
     }
     return acc;
   }, {});
+
+  useEffect(() => {
+    setShowLights(preferedLights[room]);
+    const groups = getLightsByGroup();
+    const groupEIDs = Array.from(preferedLights[room]).reduce((acc, groupId) => {
+      acc.push(...groups[groupId].map((l) => l.entity_id));
+      return acc;
+    }, []);
+    setSelectedLights(groupEIDs);
+  }, [room]);
 
   const updateLightState = (light, rgb = null) => {
     const updated = { ...lights };
@@ -126,17 +132,6 @@ const LightStates = () => {
     await haCallService('light', 'turn_on', attr);
   };
 
-  const handleLightCheck = (groupId) => {
-    const groups = getLightsByGroup();
-    const groupEIDs = groups[groupId].map((l) => l.entity_id);
-    const uncheck = checkSubset(selectedLights, groupEIDs);
-    if (uncheck) {
-      setSelectedLights([...selectedLights.filter((e) => !groupEIDs.includes(e))]);
-    } else {
-      setSelectedLights([...selectedLights, ...groupEIDs]);
-    }
-  };
-
   const setShowTooltip = () => {
     showAlert('info', 'Copied!');
   };
@@ -148,6 +143,21 @@ const LightStates = () => {
 
   const handleClick = (e) => {
     e.target.select();
+  };
+
+  const handleLightCheck = (groupId, toggle = null) => {
+    console.log('group', groupId);
+    const groups = getLightsByGroup();
+    const groupEIDs = groups[groupId].map((l) => l.entity_id);
+    let uncheck = !toggle;
+    if (toggle === null) {
+      uncheck = checkSubset(selectedLights, groupEIDs);
+    }
+    if (uncheck) {
+      setSelectedLights([...selectedLights.filter((e) => !groupEIDs.includes(e))]);
+    } else {
+      setSelectedLights([...selectedLights, ...groupEIDs]);
+    }
   };
 
   const handleLightChange = (group) => (e) => {

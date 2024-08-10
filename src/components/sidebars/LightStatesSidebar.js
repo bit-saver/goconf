@@ -16,7 +16,6 @@ import {
 } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
-import RoomToggle from '../RoomToggle';
 import { defaultSlots } from '../../util/util';
 import ConfigContext from '../../util/contexts/ConfigContext';
 import ApiContext from '../../util/contexts/ApiContext';
@@ -178,12 +177,6 @@ const LightStatesSidebar = ({
       {/* <Divider /> */}
 
       <Stack spacing={2}>
-        <Card>
-          <CardHeader title="Room" />
-          <CardContent>
-            <RoomToggle />
-          </CardContent>
-        </Card>
         <Card>
           <CardHeader title="Load/Activate States" />
           <CardContent>

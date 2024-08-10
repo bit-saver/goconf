@@ -163,6 +163,12 @@ const Scenes = () => {
         subtitle={getRoomName(room)}
         control={(
           <FormControlLabel
+            sx={{
+              position: 'fixed',
+              top: '8px',
+              right: '8px',
+              zIndex: 9999
+            }}
             control={(
               <Switch
                 checked={showDevices}
