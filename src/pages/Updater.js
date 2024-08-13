@@ -42,11 +42,22 @@ const Updater = () => {
           if (update.code) {
             sceneSlots[index].devices[ssdIndex].code = update.code;
             sceneSlots[index].devices[ssdIndex].diyName = update.diyName;
+            const ldIndex = lightDevices.findIndex((light) => light.label === update.device);
+            if (ldIndex > -1) {
+              lightDevices[ldIndex][update.slot].sceneCode = update.code;
+            } else {
+              lightDevices[ldIndex][update.slot] = {
+                sceneCode: update.code,
+                showAs: 'switch',
+              };
+            }
+            toLog.push(`[${update.sceneName}][${update.room}] Scene code updated for: ${update.device}`);
           } else {
             sceneSlots[index].devices.splice(ssdIndex, 1);
             const ldIndex = lightDevices.findIndex((light) => light.label === update.device);
             if (ldIndex > -1) {
               delete lightDevices[ldIndex][update.slot];
+              toLog.push(`[${update.sceneName}][${update.room}] Device removed: ${update.device}`);
             }
           }
         } else {
@@ -55,6 +66,16 @@ const Updater = () => {
             code: update.code,
             diyName: update.diyName,
           });
+          const ldIndex = lightDevices.findIndex((light) => light.label === update.device);
+          if (ldIndex > -1) {
+            lightDevices[ldIndex][update.slot].sceneCode = update.code;
+          } else {
+            lightDevices[ldIndex][update.slot] = {
+              sceneCode: update.code,
+              showAs: 'switch',
+            };
+          }
+          toLog.push(`[${update.sceneName}][${update.room}] Device added: ${update.device}`);
         }
       }
     });
