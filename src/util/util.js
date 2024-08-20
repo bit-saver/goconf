@@ -1,4 +1,4 @@
-export const SERVER_IP = '192.168.68.70';
+export const SERVER_IP = '192.168.68.101';
 
 export const asyncTimeout = (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
@@ -6,7 +6,7 @@ export const asyncTimeout = (ms) => new Promise((resolve) => {
 
 export const getHbApiUrl = (path) => `http://${SERVER_IP}:5654/http://${SERVER_IP}:8581/${path.replace(/^\/+/, '')}`;
 
-export const getHaApiUrl = (path) => `https://raspity.duckdns.org/api/${path.replace(/^\/+/, '')}`;
+export const getHaApiUrl = (path) => `http://homeassistant.local:8123/api/${path.replace(/^\/+/, '')}`;
 
 export const getApiUrl = (path) => `http://${SERVER_IP}:8080/api/${path.replace(/^\/+/, '')}`;
 
@@ -55,7 +55,7 @@ export const TOKEN_KEY = 'goconf_token';
 
 export const GOVEE_TOKEN_KEY = 'govee_token';
 
-export const HA_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkOGYzNGExZTlmYWQ0MGI4YTUzMDU2NWUzM2IxYzEwZiIsImlhdCI6MTcyMjM0MTcxNCwiZXhwIjoyMDM3NzAxNzE0fQ.1hqoN7HJAmBx0NkTwqFPL6DJKnQKtvfv9GZF_GnC5Dw';
+export const HA_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiMTE3N2VmMTc0MTk0NDU5ODE5NjU3YTcyOTIxNzBiMCIsImlhdCI6MTcyNDExNzk5MiwiZXhwIjoyMDM5NDc3OTkyfQ.3HGveCYsYB4ygBhEFy6gHTtRO_RsYbRZOhqxpfhsj-Q';
 
 export const defaultSlots = [
   'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
