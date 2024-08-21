@@ -175,7 +175,7 @@ const LightStates = () => {
     return <Grid item xs={12} sx={{ textAlign: 'center', marginTop: '30vh' }}><CircularProgress /></Grid>;
   }
   const lightGroups = getLightsByGroup();
-  console.log('lightgroups', lightGroups);
+
   return (
     <Grid
       item

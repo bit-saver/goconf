@@ -54,6 +54,7 @@ const LightStatesSidebar = ({
       return false;
     }
     let sceneSlot = sceneSlots.find((ss) => ss.slot === selectedSlot && ss.room === room);
+    sceneSlot.scene = sceneSlot.scene || sceneSlot.slot;
     if (!sceneSlot) {
       // No object in the scene array exists for this slot so create one
       sceneSlot = {
