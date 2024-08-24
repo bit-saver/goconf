@@ -68,6 +68,8 @@ export const defaultSlots = [
   'extraSixteen', 'extraSeventeen', 'extraEighteen', 'extraNineteen', 'extraTwenty',
   'extraTwentyOne', 'extraTwentyTwo', 'extraTwentyThree', 'extraTwentyFour', 'extraTwentyFive',
   'extraTwentySix', 'extraTwentySeven', 'extraTwentyEight', 'extraTwentyNine', 'extraThirty', 'extraThirtyOne',
+  'extraThirtyTwo', 'extraThirtyThree', 'extraThirtyFour', 'extraThirtyFive', 'extraThirtySix', 'extraThirtySeven',
+  'extraThirtyEight', 'extraThirtyNine',
 ];
 
 export const deviceRooms = {
