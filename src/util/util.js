@@ -1,4 +1,6 @@
 export const SERVER_IP = '192.168.68.101';
+export const EXPRESS_HOST = 'goconf.lan';
+// export const HOMEBRIDGE_HOST = 'homebridge.lan';
 
 export const asyncTimeout = (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
@@ -8,7 +10,7 @@ export const getHbApiUrl = (path) => `http://${SERVER_IP}:5654/http://${SERVER_I
 
 export const getHaApiUrl = (path) => `http://homeassistant.local:8123/api/${path.replace(/^\/+/, '')}`;
 
-export const getApiUrl = (path) => `http://${SERVER_IP}:8080/api/${path.replace(/^\/+/, '')}`;
+export const getApiUrl = (path) => `http://${EXPRESS_HOST}/api/${path.replace(/^\/+/, '')}`;
 
 export const rgbToHex = (rgbColor) => {
   // Choose correct separator
