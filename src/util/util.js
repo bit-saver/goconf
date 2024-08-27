@@ -12,6 +12,8 @@ export const getHaApiUrl = (path) => `http://homeassistant.local:8123/api/${path
 
 export const getApiUrl = (path) => `http://${EXPRESS_HOST}/api/${path.replace(/^\/+/, '')}`;
 
+export const getImageUrl = (path) => `http://${EXPRESS_HOST}/images/${path.replace(/^\/+/, '')}`;
+
 export const rgbToHex = (rgbColor) => {
   // Choose correct separator
   const sep = ', ';
