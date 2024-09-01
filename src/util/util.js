@@ -1,5 +1,5 @@
 export const SERVER_IP = '192.168.68.101';
-export const EXPRESS_HOST = 'goconf.lan';
+export const EXPRESS_HOST = '192.168.68.101:8081';
 // export const HOMEBRIDGE_HOST = 'homebridge.lan';
 
 export const asyncTimeout = (ms) => new Promise((resolve) => {
