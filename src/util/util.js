@@ -8,7 +8,7 @@ export const asyncTimeout = (ms) => new Promise((resolve) => {
 
 export const getHbApiUrl = (path) => `http://${SERVER_IP}:5654/http://${SERVER_IP}:8581/${path.replace(/^\/+/, '')}`;
 
-export const getHaApiUrl = (path) => `http://homeassistant.local:8123/api/${path.replace(/^\/+/, '')}`;
+export const getHaApiUrl = (path) => `http://192.168.68.99:8123/api/${path.replace(/^\/+/, '')}`;
 
 export const getApiUrl = (path) => `http://${EXPRESS_HOST}/api/${path.replace(/^\/+/, '')}`;
 
