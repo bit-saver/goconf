@@ -67,13 +67,13 @@ const Updater = () => {
             diyName: update.diyName,
           });
           const ldIndex = lightDevices.findIndex((light) => light.label === update.device);
-          if (ldIndex > -1) {
-            lightDevices[ldIndex][update.slot].sceneCode = update.code;
-          } else {
+          if (ldIndex < 0 || !lightDevices[ldIndex][update.slot]) {
             lightDevices[ldIndex][update.slot] = {
               sceneCode: update.code,
               showAs: 'switch',
             };
+          } else {
+            lightDevices[ldIndex][update.slot].sceneCode = update.code;
           }
           toLog.push(`[${update.sceneName}][${update.room}] Device added: ${update.device}`);
         }
