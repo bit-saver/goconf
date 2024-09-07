@@ -8,7 +8,7 @@ export const asyncTimeout = (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
 });
 
-export const getHbApiUrl = (path) => `http://${HOMEBRIDGE_HOST}:5654/http://${SERVER_IP}:8581/${path.replace(/^\/+/, '')}`;
+export const getHbApiUrl = (path) => `http://${SERVER_IP}:5654/http://${SERVER_IP}:8581/${path.replace(/^\/+/, '')}`;
 
 export const getHaApiUrl = (path) => `http://${HOMEASSISTANT_HOST}/api/${path.replace(/^\/+/, '')}`;
 
