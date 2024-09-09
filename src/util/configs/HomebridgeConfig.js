@@ -67,8 +67,12 @@ class HomebridgeConfig {
     if (config) {
       this.pluginConfig = config;
     }
-    await this.apiProvider.apiPost('/api/config-editor/plugin/homebridge-govee', [this.pluginConfig]);
-    console.log('[HB] config saved', this.pluginConfig);
+    try {
+      const result = await this.apiProvider.apiPost('/api/config-editor/plugin/homebridge-govee', [this.pluginConfig]);
+      console.log('[HB] config saved', this.pluginConfig, result);
+    } catch (err) {
+      console.log('[HB] config NOT saved, error:', err);
+    }
   }
 
   setScenesAndDevices() {
