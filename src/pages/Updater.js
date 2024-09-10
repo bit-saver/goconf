@@ -217,7 +217,7 @@ const Updater = () => {
       code,
       device,
       slot,
-      room
+      room,
     }) => {
       const index = hbUpdates.findIndex((hbu) => hbu.device === device && hbu.slot === slot && hbu.room === room);
       if (index > -1) {
