@@ -91,6 +91,9 @@ const Updater = () => {
             showAs: 'switch',
           };
           toLog.push(`[HB] Updated ${device} for scene: ${scene}`);
+        } else {
+          delete lightDevices[index][slot];
+          toLog.push(`[HB] Deleted slot ${slot} on device ${device} containing scene: ${scene}`);
         }
       }
     });
@@ -210,8 +213,8 @@ const Updater = () => {
         }
       }
     });
-    toUpdate.forEach(({ code, device, slot }) => {
-      const index = hbUpdates.findIndex((hbu) => hbu.device === device && hbu.slot === slot);
+    toUpdate.forEach(({ code, device, slot, room }) => {
+      const index = hbUpdates.findIndex((hbu) => hbu.device === device && hbu.slot === slot && hbu.room === room);
       if (index > -1) {
         hbUpdates[index].sceneCode = code;
       }
