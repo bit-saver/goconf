@@ -213,7 +213,12 @@ const Updater = () => {
         }
       }
     });
-    toUpdate.forEach(({ code, device, slot, room }) => {
+    toUpdate.forEach(({
+      code,
+      device,
+      slot,
+      room
+    }) => {
       const index = hbUpdates.findIndex((hbu) => hbu.device === device && hbu.slot === slot && hbu.room === room);
       if (index > -1) {
         hbUpdates[index].sceneCode = code;
