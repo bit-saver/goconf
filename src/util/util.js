@@ -1,14 +1,15 @@
 const USE_IP = false;
 export const SERVER_IP = '192.168.68.101';
+export const HOMEBRIDGE_IP = '192.168.68.102';
 export const EXPRESS_HOST = USE_IP ? `${SERVER_IP}:8081` : 'goconf.lan';
-export const HOMEBRIDGE_HOST = USE_IP ? SERVER_IP : 'homebridge.lan';
+export const HOMEBRIDGE_HOST = USE_IP ? HOMEBRIDGE_IP : 'homebridge.lan';
 export const HOMEASSISTANT_HOST = USE_IP ? '192.168.68.99:8123' : 'homeassistant.local:8123';
 
 export const asyncTimeout = (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
 });
 
-export const getHbApiUrl = (path) => `http://${SERVER_IP}:5654/http://${SERVER_IP}:8581/${path.replace(/^\/+/, '')}`;
+export const getHbApiUrl = (path) => `http://${HOMEBRIDGE_IP}:5654/http://${HOMEBRIDGE_IP}:8581/${path.replace(/^\/+/, '')}`;
 
 export const getHaApiUrl = (path) => `http://${HOMEASSISTANT_HOST}/api/${path.replace(/^\/+/, '')}`;
 
