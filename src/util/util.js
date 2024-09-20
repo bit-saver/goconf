@@ -64,7 +64,7 @@ export const GOVEE_TOKEN_KEY = 'govee_token';
 
 export const HA_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiMTE3N2VmMTc0MTk0NDU5ODE5NjU3YTcyOTIxNzBiMCIsImlhdCI6MTcyNDExNzk5MiwiZXhwIjoyMDM5NDc3OTkyfQ.3HGveCYsYB4ygBhEFy6gHTtRO_RsYbRZOhqxpfhsj-Q';
 
-export const defaultSlots = [
+export const defaultSlots = [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
   'scene', 'sceneTwo', 'sceneThree', 'sceneFour',
   'diyMode', 'diyModeTwo', 'diyModeThree', 'diyModeFour',
   'segmented', 'segmentedTwo', 'segmentedThree', 'segmentedFour',
