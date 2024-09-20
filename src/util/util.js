@@ -81,8 +81,7 @@ export const defaultSlots = [
 
 export const deviceRooms = {
   'Beam Strip': 'living_room',
-  'Beam Left Strip': 'living_room',
-  'Beam Right Strip': 'living_room',
+  'Cross Strip': 'living_room',
   'TV Strip': 'living_room',
   'Kitchen Strip': 'living_room',
   'Window Strip': 'living_room',
