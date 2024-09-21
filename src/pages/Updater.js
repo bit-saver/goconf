@@ -102,7 +102,11 @@ const Updater = () => {
     await Promise.all([hb.saveConfig(updatedConfig), apiSaveScenes(sceneSlots)]);
     goconf.setSceneSlots(sceneSlots);
     setLog(toLog);
-    await restartHomebridge();
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        restartHomebridge().then(resolve);
+      }, 3000);
+    });
     setUpdating(false);
   };
 
