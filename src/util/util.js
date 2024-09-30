@@ -97,6 +97,24 @@ export const deviceRooms = {
   Desk: 'office',
 };
 
+export const deviceTypes = {
+  'Beam Strip': 'strip',
+  'Cross Strip': 'strip',
+  'TV Strip': 'strip',
+  'Kitchen Strip': 'strip',
+  'Window Strip': 'strip',
+  'Couch Strip': 'strip',
+  'Center Strip': 'strip',
+  'String Lights': 'string',
+  Hex: 'hex',
+  Curtain: 'curtain_2',
+  Lamp: 'govee_bulb',
+  'Office Squares': 'hex',
+  'Office Curtain': 'curtain_1',
+  'Office Strip': 'strip',
+  Desk: 'govee_bulb',
+};
+
 export const getDevicesByRoom = (room) => Object.keys(deviceRooms).filter(
   (device) => deviceRooms[device] === room,
 );

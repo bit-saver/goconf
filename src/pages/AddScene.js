@@ -219,6 +219,7 @@ const AddScene = () => {
             <ListTable
               selected={selectedDevices}
               setSelected={setSelectedDevices}
+              groupApply
               rows={
                 Object.keys(getDevices()).sort().map((deviceName) => {
                   const disabled = !devices[deviceName].scenes[selectedScene];

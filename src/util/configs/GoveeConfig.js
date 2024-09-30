@@ -1,4 +1,5 @@
 import { deviceRooms, rgbModels } from '../util';
+import deviceJson from '../deviceJson.json';
 
 class GoveeConfig {
   credentials = { username: null, password: null };
@@ -85,6 +86,57 @@ class GoveeConfig {
     });
     this.setGoveeDevices();
     this.setGoveeScenes();
+  }
+
+  async getSceneCommands(configScenes) {
+    const stripDevices = [
+      'Matter Strip',
+      'Cross Left Strip',
+      'Cross Right Strip',
+      'Center Strip',
+      'TV Strip',
+      'Window Strip',
+      'Couch Strip',
+      'Serving Strip',
+      'String Lights',
+      'Kitchen Strip',
+    ];
+    const getSceneIndex = (ttrName) => configScenes.findIndex((ss) => ss.ttrName === ttrName);
+    const components = await this.apiProvider.gvGetScenes(this.credentials.username, this.credentials.password);
+    components.forEach((component) => {
+      if (component.oneClicks) {
+        component.oneClicks.forEach((oneClick) => {
+          const ttrName = oneClick.name;
+          const sceneIndex = getSceneIndex(ttrName);
+          if (sceneIndex > -1 && oneClick.iotRules) {
+            const sceneComponent = { ...component };
+            sceneComponent.oneClicks = [oneClick];
+            const iotRules = oneClick.iotRules.map((iotRule) => {
+              const iotRuleScrub = { ...iotRule };
+              iotRuleScrub.rule = iotRule.rule.map((rule) => ({
+                ...rule,
+                blueMsg: '',
+              }));
+              return iotRuleScrub;
+            });
+            const findRule = (name) => iotRules.find((iotRule) => iotRule.deviceObj.name === name);
+            const strip = findRule('TV Strip');
+            if (strip) {
+              deviceJson.forEach((json) => {
+                if (!findRule(json.deviceObj.name)) {
+                  const newRule = { ...json };
+                  newRule.rule = strip.rule;
+                  iotRules.push(newRule);
+                }
+              });
+            }
+            sceneComponent.oneClicks[0].iotRules = iotRules;
+            configScenes[sceneIndex].ttr = sceneComponent;
+          }
+        });
+      }
+    });
+    return configScenes;
   }
 
   setGoveeDevices() {

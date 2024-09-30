@@ -50,10 +50,16 @@ class HomebridgeConfig {
     deviceUpdates.forEach(({ name: deviceName }) => {
       const index = lightDevices.findIndex((light) => light.label === deviceName);
       if (index >= 0) {
-        lightDevices[index][slot] = {
-          sceneCode: sceneData.devices[deviceName].code,
-          showAs: 'switch',
-        };
+        if (lightDevices[index][slot]) {
+          lightDevices[index][slot].sceneCode = sceneData.devices[deviceName].code;
+        } else {
+          lightDevices[index][slot] = {
+            sceneCode: sceneData.devices[deviceName].code,
+            showAs: 'switch',
+          };
+        }
+      } else {
+        console.error(`[HB] Light device not found in config: ${deviceName}`);
       }
     });
 

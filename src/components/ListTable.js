@@ -9,7 +9,9 @@ import {
   TableRow,
 } from '@mui/material';
 
-const ListTable = ({ rows, selected, setSelected }) => {
+const ListTable = ({
+  rows, selected, setSelected, groupApply,
+}) => {
   // const [selected, setSelected] = useState([]);
 
   const handleSelectAllClick = (event) => {
@@ -68,27 +70,36 @@ const ListTable = ({ rows, selected, setSelected }) => {
                   }}
                 />
               </TableCell>
-              { rows[0]?.slotName && rows[0]?.sceneName
-                && (
-                  <>
-                    <TableCell
-                      key="th-slot"
-                      align="left"
-                      padding="normal"
-                      sx={{ fontWeight: 'bold' }}
-                    >
-                      Slot
-                    </TableCell>
-                    <TableCell
-                      key="th-scene"
-                      align="left"
-                      padding="normal"
-                      sx={{ fontWeight: 'bold' }}
-                    >
-                      Scene
-                    </TableCell>
-                  </>
-                )}
+              { rows[0]?.slotName && rows[0]?.sceneName && (
+                <>
+                  <TableCell
+                    key="th-slot"
+                    align="left"
+                    padding="normal"
+                    sx={{ fontWeight: 'bold' }}
+                  >
+                    Slot
+                  </TableCell>
+                  <TableCell
+                    key="th-scene"
+                    align="left"
+                    padding="normal"
+                    sx={{ fontWeight: 'bold' }}
+                  >
+                    Scene
+                  </TableCell>
+                </>
+              )}
+              { groupApply && (
+                <TableCell
+                  key="th-group"
+                  align="left"
+                  padding="normal"
+                  sx={{ fontWeight: 'bold' }}
+                >
+                  Group Apply
+                </TableCell>
+              )}
               { rows[0]?.deviceName
                 && (
                   <TableCell
@@ -137,6 +148,24 @@ const ListTable = ({ rows, selected, setSelected }) => {
                         />
                       )}
                   </TableCell>
+                  { groupApply && (
+                    <TableCell
+                      padding="checkbox"
+                      sx={{ borderBottom: 'none' }}
+                    >
+                      {groupApply
+                        && (
+                          <Checkbox
+                            color="primary"
+                            checked={false}
+                            disabled={row.disabled}
+                            inputProps={{
+                              'aria-labelledby': labelId,
+                            }}
+                          />
+                        )}
+                    </TableCell>
+                  )}
                   <TableCell
                     component="th"
                     id={labelId}

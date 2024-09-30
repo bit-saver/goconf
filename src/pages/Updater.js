@@ -8,7 +8,7 @@ import AlertContext from '../util/contexts/Alert';
 import PageTitle from '../components/PageTitle';
 
 const Updater = () => {
-  const { apiSaveScenes } = useContext(ApiContext);
+  const { apiSaveScenes, apiSaveTTRs } = useContext(ApiContext);
   const {
     getHb, getGoconf, getGovee, restartHomebridge,
   } = useContext(ConfigContext);
@@ -238,6 +238,15 @@ const Updater = () => {
     setGettingUpdates(false);
   };
 
+  const handleConvert = async () => {
+    setUpdating(true);
+    const sceneSlots = await goconf.reload();
+    const commands = await govee.getSceneCommands(sceneSlots);
+    console.log(commands);
+    await apiSaveTTRs(commands);
+    setUpdating(false);
+  };
+
   const buttonsDisabled = gettingUpdates || updating;
 
   return (
@@ -275,6 +284,17 @@ const Updater = () => {
           >
             {updating && <CircularProgress />}
             {!updating && <>UPDATE</>}
+          </Button>
+
+          <Button
+            variant="contained"
+            color="success"
+            size="large"
+            disabled={buttonsDisabled}
+            onClick={handleConvert}
+          >
+            {updating && <CircularProgress />}
+            {!updating && <>CONVERT</>}
           </Button>
         </Stack>
       </Grid>

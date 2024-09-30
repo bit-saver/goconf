@@ -45,6 +45,13 @@ export const ApiProvider = ({ children }) => {
     },
   });
 
+  const apiSaveTTRs = async (data) => axios.post(getApiUrl('saveTTRs'), data, {
+    headers: {
+      Accept: 'application/json',
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+
   const haGetStates = async () => axios.get(getHaApiUrl('states'), {
     headers: {
       Accept: 'application/json',
@@ -248,6 +255,7 @@ export const ApiProvider = ({ children }) => {
     apiPut,
     apiGetScenes,
     apiSaveScenes,
+    apiSaveTTRs,
     apiCheckAuth,
     apiUpload,
     haGetStates,
