@@ -197,6 +197,7 @@
       "sku": "H61F6",
       "device": "5F:62:C5:75:1D:EC:24:8A",
       "topic": "GD/a5e4c2ab3fa508abb5823e3e5f6127ae",
+      "spec": "",
       "bleName": "Govee_H61F6_248A",
       "bleAddress": "C5:75:1D:EC:24:8A",
       "versionSoft": "1.00.07",
